@@ -1,0 +1,926 @@
+.model Configurable_U2
+.inputs UP
+.outputs Q<15>
+.outputs Q<14>
+.outputs Q<13>
+.outputs Q<12>
+.outputs Q<11>
+.outputs Q<10>
+.outputs Q<9>
+.outputs Q<8>
+.outputs Q<7>
+.outputs Q<6>
+.outputs Q<5>
+.outputs Q<4>
+.outputs Q<3>
+.outputs Q<2>
+.outputs Q<1>
+.outputs Q<0>
+.inputs R
+.outputs CEO
+.outputs TC
+.inputs CE
+.inputs C
+.names n2
+1
+.names LessThan_37/n20 n342 n54
+11 1
+.names Q<0> n340 LessThan_19/n2
+1- 1
+-1 1
+.loc Configurable_U2.VHD 64 Q<0>
+.latch n153 Q<0> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<2>
+.latch n151 Q<2> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<4>
+.latch n149 Q<4> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<6>
+.latch n147 Q<6> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<8>
+.latch n145 Q<8> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<10>
+.latch n143 Q<10> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<12>
+.latch n141 Q<12> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<14>
+.latch n139 Q<14> re C 2 n268
+.names Q<1> LessThan_19/n3 LessThan_19/n2 LessThan_19/n4
+11- 1
+-01 1
+.names UP n55
+0 1
+.names n88 n318 n53
+11 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i363 CI=-i363/CI DI=-i363/DI S=-i363/S O=+add_20/n8
+.names add_20/n6 i363/CI
+1 1
+.names Q<3> i363/DI
+1 1
+.names Q<3> i363/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i364 CI=-i364/CI LI=-i364/LI O=+n34
+.names add_20/n6 i364/CI
+1 1
+.names Q<3> i364/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i366 CI=-i366/CI DI=-i366/DI S=-i366/S O=+add_20/n4
+.names add_20/n2 i366/CI
+1 1
+.names Q<1> i366/DI
+1 1
+.names Q<1> i366/S
+1 1
+.names n20 n318
+0 1
+.names n2 Q<0> n88
+01 1
+10 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i351 CI=-i351/CI DI=-i351/DI S=-i351/S O=+add_20/n24
+.names add_20/n22 i351/CI
+1 1
+.names Q<11> i351/DI
+1 1
+.names Q<11> i351/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i352 CI=-i352/CI LI=-i352/LI O=+n26
+.names add_20/n22 i352/CI
+1 1
+.names Q<11> i352/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i354 CI=-i354/CI DI=-i354/DI S=-i354/S O=+add_20/n20
+.names add_20/n18 i354/CI
+1 1
+.names Q<9> i354/DI
+1 1
+.names Q<9> i354/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i355 CI=-i355/CI LI=-i355/LI O=+n28
+.names add_20/n18 i355/CI
+1 1
+.names Q<9> i355/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i357 CI=-i357/CI DI=-i357/DI S=-i357/S O=+add_20/n16
+.names add_20/n14 i357/CI
+1 1
+.names Q<7> i357/DI
+1 1
+.names Q<7> i357/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i358 CI=-i358/CI LI=-i358/LI O=+n30
+.names add_20/n14 i358/CI
+1 1
+.names Q<7> i358/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i360 CI=-i360/CI DI=-i360/DI S=-i360/S O=+add_20/n12
+.names add_20/n10 i360/CI
+1 1
+.names Q<5> i360/DI
+1 1
+.names Q<5> i360/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i361 CI=-i361/CI LI=-i361/LI O=+n32
+.names add_20/n10 i361/CI
+1 1
+.names Q<5> i361/LI
+1 1
+.names n88 n340
+0 1
+.loc Configurable_U2.VHD 64 Q<15>
+.latch n138 Q<15> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<1>
+.latch n152 Q<1> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<3>
+.latch n150 Q<3> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<5>
+.latch n148 Q<5> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<7>
+.latch n146 Q<7> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<9>
+.latch n144 Q<9> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<11>
+.latch n142 Q<11> re C 2 n268
+.loc Configurable_U2.VHD 64 Q<13>
+.latch n140 Q<13> re C 2 n268
+.names n2 Q<1> LessThan_19/n3
+01 1
+10 1
+.names n293 Q<7> n294
+1- 1
+-1 1
+.names n36 n318 n52
+11 1
+.names n261 n259 n267
+11 1
+.names n55 n54 n73 n90
+11- 1
+-01 1
+.names n55 n54 n74 n91
+11- 1
+-01 1
+.names n55 n54 n75 n92
+11- 1
+-01 1
+.names n55 n54 n76 n93
+11- 1
+-01 1
+.names n55 n54 n77 n94
+11- 1
+-01 1
+.names n55 n54 n78 n95
+11- 1
+-01 1
+.names n55 n54 n79 n96
+11- 1
+-01 1
+.names n55 n54 n80 n97
+11- 1
+-01 1
+.names n55 n54 n81 n98
+11- 1
+-01 1
+.names n55 n54 n82 n99
+11- 1
+-01 1
+.names n55 n54 n83 n100
+11- 1
+-01 1
+.names n55 n54 n84 n101
+11- 1
+-01 1
+.names n55 n54 n85 n102
+11- 1
+-01 1
+.names n55 n54 n86 n103
+11- 1
+-01 1
+.names n55 n54 n87 n104
+11- 1
+-01 1
+.names n55 n54 n88 n105
+11- 1
+-01 1
+.names n38 UP n90 n106
+11- 1
+-01 1
+.names n39 UP n91 n107
+11- 1
+-01 1
+.names n40 UP n92 n108
+11- 1
+-01 1
+.names n41 UP n93 n109
+11- 1
+-01 1
+.names n42 UP n94 n110
+11- 1
+-01 1
+.names n43 UP n95 n111
+11- 1
+-01 1
+.names n44 UP n96 n112
+11- 1
+-01 1
+.names n45 UP n97 n113
+11- 1
+-01 1
+.names n46 UP n98 n114
+11- 1
+-01 1
+.names n47 UP n99 n115
+11- 1
+-01 1
+.names n48 UP n100 n116
+11- 1
+-01 1
+.names n49 UP n101 n117
+11- 1
+-01 1
+.names n50 UP n102 n118
+11- 1
+-01 1
+.names n51 UP n103 n119
+11- 1
+-01 1
+.names n52 UP n104 n120
+11- 1
+-01 1
+.names n53 UP n105 n121
+11- 1
+-01 1
+.names R n261
+0 1
+.names n2 Q<2> LessThan_19/n5
+01 1
+10 1
+.names n2 Q<3> LessThan_19/n7
+01 1
+10 1
+.names n267 n268
+0 1
+.names n2 Q<14> LessThan_19/n29
+01 1
+10 1
+.names n2 Q<13> LessThan_19/n27
+01 1
+10 1
+.names n2 Q<12> LessThan_19/n25
+01 1
+10 1
+.names n2 Q<11> LessThan_19/n23
+01 1
+10 1
+.names n2 Q<10> LessThan_19/n21
+01 1
+10 1
+.names n2 Q<9> LessThan_19/n19
+01 1
+10 1
+.names n2 Q<8> LessThan_19/n17
+01 1
+10 1
+.names n2 Q<7> LessThan_19/n15
+01 1
+10 1
+.names n2 Q<6> LessThan_19/n13
+01 1
+10 1
+.names n2 Q<5> LessThan_19/n11
+01 1
+10 1
+.names n2 Q<4> LessThan_19/n9
+01 1
+10 1
+.names n55 R n106 n138
+11- 1
+-01 1
+.names n55 R n107 n139
+11- 1
+-01 1
+.names n55 R n108 n140
+11- 1
+-01 1
+.names n55 R n109 n141
+11- 1
+-01 1
+.names n55 R n110 n142
+11- 1
+-01 1
+.names n55 R n111 n143
+11- 1
+-01 1
+.names n55 R n112 n144
+11- 1
+-01 1
+.names n55 R n113 n145
+11- 1
+-01 1
+.names n55 R n114 n146
+11- 1
+-01 1
+.names n55 R n115 n147
+11- 1
+-01 1
+.names n55 R n116 n148
+11- 1
+-01 1
+.names n55 R n117 n149
+11- 1
+-01 1
+.names n55 R n118 n150
+11- 1
+-01 1
+.names n55 R n119 n151
+11- 1
+-01 1
+.names n55 R n120 n152
+11- 1
+-01 1
+.names n55 R n121 n153
+11- 1
+-01 1
+.names Q<2> LessThan_19/n5 LessThan_19/n4 LessThan_19/n6
+11- 1
+-01 1
+.names Q<3> LessThan_19/n7 LessThan_19/n6 LessThan_19/n8
+11- 1
+-01 1
+.names n170 n171 reduce_nor_153/n1
+1- 1
+-1 1
+.names Q<14> LessThan_19/n29 LessThan_19/n28 LessThan_19/n30
+11- 1
+-01 1
+.names Q<13> LessThan_19/n27 LessThan_19/n26 LessThan_19/n28
+11- 1
+-01 1
+.names Q<12> LessThan_19/n25 LessThan_19/n24 LessThan_19/n26
+11- 1
+-01 1
+.names Q<11> LessThan_19/n23 LessThan_19/n22 LessThan_19/n24
+11- 1
+-01 1
+.names Q<10> LessThan_19/n21 LessThan_19/n20 LessThan_19/n22
+11- 1
+-01 1
+.names Q<9> LessThan_19/n19 LessThan_19/n18 LessThan_19/n20
+11- 1
+-01 1
+.names Q<8> LessThan_19/n17 LessThan_19/n16 LessThan_19/n18
+11- 1
+-01 1
+.names Q<7> LessThan_19/n15 LessThan_19/n14 LessThan_19/n16
+11- 1
+-01 1
+.names Q<6> LessThan_19/n13 LessThan_19/n12 LessThan_19/n14
+11- 1
+-01 1
+.names Q<5> LessThan_19/n11 LessThan_19/n10 LessThan_19/n12
+11- 1
+-01 1
+.names Q<4> LessThan_19/n9 LessThan_19/n8 LessThan_19/n10
+11- 1
+-01 1
+.names n307 n342
+0 1
+.names n294 Q<6> n295
+1- 1
+-1 1
+.names Q<0> n170
+0 1
+.names Q<1> n171
+0 1
+.names Q<2> n172
+0 1
+.names Q<3> n173
+0 1
+.names Q<4> n174
+0 1
+.names Q<5> n175
+0 1
+.names Q<6> n176
+0 1
+.names Q<7> n177
+0 1
+.names Q<8> n178
+0 1
+.names Q<9> n179
+0 1
+.names Q<10> n180
+0 1
+.names Q<11> n181
+0 1
+.names Q<12> n182
+0 1
+.names Q<13> n183
+0 1
+.names Q<14> n184
+0 1
+.names Q<15> n185
+0 1
+.names Q<0> Q<1> reduce_nor_155/n1
+1- 1
+-1 1
+.names n186 UP n187
+11 1
+.names Q<9> Q<8> n293
+1- 1
+-1 1
+.names CE n259
+0 1
+.names n188 n55 n190
+11 1
+.names n187 n190 TC
+1- 1
+-1 1
+.names n2 Q<15> LessThan_19/n31
+01 1
+10 1
+.names n35 n318 n51
+11 1
+.names n295 Q<5> n296
+1- 1
+-1 1
+.names n34 n318 n50
+11 1
+.names n296 Q<4> n297
+1- 1
+-1 1
+.names n33 n318 n49
+11 1
+.names n297 Q<3> n298
+1- 1
+-1 1
+.names n32 n318 n48
+11 1
+.names n298 Q<2> n299
+1- 1
+-1 1
+.names n31 n318 n47
+11 1
+.names n299 Q<1> n300
+1- 1
+-1 1
+.names n30 n318 n46
+11 1
+.names n300 Q<0> n301
+1- 1
+-1 1
+.names n29 n318 n45
+11 1
+.names n301 LessThan_37/n20
+0 1
+.names n28 n318 n44
+11 1
+.names Q<0> n340 add_20/n2
+11 1
+.names TC CE CEO
+11 1
+.names Q<15> LessThan_19/n31 LessThan_19/n30 n20
+11- 1
+-01 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i367 CI=-i367/CI LI=-i367/LI O=+n36
+.names add_20/n2 i367/CI
+1 1
+.names Q<1> i367/LI
+1 1
+.names Q<11> Q<10> n303
+1- 1
+-1 1
+.names n27 n318 n43
+11 1
+.names Q<12> n303 n304
+1- 1
+-1 1
+.names n26 n318 n42
+11 1
+.names Q<13> n304 n305
+1- 1
+-1 1
+.names n25 n318 n41
+11 1
+.names Q<14> n305 n306
+1- 1
+-1 1
+.names n24 n318 n40
+11 1
+.names Q<15> n306 n307
+1- 1
+-1 1
+.names n23 n318 n39
+11 1
+.names n172 n173 reduce_nor_153/n2
+1- 1
+-1 1
+.names reduce_nor_153/n1 reduce_nor_153/n2 reduce_nor_153/n3
+1- 1
+-1 1
+.names n174 n175 reduce_nor_153/n4
+1- 1
+-1 1
+.names n176 n177 reduce_nor_153/n5
+1- 1
+-1 1
+.names reduce_nor_153/n4 reduce_nor_153/n5 reduce_nor_153/n6
+1- 1
+-1 1
+.names reduce_nor_153/n3 reduce_nor_153/n6 reduce_nor_153/n7
+1- 1
+-1 1
+.names n178 n179 reduce_nor_153/n8
+1- 1
+-1 1
+.names n180 n181 reduce_nor_153/n9
+1- 1
+-1 1
+.names reduce_nor_153/n8 reduce_nor_153/n9 reduce_nor_153/n10
+1- 1
+-1 1
+.names n182 n183 reduce_nor_153/n11
+1- 1
+-1 1
+.names n184 n185 reduce_nor_153/n12
+1- 1
+-1 1
+.names reduce_nor_153/n11 reduce_nor_153/n12 reduce_nor_153/n13
+1- 1
+-1 1
+.names reduce_nor_153/n10 reduce_nor_153/n13 reduce_nor_153/n14
+1- 1
+-1 1
+.names reduce_nor_153/n7 reduce_nor_153/n14 reduce_nor_153/n15
+1- 1
+-1 1
+.names reduce_nor_153/n15 n186
+0 1
+.names Q<2> Q<3> reduce_nor_155/n2
+1- 1
+-1 1
+.names reduce_nor_155/n1 reduce_nor_155/n2 reduce_nor_155/n3
+1- 1
+-1 1
+.names Q<4> Q<5> reduce_nor_155/n4
+1- 1
+-1 1
+.names Q<6> Q<7> reduce_nor_155/n5
+1- 1
+-1 1
+.names reduce_nor_155/n4 reduce_nor_155/n5 reduce_nor_155/n6
+1- 1
+-1 1
+.names reduce_nor_155/n3 reduce_nor_155/n6 reduce_nor_155/n7
+1- 1
+-1 1
+.names n22 n318 n38
+11 1
+.names n293 n303 reduce_nor_155/n10
+1- 1
+-1 1
+.names Q<12> Q<13> reduce_nor_155/n11
+1- 1
+-1 1
+.names Q<14> Q<15> reduce_nor_155/n12
+1- 1
+-1 1
+.names reduce_nor_155/n11 reduce_nor_155/n12 reduce_nor_155/n13
+1- 1
+-1 1
+.names reduce_nor_155/n10 reduce_nor_155/n13 reduce_nor_155/n14
+1- 1
+-1 1
+.names reduce_nor_155/n7 reduce_nor_155/n14 reduce_nor_155/n15
+1- 1
+-1 1
+.names reduce_nor_155/n15 n188
+0 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i369 CI=-i369/CI DI=-i369/DI S=-i369/S O=+add_20/n26
+.names add_20/n24 i369/CI
+1 1
+.names Q<12> i369/DI
+1 1
+.names Q<12> i369/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i370 CI=-i370/CI LI=-i370/LI O=+n25
+.names add_20/n24 i370/CI
+1 1
+.names Q<12> i370/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i372 CI=-i372/CI DI=-i372/DI S=-i372/S O=+add_20/n22
+.names add_20/n20 i372/CI
+1 1
+.names Q<10> i372/DI
+1 1
+.names Q<10> i372/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i373 CI=-i373/CI LI=-i373/LI O=+n27
+.names add_20/n20 i373/CI
+1 1
+.names Q<10> i373/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i375 CI=-i375/CI DI=-i375/DI S=-i375/S O=+add_20/n18
+.names add_20/n16 i375/CI
+1 1
+.names Q<8> i375/DI
+1 1
+.names Q<8> i375/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i376 CI=-i376/CI LI=-i376/LI O=+n29
+.names add_20/n16 i376/CI
+1 1
+.names Q<8> i376/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i378 CI=-i378/CI DI=-i378/DI S=-i378/S O=+add_20/n14
+.names add_20/n12 i378/CI
+1 1
+.names Q<6> i378/DI
+1 1
+.names Q<6> i378/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i379 CI=-i379/CI LI=-i379/LI O=+n31
+.names add_20/n12 i379/CI
+1 1
+.names Q<6> i379/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i381 CI=-i381/CI DI=-i381/DI S=-i381/S O=+add_20/n10
+.names add_20/n8 i381/CI
+1 1
+.names Q<4> i381/DI
+1 1
+.names Q<4> i381/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i382 CI=-i382/CI LI=-i382/LI O=+n33
+.names add_20/n8 i382/CI
+1 1
+.names Q<4> i382/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i384 CI=-i384/CI DI=-i384/DI S=-i384/S O=+add_20/n6
+.names add_20/n4 i384/CI
+1 1
+.names Q<2> i384/DI
+1 1
+.names Q<2> i384/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i385 CI=-i385/CI LI=-i385/LI O=+n35
+.names add_20/n4 i385/CI
+1 1
+.names Q<2> i385/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i387 CI=-i387/CI DI=-i387/DI S=-i387/S O=+add_20/n28
+.names add_20/n26 i387/CI
+1 1
+.names Q<13> i387/DI
+1 1
+.names Q<13> i387/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i388 CI=-i388/CI LI=-i388/LI O=+n24
+.names add_20/n26 i388/CI
+1 1
+.names Q<13> i388/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i390 CI=-i390/CI LI=-i390/LI O=+n22
+.names add_20/n30 i390/CI
+1 1
+.names Q<15> i390/LI
+1 1
+.loc Configurable_U2.VHD 49
+.subckt MUXCY i392 CI=-i392/CI DI=-i392/DI S=-i392/S O=+add_20/n30
+.names add_20/n28 i392/CI
+1 1
+.names Q<14> i392/DI
+1 1
+.names Q<14> i392/S
+1 1
+.loc Configurable_U2.VHD 49
+.subckt XORCY i393 CI=-i393/CI LI=-i393/LI O=+n23
+.names add_20/n28 i393/CI
+1 1
+.names Q<14> i393/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i395 CI=-i395/CI DI=-i395/DI S=-i395/S O=+add_55/n4
+.names Q<0> i395/CI
+1 1
+.names Q<1> i395/DI
+1 1
+.names LessThan_19/n3 i395/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i396 CI=-i396/CI LI=-i396/LI O=+n87
+.names Q<0> i396/CI
+1 1
+.names LessThan_19/n3 i396/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i398 CI=-i398/CI DI=-i398/DI S=-i398/S O=+add_55/n6
+.names add_55/n4 i398/CI
+1 1
+.names Q<2> i398/DI
+1 1
+.names LessThan_19/n5 i398/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i399 CI=-i399/CI LI=-i399/LI O=+n86
+.names add_55/n4 i399/CI
+1 1
+.names LessThan_19/n5 i399/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i401 CI=-i401/CI DI=-i401/DI S=-i401/S O=+add_55/n8
+.names add_55/n6 i401/CI
+1 1
+.names Q<3> i401/DI
+1 1
+.names LessThan_19/n7 i401/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i402 CI=-i402/CI LI=-i402/LI O=+n85
+.names add_55/n6 i402/CI
+1 1
+.names LessThan_19/n7 i402/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i404 CI=-i404/CI DI=-i404/DI S=-i404/S O=+add_55/n10
+.names add_55/n8 i404/CI
+1 1
+.names Q<4> i404/DI
+1 1
+.names LessThan_19/n9 i404/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i405 CI=-i405/CI LI=-i405/LI O=+n84
+.names add_55/n8 i405/CI
+1 1
+.names LessThan_19/n9 i405/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i407 CI=-i407/CI DI=-i407/DI S=-i407/S O=+add_55/n12
+.names add_55/n10 i407/CI
+1 1
+.names Q<5> i407/DI
+1 1
+.names LessThan_19/n11 i407/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i408 CI=-i408/CI LI=-i408/LI O=+n83
+.names add_55/n10 i408/CI
+1 1
+.names LessThan_19/n11 i408/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i410 CI=-i410/CI DI=-i410/DI S=-i410/S O=+add_55/n14
+.names add_55/n12 i410/CI
+1 1
+.names Q<6> i410/DI
+1 1
+.names LessThan_19/n13 i410/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i411 CI=-i411/CI LI=-i411/LI O=+n82
+.names add_55/n12 i411/CI
+1 1
+.names LessThan_19/n13 i411/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i413 CI=-i413/CI DI=-i413/DI S=-i413/S O=+add_55/n16
+.names add_55/n14 i413/CI
+1 1
+.names Q<7> i413/DI
+1 1
+.names LessThan_19/n15 i413/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i414 CI=-i414/CI LI=-i414/LI O=+n81
+.names add_55/n14 i414/CI
+1 1
+.names LessThan_19/n15 i414/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i416 CI=-i416/CI DI=-i416/DI S=-i416/S O=+add_55/n18
+.names add_55/n16 i416/CI
+1 1
+.names Q<8> i416/DI
+1 1
+.names LessThan_19/n17 i416/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i417 CI=-i417/CI LI=-i417/LI O=+n80
+.names add_55/n16 i417/CI
+1 1
+.names LessThan_19/n17 i417/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i419 CI=-i419/CI DI=-i419/DI S=-i419/S O=+add_55/n20
+.names add_55/n18 i419/CI
+1 1
+.names Q<9> i419/DI
+1 1
+.names LessThan_19/n19 i419/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i420 CI=-i420/CI LI=-i420/LI O=+n79
+.names add_55/n18 i420/CI
+1 1
+.names LessThan_19/n19 i420/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i422 CI=-i422/CI DI=-i422/DI S=-i422/S O=+add_55/n22
+.names add_55/n20 i422/CI
+1 1
+.names Q<10> i422/DI
+1 1
+.names LessThan_19/n21 i422/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i423 CI=-i423/CI LI=-i423/LI O=+n78
+.names add_55/n20 i423/CI
+1 1
+.names LessThan_19/n21 i423/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i425 CI=-i425/CI DI=-i425/DI S=-i425/S O=+add_55/n24
+.names add_55/n22 i425/CI
+1 1
+.names Q<11> i425/DI
+1 1
+.names LessThan_19/n23 i425/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i426 CI=-i426/CI LI=-i426/LI O=+n77
+.names add_55/n22 i426/CI
+1 1
+.names LessThan_19/n23 i426/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i428 CI=-i428/CI DI=-i428/DI S=-i428/S O=+add_55/n26
+.names add_55/n24 i428/CI
+1 1
+.names Q<12> i428/DI
+1 1
+.names LessThan_19/n25 i428/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i429 CI=-i429/CI LI=-i429/LI O=+n76
+.names add_55/n24 i429/CI
+1 1
+.names LessThan_19/n25 i429/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i431 CI=-i431/CI DI=-i431/DI S=-i431/S O=+add_55/n28
+.names add_55/n26 i431/CI
+1 1
+.names Q<13> i431/DI
+1 1
+.names LessThan_19/n27 i431/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i432 CI=-i432/CI LI=-i432/LI O=+n75
+.names add_55/n26 i432/CI
+1 1
+.names LessThan_19/n27 i432/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt MUXCY i434 CI=-i434/CI DI=-i434/DI S=-i434/S O=+add_55/n30
+.names add_55/n28 i434/CI
+1 1
+.names Q<14> i434/DI
+1 1
+.names LessThan_19/n29 i434/S
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i435 CI=-i435/CI LI=-i435/LI O=+n74
+.names add_55/n28 i435/CI
+1 1
+.names LessThan_19/n29 i435/LI
+1 1
+.loc Configurable_U2.VHD 59
+.subckt XORCY i437 CI=-i437/CI LI=-i437/LI O=+n73
+.names add_55/n30 i437/CI
+1 1
+.names LessThan_19/n31 i437/LI
+1 1

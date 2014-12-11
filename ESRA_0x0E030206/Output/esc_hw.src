@@ -1,0 +1,1025 @@
+	; TASKING TSK3000 VIPER C compiler v1.1r1 Build 235
+	; Options: -f cc2608a --dep-file=Output\esc_hw.d --make-target=Output\esc_hw.src -D__ALTIUM_BUILD_MAJOR__=-1 -D__ALTIUM_BUILD_MINOR__=10 -D__ALTIUM_PROJECT_NAME__="Ethercat_FPGA" -D__SWPLATFORM__ -D__FRAMEWORK__ -IOutput\framecfg -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\processors\c3000\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\ifconfig\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\sysutils\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\external\drivers\m25px0\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\ioport\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\wb_interface\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\generic\interfaces\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\interrupts\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\timing\include -t4 -IC:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206 --iso=99 --debug-info=default --global-type-checking -O3 --rename-sections={module}.{cname} --call=n --align-composites=n --extern-sdata --sdata=4 -o Output\esc_hw.src
+	; Module start
+	.extern	__save_r19
+	.extern	__restore_r19
+	.source "Embedded\\esc_hw.c"
+
+	.section	.text.esc_hw.ESC_read ,cluster('$group_ESC_read')
+	.align	4
+	.global	ESC_read
+; Function ESC_read
+.L7:
+ESC_read:	.type	func
+	addiu	$sp,$sp,-24
+.L43:
+	sw	$ra,0($sp)
+	jal	__save_r19
+	nop
+.L44:
+	move	$s0,$a0
+.L45:
+	move	$s3,$a1
+.L46:
+	move	$s1,$a2
+.L48:
+	move	$s2,$a3
+.L47:
+	jal	spi_cs_lo
+	lw	$a0,@gprel(drv_ec_1)($gp)
+.L107:
+	sll	$v0,$s0,3
+	sh	$v0,20($sp)
+.L108:
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_transceive8
+	lbu	$a1,20($sp)
+	sb	$v0,1($s2)
+.L109:
+	lbu	$v0,21($sp)
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_transceive8
+	ori	$a1,$v0,0x2
+	sb	$v0,0($s2)
+.L110:
+	addiu	$v0,$s1,-1
+.L111:
+	j	.L2
+.L112:
+	andi	$s0,$v0,0xffff
+.L3:
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_transceive8
+	move	$a1,$zero
+	sb	$v0,0($s3)
+.L113:
+	addiu	$s3,$s3,1
+.L114:
+	addiu	$s0,$s0,-1
+.L2:
+	bgtz	$s0,.L3
+.L115:
+	nop
+.L116:
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_transceive8
+	li	$a1,0xff
+	sb	$v0,0($s3)
+.L117:
+	jal	spi_cs_hi
+	lw	$a0,@gprel(drv_ec_1)($gp)
+.L118:
+	li	$a0,24
+	j	__restore_r19
+	nop
+.L24:
+	.size	ESC_read,*-ESC_read
+.L18:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_hw.ESC_write ,cluster('$group_ESC_write')
+	.align	4
+	.global	ESC_write
+; Function ESC_write
+.L9:
+ESC_write:	.type	func
+	addiu	$sp,$sp,-24
+.L49:
+	sw	$ra,0($sp)
+	jal	__save_r19
+	nop
+.L50:
+	move	$s0,$a0
+.L51:
+	move	$s3,$a1
+.L52:
+	move	$s1,$a2
+.L53:
+	move	$s2,$a3
+.L54:
+	jal	spi_cs_lo
+	lw	$a0,@gprel(drv_ec_1)($gp)
+.L123:
+	sll	$v0,$s0,3
+	sh	$v0,20($sp)
+.L124:
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_transceive8
+	lbu	$a1,20($sp)
+	sb	$v0,1($s2)
+.L125:
+	lbu	$v0,21($sp)
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_transceive8
+	ori	$a1,$v0,0x4
+.L126:
+	j	.L4
+.L127:
+	sb	$v0,0($s2)
+.L5:
+	lbu	$a1,0($s3)
+.L128:
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_transceive8
+.L129:
+	addiu	$s3,$s3,1
+.L4:
+	move	$v0,$s1
+	addiu	$v1,$s1,-1
+.L130:
+	bgtz	$v0,.L5
+.L131:
+	andi	$s1,$v1,0xffff
+.L132:
+	jal	spi_cs_hi
+	lw	$a0,@gprel(drv_ec_1)($gp)
+.L133:
+	li	$a0,24
+	j	__restore_r19
+	nop
+.L35:
+	.size	ESC_write,*-ESC_write
+.L23:
+	; End of function
+	.endsec	; End of section
+
+	.calls	'ESC_read','__save_r19'
+	.calls	'ESC_write','__save_r19'
+	.calls	'ESC_read','spi_cs_lo'
+	.calls	'ESC_read','spi_transceive8'
+	.calls	'ESC_read','spi_cs_hi'
+	.calls	'ESC_write','spi_cs_lo'
+	.calls	'ESC_write','spi_transceive8'
+	.calls	'ESC_write','spi_cs_hi'
+	.calls	'ESC_read','',24
+	.calls	'ESC_write','',24
+	.extern	spi_cs_lo
+	.extern	spi_cs_hi
+	.extern	spi_transceive8
+	.extern	drv_ec_1
+	.extern	__save_r19
+	.extern	__restore_r19
+	.section	.debug_info
+.L11:
+	.dw	1861
+	.dh	3
+	.dw	.L12
+	.db	4
+.L10:
+	.db	1
+	.db	"Embedded\\esc_hw.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L13
+	.db	2
+	.db	"tsk3000_reset_interval_timer",0
+	.db	3,1,59,20,1,1,3,0,4
+	.db	"pal_architecture_current_interrupt",0
+	.db	3,1,129,1,24
+	.dw	.L55-.L11
+	.db	1,1,3,0
+.L55:
+	.db	5
+	.db	"unsigned int",0
+	.db	4,7,2
+	.db	"pal_architecture_interrupts_enable",0
+	.db	3,1,136,1,24,1,1,3,0,2
+	.db	"pal_architecture_interrupts_disable",0
+	.db	3,1,141,1,24,1,1,3,0,4
+	.db	"pal_architecture_interrupts_disable_if_enabled",0
+	.db	3,1,149,1,25
+	.dw	215
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupts_set_mask",0
+	.db	3,1,160,1,24,1,1,6
+	.db	"mask",0
+	.db	1,160,1,70
+	.dw	215
+	.db	3,0,4
+	.db	"pal_architecture_interrupts_get_mask",0
+	.db	3,1,165,1,24
+	.dw	215
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupt_acknowledge",0
+	.db	3,1,133,2,24,1,1,6
+	.db	"number",0
+	.db	1,133,2,72
+	.dw	215
+	.db	3,0,7
+	.dw	128
+	.db	3,0,7
+	.dw	166
+	.db	3,0,7
+	.dw	231
+	.db	3,0,7
+	.dw	276
+	.db	3,0,7
+	.dw	322
+	.db	3,0,7
+	.dw	383
+	.db	8
+	.dw	428
+	.db	3,0,7
+	.dw	444
+	.db	3,0,7
+	.dw	495
+	.db	8
+	.dw	542
+	.db	3,0,9
+	.db	"spi_cs_lo",0
+	.db	2,55,13,1,1,1,1,6
+	.db	"drv",0
+	.db	2,55,41
+	.dw	.L56-.L11
+	.db	0
+.L56:
+	.db	10
+	.dw	.L57-.L11
+.L57:
+	.db	11
+	.db	"drv_spi_s",0
+	.db	2,46,16,1,9
+	.db	"spi_cs_hi",0
+	.db	2,56,13,1,1,1,1,6
+	.db	"drv",0
+	.db	2,56,41
+	.dw	657
+	.db	0,12
+	.db	"spi_transceive8",0
+	.db	2,62,16
+	.dw	.L58-.L11
+	.db	1,1,1,1,6
+	.db	"drv",0
+	.db	2,62,50
+	.dw	657
+	.db	6
+	.db	"val",0
+	.db	2,62,63
+	.dw	.L58-.L11
+	.db	0
+.L58:
+	.db	5
+	.db	"unsigned char",0
+	.db	1,8
+.L25:
+	.db	5
+	.db	"unsigned short int",0
+	.db	2,7
+.L27:
+	.db	10
+	.dw	761
+.L33:
+	.db	13,3,54,9,2,14
+	.db	"w",0
+	.db	2
+	.dw	.L59-.L11
+	.db	2,35,0,14
+	.db	"b",0
+	.db	2
+	.dw	.L60-.L11
+	.db	2,35,0,0
+.L59:
+	.db	15
+	.dw	778
+.L60:
+	.db	15
+	.dw	.L61-.L11
+.L61:
+	.db	16,2
+	.dw	761
+	.db	17,1,0,18
+	.db	"__wchar_t",0
+	.db	4,1,1
+	.dw	778
+	.db	18
+	.db	"__size_t",0
+	.db	4,1,1
+	.dw	215
+	.db	18
+	.db	"__ptrdiff_t",0
+	.db	4,1,1
+	.dw	.L62-.L11
+.L62:
+	.db	5
+	.db	"int",0
+	.db	4,5,18
+	.db	"__codeptr",0
+	.db	4,1,1
+	.dw	.L63-.L11
+.L63:
+	.db	10
+	.dw	.L64-.L11
+.L64:
+	.db	19,1,18
+	.db	"uint8_t",0
+	.db	5,22,33
+	.dw	761
+	.db	18
+	.db	"int16_t",0
+	.db	5,23,33
+	.dw	.L65-.L11
+.L65:
+	.db	5
+	.db	"short int",0
+	.db	2,5,18
+	.db	"uint16_t",0
+	.db	5,24,33
+	.dw	778
+	.db	18
+	.db	"uint32_t",0
+	.db	5,26,33
+	.dw	215
+	.db	18
+	.db	"interrupt_handler_t",0
+	.db	6,73,20
+	.dw	.L66-.L11
+.L66:
+	.db	10
+	.dw	.L67-.L11
+.L67:
+	.db	20
+	.dw	215
+	.db	1,1,21
+	.dw	215
+	.db	21
+	.dw	.L68-.L11
+	.db	0
+.L68:
+	.db	10
+	.dw	.L69-.L11
+.L69:
+	.db	22
+	.db	"void",0
+	.db	18
+	.db	"interrupt_entry_t",0
+	.db	6,78,34
+	.dw	.L70-.L11
+.L70:
+	.db	23
+	.db	"interrupt_entry_s",0
+	.db	6,79,8,16,14
+	.db	"number",0
+	.db	2
+	.dw	778
+	.db	2,35,0,14
+	.db	"in_use",0
+	.db	1
+	.dw	.L71-.L11
+	.db	2,35,2,14
+	.db	"is_native",0
+	.db	1
+	.dw	.L72-.L11
+	.db	2,35,3,14
+	.db	"context",0
+	.db	4
+	.dw	1069
+	.db	2,35,4,14
+	.db	"handler",0
+	.db	4
+	.dw	1018
+	.db	2,35,8,14
+	.db	"next",0
+	.db	4
+	.dw	.L73-.L11
+	.db	2,35,12,0
+.L71:
+	.db	24
+	.dw	.L72-.L11
+.L72:
+	.db	5
+	.db	"_Bool",0
+	.db	1,2,10
+	.dw	1051
+.L73:
+	.db	24
+	.dw	.L74-.L11
+.L74:
+	.db	10
+	.dw	1106
+	.db	18
+	.db	"spi_t",0
+	.db	2,46,26
+	.dw	662
+	.db	25
+	.db	"drv_ec_1",0
+	.db	7,35,19
+	.dw	657
+	.db	1,1,18
+	.db	"digital_in_t",0
+	.db	3,82,2
+	.dw	.L75-.L11
+.L75:
+	.db	13,3,70,9,1,14
+	.db	"line",0
+	.db	1
+	.dw	.L76-.L11
+	.db	2,35,0,14
+	.db	"port",0
+	.db	1
+	.dw	.L77-.L11
+	.db	2,35,0,0
+.L76:
+	.db	15
+	.dw	.L78-.L11
+.L78:
+	.db	26,3,71,3,1,27
+	.db	"power_status",0
+	.db	1
+	.dw	.L79-.L11
+	.db	1,0,2,35,0,27
+	.db	"reserved_3",0
+	.db	1
+	.dw	.L80-.L11
+	.db	1,1,2,35,0,27
+	.db	"reserved_2",0
+	.db	1
+	.dw	.L81-.L11
+	.db	1,2,2,35,0,27
+	.db	"reserved_1",0
+	.db	1
+	.dw	.L82-.L11
+	.db	1,3,2,35,0,27
+	.db	"spare_di_4",0
+	.db	1
+	.dw	.L83-.L11
+	.db	1,4,2,35,0,27
+	.db	"spare_di_3",0
+	.db	1
+	.dw	.L84-.L11
+	.db	1,5,2,35,0,27
+	.db	"spare_di_2",0
+	.db	1
+	.dw	.L85-.L11
+	.db	1,6,2,35,0,27
+	.db	"spare_di_1",0
+	.db	1
+	.dw	.L86-.L11
+	.db	1,7,2,35,0,0
+.L79:
+	.db	15
+	.dw	761
+.L80:
+	.db	15
+	.dw	761
+.L81:
+	.db	15
+	.dw	761
+.L82:
+	.db	15
+	.dw	761
+.L83:
+	.db	15
+	.dw	761
+.L84:
+	.db	15
+	.dw	761
+.L85:
+	.db	15
+	.dw	761
+.L86:
+	.db	15
+	.dw	761
+.L77:
+	.db	15
+	.dw	761
+	.db	18
+	.db	"digital_out_t",0
+	.db	3,117,2
+	.dw	.L87-.L11
+.L87:
+	.db	13,3,105,9,1,14
+	.db	"line",0
+	.db	1
+	.dw	.L88-.L11
+	.db	2,35,0,14
+	.db	"port",0
+	.db	1
+	.dw	.L89-.L11
+	.db	2,35,0,0
+.L88:
+	.db	15
+	.dw	.L90-.L11
+.L90:
+	.db	26,3,106,3,1,27
+	.db	"reserved_4",0
+	.db	1
+	.dw	.L91-.L11
+	.db	1,0,2,35,0,27
+	.db	"reserved_3",0
+	.db	1
+	.dw	.L92-.L11
+	.db	1,1,2,35,0,27
+	.db	"reserved_2",0
+	.db	1
+	.dw	.L93-.L11
+	.db	1,2,2,35,0,27
+	.db	"reserved_1",0
+	.db	1
+	.dw	.L94-.L11
+	.db	1,3,2,35,0,27
+	.db	"spare_do_4",0
+	.db	1
+	.dw	.L95-.L11
+	.db	1,4,2,35,0,27
+	.db	"spare_do_3",0
+	.db	1
+	.dw	.L96-.L11
+	.db	1,5,2,35,0,27
+	.db	"enable_2",0
+	.db	1
+	.dw	.L97-.L11
+	.db	1,6,2,35,0,27
+	.db	"enable_1",0
+	.db	1
+	.dw	.L98-.L11
+	.db	1,7,2,35,0,0
+.L91:
+	.db	15
+	.dw	761
+.L92:
+	.db	15
+	.dw	761
+.L93:
+	.db	15
+	.dw	761
+.L94:
+	.db	15
+	.dw	761
+.L95:
+	.db	15
+	.dw	761
+.L96:
+	.db	15
+	.dw	761
+.L97:
+	.db	15
+	.dw	761
+.L98:
+	.db	15
+	.dw	761
+.L89:
+	.db	15
+	.dw	761
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev
+.L12:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,46,1,3,8,32,13,58,15,59,15,57,15,54,15,39,12,0,0,3,11
+	.db	0,0,0,4,46,1,3,8,32,13,58,15,59,15,57,15,73,19,54,15,39,12,0,0,5,36,0,3,8,11,15,62,15,0,0,6,5,0,3,8,58
+	.db	15,59,15,57,15,73,19,0,0,7,46,1,49,19,0,0,8,5,0,49,19,0,0,9,46,1,3,8,58,15,59,15,57,15,54,15,39,12,63
+	.db	12,60,12,0,0,10,15,0,73,19,0,0,11,19,0,3,8,58,15,59,15,57,15,60,12,0,0,12,46,1,3,8,58,15,59,15,57,15,73
+	.db	19,54,15,39,12,63,12,60,12,0,0,13,23,1,58,15,59,15,57,15,11,15,0,0,14,13,0,3,8,11,15,73,19,56,9,0,0,15
+	.db	45,0,73,19,0,0,16,1,1,11,15,73,19,0,0,17,33,0,47,15,0,0,18,22,0,3,8,58,15,59,15,57,15,73,19,0,0,19,21
+	.db	0,54,15,0,0,20,21,1,73,19,54,15,39,12,0,0,21,5,0,73,19,0,0,22,59,0,3,8,0,0,23,19,1,3,8,58,15,59,15,57
+	.db	15,11,15,0,0,24,53,0,73,19,0,0,25,52,0,3,8,58,15,59,15,57,15,73,19,63,12,60,12,0,0,26,19,1,58,15,59,15
+	.db	57,15,11,15,0,0,27,13,0,3,8,11,15,73,19,13,15,12,15,56,9,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line
+.L13:
+	.dw	.L100-.L99
+.L99:
+	.dh	3
+	.dw	.L102-.L101
+.L101:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\fpga\\processors\\c3000\\include\\pal_arch.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\generic\\interfaces\\spi\\include\\drv_spi.h",0
+	.db	0,0,0
+	.db	"Embedded\\utypes.h",0
+	.db	0,0,0
+	.db	"Embedded\\esc_hw.c",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Tasking\\c3000\\include\\stdint.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\services\\platform\\interrupts\\include\\interrupts.h",0
+	.db	0,0,0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\swplatform.h",0
+	.db	0,0,0,0
+.L102:
+.L100:
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_ESC_read')
+.L14:
+	.dw	296
+	.dh	3
+	.dw	.L15
+	.db	4,1
+	.db	"Embedded\\esc_hw.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L17,.L16
+	.db	2
+	.dw	.L10
+	.db	3
+	.db	"ESC_read",0
+	.db	1,45,6,1,1,1
+	.dw	.L7,.L24,.L6
+	.db	4
+	.db	"address",0
+	.db	1,45,24
+	.dw	.L25,.L26
+	.db	4
+	.db	"buf",0
+	.db	1,45,41
+	.dw	.L27,.L28
+	.db	4
+	.db	"len",0
+	.db	1,45,54
+	.dw	.L25,.L29
+	.db	4
+	.db	"tALevent",0
+	.db	1,45,67
+	.dw	.L27,.L30
+	.db	5
+	.dw	.L7,.L24
+	.db	6
+	.db	"count",0
+	.db	1,47,17
+	.dw	.L25,.L31
+	.db	6
+	.db	"ptr",0
+	.db	1,48,18
+	.dw	.L27,.L32
+	.db	6
+	.db	"adr",0
+	.db	1,49,17
+	.dw	.L33,.L34
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_ESC_read')
+.L15:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.db	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_ESC_read')
+.L16:
+	.dw	.L104-.L103
+.L103:
+	.dh	3
+	.dw	.L106-.L105
+.L105:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_hw.c",0
+	.db	0,0,0,0
+.L106:
+	.db	5,6,7,0,5,2
+	.dw	.L7
+	.db	3,44,1,5,22,9
+	.dh	.L47-.L7
+	.db	3,6,1,5,23
+	.db	15+9*((.L107-.L47)/4)
+	.db	5,49
+	.db	16+9*((.L108-.L107)/4)
+	.db	5,64
+	.db	16+9*((.L109-.L108)/4)
+	.db	5,10
+	.db	16+9*((.L110-.L109)/4)
+	.db	5,21
+	.db	14+9*((.L111-.L110)/4)
+	.db	5,10
+	.db	14+9*((.L112-.L111)/4)
+	.db	5,51
+	.db	15+9*((.L3-.L112)/4)
+	.db	5,10
+	.db	14+9*((.L113-.L3)/4)
+	.db	13+9*((.L114-.L113)/4)
+	.db	5,21
+	.db	14+9*((.L2-.L114)/4)
+	.db	7
+	.db	14+9*((.L115-.L2)/4)
+	.db	5,47
+	.db	16+9*((.L116-.L115)/4)
+	.db	5,22
+	.db	15+9*((.L117-.L116)/4)
+	.db	5,1
+	.db	15+9*((.L118-.L117)/4)
+	.db	9
+	.dh	.L18-.L118
+	.db	0,1,1
+.L104:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_ESC_read')
+.L17:
+	.dw	-1
+	.dw	.L7
+	.dw	0
+	.dw	.L18-.L7
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_ESC_write')
+.L19:
+	.dw	297
+	.dh	3
+	.dw	.L20
+	.db	4,1
+	.db	"Embedded\\esc_hw.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L22,.L21
+	.db	2
+	.dw	.L10
+	.db	3
+	.db	"ESC_write",0
+	.db	1,64,6,1,1,1
+	.dw	.L9,.L35,.L8
+	.db	4
+	.db	"address",0
+	.db	1,64,25
+	.dw	.L25,.L36
+	.db	4
+	.db	"buf",0
+	.db	1,64,43
+	.dw	.L27,.L37
+	.db	4
+	.db	"len",0
+	.db	1,64,57
+	.dw	.L25,.L38
+	.db	4
+	.db	"tALevent",0
+	.db	1,64,71
+	.dw	.L27,.L39
+	.db	5
+	.dw	.L9,.L35
+	.db	6
+	.db	"count",0
+	.db	1,66,17
+	.dw	.L25,.L40
+	.db	6
+	.db	"ptr",0
+	.db	1,67,18
+	.dw	.L27,.L41
+	.db	6
+	.db	"adr",0
+	.db	1,68,17
+	.dw	.L33,.L42
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_ESC_write')
+.L20:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.db	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_ESC_write')
+.L21:
+	.dw	.L120-.L119
+.L119:
+	.dh	3
+	.dw	.L122-.L121
+.L121:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_hw.c",0
+	.db	0,0,0,0
+.L122:
+	.db	5,6,7,0,5,2
+	.dw	.L9
+	.db	3,63,1,5,22,9
+	.dh	.L54-.L9
+	.db	3,6,1,5,23
+	.db	16+9*((.L123-.L54)/4)
+	.db	5,60
+	.db	15+9*((.L124-.L123)/4)
+	.db	5,76
+	.db	16+9*((.L125-.L124)/4)
+	.db	5,21
+	.db	16+9*((.L126-.L125)/4)
+	.db	5,76
+	.db	12+9*((.L127-.L126)/4)
+	.db	5,36
+	.db	17+9*((.L5-.L127)/4)
+	.db	5,40
+	.db	14+9*((.L128-.L5)/4)
+	.db	5,36
+	.db	14+9*((.L129-.L128)/4)
+	.db	5,15
+	.db	13+9*((.L4-.L129)/4)
+	.db	5,21
+	.db	14+9*((.L130-.L4)/4)
+	.db	5,15,7
+	.db	14+9*((.L131-.L130)/4)
+	.db	5,22
+	.db	16+9*((.L132-.L131)/4)
+	.db	5,1
+	.db	15+9*((.L133-.L132)/4)
+	.db	9
+	.dh	.L23-.L133
+	.db	0,1,1
+.L120:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_ESC_write')
+.L22:
+	.dw	-1
+	.dw	.L9
+	.dw	0
+	.dw	.L23-.L9
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_write')
+.L40:
+	.dw	0,0
+.L42:
+	.dw	-1
+	.dw	.L9,.L9-.L9,.L35-.L9
+	.dh	2
+	.db	145,124
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_read')
+.L31:
+	.dw	-1
+	.dw	.L7,.L3-.L7,.L24-.L7
+	.dh	1
+	.db	96
+	.dw	0,0
+.L28:
+	.dw	-1
+	.dw	.L7,.L46-.L7,.L24-.L7
+	.dh	1
+	.db	99
+	.dw	.L45-.L7,.L46-.L7
+	.dh	1
+	.db	85
+	.dw	.L7-.L7,.L44-.L7
+	.dh	1
+	.db	85
+	.dw	0,0
+.L30:
+	.dw	-1
+	.dw	.L7,.L47-.L7,.L24-.L7
+	.dh	1
+	.db	98
+	.dw	.L48-.L7,.L47-.L7
+	.dh	1
+	.db	87
+	.dw	.L7-.L7,.L44-.L7
+	.dh	1
+	.db	87
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_write')
+.L37:
+	.dw	-1
+	.dw	.L9,.L52-.L9,.L35-.L9
+	.dh	1
+	.db	99
+	.dw	.L51-.L9,.L52-.L9
+	.dh	1
+	.db	85
+	.dw	.L9-.L9,.L50-.L9
+	.dh	1
+	.db	85
+	.dw	0,0
+.L39:
+	.dw	-1
+	.dw	.L9,.L9-.L9,.L50-.L9
+	.dh	1
+	.db	87
+	.dw	.L54-.L9,.L35-.L9
+	.dh	1
+	.db	98
+	.dw	.L53-.L9,.L54-.L9
+	.dh	1
+	.db	87
+	.dw	0,0
+.L8:
+	.dw	-1
+	.dw	.L9,.L9-.L9,.L49-.L9
+	.dh	2
+	.db	141,0
+	.dw	.L49-.L9,.L35-.L9
+	.dh	2
+	.db	141,24
+	.dw	.L35-.L9,.L35-.L9
+	.dh	2
+	.db	141,0
+	.dw	0,0
+.L38:
+	.dw	-1
+	.dw	.L9,.L53-.L9,.L35-.L9
+	.dh	1
+	.db	97
+	.dw	.L52-.L9,.L53-.L9
+	.dh	1
+	.db	86
+	.dw	.L9-.L9,.L50-.L9
+	.dh	1
+	.db	86
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_read')
+.L34:
+	.dw	-1
+	.dw	.L7,.L7-.L7,.L24-.L7
+	.dh	2
+	.db	145,124
+	.dw	0,0
+.L6:
+	.dw	-1
+	.dw	.L7,.L7-.L7,.L43-.L7
+	.dh	2
+	.db	141,0
+	.dw	.L43-.L7,.L24-.L7
+	.dh	2
+	.db	141,24
+	.dw	.L24-.L7,.L24-.L7
+	.dh	2
+	.db	141,0
+	.dw	0,0
+.L32:
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_write')
+.L41:
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_read')
+.L26:
+	.dw	-1
+	.dw	.L7,.L45-.L7,.L3-.L7
+	.dh	1
+	.db	96
+	.dw	.L7-.L7,.L45-.L7
+	.dh	1
+	.db	84
+	.dw	0,0
+.L29:
+	.dw	-1
+	.dw	.L7,.L7-.L7,.L44-.L7
+	.dh	1
+	.db	86
+	.dw	.L46-.L7,.L48-.L7
+	.dh	1
+	.db	86
+	.dw	.L48-.L7,.L24-.L7
+	.dh	1
+	.db	97
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_write')
+.L36:
+	.dw	-1
+	.dw	.L9,.L9-.L9,.L51-.L9
+	.dh	1
+	.db	84
+	.dw	.L51-.L9,.L35-.L9
+	.dh	1
+	.db	96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_frame
+.L134:
+	.dw	40
+	.dw	-1
+	.db	3,0,4,1,31,12,29,0,8,0,8,29,8,31,8,1,8,16,8,17,8,18,8,19,8,20,8,21,8,22,8,23,8,28,8,30
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_ESC_read')
+	.dw	60
+	.dw	.L134,.L7,.L24-.L7
+	.db	4
+	.dw	(.L43-.L7)/4
+	.db	19,24,22,29,3,19,141,24,4
+	.dw	(.L44-.L43)/4
+	.db	17,31,104,17,16,108,17,17,112,17,18,116,17,19,120,4
+	.dw	(.L24-.L44)/4
+	.db	211,210,209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_ESC_write')
+	.dw	60
+	.dw	.L134,.L9,.L35-.L9
+	.db	4
+	.dw	(.L49-.L9)/4
+	.db	19,24,22,29,3,19,141,24,4
+	.dw	(.L50-.L49)/4
+	.db	17,31,104,17,16,108,17,17,112,17,18,116,17,19,120,4
+	.dw	(.L35-.L50)/4
+	.db	211,210,209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	; Module end
+	.end

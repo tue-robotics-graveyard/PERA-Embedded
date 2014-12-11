@@ -1,0 +1,208 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -l 30 -u 30
+esra_spartan6.ncd
+C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\ESRA_Spartan6_map.pcf
+
+Design file:              esra_spartan6.ncd
+Physical constraint file: ESRA_Spartan6_map.pcf
+Device,package,speed:     xc6slx25,ftg256,C,-3 (PRODUCTION 1.23 2013-10-13)
+Report level:             summary report, limited to 0 items per constraint
+                          unconstrained path report, limited to 30 items
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more 
+   information, see the TSI report.  Please consult the Xilinx Command Line 
+   Tools User Guide for information on generating a TSI report.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* Unconstrained path analysis               | SETUP       |         N/A|    14.836ns|     N/A|           0
+                                            | HOLD        |    -4.540ns|            |      65|      203015
+----------------------------------------------------------------------------------------------------------
+* TS_U25_CLKA_BUF = PERIOD TIMEGRP "U25_CLK | SETUP       |    -3.500ns|    20.535ns|    1017|      834848
+  A_BUF" TS_CLK_BRD * 1.6 HIGH 50%          | HOLD        |     0.339ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_CLK_BRD = PERIOD TIMEGRP "TNM_CLK_BRD" | SETUP       |     9.883ns|    10.117ns|       0|           0
+   50 MHz HIGH 50%                          | HOLD        |     0.435ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_JTAG_NEXUS_TCK = PERIOD TIMEGRP "TNM_J | SETUP       |   989.080ns|    10.920ns|       0|           0
+  TAG_NEXUS_TCK" 1 MHz HIGH 50%             | HOLD        |     0.043ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Unconstrained OFFSET IN BEFORE analysis f | SETUP       |         N/A|     1.543ns|     N/A|           0
+  or clock "JTAG_NEXUS_TCK_ibuf"            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Unconstrained OFFSET OUT AFTER analysis f | MAXDELAY    |         N/A|    14.045ns|     N/A|           0
+  or clock "JTAG_NEXUS_TCK_ibuf"            |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Unconstrained OFFSET IN BEFORE analysis f | SETUP       |         N/A|     7.737ns|     N/A|           0
+  or clock "NamedSignal_CLK_MAIN"           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Unconstrained OFFSET OUT AFTER analysis f | MAXDELAY    |         N/A|    14.120ns|     N/A|           0
+  or clock "NamedSignal_CLK_MAIN"           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Unconstrained OFFSET IN BEFORE analysis f | SETUP       |         N/A|    -0.113ns|     N/A|           0
+  or clock "n66o"                           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  Unconstrained OFFSET OUT AFTER analysis f | MAXDELAY    |         N/A|     6.464ns|     N/A|           0
+  or clock "n66o"                           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_CLK_BRD
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_CLK_BRD                     |     20.000ns|     10.117ns|     32.856ns|            0|         1017|         3335|      3812760|
+| TS_U25_CLKA_BUF               |     12.500ns|     20.535ns|          N/A|         1017|            0|      3812760|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+2 constraints not met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock CLK_BRD
+------------+------------+------------+------------+------------+--------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                    | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)   | Phase  |
+------------+------------+------------+------------+------------+--------------------+--------+
+DAC_MISO    |    2.488(R)|      SLOW  |    1.929(R)|      SLOW  |NamedSignal_CLK_MAIN|   0.000|
+ENC_1_XP    |   -0.114(R)|      FAST  |    1.534(R)|      SLOW  |n66o                |   0.000|
+ENC_1_YP    |   -0.145(R)|      FAST  |    1.597(R)|      SLOW  |n66o                |   0.000|
+ENC_2_XP    |   -0.113(R)|      FAST  |    1.533(R)|      SLOW  |n66o                |   0.000|
+ENC_2_YP    |   -0.144(R)|      FAST  |    1.596(R)|      SLOW  |n66o                |   0.000|
+ENC_3_XP    |   -0.120(R)|      FAST  |    1.540(R)|      SLOW  |n66o                |   0.000|
+ENC_3_YP    |   -0.151(R)|      FAST  |    1.603(R)|      SLOW  |n66o                |   0.000|
+F_DQ1       |    3.027(R)|      SLOW  |    1.889(R)|      SLOW  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DI_1  |    7.048(R)|      SLOW  |   -2.675(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DI_2  |    5.946(R)|      SLOW  |   -2.410(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DI_3  |    7.737(R)|      SLOW  |   -2.977(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DI_4  |    7.499(R)|      SLOW  |    1.853(R)|      SLOW  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC0_DIN|    6.815(R)|      SLOW  |    2.029(R)|      SLOW  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC1_DIN|    6.762(R)|      SLOW  |    1.905(R)|      SLOW  |NamedSignal_CLK_MAIN|   0.000|
+SPI_EC_DIN  |    2.591(R)|      SLOW  |    1.779(R)|      SLOW  |NamedSignal_CLK_MAIN|   0.000|
+------------+------------+------------+------------+------------+--------------------+--------+
+
+Setup/Hold to clock JTAG_NEXUS_TCK
+--------------+------------+------------+------------+------------+-------------------+--------+
+              |Max Setup to|  Process   |Max Hold to |  Process   |                   | Clock  |
+Source        | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)  | Phase  |
+--------------+------------+------------+------------+------------+-------------------+--------+
+JTAG_NEXUS_TDI|    0.817(R)|      SLOW  |    1.781(R)|      SLOW  |JTAG_NEXUS_TCK_ibuf|   0.000|
+JTAG_NEXUS_TMS|    1.543(R)|      SLOW  |   -0.176(R)|      FAST  |JTAG_NEXUS_TCK_ibuf|   0.000|
+--------------+------------+------------+------------+------------+-------------------+--------+
+
+Clock CLK_BRD to Pad
+-------------+-----------------+------------+-----------------+------------+--------------------+--------+
+             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                    | Clock  |
+Destination  |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)   | Phase  |
+-------------+-----------------+------------+-----------------+------------+--------------------+--------+
+DAC_MOSI     |         8.954(R)|      SLOW  |         4.070(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+DAC_SCK      |         8.810(R)|      SLOW  |         4.009(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+DAC_SYNC     |         9.041(R)|      SLOW  |         4.147(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+ECAT_CLK     |         6.464(R)|      SLOW  |         2.898(R)|      FAST  |n66o                |   0.000|
+FRUN         |         9.122(R)|      SLOW  |         4.017(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+F_CLK        |         8.993(R)|      SLOW  |         4.133(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+F_DQ0        |         8.661(R)|      SLOW  |         3.967(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+F_S          |        10.313(R)|      SLOW  |         5.029(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M1_PWM_A     |        12.592(R)|      SLOW  |         5.364(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M1_PWM_B     |        12.664(R)|      SLOW  |         5.425(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M1_RESET_AB  |        13.766(R)|      SLOW  |         7.119(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M1_RESET_CD  |        13.025(R)|      SLOW  |         6.658(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M2_PWM_A     |        11.716(R)|      SLOW  |         4.804(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M2_PWM_B     |        11.262(R)|      SLOW  |         4.785(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M2_RESET_AB  |        12.748(R)|      SLOW  |         6.495(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M3_PWM_A     |        11.803(R)|      SLOW  |         5.208(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M3_PWM_B     |        11.829(R)|      SLOW  |         5.211(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+M3_RESET_CD  |        14.120(R)|      SLOW  |         7.319(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DO_1   |         9.695(R)|      SLOW  |         4.481(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DO_2   |         9.550(R)|      SLOW  |         4.404(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DO_3   |        10.098(R)|      SLOW  |         4.749(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPARE_DO_4   |         9.890(R)|      SLOW  |         4.644(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC0_CLK |         8.146(R)|      SLOW  |         3.706(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC0_DOUT|         7.734(R)|      SLOW  |         3.437(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC0_SEL |         8.123(R)|      SLOW  |         3.663(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC1_CLK |         7.927(R)|      SLOW  |         3.581(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC1_DOUT|         7.390(R)|      SLOW  |         3.187(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_ADC1_SEL |         7.690(R)|      SLOW  |         3.391(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_EC_CLK   |         8.209(R)|      SLOW  |         3.627(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_EC_DOUT  |         8.198(R)|      SLOW  |         3.618(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+SPI_EC_SEL   |         8.633(R)|      SLOW  |         3.862(R)|      FAST  |NamedSignal_CLK_MAIN|   0.000|
+-------------+-----------------+------------+-----------------+------------+--------------------+--------+
+
+Clock JTAG_NEXUS_TCK to Pad
+--------------+-----------------+------------+-----------------+------------+-------------------+--------+
+              |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                   | Clock  |
+Destination   |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)  | Phase  |
+--------------+-----------------+------------+-----------------+------------+-------------------+--------+
+JTAG_NEXUS_TDO|        14.045(R)|      SLOW  |         4.657(R)|      FAST  |JTAG_NEXUS_TCK_ibuf|   0.000|
+--------------+-----------------+------------+-----------------+------------+-------------------+--------+
+
+Clock to Setup on destination clock CLK_BRD
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK_BRD        |   16.000|         |         |         |
+JTAG_NEXUS_TCK |   14.836|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock JTAG_NEXUS_TCK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK_BRD        |   10.354|         |         |         |
+JTAG_NEXUS_TCK |   10.920|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 1082  Score: 1037863  (Setup/Max: 834848, Hold: 203015)
+
+Constraints cover 3887047 paths, 0 nets, and 26639 connections
+
+Design statistics:
+   Minimum period:  20.535ns   (Maximum frequency:  48.697MHz)
+   Minimum input required time before clock:   7.737ns
+   Maximum output delay after clock:  14.120ns
+
+
+Analysis completed Thu Dec 04 15:11:10 2014 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 358 MB
+
+
+

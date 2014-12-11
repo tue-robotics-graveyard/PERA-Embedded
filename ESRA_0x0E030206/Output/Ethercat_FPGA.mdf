@@ -1,0 +1,6 @@
+# space <name> <id> <mau size>
+space	system:sw:main	1	8
+# chip <name> <id> <mau size> <size> <type>
+chip	system:MCU	0	8	65536	blockram
+# map <space id> <start in space> <size in space> <chip id> <start on chip>
+map	1	0	65536	0	0

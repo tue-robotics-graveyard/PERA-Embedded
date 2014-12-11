@@ -1,0 +1,1504 @@
+.model BOOTLOADER_MASTER
+.inputs CLK
+.inputs RST
+.inputs ENABLE
+.outputs CPU_HOLD
+.outputs spi_CLK_O
+.outputs spi_RST_O
+.outputs spi_STB_O
+.outputs spi_CYC_O
+.inputs spi_ACK_I
+.outputs spi_ADR_O<2>
+.outputs spi_ADR_O<1>
+.outputs spi_ADR_O<0>
+.outputs spi_DAT_O<31>
+.outputs spi_DAT_O<30>
+.outputs spi_DAT_O<29>
+.outputs spi_DAT_O<28>
+.outputs spi_DAT_O<27>
+.outputs spi_DAT_O<26>
+.outputs spi_DAT_O<25>
+.outputs spi_DAT_O<24>
+.outputs spi_DAT_O<23>
+.outputs spi_DAT_O<22>
+.outputs spi_DAT_O<21>
+.outputs spi_DAT_O<20>
+.outputs spi_DAT_O<19>
+.outputs spi_DAT_O<18>
+.outputs spi_DAT_O<17>
+.outputs spi_DAT_O<16>
+.outputs spi_DAT_O<15>
+.outputs spi_DAT_O<14>
+.outputs spi_DAT_O<13>
+.outputs spi_DAT_O<12>
+.outputs spi_DAT_O<11>
+.outputs spi_DAT_O<10>
+.outputs spi_DAT_O<9>
+.outputs spi_DAT_O<8>
+.outputs spi_DAT_O<7>
+.outputs spi_DAT_O<6>
+.outputs spi_DAT_O<5>
+.outputs spi_DAT_O<4>
+.outputs spi_DAT_O<3>
+.outputs spi_DAT_O<2>
+.outputs spi_DAT_O<1>
+.outputs spi_DAT_O<0>
+.inputs spi_DAT_I<31>
+.inputs spi_DAT_I<30>
+.inputs spi_DAT_I<29>
+.inputs spi_DAT_I<28>
+.inputs spi_DAT_I<27>
+.inputs spi_DAT_I<26>
+.inputs spi_DAT_I<25>
+.inputs spi_DAT_I<24>
+.inputs spi_DAT_I<23>
+.inputs spi_DAT_I<22>
+.inputs spi_DAT_I<21>
+.inputs spi_DAT_I<20>
+.inputs spi_DAT_I<19>
+.inputs spi_DAT_I<18>
+.inputs spi_DAT_I<17>
+.inputs spi_DAT_I<16>
+.inputs spi_DAT_I<15>
+.inputs spi_DAT_I<14>
+.inputs spi_DAT_I<13>
+.inputs spi_DAT_I<12>
+.inputs spi_DAT_I<11>
+.inputs spi_DAT_I<10>
+.inputs spi_DAT_I<9>
+.inputs spi_DAT_I<8>
+.inputs spi_DAT_I<7>
+.inputs spi_DAT_I<6>
+.inputs spi_DAT_I<5>
+.inputs spi_DAT_I<4>
+.inputs spi_DAT_I<3>
+.inputs spi_DAT_I<2>
+.inputs spi_DAT_I<1>
+.inputs spi_DAT_I<0>
+.outputs spi_WE_O
+.outputs me_STB_O
+.outputs me_CYC_O
+.inputs me_ACK_I
+.outputs me_ADR_O<31>
+.outputs me_ADR_O<30>
+.outputs me_ADR_O<29>
+.outputs me_ADR_O<28>
+.outputs me_ADR_O<27>
+.outputs me_ADR_O<26>
+.outputs me_ADR_O<25>
+.outputs me_ADR_O<24>
+.outputs me_ADR_O<23>
+.outputs me_ADR_O<22>
+.outputs me_ADR_O<21>
+.outputs me_ADR_O<20>
+.outputs me_ADR_O<19>
+.outputs me_ADR_O<18>
+.outputs me_ADR_O<17>
+.outputs me_ADR_O<16>
+.outputs me_ADR_O<15>
+.outputs me_ADR_O<14>
+.outputs me_ADR_O<13>
+.outputs me_ADR_O<12>
+.outputs me_ADR_O<11>
+.outputs me_ADR_O<10>
+.outputs me_ADR_O<9>
+.outputs me_ADR_O<8>
+.outputs me_ADR_O<7>
+.outputs me_ADR_O<6>
+.outputs me_ADR_O<5>
+.outputs me_ADR_O<4>
+.outputs me_ADR_O<3>
+.outputs me_ADR_O<2>
+.outputs me_ADR_O<1>
+.outputs me_ADR_O<0>
+.inputs me_DAT_I<31>
+.inputs me_DAT_I<30>
+.inputs me_DAT_I<29>
+.inputs me_DAT_I<28>
+.inputs me_DAT_I<27>
+.inputs me_DAT_I<26>
+.inputs me_DAT_I<25>
+.inputs me_DAT_I<24>
+.inputs me_DAT_I<23>
+.inputs me_DAT_I<22>
+.inputs me_DAT_I<21>
+.inputs me_DAT_I<20>
+.inputs me_DAT_I<19>
+.inputs me_DAT_I<18>
+.inputs me_DAT_I<17>
+.inputs me_DAT_I<16>
+.inputs me_DAT_I<15>
+.inputs me_DAT_I<14>
+.inputs me_DAT_I<13>
+.inputs me_DAT_I<12>
+.inputs me_DAT_I<11>
+.inputs me_DAT_I<10>
+.inputs me_DAT_I<9>
+.inputs me_DAT_I<8>
+.inputs me_DAT_I<7>
+.inputs me_DAT_I<6>
+.inputs me_DAT_I<5>
+.inputs me_DAT_I<4>
+.inputs me_DAT_I<3>
+.inputs me_DAT_I<2>
+.inputs me_DAT_I<1>
+.inputs me_DAT_I<0>
+.outputs me_DAT_O<31>
+.outputs me_DAT_O<30>
+.outputs me_DAT_O<29>
+.outputs me_DAT_O<28>
+.outputs me_DAT_O<27>
+.outputs me_DAT_O<26>
+.outputs me_DAT_O<25>
+.outputs me_DAT_O<24>
+.outputs me_DAT_O<23>
+.outputs me_DAT_O<22>
+.outputs me_DAT_O<21>
+.outputs me_DAT_O<20>
+.outputs me_DAT_O<19>
+.outputs me_DAT_O<18>
+.outputs me_DAT_O<17>
+.outputs me_DAT_O<16>
+.outputs me_DAT_O<15>
+.outputs me_DAT_O<14>
+.outputs me_DAT_O<13>
+.outputs me_DAT_O<12>
+.outputs me_DAT_O<11>
+.outputs me_DAT_O<10>
+.outputs me_DAT_O<9>
+.outputs me_DAT_O<8>
+.outputs me_DAT_O<7>
+.outputs me_DAT_O<6>
+.outputs me_DAT_O<5>
+.outputs me_DAT_O<4>
+.outputs me_DAT_O<3>
+.outputs me_DAT_O<2>
+.outputs me_DAT_O<1>
+.outputs me_DAT_O<0>
+.outputs me_SEL_O<3>
+.outputs me_SEL_O<2>
+.outputs me_SEL_O<1>
+.outputs me_SEL_O<0>
+.outputs me_WE_O
+.outputs me_CLK_O
+.outputs me_RST_O
+.names CLK me_CLK_O
+1 1
+.names RST me_RST_O
+1 1
+.names ENABLE Start
+1 1
+.names me_CLK_O spi_CLK_O
+1 1
+.names me_RST_O spi_RST_O
+1 1
+.names spi_STB_O spi_CYC_O
+1 1
+.names me_ADR_O<0> spi_DAT_O<31>
+1 1
+.names me_ADR_O<0> spi_DAT_O<30>
+1 1
+.names me_ADR_O<0> spi_DAT_O<29>
+1 1
+.names me_ADR_O<0> spi_DAT_O<28>
+1 1
+.names me_ADR_O<0> spi_DAT_O<27>
+1 1
+.names me_ADR_O<0> spi_DAT_O<26>
+1 1
+.names me_ADR_O<0> spi_DAT_O<25>
+1 1
+.names me_ADR_O<0> spi_DAT_O<24>
+1 1
+.names me_ADR_O<0> spi_DAT_O<23>
+1 1
+.names me_ADR_O<0> spi_DAT_O<22>
+1 1
+.names me_ADR_O<0> spi_DAT_O<21>
+1 1
+.names me_ADR_O<0> spi_DAT_O<20>
+1 1
+.names me_ADR_O<0> spi_DAT_O<19>
+1 1
+.names me_ADR_O<0> spi_DAT_O<18>
+1 1
+.names me_ADR_O<0> spi_DAT_O<17>
+1 1
+.names me_ADR_O<0> spi_DAT_O<16>
+1 1
+.names me_ADR_O<0> spi_DAT_O<15>
+1 1
+.names me_ADR_O<0> spi_DAT_O<14>
+1 1
+.names me_ADR_O<0> spi_DAT_O<13>
+1 1
+.names me_ADR_O<0> spi_DAT_O<12>
+1 1
+.names me_ADR_O<0> spi_DAT_O<11>
+1 1
+.names me_ADR_O<0> spi_DAT_O<10>
+1 1
+.names me_ADR_O<0> spi_DAT_O<9>
+1 1
+.names me_ADR_O<0> spi_DAT_O<8>
+1 1
+.names me_ADR_O<0> spi_DAT_O<7>
+1 1
+.names me_ADR_O<0> spi_DAT_O<6>
+1 1
+.names spi_DAT_O<4> spi_DAT_O<5>
+1 1
+.names me_ADR_O<0> spi_DAT_O<2>
+1 1
+.names fReturnStateNext_sspisendcodelocation1 spi_DAT_O<0>
+1 1
+.names me_CYC_O me_STB_O
+1 1
+.names me_ADR_O<0> me_ADR_O<1>
+1 1
+.names me_WE_O me_SEL_O<3>
+1 1
+.names me_WE_O me_SEL_O<2>
+1 1
+.names me_WE_O me_SEL_O<1>
+1 1
+.names me_WE_O me_SEL_O<0>
+1 1
+.names me_ADR_O<0>
+.names me_WE_O
+1
+.names MemoryDone n54
+0 1
+.names fState_sbootloaderfinished n37
+0 1
+.names n37 Start CPU_HOLD
+11 1
+.names fState_sspiresetexit Start n41
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1173 CI=-i1173/CI DI=-i1173/DI S=-i1173/S O=+add_420/n4
+.names add_420/n2 i1173/CI
+1 1
+.names me_ADR_O<4> i1173/DI
+1 1
+.names me_ADR_O<4> i1173/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1156 CI=-i1156/CI DI=-i1156/DI S=-i1156/S O=+add_420/n46
+.names add_420/n44 i1156/CI
+1 1
+.names me_ADR_O<25> i1156/DI
+1 1
+.names me_ADR_O<25> i1156/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1171 CI=-i1171/CI LI=-i1171/LI O=+n428
+.names add_420/n52 i1171/CI
+1 1
+.names me_ADR_O<29> i1171/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1174 CI=-i1174/CI LI=-i1174/LI O=+n453
+.names add_420/n2 i1174/CI
+1 1
+.names me_ADR_O<4> i1174/LI
+1 1
+.names Start n1073
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1168 CI=-i1168/CI LI=-i1168/LI O=+n437
+.names add_420/n34 i1168/CI
+1 1
+.names me_ADR_O<20> i1168/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1165 CI=-i1165/CI LI=-i1165/LI O=+n424
+.names add_420/n60 i1165/CI
+1 1
+.names WishboneAddress<31> i1165/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1167 CI=-i1167/CI DI=-i1167/DI S=-i1167/S O=+add_420/n36
+.names add_420/n34 i1167/CI
+1 1
+.names me_ADR_O<20> i1167/DI
+1 1
+.names me_ADR_O<20> i1167/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1153 CI=-i1153/CI DI=-i1153/DI S=-i1153/S O=+add_420/n6
+.names add_420/n4 i1153/CI
+1 1
+.names me_ADR_O<5> i1153/DI
+1 1
+.names me_ADR_O<5> i1153/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1154 CI=-i1154/CI LI=-i1154/LI O=+n452
+.names add_420/n4 i1154/CI
+1 1
+.names me_ADR_O<5> i1154/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1170 CI=-i1170/CI DI=-i1170/DI S=-i1170/S O=+add_420/n54
+.names add_420/n52 i1170/CI
+1 1
+.names me_ADR_O<29> i1170/DI
+1 1
+.names me_ADR_O<29> i1170/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1148 CI=-i1148/CI LI=-i1148/LI O=+n425
+.names add_420/n58 i1148/CI
+1 1
+.names WishboneAddress<30> i1148/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1147 CI=-i1147/CI DI=-i1147/DI S=-i1147/S O=+add_420/n60
+.names add_420/n58 i1147/CI
+1 1
+.names WishboneAddress<30> i1147/DI
+1 1
+.names WishboneAddress<30> i1147/S
+1 1
+.names spi_DAT_I<0> n56
+0 1
+.names spi_ACK_I n56 n57
+11 1
+.names fReturnState_sidle n57 fState_sidle n58
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 fState_sspiresetexit n59
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 fState_sspiwritedivisor n60
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 fState_sspipreparecommand n61
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 fReturnStateNext_sspisendcodelocation1 n62
+11- 1
+-01 1
+.names fReturnState_sspisendcodelocation1 n57 fReturnStateNext_sspisendcodelocation2 n63
+11- 1
+-01 1
+.names fReturnState_sspisendcodelocation2 n57 fReturnStateNext_sspisendcodelocation3 n64
+11- 1
+-01 1
+.names fReturnState_sspisendcodelocation3 n57 fReturnStateNext_sspisendreceivebyte n65
+11- 1
+-01 1
+.names fReturnState_sspisendreceivebyte n57 fReturnStateNext_sspiregisterbyte n66
+11- 1
+-01 1
+.names fReturnState_sspiregisterbyte n57 SaveDataByte n67
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 spi_DAT_O<3> n68
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 fState_sspibusy n69
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 spi_Read n70
+11- 1
+-01 1
+.names fReturnState_sspicorecleanup n57 fState_sbootloaderfinished n71
+11- 1
+-01 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1150 CI=-i1150/CI DI=-i1150/DI S=-i1150/S O=+add_420/n50
+.names add_420/n48 i1150/CI
+1 1
+.names me_ADR_O<27> i1150/DI
+1 1
+.names me_ADR_O<27> i1150/S
+1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<27>
+.latch n430 me_ADR_O<27> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<28>
+.latch n429 me_ADR_O<28> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<29>
+.latch n428 me_ADR_O<29> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<30>
+.latch n427 me_ADR_O<30> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<31>
+.latch n426 me_ADR_O<31> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 WishboneAddress<30>
+.latch n425 WishboneAddress<30> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 WishboneAddress<31>
+.latch n424 WishboneAddress<31> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1238 CI=-i1238/CI DI=-i1238/DI S=-i1238/S O=+add_420/n30
+.names add_420/n28 i1238/CI
+1 1
+.names me_ADR_O<17> i1238/DI
+1 1
+.names me_ADR_O<17> i1238/S
+1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 ByteCounter<0>
+.latch n386 ByteCounter<0> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 ByteCounter<1>
+.latch n385 ByteCounter<1> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 ByteCounter<2>
+.latch n384 ByteCounter<2> re me_CLK_O 1 me_RST_O SaveDataByte
+.names fState_sspibusy n1073 n51
+11 1
+.names me_ADR_O<22> me_ADR_O<23> reduce_nor_454/n19
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1212 CI=-i1212/CI LI=-i1212/LI O=+n445
+.names add_420/n18 i1212/CI
+1 1
+.names me_ADR_O<12> i1212/LI
+1 1
+.names fState_sidle n40 Select_103/temp_select_0
+11 1
+.names n103 me_ADR_O<0> Select_103/temp_select_1
+11 1
+.names spi_Read n58 Select_103/temp_select_2
+11 1
+.names fState_sbootloaderfinished n1073 Select_103/temp_select_3
+11 1
+.names Select_103/temp_select_0 Select_103/temp_select_1 Select_103/temp_select_2 Select_103/temp_select_3 fStateNext_sidle
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1206 CI=-i1206/CI LI=-i1206/LI O=+n451
+.names add_420/n6 i1206/CI
+1 1
+.names me_ADR_O<6> i1206/LI
+1 1
+.names fState_sidle n41 Select_105/temp_select_0
+11 1
+.names n105 me_ADR_O<0> Select_105/temp_select_1
+11 1
+.names spi_Read n59 Select_105/temp_select_2
+11 1
+.names Select_105/temp_select_0 Select_105/temp_select_1 Select_105/temp_select_2 fStateNext_sspiresetexit
+1-- 1
+-1- 1
+--1 1
+.names fState_sbootloaderfinished fState_sspibusy reduce_or_108/n1
+1- 1
+-1 1
+.names fState_sidle n42 Select_107/temp_select_0
+11 1
+.names fState_sspiresetexit me_WE_O Select_107/temp_select_1
+11 1
+.names n107 me_ADR_O<0> Select_107/temp_select_2
+11 1
+.names spi_Read n60 Select_107/temp_select_3
+11 1
+.names Select_107/temp_select_0 Select_107/temp_select_1 Select_107/temp_select_2 Select_107/temp_select_3 fStateNext_sspiwritedivisor
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1209 CI=-i1209/CI LI=-i1209/LI O=+n448
+.names add_420/n12 i1209/CI
+1 1
+.names me_ADR_O<9> i1209/LI
+1 1
+.names fState_sidle n43 Select_109/temp_select_0
+11 1
+.names n109 me_ADR_O<0> Select_109/temp_select_1
+11 1
+.names fState_sspiwritedivisor me_WE_O Select_109/temp_select_2
+11 1
+.names spi_Read n61 Select_109/temp_select_3
+11 1
+.names Select_109/temp_select_0 Select_109/temp_select_1 Select_109/temp_select_2 Select_109/temp_select_3 fStateNext_sspipreparecommand
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.names me_CYC_O n1100 n632
+11 1
+.names fState_sidle n44 Select_111/temp_select_0
+11 1
+.names n111 me_ADR_O<0> Select_111/temp_select_1
+11 1
+.names fState_sspipreparecommand me_WE_O Select_111/temp_select_2
+11 1
+.names spi_Read n62 Select_111/temp_select_3
+11 1
+.names Select_111/temp_select_0 Select_111/temp_select_1 Select_111/temp_select_2 Select_111/temp_select_3 fStateNext_sspisendreadcommand
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.names reduce_nor_454/n8 reduce_nor_454/n9 reduce_nor_454/n10
+1- 1
+-1 1
+.names fState_sidle n45 Select_113/temp_select_0
+11 1
+.names n105 me_ADR_O<0> Select_113/temp_select_1
+11 1
+.names spi_Read n63 Select_113/temp_select_2
+11 1
+.names Select_113/temp_select_0 Select_113/temp_select_1 Select_113/temp_select_2 fStateNext_sspisendcodelocation1
+1-- 1
+-1- 1
+--1 1
+.names me_ADR_O<8> me_ADR_O<9> reduce_nor_454/n5
+1- 1
+-1 1
+.names fState_sidle n46 Select_115/temp_select_0
+11 1
+.names n105 me_ADR_O<0> Select_115/temp_select_1
+11 1
+.names spi_Read n64 Select_115/temp_select_2
+11 1
+.names Select_115/temp_select_0 Select_115/temp_select_1 Select_115/temp_select_2 fStateNext_sspisendcodelocation2
+1-- 1
+-1- 1
+--1 1
+.names fState_sidle n47 Select_117/temp_select_0
+11 1
+.names n105 me_ADR_O<0> Select_117/temp_select_1
+11 1
+.names spi_Read n65 Select_117/temp_select_2
+11 1
+.names Select_117/temp_select_0 Select_117/temp_select_1 Select_117/temp_select_2 fStateNext_sspisendcodelocation3
+1-- 1
+-1- 1
+--1 1
+.names fState_sspibusy spi_DAT_O<3> reduce_or_124/n1
+1- 1
+-1 1
+.names fState_sidle n48 Select_119/temp_select_0
+11 1
+.names n119 me_ADR_O<0> Select_119/temp_select_1
+11 1
+.names SaveDataByte n54 Select_119/temp_select_2
+11 1
+.names spi_Read n66 Select_119/temp_select_3
+11 1
+.names Select_119/temp_select_0 Select_119/temp_select_1 Select_119/temp_select_2 Select_119/temp_select_3 fStateNext_sspisendreceivebyte
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.names fState_sidle n49 Select_121/temp_select_0
+11 1
+.names n105 me_ADR_O<0> Select_121/temp_select_1
+11 1
+.names spi_Read n67 Select_121/temp_select_2
+11 1
+.names Select_121/temp_select_0 Select_121/temp_select_1 Select_121/temp_select_2 fStateNext_sspiregisterbyte
+1-- 1
+-1- 1
+--1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnState_sidle
+.latch fReturnStateNext_sidle fReturnState_sidle re me_CLK_O 1 me_RST_O SaveReturnState
+.names fState_sidle n50 Select_123/temp_select_0
+11 1
+.names n119 me_ADR_O<0> Select_123/temp_select_1
+11 1
+.names SaveDataByte MemoryDone Select_123/temp_select_2
+11 1
+.names spi_Read n68 Select_123/temp_select_3
+11 1
+.names Select_123/temp_select_0 Select_123/temp_select_1 Select_123/temp_select_2 Select_123/temp_select_3 fStateNext_sspicorecleanup
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1208 CI=-i1208/CI DI=-i1208/DI S=-i1208/S O=+add_420/n14
+.names add_420/n12 i1208/CI
+1 1
+.names me_ADR_O<9> i1208/DI
+1 1
+.names me_ADR_O<9> i1208/S
+1 1
+.names fState_sbootloaderfinished spi_DAT_O<3> reduce_or_127/n1
+1- 1
+-1 1
+.names fState_sidle n51 Select_126/temp_select_0
+11 1
+.names n125 me_ADR_O<0> Select_126/temp_select_1
+11 1
+.names SaveReturnState me_WE_O Select_126/temp_select_2
+11 1
+.names spi_Read n69 Select_126/temp_select_3
+11 1
+.names Select_126/temp_select_0 Select_126/temp_select_1 Select_126/temp_select_2 Select_126/temp_select_3 fStateNext_sspibusy
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.names fState_sspibusy SaveDataByte reduce_or_129/n1
+1- 1
+-1 1
+.names fState_sidle n52 Select_128/temp_select_0
+11 1
+.names n128 me_ADR_O<0> Select_128/temp_select_1
+11 1
+.names fState_sspibusy me_WE_O Select_128/temp_select_2
+11 1
+.names spi_Read n70 Select_128/temp_select_3
+11 1
+.names Select_128/temp_select_0 Select_128/temp_select_1 Select_128/temp_select_2 Select_128/temp_select_3 fStateNext_sspibusyyouwish
+1--- 1
+-1-- 1
+--1- 1
+---1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1151 CI=-i1151/CI LI=-i1151/LI O=+n430
+.names add_420/n48 i1151/CI
+1 1
+.names me_ADR_O<27> i1151/LI
+1 1
+.names fState_sidle n53 Select_130/temp_select_0
+11 1
+.names n130 me_ADR_O<0> Select_130/temp_select_1
+11 1
+.names spi_DAT_O<3> me_WE_O Select_130/temp_select_2
+11 1
+.names spi_Read n71 Select_130/temp_select_3
+11 1
+.names fState_sbootloaderfinished Start Select_130/temp_select_4
+11 1
+.names Select_130/temp_select_0 Select_130/temp_select_1 Select_130/temp_select_2 Select_130/temp_select_3 Select_130/temp_select_4 fStateNext_sbootloaderfinished
+1---- 1
+-1--- 1
+--1-- 1
+---1- 1
+----1 1
+.names fState_sspiwritedivisor spi_Read spi_ADR_O<2>
+1- 1
+-1 1
+.names fState_sspipreparecommand spi_DAT_O<3> spi_ADR_O<1>
+1- 1
+-1 1
+.names fReturnStateNext_sspisendcodelocation1 fState_sspiwritedivisor reduce_or_149/n1
+1- 1
+-1 1
+.names fState_sspiwritedivisor spi_DAT_O<3> spi_DAT_O<4>
+1- 1
+-1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnState_sspisendcodelocation1
+.latch fReturnStateNext_sspisendcodelocation1 fReturnState_sspisendcodelocation1 re me_CLK_O 0 me_RST_O SaveReturnState
+.names spi_Read fState_sspibusy reduce_or_153/n1
+1- 1
+-1 1
+.names n154 spi_WE_O
+0 1
+.names SaveDataByte n1073 n49
+11 1
+.names reduce_nor_454/n15 reduce_nor_454/n30 reduce_nor_454/n31
+1- 1
+-1 1
+.names spi_DAT_O<3> n1073 n50
+11 1
+.names reduce_nor_454/n4 reduce_nor_454/n5 reduce_nor_454/n6
+1- 1
+-1 1
+.names me_ADR_O<14> me_ADR_O<15> reduce_nor_454/n11
+1- 1
+-1 1
+.names reduce_nor_454/n7 reduce_nor_454/n14 reduce_nor_454/n15
+1- 1
+-1 1
+.names me_ADR_O<28> me_ADR_O<29> reduce_nor_454/n24
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1224 CI=-i1224/CI LI=-i1224/LI O=+n444
+.names add_420/n20 i1224/CI
+1 1
+.names me_ADR_O<13> i1224/LI
+1 1
+.names WishboneAddress<30> WishboneAddress<31> reduce_nor_454/n27
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1232 CI=-i1232/CI DI=-i1232/DI S=-i1232/S O=+add_420/n18
+.names add_420/n16 i1232/CI
+1 1
+.names me_ADR_O<11> i1232/DI
+1 1
+.names me_ADR_O<11> i1232/S
+1 1
+.names reduce_nor_454/n31 n488
+0 1
+.names me_ADR_O<24> me_ADR_O<25> reduce_nor_454/n20
+1- 1
+-1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fState_sidle
+.latch fStateNext_sidle fState_sidle re me_CLK_O 1 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fState_sspiresetexit
+.latch fStateNext_sspiresetexit fState_sspiresetexit re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fState_sspiwritedivisor
+.latch fStateNext_sspiwritedivisor fState_sspiwritedivisor re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fState_sspipreparecommand
+.latch fStateNext_sspipreparecommand fState_sspipreparecommand re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnStateNext_sspisendcodelocation1
+.latch fStateNext_sspisendreadcommand fReturnStateNext_sspisendcodelocation1 re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnStateNext_sspisendcodelocation2
+.latch fStateNext_sspisendcodelocation1 fReturnStateNext_sspisendcodelocation2 re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnStateNext_sspisendcodelocation3
+.latch fStateNext_sspisendcodelocation2 fReturnStateNext_sspisendcodelocation3 re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnStateNext_sspisendreceivebyte
+.latch fStateNext_sspisendcodelocation3 fReturnStateNext_sspisendreceivebyte re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnStateNext_sspiregisterbyte
+.latch fStateNext_sspisendreceivebyte fReturnStateNext_sspiregisterbyte re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 SaveDataByte
+.latch fStateNext_sspiregisterbyte SaveDataByte re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 spi_DAT_O<3>
+.latch fStateNext_sspicorecleanup spi_DAT_O<3> re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fState_sspibusy
+.latch fStateNext_sspibusy fState_sspibusy re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 spi_Read
+.latch fStateNext_sspibusyyouwish spi_Read re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fState_sbootloaderfinished
+.latch fStateNext_sbootloaderfinished fState_sbootloaderfinished re me_CLK_O 0 me_RST_O
+.names SaveReturnState fReturnStateNext_sidle
+0 1
+.names me_ADR_O<4> me_ADR_O<5> reduce_nor_454/n2
+1- 1
+-1 1
+.names reduce_nor_454/n3 reduce_nor_454/n6 reduce_nor_454/n7
+1- 1
+-1 1
+.names n487 me_ADR_O<17> reduce_nor_454/n12
+1- 1
+-1 1
+.names me_ADR_O<18> me_ADR_O<19> reduce_nor_454/n16
+1- 1
+-1 1
+.names reduce_nor_454/n23 reduce_nor_454/n24 reduce_nor_454/n25
+1- 1
+-1 1
+.names reduce_nor_454/n26 reduce_nor_454/n27 reduce_nor_454/n28
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1233 CI=-i1233/CI LI=-i1233/LI O=+n446
+.names add_420/n16 i1233/CI
+1 1
+.names me_ADR_O<11> i1233/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1227 CI=-i1227/CI LI=-i1227/LI O=+n441
+.names add_420/n26 i1227/CI
+1 1
+.names me_ADR_O<16> i1227/LI
+1 1
+.names reduce_nor_454/n19 reduce_nor_454/n20 reduce_nor_454/n21
+1- 1
+-1 1
+.names me_ADR_O<6> me_ADR_O<7> reduce_nor_454/n4
+1- 1
+-1 1
+.names me_ADR_O<12> me_ADR_O<13> reduce_nor_454/n9
+1- 1
+-1 1
+.names reduce_nor_454/n10 reduce_nor_454/n13 reduce_nor_454/n14
+1- 1
+-1 1
+.names me_ADR_O<26> me_ADR_O<27> reduce_nor_454/n23
+1- 1
+-1 1
+.names me_ADR_O<30> me_ADR_O<31> reduce_nor_454/n26
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1230 CI=-i1230/CI LI=-i1230/LI O=+n449
+.names add_420/n10 i1230/CI
+1 1
+.names me_ADR_O<8> i1230/LI
+1 1
+.names reduce_nor_454/n22 reduce_nor_454/n29 reduce_nor_454/n30
+1- 1
+-1 1
+.names reduce_nor_454/n16 reduce_nor_454/n17 reduce_nor_454/n18
+1- 1
+-1 1
+.names ByteCounter<2> n1124
+0 1
+.names reduce_nor_454/n1 reduce_nor_454/n2 reduce_nor_454/n3
+1- 1
+-1 1
+.names me_ADR_O<10> me_ADR_O<11> reduce_nor_454/n8
+1- 1
+-1 1
+.names reduce_nor_454/n11 reduce_nor_454/n12 reduce_nor_454/n13
+1- 1
+-1 1
+.names me_ADR_O<20> me_ADR_O<21> reduce_nor_454/n17
+1- 1
+-1 1
+.names reduce_nor_454/n25 reduce_nor_454/n28 reduce_nor_454/n29
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1235 CI=-i1235/CI DI=-i1235/DI S=-i1235/S O=+add_420/n24
+.names add_420/n22 i1235/CI
+1 1
+.names me_ADR_O<14> i1235/DI
+1 1
+.names me_ADR_O<14> i1235/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1229 CI=-i1229/CI DI=-i1229/DI S=-i1229/S O=+add_420/n12
+.names add_420/n10 i1229/CI
+1 1
+.names me_ADR_O<8> i1229/DI
+1 1
+.names me_ADR_O<8> i1229/S
+1 1
+.names reduce_nor_454/n18 reduce_nor_454/n21 reduce_nor_454/n22
+1- 1
+-1 1
+.names spi_WE_O spi_Read spi_STB_O
+1- 1
+-1 1
+.names ByteCounter<1> n1127
+0 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 MemoryDone
+.latch me_WE_O MemoryDone re me_CLK_O 0 me_RST_O n488
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<0>
+.latch spi_DAT_I<0> me_DAT_O<0> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<1>
+.latch spi_DAT_I<1> me_DAT_O<1> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<2>
+.latch spi_DAT_I<2> me_DAT_O<2> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<3>
+.latch spi_DAT_I<3> me_DAT_O<3> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<4>
+.latch spi_DAT_I<4> me_DAT_O<4> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<5>
+.latch spi_DAT_I<5> me_DAT_O<5> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<6>
+.latch spi_DAT_I<6> me_DAT_O<6> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<7>
+.latch spi_DAT_I<7> me_DAT_O<7> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<8>
+.latch me_DAT_O<0> me_DAT_O<8> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<9>
+.latch me_DAT_O<1> me_DAT_O<9> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<10>
+.latch me_DAT_O<2> me_DAT_O<10> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<11>
+.latch me_DAT_O<3> me_DAT_O<11> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<12>
+.latch me_DAT_O<4> me_DAT_O<12> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<13>
+.latch me_DAT_O<5> me_DAT_O<13> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<14>
+.latch me_DAT_O<6> me_DAT_O<14> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<15>
+.latch me_DAT_O<7> me_DAT_O<15> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<16>
+.latch me_DAT_O<8> me_DAT_O<16> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<17>
+.latch me_DAT_O<9> me_DAT_O<17> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<18>
+.latch me_DAT_O<10> me_DAT_O<18> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<19>
+.latch me_DAT_O<11> me_DAT_O<19> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<20>
+.latch me_DAT_O<12> me_DAT_O<20> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<21>
+.latch me_DAT_O<13> me_DAT_O<21> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<22>
+.latch me_DAT_O<14> me_DAT_O<22> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<23>
+.latch me_DAT_O<15> me_DAT_O<23> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<24>
+.latch me_DAT_O<16> me_DAT_O<24> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<25>
+.latch me_DAT_O<17> me_DAT_O<25> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<26>
+.latch me_DAT_O<18> me_DAT_O<26> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<27>
+.latch me_DAT_O<19> me_DAT_O<27> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<28>
+.latch me_DAT_O<20> me_DAT_O<28> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<29>
+.latch me_DAT_O<21> me_DAT_O<29> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<30>
+.latch me_DAT_O<22> me_DAT_O<30> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_DAT_O<31>
+.latch me_DAT_O<23> me_DAT_O<31> re me_CLK_O 0 me_RST_O SaveDataByte
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<2>
+.latch n422 me_ADR_O<2> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<3>
+.latch n454 me_ADR_O<3> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<4>
+.latch n453 me_ADR_O<4> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<5>
+.latch n452 me_ADR_O<5> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<6>
+.latch n451 me_ADR_O<6> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<7>
+.latch n450 me_ADR_O<7> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<8>
+.latch n449 me_ADR_O<8> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<9>
+.latch n448 me_ADR_O<9> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<10>
+.latch n447 me_ADR_O<10> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<11>
+.latch n446 me_ADR_O<11> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<12>
+.latch n445 me_ADR_O<12> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<13>
+.latch n444 me_ADR_O<13> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<14>
+.latch n443 me_ADR_O<14> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<15>
+.latch n442 me_ADR_O<15> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<16>
+.latch n441 me_ADR_O<16> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<17>
+.latch n440 me_ADR_O<17> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<18>
+.latch n439 me_ADR_O<18> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnState_sspicorecleanup
+.latch me_ADR_O<0> fReturnState_sspicorecleanup re me_CLK_O 0 me_RST_O SaveReturnState
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<19>
+.latch n438 me_ADR_O<19> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<20>
+.latch n437 me_ADR_O<20> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.names ByteCounter<0> n378
+0 1
+.names n382 IsByteCounterZero n385
+1- 1
+-1 1
+.names n378 IsByteCounterZero n386
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1162 CI=-i1162/CI DI=-i1162/DI S=-i1162/S O=+add_420/n52
+.names add_420/n50 i1162/CI
+1 1
+.names me_ADR_O<28> i1162/DI
+1 1
+.names me_ADR_O<28> i1162/S
+1 1
+.names reduce_or_129/n1 reduce_or_129/n3 reduce_or_129/n4
+1- 1
+-1 1
+.names reduce_or_127/n2 reduce_or_125/n3 SaveReturnState
+1- 1
+-1 1
+.names fMeState_sidle n634 n628
+11 1
+.names spi_DAT_O<3> reduce_or_110/n2 reduce_or_110/n3
+1- 1
+-1 1
+.names reduce_or_110/n6 reduce_or_106/n8 reduce_or_106/n9
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1188 CI=-i1188/CI DI=-i1188/DI S=-i1188/S O=+add_420/n56
+.names add_420/n54 i1188/CI
+1 1
+.names me_ADR_O<30> i1188/DI
+1 1
+.names me_ADR_O<30> i1188/S
+1 1
+.names reduce_or_124/n1 reduce_or_127/n3 reduce_or_102/n4
+1- 1
+-1 1
+.names fState_sidle n1073 n40
+11 1
+.names reduce_or_127/n1 reduce_or_127/n3 reduce_or_127/n4
+1- 1
+-1 1
+.names spi_Read n1073 n52
+11 1
+.names fReturnStateNext_sspisendreceivebyte reduce_or_110/n5 reduce_or_110/n6
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1180 CI=-i1180/CI LI=-i1180/LI O=+n426
+.names add_420/n56 i1180/CI
+1 1
+.names me_ADR_O<31> i1180/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1183 CI=-i1183/CI LI=-i1183/LI O=+n438
+.names add_420/n32 i1183/CI
+1 1
+.names me_ADR_O<19> i1183/LI
+1 1
+.names fReturnStateNext_sspisendcodelocation3 n1073 n46
+11 1
+.names spi_DAT_O<3> reduce_or_106/n7 spi_ADR_O<0>
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1194 CI=-i1194/CI LI=-i1194/LI O=+n435
+.names add_420/n38 i1194/CI
+1 1
+.names me_ADR_O<22> i1194/LI
+1 1
+.names SaveDataByte fState_sspipreparecommand reduce_or_124/n3
+1- 1
+-1 1
+.names reduce_or_110/n6 reduce_or_110/n8 reduce_or_110/n9
+1- 1
+-1 1
+.names fMeState_saddressincrement IsByteCounterZero n638
+11 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1203 CI=-i1203/CI LI=-i1203/LI O=+n454
+.names me_ADR_O<2> i1203/CI
+1 1
+.names me_ADR_O<3> i1203/LI
+1 1
+.names reduce_or_102/n4 reduce_or_127/n9 n103
+1- 1
+-1 1
+.names fState_sspiresetexit fState_sidle reduce_or_153/n3
+1- 1
+-1 1
+.names reduce_or_127/n4 reduce_or_127/n9 n128
+1- 1
+-1 1
+.names reduce_or_124/n2 reduce_or_124/n5 n125
+1- 1
+-1 1
+.names spi_DAT_O<3> reduce_or_127/n2 reduce_or_118/n3
+1- 1
+-1 1
+.names reduce_or_110/n6 reduce_or_108/n8 reduce_or_108/n9
+1- 1
+-1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i1199 CI=-i1199/CI DI=-i1199/DI S=-i1199/S O=+add_379/n2
+.names ByteCounter<0> i1199/CI
+1 1
+.names ByteCounter<1> i1199/DI
+1 1
+.names n1127 i1199/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i1191 CI=-i1191/CI LI=-i1191/LI O=+n381
+.names add_379/n2 i1191/CI
+1 1
+.names n1124 i1191/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1223 CI=-i1223/CI DI=-i1223/DI S=-i1223/S O=+add_420/n22
+.names add_420/n20 i1223/CI
+1 1
+.names me_ADR_O<13> i1223/DI
+1 1
+.names me_ADR_O<13> i1223/S
+1 1
+.names me_ADR_O<2> n422
+0 1
+.names me_ADR_O<2> me_ADR_O<3> reduce_nor_454/n1
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1236 CI=-i1236/CI LI=-i1236/LI O=+n443
+.names add_420/n22 i1236/CI
+1 1
+.names me_ADR_O<14> i1236/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1241 CI=-i1241/CI DI=-i1241/DI S=-i1241/S O=+add_420/n42
+.names add_420/n40 i1241/CI
+1 1
+.names me_ADR_O<23> i1241/DI
+1 1
+.names me_ADR_O<23> i1241/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1221 CI=-i1221/CI LI=-i1221/LI O=+n447
+.names add_420/n14 i1221/CI
+1 1
+.names me_ADR_O<10> i1221/LI
+1 1
+.names me_ADR_O<16> n487
+0 1
+.names n634 IsByteCounterZero
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1220 CI=-i1220/CI DI=-i1220/DI S=-i1220/S O=+add_420/n16
+.names add_420/n14 i1220/CI
+1 1
+.names me_ADR_O<10> i1220/DI
+1 1
+.names me_ADR_O<10> i1220/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1215 CI=-i1215/CI LI=-i1215/LI O=+n442
+.names add_420/n24 i1215/CI
+1 1
+.names me_ADR_O<15> i1215/LI
+1 1
+.names ByteCounter<0> reduce_nor_592/n1 n634
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1214 CI=-i1214/CI DI=-i1214/DI S=-i1214/S O=+add_420/n26
+.names add_420/n24 i1214/CI
+1 1
+.names me_ADR_O<15> i1214/DI
+1 1
+.names me_ADR_O<15> i1214/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1242 CI=-i1242/CI LI=-i1242/LI O=+n434
+.names add_420/n40 i1242/CI
+1 1
+.names me_ADR_O<23> i1242/LI
+1 1
+.names ByteCounter<1> ByteCounter<2> reduce_nor_592/n1
+1- 1
+-1 1
+.names fState_sspipreparecommand n1073 n43
+11 1
+.names fReturnStateNext_sspiregisterbyte fReturnStateNext_sspisendreceivebyte reduce_or_127/n2
+1- 1
+-1 1
+.names n381 n634 n384
+11 1
+.names reduce_or_108/n1 reduce_or_110/n3 reduce_or_110/n4
+1- 1
+-1 1
+.names reduce_or_110/n4 reduce_or_106/n9 n107
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1186 CI=-i1186/CI LI=-i1186/LI O=+n433
+.names add_420/n42 i1186/CI
+1 1
+.names me_ADR_O<24> i1186/LI
+1 1
+.names fReturnStateNext_sspiregisterbyte n1073 n48
+11 1
+.names reduce_or_125/n2 reduce_or_127/n8 reduce_or_129/n8
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1197 CI=-i1197/CI LI=-i1197/LI O=+n439
+.names add_420/n30 i1197/CI
+1 1
+.names me_ADR_O<18> i1197/LI
+1 1
+.names reduce_or_118/n4 reduce_or_127/n9 n119
+1- 1
+-1 1
+.names fState_sspiwritedivisor fState_sspiresetexit reduce_or_110/n7
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1179 CI=-i1179/CI DI=-i1179/DI S=-i1179/S O=+add_420/n58
+.names add_420/n56 i1179/CI
+1 1
+.names me_ADR_O<31> i1179/DI
+1 1
+.names me_ADR_O<31> i1179/S
+1 1
+.names reduce_or_104/n5 reduce_or_127/n9 n105
+1- 1
+-1 1
+.names fReturnStateNext_sspisendcodelocation2 n1073 n45
+11 1
+.names spi_DAT_O<3> reduce_or_149/n1 spi_DAT_O<1>
+1- 1
+-1 1
+.names fState_sspipreparecommand reduce_or_110/n7 reduce_or_127/n8
+1- 1
+-1 1
+.names me_CYC_O IsByteCounterZero n637
+11 1
+.names reduce_or_110/n4 reduce_or_110/n9 n111
+1- 1
+-1 1
+.names fState_sspipreparecommand fState_sspiresetexit reduce_or_108/n7
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1202 CI=-i1202/CI DI=-i1202/DI S=-i1202/S O=+add_420/n2
+.names me_ADR_O<2> i1202/CI
+1 1
+.names me_ADR_O<3> i1202/DI
+1 1
+.names me_ADR_O<3> i1202/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1211 CI=-i1211/CI DI=-i1211/DI S=-i1211/S O=+add_420/n20
+.names add_420/n18 i1211/CI
+1 1
+.names me_ADR_O<12> i1211/DI
+1 1
+.names me_ADR_O<12> i1211/S
+1 1
+.names SaveDataByte reduce_or_153/n3 reduce_or_153/n4
+1- 1
+-1 1
+.names fReturnStateNext_sspisendreceivebyte fReturnStateNext_sspisendcodelocation3 reduce_or_129/n2
+1- 1
+-1 1
+.names fReturnStateNext_sspisendcodelocation2 fReturnStateNext_sspisendcodelocation1 reduce_or_125/n2
+1- 1
+-1 1
+.names reduce_or_108/n1 reduce_or_118/n3 reduce_or_118/n4
+1- 1
+-1 1
+.names reduce_or_110/n4 reduce_or_108/n9 n109
+1- 1
+-1 1
+.names fState_sspipreparecommand fState_sspiwritedivisor reduce_or_106/n7
+1- 1
+-1 1
+.names reduce_or_124/n2 reduce_or_127/n3 reduce_or_104/n5
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1218 CI=-i1218/CI LI=-i1218/LI O=+n450
+.names add_420/n8 i1218/CI
+1 1
+.names me_ADR_O<7> i1218/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1239 CI=-i1239/CI LI=-i1239/LI O=+n440
+.names add_420/n28 i1239/CI
+1 1
+.names me_ADR_O<17> i1239/LI
+1 1
+.names fState_sspiwritedivisor n1073 n42
+11 1
+.names SaveDataByte reduce_or_127/n2 reduce_or_127/n3
+1- 1
+-1 1
+.names fState_sbootloaderfinished n1073 n53
+11 1
+.names fReturnStateNext_sspisendcodelocation3 fReturnStateNext_sspisendcodelocation2 reduce_or_110/n5
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1182 CI=-i1182/CI DI=-i1182/DI S=-i1182/S O=+add_420/n34
+.names add_420/n32 i1182/CI
+1 1
+.names me_ADR_O<19> i1182/DI
+1 1
+.names me_ADR_O<19> i1182/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1185 CI=-i1185/CI DI=-i1185/DI S=-i1185/S O=+add_420/n44
+.names add_420/n42 i1185/CI
+1 1
+.names me_ADR_O<24> i1185/DI
+1 1
+.names me_ADR_O<24> i1185/S
+1 1
+.names fReturnStateNext_sspisendreceivebyte n1073 n47
+11 1
+.names reduce_or_129/n4 reduce_or_129/n8 n130
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1196 CI=-i1196/CI DI=-i1196/DI S=-i1196/S O=+add_420/n32
+.names add_420/n30 i1196/CI
+1 1
+.names me_ADR_O<18> i1196/DI
+1 1
+.names me_ADR_O<18> i1196/S
+1 1
+.names fState_sbootloaderfinished reduce_or_124/n1 reduce_or_124/n2
+1- 1
+-1 1
+.names fReturnStateNext_sspisendcodelocation1 reduce_or_110/n7 reduce_or_110/n8
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1177 CI=-i1177/CI LI=-i1177/LI O=+n436
+.names add_420/n36 i1177/CI
+1 1
+.names me_ADR_O<21> i1177/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1205 CI=-i1205/CI DI=-i1205/DI S=-i1205/S O=+add_420/n8
+.names add_420/n6 i1205/CI
+1 1
+.names me_ADR_O<6> i1205/DI
+1 1
+.names me_ADR_O<6> i1205/S
+1 1
+.names fReturnStateNext_sspisendcodelocation1 n1073 n44
+11 1
+.names fState_sbootloaderfinished reduce_or_153/n1 reduce_or_153/n2
+1- 1
+-1 1
+.names reduce_or_125/n3 reduce_or_127/n8 reduce_or_127/n9
+1- 1
+-1 1
+.names reduce_or_124/n3 reduce_or_110/n7 reduce_or_124/n5
+1- 1
+-1 1
+.names fMeState_sidle n1100 n631
+11 1
+.names fReturnStateNext_sspisendcodelocation1 reduce_or_108/n7 reduce_or_108/n8
+1- 1
+-1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i1200 CI=-i1200/CI LI=-i1200/LI O=+n382
+.names ByteCounter<0> i1200/CI
+1 1
+.names n1127 i1200/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1193 CI=-i1193/CI DI=-i1193/DI S=-i1193/S O=+add_420/n40
+.names add_420/n38 i1193/CI
+1 1
+.names me_ADR_O<22> i1193/DI
+1 1
+.names me_ADR_O<22> i1193/S
+1 1
+.names reduce_or_153/n2 reduce_or_153/n4 n154
+1- 1
+-1 1
+.names fReturnStateNext_sspiregisterbyte reduce_or_129/n2 reduce_or_129/n3
+1- 1
+-1 1
+.names fReturnStateNext_sspisendcodelocation3 reduce_or_125/n2 reduce_or_125/n3
+1- 1
+-1 1
+.names fMeState_saddressincrement n634 WishboneAddressInc
+11 1
+.names SaveDataByte fReturnStateNext_sspiregisterbyte reduce_or_110/n2
+1- 1
+-1 1
+.names fReturnStateNext_sspisendcodelocation1 reduce_or_106/n7 reduce_or_106/n8
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1189 CI=-i1189/CI LI=-i1189/LI O=+n427
+.names add_420/n54 i1189/CI
+1 1
+.names me_ADR_O<30> i1189/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1226 CI=-i1226/CI DI=-i1226/DI S=-i1226/S O=+add_420/n28
+.names add_420/n26 i1226/CI
+1 1
+.names me_ADR_O<16> i1226/DI
+1 1
+.names me_ADR_O<16> i1226/S
+1 1
+.names me_CYC_O IsByteCounterZero n629
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1159 CI=-i1159/CI DI=-i1159/DI S=-i1159/S O=+add_420/n48
+.names add_420/n46 i1159/CI
+1 1
+.names me_ADR_O<26> i1159/DI
+1 1
+.names me_ADR_O<26> i1159/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1160 CI=-i1160/CI LI=-i1160/LI O=+n431
+.names add_420/n46 i1160/CI
+1 1
+.names me_ADR_O<26> i1160/LI
+1 1
+.names me_ACK_I n1100
+0 1
+.names fMeState_saddressincrement me_ACK_I n633
+1- 1
+-1 1
+.names fMeState_sidle n634 n636
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1217 CI=-i1217/CI DI=-i1217/DI S=-i1217/S O=+add_420/n10
+.names add_420/n8 i1217/CI
+1 1
+.names me_ADR_O<7> i1217/DI
+1 1
+.names me_ADR_O<7> i1217/S
+1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<21>
+.latch n436 me_ADR_O<21> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc syn_unsi.vhd 118
+.subckt XORCY i1163 CI=-i1163/CI LI=-i1163/LI O=+n429
+.names add_420/n50 i1163/CI
+1 1
+.names me_ADR_O<28> i1163/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i1157 CI=-i1157/CI LI=-i1157/LI O=+n432
+.names add_420/n44 i1157/CI
+1 1
+.names me_ADR_O<25> i1157/LI
+1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnState_sspiregisterbyte
+.latch fReturnStateNext_sspiregisterbyte fReturnState_sspiregisterbyte re me_CLK_O 0 me_RST_O SaveReturnState
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<22>
+.latch n435 me_ADR_O<22> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnState_sspisendreceivebyte
+.latch fReturnStateNext_sspisendreceivebyte fReturnState_sspisendreceivebyte re me_CLK_O 0 me_RST_O SaveReturnState
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<23>
+.latch n434 me_ADR_O<23> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnState_sspisendcodelocation3
+.latch fReturnStateNext_sspisendcodelocation3 fReturnState_sspisendcodelocation3 re me_CLK_O 0 me_RST_O SaveReturnState
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<24>
+.latch n433 me_ADR_O<24> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.names fMeState_sidle n628 Select_611/temp_select_0
+11 1
+.names me_CYC_O n631 Select_611/temp_select_1
+11 1
+.names fMeState_saddressincrement n636 Select_611/temp_select_2
+11 1
+.names Select_611/temp_select_0 Select_611/temp_select_1 Select_611/temp_select_2 fMeStateNext_sidle
+1-- 1
+-1- 1
+--1 1
+.names fMeState_sidle n629 Select_612/temp_select_0
+11 1
+.names me_CYC_O n632 Select_612/temp_select_1
+11 1
+.names fMeState_saddressincrement n637 Select_612/temp_select_2
+11 1
+.names Select_612/temp_select_0 Select_612/temp_select_1 Select_612/temp_select_2 fMeStateNext_stransfer
+1-- 1
+-1- 1
+--1 1
+.names fMeState_sidle WishboneAddressInc Select_613/temp_select_0
+11 1
+.names me_CYC_O n633 Select_613/temp_select_1
+11 1
+.names fMeState_saddressincrement n638 Select_613/temp_select_2
+11 1
+.names Select_613/temp_select_0 Select_613/temp_select_1 Select_613/temp_select_2 fMeStateNext_saddressincrement
+1-- 1
+-1- 1
+--1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i1176 CI=-i1176/CI DI=-i1176/DI S=-i1176/S O=+add_420/n38
+.names add_420/n36 i1176/CI
+1 1
+.names me_ADR_O<21> i1176/DI
+1 1
+.names me_ADR_O<21> i1176/S
+1 1
+.loc Configurable_SPI_ABOOTLOADER.VHD 441 fReturnState_sspisendcodelocation2
+.latch fReturnStateNext_sspisendcodelocation2 fReturnState_sspisendcodelocation2 re me_CLK_O 0 me_RST_O SaveReturnState
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<25>
+.latch n432 me_ADR_O<25> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 497 me_ADR_O<26>
+.latch n431 me_ADR_O<26> re me_CLK_O 0 me_RST_O WishboneAddressInc
+.loc Configurable_SPI_ABOOTLOADER.VHD 546 fMeState_sidle
+.latch fMeStateNext_sidle fMeState_sidle re me_CLK_O 1 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 546 me_CYC_O
+.latch fMeStateNext_stransfer me_CYC_O re me_CLK_O 0 me_RST_O
+.loc Configurable_SPI_ABOOTLOADER.VHD 546 fMeState_saddressincrement
+.latch fMeStateNext_saddressincrement fMeState_saddressincrement re me_CLK_O 0 me_RST_O

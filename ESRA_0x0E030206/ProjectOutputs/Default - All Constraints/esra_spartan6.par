@@ -1,0 +1,388 @@
+Release 14.7 par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+CST-NB149::  Thu Dec 04 15:09:31 2014
+
+par -w -mt on esra_spartan6_map.ncd esra_spartan6.ncd
+"C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Defaul
+t - All Constraints\ESRA_Spartan6_map.pcf" 
+
+
+Constraints file: C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All
+Constraints\ESRA_Spartan6_map.pcf.
+Loading device for application Rf_Device from file '6slx25.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+   "ESRA_Spartan6" is an NCD, version 3.2, device xc6slx25, package ftg256, speed -3
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.23 2013-10-13".
+
+
+
+Device Utilization Summary:
+
+Slice Logic Utilization:
+  Number of Slice Registers:                 3,270 out of  30,064   10%
+    Number used as Flip Flops:               3,270
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                      4,648 out of  15,032   30%
+    Number used as logic:                    4,367 out of  15,032   29%
+      Number using O6 output only:           3,449
+      Number using O5 output only:             210
+      Number using O5 and O6:                  708
+      Number used as ROM:                        0
+    Number used as Memory:                      96 out of   3,664    2%
+      Number used as Dual Port RAM:             96
+        Number using O6 output only:            64
+        Number using O5 output only:             8
+        Number using O5 and O6:                 24
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:             0
+    Number used exclusively as route-thrus:    185
+      Number with same-slice register load:    122
+      Number with same-slice carry load:        54
+      Number with other load:                    9
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 1,742 out of   3,758   46%
+  Number of MUXCYs used:                     1,100 out of   7,516   14%
+  Number of LUT Flip Flop pairs used:        5,331
+    Number with an unused Flip Flop:         2,228 out of   5,331   41%
+    Number with an unused LUT:                 683 out of   5,331   12%
+    Number of fully used LUT-FF pairs:       2,420 out of   5,331   45%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of  30,064    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        64 out of     186   34%
+    Number of LOCed IOBs:                       64 out of      64  100%
+    IOB Flip Flops:                             13
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                        32 out of      52   61%
+  Number of RAMB8BWERs:                          0 out of     104    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
+    Number used as BUFGs:                        3
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
+    Number used as DCMs:                         1
+    Number used as DCM_CLKGENs:                  0
+  Number of ILOGIC2/ISERDES2s:                  12 out of     272    4%
+    Number used as ILOGIC2s:                    12
+    Number used as ISERDES2s:                    0
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     272    0%
+  Number of OLOGIC2/OSERDES2s:                   1 out of     272    1%
+    Number used as OLOGIC2s:                     1
+    Number used as OSERDES2s:                    0
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     160    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            2 out of      38    5%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+
+Overall effort level (-ol):   Standard 
+Router effort level (-rl):    High 
+
+PAR will use up to 2 processors
+WARNING:Par:288 - The signal ENC1_U2/CEO has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_PWM_1/PWMN has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ENC3_U2/CEO has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ENC2_U2/CEO has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_PWM_2/PWMN has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_PWM_3/PWMN has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_31_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_31_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_22_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_22_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_1_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_1_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_7_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_7_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_15_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_15_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_25_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_25_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(0) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal PinSignal_ESRA_tsk3000_GPIO_1_ADC_5 has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal PinSignal_ESRA_tsk3000_GPIO_1_ADC_6 has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal PinSignal_ESRA_tsk3000_GPIO_1_ADC_7 has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_0 has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_1 has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_6_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_6_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_17_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_17_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_10_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_10_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_29_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_29_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_30_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_30_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_13_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_13_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_11_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_11_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_19_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_19_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(1) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_21_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_21_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_20_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_20_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_9_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_9_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_27_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_27_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_32_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_32_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_28_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_28_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_23_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_23_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_3_RAMC_D1_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_3_RAMD_D1_O has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_PWM_1/INT_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(30) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(31) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(2) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_PWM_3/INT_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(26) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(27) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(12) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(13) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(10) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(11) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(28) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(29) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(3) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(4) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(5) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(3) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_5_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_5_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal U15/CLKDV has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(18) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(19) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(24) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(25) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(22) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(23) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(20) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(21) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(6) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(7) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(8) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(9) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(0) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(1) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(2) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_24_RAMC_DPO has no load.  PAR will not attempt to
+   route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_24_RAMD_O has no load.  PAR will not attempt to route
+   this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_PWM_2/INT_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_UART_1/RTS has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_UART_1/INT_O(1) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(14) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(15) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(16) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_MCU_SubPart_MCU/SP(17) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_UART_1/INT_O(0) has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ESRA_tsk3000_UART_1/TXD has no load.  PAR will not attempt to route this signal.
+Starting Multi-threaded Router
+
+
+Phase  1  : 28410 unrouted;      REAL time: 7 secs 
+
+Phase  2  : 25508 unrouted;      REAL time: 8 secs 
+
+Phase  3  : 11822 unrouted;      REAL time: 22 secs 
+
+Phase  4  : 12284 unrouted; (Setup:1240140, Hold:107622, Component Switching Limit:0)     REAL time: 26 secs 
+
+Updating file: esra_spartan6.ncd with current fully routed design.
+
+Phase  5  : 0 unrouted; (Setup:1123407, Hold:160770, Component Switching Limit:0)     REAL time: 1 mins 8 secs 
+
+Phase  6  : 0 unrouted; (Setup:1123407, Hold:160770, Component Switching Limit:0)     REAL time: 1 mins 10 secs 
+
+Phase  7  : 0 unrouted; (Setup:1123407, Hold:160770, Component Switching Limit:0)     REAL time: 1 mins 18 secs 
+
+Phase  8  : 0 unrouted; (Setup:1123407, Hold:160770, Component Switching Limit:0)     REAL time: 1 mins 18 secs 
+
+Phase  9  : 0 unrouted; (Setup:1123407, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 22 secs 
+
+Phase 10  : 0 unrouted; (Setup:834848, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 23 secs 
+Total REAL time to Router completion: 1 mins 23 secs 
+Total CPU time to Router completion (all processors): 1 mins 58 secs 
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|NamedSignal_CLK_MAIN |              |      |      |            |             |
+|                     | BUFGMUX_X3Y13| No   | 1192 |  0.694     |  1.735      |
++---------------------+--------------+------+------+------------+-------------+
+|                n66o | BUFGMUX_X2Y11| No   |   30 |  0.695     |  1.749      |
++---------------------+--------------+------+------+------------+-------------+
+| JTAG_NEXUS_TCK_ibuf |         Local|      |  141 |  5.064     |  6.519      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 834848 (Setup: 834848, Hold: 0, Component Switching Limit: 0)
+
+WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in your design.
+
+   Review the timing report using Timing Analyzer (In ISE select "Post-Place &
+   Route Static Timing Report"). Go to the failing constraint(s) and evaluate the failing paths for each constraint.
+
+   Try the Design Goal and Strategies for Timing Performance(In ISE select Project -> Design Goals & Strategies) to ensure the best options
+   are set in the tools for timing closure.
+
+   Increase the PAR Effort Level setting to "high"
+
+   Use the Xilinx "SmartXplorer" script to try special combinations of
+   options known to produce very good results.
+
+   Visit the Xilinx technical support web at http://support.xilinx.com and go to
+   either "Troubleshoot->Tech Tips->Timing & Constraints" or "
+   TechXclusives->Timing Closure" for tips and suggestions for meeting timing
+   in your design.
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_U25_CLKA_BUF = PERIOD TIMEGRP "U25_CLK | SETUP       |    -3.500ns|    20.535ns|    1017|      834848
+  A_BUF" TS_CLK_BRD * 1.6 HIGH 50%          | HOLD        |     0.339ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_CLK_BRD = PERIOD TIMEGRP "TNM_CLK_BRD" | SETUP       |     9.883ns|    10.117ns|       0|           0
+   50 MHz HIGH 50%                          | HOLD        |     0.435ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_JTAG_NEXUS_TCK = PERIOD TIMEGRP "TNM_J | SETUP       |   989.080ns|    10.920ns|       0|           0
+  TAG_NEXUS_TCK" 1 MHz HIGH 50%             | HOLD        |     0.043ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Review Timing Report for more details on the following derived constraints.
+To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
+or "Run Timing Analysis" from Timing Analyzer (timingan).
+Derived Constraints for TS_CLK_BRD
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_CLK_BRD                     |     20.000ns|     10.117ns|     32.856ns|            0|         1017|         3335|      3812760|
+| TS_U25_CLKA_BUF               |     12.500ns|     20.535ns|          N/A|         1017|            0|      3812760|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+1 constraint not met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 103 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 1 mins 26 secs 
+Total CPU time to PAR completion (all processors): 2 mins 
+
+Peak Memory Usage:  512 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+Timing: Completed - 1017 errors found.
+
+Number of error messages: 0
+Number of warning messages: 106
+Number of info messages: 0
+
+Writing design to file esra_spartan6.ncd
+
+
+
+PAR done!

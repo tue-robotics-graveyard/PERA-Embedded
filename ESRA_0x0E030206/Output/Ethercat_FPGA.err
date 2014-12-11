@@ -1,0 +1,41 @@
+Assembling cstart.asm
+Compiling ecat_actuator.c
+Compiling esc.c
+Compiling esc_hw.c
+Compiling esc_foe.c
+Compiling swplatform.c
+Building Software Platform
+Building drv_m25px0 plugin
+Building drv_pwmx plugin
+Building drv_spi plugin
+Building drv_uart8 plugin
+Building per_ioport plugin
+Building per_pwmx plugin
+Building per_spi plugin
+Building per_uart8 plugin
+Building per_wb_interface plugin
+Building pal_arch_3000 plugin
+Building pal plugin
+Building interrupts plugin
+Building timing plugin
+c3000 W590: ["Embedded\esc.c" 334/37] conversion from unaligned pointer to "unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 339/47] conversion from unaligned pointer to "unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 450/21] conversion from unaligned pointer to "short unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 483/21] conversion from unaligned pointer to "short unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 526/17] conversion from unaligned pointer to "short unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 334/37] conversion from unaligned pointer to "unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 450/21] conversion from unaligned pointer to "short unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 483/21] conversion from unaligned pointer to "short unsigned int __data *"
+c3000 W590: ["Embedded\esc.c" 526/17] conversion from unaligned pointer to "short unsigned int __data *"
+0 errors, 9 warnings
+Building ifconfig plugin
+Building init plugin
+Building sysutils plugin
+Assembling ecat_actuator.src
+Assembling esc.src
+Assembling esc_hw.src
+Assembling esc_foe.src
+Assembling swplatform.src
+Software platform built
+Linking and Locating Ethercat_FPGA.abs
+

@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -x xcf08p -c FF -u 0 esra_spartan6_cclk.bit -o esra_spartan6.mcs 
+
+PROM esra_spartan6.prm map: Thu Dec 04 15:11:57 2014
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          1024K
+PROM start    0000:0000
+PROM end      000f:ffff
+PROM checksum 046bd124
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    000c:3ab5     Dec 04 15:11:54 2014 esra_spartan6_cclk.bit

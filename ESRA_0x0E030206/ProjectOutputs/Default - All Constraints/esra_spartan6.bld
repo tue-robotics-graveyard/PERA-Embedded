@@ -1,0 +1,422 @@
+Release 14.7 ngdbuild P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\NGDBuild.exe -p
+XC6SLX25-FTG256-3 -dd
+c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\default
+- all constraints\_ngo -aul -uc
+C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default
+- All Constraints\ESRA_Spartan6.ucf -nt on -a esra_spartan6.edf
+esra_spartan6.ngd
+
+Executing edif2ngd -a -aul "esra_spartan6.edf"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\esra_spartan6.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Adding pads to all top level port signals...
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/esra_spartan6.ngo"...
+Reading NGO file
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/esra_spartan6.ngo" ...
+Executing edif2ngd -noa -aul "WB_UART8_V2.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\WB_UART8_V2.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/WB_UART8_V2.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\WB_UART8_V2.ngo"...
+Executing edif2ngd -noa -aul "Memory_MCU.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\Memory_MCU.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/Memory_MCU.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\Memory_MCU.ngo"...
+Executing edif2ngd -noa -aul "TSK3000A_Shift_Barrel.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_Shift_Barrel.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/TSK3000A_Shift_Barrel.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_Shift_Barrel.ngo"...
+Executing edif2ngd -noa -aul "FPGA_STARTUP8.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\FPGA_STARTUP8.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/FPGA_STARTUP8.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\FPGA_STARTUP8.ngo"...
+Executing edif2ngd -noa -aul "WB_PWMX.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\WB_PWMX.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/WB_PWMX.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\WB_PWMX.ngo"...
+Executing edif2ngd -noa -aul "FD2S.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\FD2S.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/FD2S.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\FD2S.ngo"...
+Executing edif2ngd -noa -aul "WB_SPI8.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\WB_SPI8.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/WB_SPI8.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\WB_SPI8.ngo"...
+Executing edif2ngd -noa -aul "TSK3000A_MDU.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_MDU.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/TSK3000A_MDU.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_MDU.ngo"...
+Executing edif2ngd -noa -aul "TSK3000A_MCU_HCB.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_MCU_HCB.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/TSK3000A_MCU_HCB.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_MCU_HCB.ngo"...
+Executing edif2ngd -noa -aul "CDIV2.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\CDIV2.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/CDIV2.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\CDIV2.ngo"...
+Executing edif2ngd -noa -aul "INV4S.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\INV4S.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/INV4S.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\INV4S.ngo"...
+Executing edif2ngd -noa -aul "CDIV5.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\CDIV5.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/CDIV5.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\CDIV5.ngo"...
+Executing edif2ngd -noa -aul "TSK3000A_OCDS_HCB.edn"
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_OCDS_HCB.ngo"
+Release 14.7 - edif2ngd P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Writing module to
+"c:/users/public/documents/altium/projects/esra_0x0e030206/projectoutputs/defaul
+t - all constraints/_ngo/TSK3000A_OCDS_HCB.ngo"...
+Loading design module
+"c:\users\public\documents\altium\projects\esra_0x0e030206\projectoutputs\defaul
+t - all constraints\_ngo\TSK3000A_OCDS_HCB.ngo"...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file
+"C:/Users/Public/Documents/Altium/Projects/ESRA_0x0E030206/ProjectOutputs/Defaul
+t - All Constraints/ESRA_Spartan6.ucf" ...
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B5/RAMB16BWER' of type RAMB16BWER has
+   been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild and
+   timing simulation for this primitive.  In order for functional simulation to
+   be correct, the value of SIM_DEVICE should be changed in this same manner in
+   the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B9/RAMB16BWER' of type RAMB16BWER has
+   been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild and
+   timing simulation for this primitive.  In order for functional simulation to
+   be correct, the value of SIM_DEVICE should be changed in this same manner in
+   the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B13/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B17/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B21/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B25/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B29/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U9/B33/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B5/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B9/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B13/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B17/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B21/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B25/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B29/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U10/B33/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B5/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B9/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B13/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B17/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B21/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B25/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B29/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U11/B33/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B5/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B9/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B13/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B17/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B21/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B25/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B29/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+WARNING:NgdBuild - The value of SIM_DEVICE on instance
+   'ESRA_tsk3000_MCU_SubPart_BootMemory/U12/B33/RAMB16BWER' of type RAMB16BWER
+   has been changed from 'SPARTAN3ADSP' to 'SPARTAN6' to correct post-ngdbuild
+   and timing simulation for this primitive.  In order for functional simulation
+   to be correct, the value of SIM_DEVICE should be changed in this same manner
+   in the source netlist or constraint file.
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'TNM_CLK_BRD', used in period specification
+   'TS_CLK_BRD', was traced into DCM_SP instance U25_DCM_INST. The following new
+   TNM groups and period specifications were generated at the DCM_SP output(s): 
+   CLKFX: <TIMESPEC TS_U25_CLKA_BUF = PERIOD "U25_CLKA_BUF" TS_CLK_BRD * 1.6
+   HIGH 50%>
+
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:  32
+
+Total memory usage is 230540 kilobytes
+
+Writing NGD file "esra_spartan6.ngd" ...
+Total REAL time to NGDBUILD completion:  47 sec
+Total CPU time to NGDBUILD completion:   6 sec
+
+Writing NGDBUILD log file "esra_spartan6.bld"...

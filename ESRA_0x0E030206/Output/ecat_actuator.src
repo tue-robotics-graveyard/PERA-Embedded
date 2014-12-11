@@ -1,0 +1,6447 @@
+	; TASKING TSK3000 VIPER C compiler v1.1r1 Build 235
+	; Options: -f cc2168a --dep-file=Output\ecat_actuator.d --make-target=Output\ecat_actuator.src -D__ALTIUM_BUILD_MAJOR__=-1 -D__ALTIUM_BUILD_MINOR__=10 -D__ALTIUM_PROJECT_NAME__="Ethercat_FPGA" -D__SWPLATFORM__ -D__FRAMEWORK__ -IOutput\framecfg -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\processors\c3000\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\ifconfig\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\sysutils\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\external\drivers\m25px0\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\ioport\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\wb_interface\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\generic\interfaces\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\interrupts\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\timing\include -t4 -IC:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206 --iso=99 --debug-info=default --global-type-checking -O3 --rename-sections={module}.{cname} --call=n --align-composites=n --extern-sdata --sdata=4 -o Output\ecat_actuator.src
+	; Module start
+	.extern	_START
+	.extern	__save_r17
+	.extern	__restore_r17
+	.extern	__save_r16
+	.extern	__restore_r16
+	.source "Embedded\\ecat_actuator.c"
+
+	.section	.text.ecat_actuator.init_EC ,cluster('$group_init_EC')
+	.align	4
+	.global	init_EC
+; Function init_EC
+.L72:
+init_EC:	.type	func
+	addiu	$sp,$sp,-4
+.L339:
+	sw	$ra,0($sp)
+.L340:
+	lw	$a0,@gprel(drv_ec_1)($gp)
+	jal	spi_set_endianess
+	li	$a1,0x1
+.L608:
+	lw	$a0,@gprel(drv_ec_1)($gp)
+.L609:
+	lw	$ra,0($sp)
+.L341:
+	j	spi_cs_hi
+.L610:
+	addiu	$sp,$sp,4
+.L290:
+	.size	init_EC,*-init_EC
+.L139:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.init_ADC ,cluster('$group_init_ADC')
+	.align	4
+	.global	init_ADC
+; Function init_ADC
+.L74:
+init_ADC:	.type	func
+	lw	$v0,@gprel(IOp_B)($gp)
+	lbu	$v1,0($v0)
+	andi	$v1,$v1,0xffef
+	ori	$v1,$v1,0x10
+.L615:
+	jr	$ra
+.L616:
+	sb	$v1,0($v0)
+.L291:
+	.size	init_ADC,*-init_ADC
+.L144:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.read_ADC ,cluster('$group_read_ADC')
+	.align	4
+	.global	read_ADC
+; Function read_ADC
+.L76:
+read_ADC:	.type	func
+	lui	$v0,@hi(miso_packet)
+	addiu	$a0,$v0,@lo(miso_packet)
+	lbu	$v0,0($a0)
+.L297:
+	move	$a1,$zero
+.L298:
+	andi	$v0,$v0,0xff7f
+	ori	$v0,$v0,0x80
+	sb	$v0,0($a0)
+.L299:
+	lw	$a2,@gprel(IOp_B)($gp)
+.L2:
+	lbu	$v0,0($a2)
+.L621:
+	andi	$v1,$a1,0xf
+.L622:
+	andi	$v0,$v0,0xffef
+	sb	$v0,0($a2)
+.L623:
+	andi	$v0,$v0,0xff
+	andi	$v0,$v0,0xfff0
+	or	$v0,$v1,$v0
+	sb	$v0,0($a2)
+.L624:
+	lui	$v1,0xff00
+	lhu	$v1,0($v1)
+.L625:
+	andi	$v0,$v0,0xff
+.L626:
+	sra	$v1,$v1,1
+	andi	$a3,$v1,0xfff
+.L348:
+	andi	$v0,$v0,0xffef
+	ori	$v0,$v0,0x10
+	sb	$v0,0($a2)
+.L627:
+	addiu	$v0,$a1,0
+	sltiu	$v1,$v0,16
+	beq	$v1,$zero,.L4
+	nop
+	lui	$v1,@hi(.L3)
+	addiu	$v1,$v1,@lo(.L3)
+	sll	$v0,$v0,2
+	addu	$v0,$v0,$v1
+	lw	$v0,0($v0)
+	jr	$v0
+	nop
+.L349:
+	.endsec	; End of section
+
+	.section	.rodata.ecat_actuator.read_ADC ,cluster('$group_read_ADC')
+	.align	4
+.L3:
+	.dw	.L5
+	.dw	.L6
+	.dw	.L7
+	.dw	.L8
+	.dw	.L9
+	.dw	.L10
+	.dw	.L11
+	.dw	.L12
+	.dw	.L13
+	.dw	.L14
+	.dw	.L15
+	.dw	.L16
+	.dw	.L17
+	.dw	.L18
+	.dw	.L19
+	.dw	.L20
+	.endsec	; End of section
+
+	.resume	.text.ecat_actuator.read_ADC ,cluster('$group_read_ADC')
+.L5:
+	andi	$v0,$a3,0xff00
+.L350:
+	sra	$v0,$v0,8
+.L346:
+	andi	$v1,$a3,0xff
+.L347:
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,18($a0)
+	sra	$v0,$v0,8
+.L628:
+	j	.L21
+.L629:
+	sb	$v0,17($a0)
+.L6:
+	andi	$v0,$a3,0xff00
+	sra	$v0,$v0,8
+	andi	$v1,$a3,0xff
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,24($a0)
+	sra	$v0,$v0,8
+.L630:
+	j	.L22
+.L631:
+	sb	$v0,23($a0)
+.L7:
+	andi	$v0,$a3,0xff00
+	sra	$v0,$v0,8
+	andi	$v1,$a3,0xff
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,20($a0)
+	sra	$v0,$v0,8
+.L632:
+	j	.L23
+.L633:
+	sb	$v0,19($a0)
+.L8:
+	andi	$v0,$a3,0xff00
+	sra	$v0,$v0,8
+	andi	$v1,$a3,0xff
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,26($a0)
+	sra	$v0,$v0,8
+.L634:
+	j	.L24
+.L635:
+	sb	$v0,25($a0)
+.L9:
+	andi	$v0,$a3,0xff00
+	sra	$v0,$v0,8
+	andi	$v1,$a3,0xff
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,22($a0)
+	sra	$v0,$v0,8
+.L636:
+	j	.L25
+.L637:
+	sb	$v0,21($a0)
+.L10:
+	andi	$v0,$a3,0xff00
+	sra	$v0,$v0,8
+	andi	$v1,$a3,0xff
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,28($a0)
+	sra	$v0,$v0,8
+.L638:
+	j	.L26
+.L639:
+	sb	$v0,27($a0)
+.L11:
+	slti	$v0,$a3,1368
+	bne	$v0,$zero,.L27
+	nop
+.L640:
+	slti	$v0,$a3,1606
+	bne	$v0,$zero,.L28
+	nop
+.L641:
+	j	.L29
+	nop
+.L12:
+	slti	$v0,$a3,1861
+	bne	$v0,$zero,.L30
+	nop
+.L642:
+	slti	$v0,$a3,2231
+	bne	$v0,$zero,.L31
+	nop
+.L643:
+	j	.L32
+	nop
+.L13:
+	slti	$v0,$a3,2763
+	bne	$v0,$zero,.L33
+	nop
+.L644:
+	slti	$v0,$a3,3379
+	bne	$v0,$zero,.L34
+	nop
+.L645:
+	j	.L35
+	nop
+.L14:
+	slti	$v0,$a3,2207
+	bne	$v0,$zero,.L36
+	nop
+.L646:
+	slti	$v0,$a3,3113
+	bne	$v0,$zero,.L37
+	nop
+.L647:
+	j	.L38
+	nop
+.L15:
+	slti	$v0,$a3,2265
+	bne	$v0,$zero,.L39
+	nop
+.L648:
+	slti	$v0,$a3,3193
+	bne	$v0,$zero,.L40
+	nop
+.L36:
+.L33:
+.L30:
+.L27:
+.L39:
+.L38:
+.L35:
+.L32:
+.L29:
+	lbu	$v0,0($a0)
+	andi	$v0,$v0,0xff7f
+.L649:
+	j	.L41
+.L650:
+	sb	$v0,0($a0)
+.L16:
+	addiu	$v0,$a3,-2048
+.L351:
+	addu	$v0,$v0,$v0
+.L651:
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+.L352:
+	sll	$v0,$v0,8
+	or	$v0,$v1,$v0
+	sb	$v0,8($a0)
+	sra	$v0,$v0,8
+.L652:
+	j	.L42
+.L653:
+	sb	$v0,7($a0)
+.L17:
+	addiu	$v0,$a3,-2048
+.L342:
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+.L343:
+	sll	$v0,$v0,8
+	or	$v0,$v1,$v0
+	sb	$v0,10($a0)
+	sra	$v0,$v0,8
+.L654:
+	j	.L43
+.L655:
+	sb	$v0,9($a0)
+.L18:
+	addiu	$v0,$a3,-2048
+.L344:
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+.L345:
+	sll	$v0,$v0,8
+	or	$v0,$v1,$v0
+	sb	$v0,12($a0)
+	sra	$v0,$v0,8
+.L656:
+	j	.L44
+.L657:
+	sb	$v0,11($a0)
+.L19:
+	andi	$v0,$a3,0xff00
+	sra	$v0,$v0,8
+	andi	$v1,$a3,0xff
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,30($a0)
+	sra	$v0,$v0,8
+.L658:
+	j	.L45
+.L659:
+	sb	$v0,29($a0)
+.L20:
+	andi	$v0,$a3,0xff00
+	sra	$v0,$v0,8
+	andi	$v1,$a3,0xff
+	sll	$v1,$v1,8
+	or	$v0,$v0,$v1
+	sb	$v0,32($a0)
+	sra	$v0,$v0,8
+	sb	$v0,31($a0)
+.L40:
+.L37:
+.L34:
+.L31:
+.L28:
+.L4:
+.L45:
+.L44:
+.L43:
+.L42:
+.L41:
+.L26:
+.L25:
+.L24:
+.L23:
+.L22:
+.L21:
+	addiu	$a1,$a1,1
+.L660:
+	slti	$v0,$a1,16
+	bne	$v0,$zero,.L2
+	nop
+.L300:
+	jr	$ra
+.L661:
+	nop
+.L292:
+	.size	read_ADC,*-read_ADC
+.L149:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.init_PWM ,cluster('$group_init_PWM')
+	.align	4
+	.global	init_PWM
+; Function init_PWM
+.L78:
+init_PWM:	.type	func
+	addiu	$sp,$sp,-4
+.L353:
+	sw	$ra,0($sp)
+.L354:
+	jal	pwmx_enable_controller
+	lw	$a0,@gprel(drv_pwm_1)($gp)
+.L666:
+	jal	pwmx_enable_controller
+	lw	$a0,@gprel(drv_pwm_2)($gp)
+.L667:
+	lw	$a0,@gprel(drv_pwm_3)($gp)
+.L668:
+	lw	$ra,0($sp)
+.L355:
+	j	pwmx_enable_controller
+.L669:
+	addiu	$sp,$sp,4
+.L302:
+	.size	init_PWM,*-init_PWM
+.L154:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.update_PWM ,cluster('$group_update_PWM')
+	.align	4
+	.global	update_PWM
+; Function update_PWM
+.L80:
+update_PWM:	.type	func
+	addiu	$sp,$sp,-12
+.L356:
+	sw	$ra,0($sp)
+	jal	__save_r17
+	nop
+.L357:
+	lui	$v0,@hi(mosi_packet)
+	addiu	$s0,$v0,@lo(mosi_packet)
+	lb	$v0,1($s0)
+	jal	_cocofun_1
+	lbu	$v1,2($s0)
+.L674:
+	jal	abs
+	nop
+.L675:
+	lw	$a0,@gprel(drv_pwm_1)($gp)
+	jal	pwmx_set_pulsewidth
+	andi	$a1,$v0,0xffff
+.L676:
+	lw	$v0,@gprel(IOp_DO)($gp)
+.L359:
+	slti	$v1,$s1,0
+.L360:
+	lbu	$a0,0($v0)
+	andi	$v1,$v1,0x1
+	andi	$a0,$a0,0xffef
+	sll	$v1,$v1,4
+	or	$v1,$v1,$a0
+	sb	$v1,0($v0)
+.L677:
+	lb	$v0,3($s0)
+	jal	_cocofun_1
+	lbu	$v1,4($s0)
+.L678:
+	jal	abs
+	nop
+.L679:
+	lw	$a0,@gprel(drv_pwm_2)($gp)
+	jal	pwmx_set_pulsewidth
+	andi	$a1,$v0,0xffff
+.L680:
+	lw	$v0,@gprel(IOp_DO)($gp)
+.L362:
+	slti	$v1,$s1,0
+.L363:
+	lbu	$a0,0($v0)
+	andi	$v1,$v1,0x1
+	andi	$a0,$a0,0xffdf
+	sll	$v1,$v1,5
+	or	$v1,$v1,$a0
+	sb	$v1,0($v0)
+.L681:
+	lb	$v0,5($s0)
+	lbu	$v1,6($s0)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	jal	_cocofun_3
+	andi	$v0,$v0,0xffff
+	sll	$s0,$v0,16
+.L361:
+	sra	$s0,$s0,16
+.L682:
+	slti	$v0,$s0,1001
+	bne	$v0,$zero,.L52
+	nop
+.L683:
+	j	.L53
+	li	$s0,0x3e8
+.L52:
+	slti	$v0,$s0,-1000
+	beq	$v0,$zero,.L54
+	nop
+.L684:
+	addiu	$s0,$zero,-1000
+.L54:
+.L53:
+	jal	abs
+	move	$a0,$s0
+.L685:
+	lw	$a0,@gprel(drv_pwm_3)($gp)
+.L358:
+	jal	pwmx_set_pulsewidth
+	andi	$a1,$v0,0xffff
+.L686:
+	lw	$v0,@gprel(IOp_DO)($gp)
+	slti	$v1,$s0,0
+	lbu	$a0,0($v0)
+	andi	$v1,$v1,0x1
+	andi	$a0,$a0,0xffbf
+	sll	$v1,$v1,6
+	or	$v1,$v1,$a0
+	sb	$v1,0($v0)
+.L687:
+	li	$a0,12
+	j	__restore_r17
+	nop
+.L303:
+	.size	update_PWM,*-update_PWM
+.L159:
+	; End of function
+; Function _cocofun_1
+.L82:
+_cocofun_1:	.type	func
+; Function body _cocofun_1, coco_iter:0
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+.L858:
+	andi	$v0,$v0,0xffff
+.L859:
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+	sll	$v0,$v0,8
+	or	$v0,$v1,$v0
+.L860:
+	sll	$s1,$v0,16
+	sra	$s1,$s1,16
+.L854:
+	slti	$v0,$s1,1001
+	bne	$v0,$zero,.L46
+.L861:
+	nop
+.L855:
+	j	.L47
+	li	$s1,0x3e8
+.L46:
+	slti	$v0,$s1,-1000
+	beq	$v0,$zero,.L48
+.L862:
+	nop
+.L856:
+	addiu	$s1,$zero,-1000
+.L48:
+.L47:
+	jr	$ra
+.L857:
+	move	$a0,$s1
+.L239:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.clear_PWM ,cluster('$group_clear_PWM')
+	.align	4
+	.global	clear_PWM
+; Function clear_PWM
+.L84:
+clear_PWM:	.type	func
+	addiu	$sp,$sp,-4
+.L364:
+	sw	$ra,0($sp)
+.L365:
+	lw	$a0,@gprel(drv_pwm_1)($gp)
+	jal	pwmx_set_pulsewidth
+	move	$a1,$zero
+.L692:
+	lw	$a0,@gprel(drv_pwm_2)($gp)
+	jal	pwmx_set_pulsewidth
+	move	$a1,$zero
+.L693:
+	lw	$a0,@gprel(drv_pwm_3)($gp)
+	move	$a1,$zero
+.L694:
+	lw	$ra,0($sp)
+.L366:
+	j	pwmx_set_pulsewidth
+.L695:
+	addiu	$sp,$sp,4
+.L306:
+	.size	clear_PWM,*-clear_PWM
+.L164:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.read_Encoders ,cluster('$group_read_Encoders')
+	.align	4
+	.global	read_Encoders
+; Function read_Encoders
+.L86:
+read_Encoders:	.type	func
+	lui	$v0,0xff04
+	lhu	$v0,0($v0)
+.L700:
+	lui	$v1,@hi(miso_packet)
+	addiu	$v1,$v1,@lo(miso_packet)
+	andi	$a0,$v0,0xff00
+	sra	$a0,$a0,8
+	andi	$v0,$v0,0xff
+	sll	$v0,$v0,8
+	or	$v0,$a0,$v0
+	sb	$v0,2($v1)
+	sra	$v0,$v0,8
+	sb	$v0,1($v1)
+.L701:
+	lui	$v0,0xff06
+	lhu	$v0,0($v0)
+.L702:
+	andi	$a0,$v0,0xff
+	andi	$v0,$v0,0xff00
+	sra	$v0,$v0,8
+	sll	$a0,$a0,8
+	or	$v0,$v0,$a0
+	sb	$v0,4($v1)
+	sra	$v0,$v0,8
+	sb	$v0,3($v1)
+.L703:
+	lui	$v0,0xff05
+	lhu	$v0,0($v0)
+.L704:
+	andi	$a0,$v0,0xff
+	andi	$v0,$v0,0xff00
+	sra	$v0,$v0,8
+	sll	$a0,$a0,8
+	or	$v0,$v0,$a0
+	sb	$v0,6($v1)
+	sra	$v0,$v0,8
+.L705:
+	jr	$ra
+.L706:
+	sb	$v0,5($v1)
+.L307:
+	.size	read_Encoders,*-read_Encoders
+.L169:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.write_DAC ,cluster('$group_write_DAC')
+	.align	4
+	.global	write_DAC
+; Function write_DAC
+.L88:
+write_DAC:	.type	func
+	addiu	$sp,$sp,-12
+.L367:
+	sw	$ra,0($sp)
+	jal	__save_r17
+	nop
+.L368:
+	move	$s0,$a0
+.L369:
+	move	$s1,$a1
+.L370:
+	jal	spi_cs_lo
+	lw	$a0,@gprel(drv_dac_1)($gp)
+.L711:
+	lw	$a0,@gprel(drv_dac_1)($gp)
+.L373:
+	jal	spi_transceive8
+	move	$a1,$s0
+.L712:
+	lw	$a0,@gprel(drv_dac_1)($gp)
+.L371:
+	jal	spi_transceive16
+	move	$a1,$s1
+.L374:
+	jal	spi_cs_hi
+	lw	$a0,@gprel(drv_dac_1)($gp)
+.L372:
+	li	$a0,12
+	j	__restore_r17
+	nop
+.L309:
+	.size	write_DAC,*-write_DAC
+.L174:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.init_DAC ,cluster('$group_init_DAC')
+	.align	4
+	.global	init_DAC
+; Function init_DAC
+.L90:
+init_DAC:	.type	func
+	addiu	$sp,$sp,-4
+.L375:
+	sw	$ra,0($sp)
+.L376:
+	lw	$a0,@gprel(drv_dac_1)($gp)
+	jal	spi_set_endianess
+	li	$a1,0x1
+.L717:
+	jal	spi_cs_hi
+	lw	$a0,@gprel(drv_dac_1)($gp)
+.L718:
+	li	$a0,0xc
+	jal	write_DAC
+	li	$a1,0x1
+.L719:
+	li	$a0,0x10
+	jal	write_DAC
+	li	$a1,0x15
+.L720:
+	li	$a0,0x19
+	jal	write_DAC
+	li	$a1,0x6
+.L721:
+	li	$a1,0x8000
+	jal	write_DAC
+	move	$a0,$zero
+.L722:
+	li	$a0,0x2
+	li	$a1,0x8000
+.L723:
+	lw	$ra,0($sp)
+.L377:
+	j	write_DAC
+.L724:
+	addiu	$sp,$sp,4
+.L312:
+	.size	init_DAC,*-init_DAC
+.L179:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.clear_DAC ,cluster('$group_clear_DAC')
+	.align	4
+	.global	clear_DAC
+; Function clear_DAC
+.L92:
+clear_DAC:	.type	func
+	addiu	$sp,$sp,-4
+.L378:
+	sw	$ra,0($sp)
+.L379:
+	li	$a1,0x8000
+	jal	write_DAC
+	move	$a0,$zero
+.L729:
+	li	$a0,0x2
+	li	$a1,0x8000
+.L730:
+	lw	$ra,0($sp)
+.L380:
+	j	write_DAC
+.L731:
+	addiu	$sp,$sp,4
+.L313:
+	.size	clear_DAC,*-clear_DAC
+.L184:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.update_DAC ,cluster('$group_update_DAC')
+	.align	4
+	.global	update_DAC
+; Function update_DAC
+.L94:
+update_DAC:	.type	func
+	addiu	$sp,$sp,-8
+.L381:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L382:
+	lui	$v0,@hi(mosi_packet)
+	addiu	$s0,$v0,@lo(mosi_packet)
+	lb	$v0,7($s0)
+	lbu	$v1,8($s0)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	jal	_cocofun_2
+	andi	$v0,$v0,0xffff
+	jal	write_DAC
+	move	$a0,$zero
+.L736:
+	lb	$v0,9($s0)
+	lbu	$v1,10($s0)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	andi	$v0,$v0,0xffff
+	jal	_cocofun_2
+	li	$a0,0x2
+	jal	write_DAC
+	nop
+.L737:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L314:
+	.size	update_DAC,*-update_DAC
+.L189:
+	; End of function
+; Function _cocofun_2
+.L96:
+_cocofun_2:	.type	func
+; Function body _cocofun_2, coco_iter:0
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+	sll	$v0,$v0,8
+	or	$v0,$v1,$v0
+	sll	$v0,$v0,4
+	li	$v1,0x8000
+	addu	$v0,$v0,$v1
+.L867:
+	jr	$ra
+.L868:
+	andi	$a1,$v0,0xffff
+.L244:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.ESC_objecthandler ,cluster('$group_ESC_objecthandler')
+	.align	4
+	.global	ESC_objecthandler
+; Function ESC_objecthandler
+.L98:
+ESC_objecthandler:	.type	func
+	jr	$ra
+.L595:
+	nop
+.L284:
+	.size	ESC_objecthandler,*-ESC_objecthandler
+.L129:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.update_flash_led ,cluster('$group_update_flash_led')
+	.align	4
+	.global	update_flash_led
+; Function update_flash_led
+.L100:
+update_flash_led:	.type	func
+	lhu	$v0,@gprel(_999001_c)($gp)
+	addiu	$v1,$v0,1
+	andi	$v0,$v0,0x2000
+.L742:
+	beq	$v0,$zero,.L55
+.L743:
+	andi	$v1,$v1,0xffff
+.L744:
+	lw	$v0,@gprel(IOp_DO)($gp)
+.L745:
+	move	$v1,$zero
+.L746:
+	lbu	$a0,0($v0)
+	andi	$a1,$a0,0xff7f
+	sll	$a0,$a0,24
+	slt	$a0,$a0,$zero
+	xori	$a0,$a0,0xff
+	andi	$a0,$a0,0x1
+	sll	$a0,$a0,7
+	or	$a0,$a0,$a1
+	sb	$a0,0($v0)
+.L55:
+	jr	$ra
+.L747:
+	sh	$v1,@gprel(_999001_c)($gp)
+.L316:
+	.size	update_flash_led,*-update_flash_led
+.L194:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.check_timeout ,cluster('$group_check_timeout')
+	.align	4
+	.global	check_timeout
+; Function check_timeout
+.L102:
+check_timeout:	.type	func
+	addiu	$sp,$sp,-4
+.L383:
+	lbu	$v0,@gprel(status)($gp)
+.L752:
+	sw	$ra,0($sp)
+.L384:
+	sll	$v0,$v0,31
+	slt	$v0,$v0,$zero
+	bne	$v0,$zero,.L56
+	nop
+.L753:
+	lui	$v0,@hi(ESCvar+40)
+	addiu	$v0,$v0,@lo(ESCvar+40)
+	lbu	$v1,0($v0)
+	lbu	$a0,1($v0)
+	sll	$v1,$v1,24
+	sll	$a0,$a0,16
+	lbu	$a1,2($v0)
+	or	$v1,$v1,$a0
+	sll	$a1,$a1,8
+	lbu	$v0,3($v0)
+	or	$v1,$v1,$a1
+	lw	$a0,@gprel(MOSI_time)($gp)
+	or	$v1,$v1,$v0
+	subu	$v0,$v1,$a0
+	lui	$v1,0x2fa
+	ori	$v1,$v1,0xf080
+	sltu	$v0,$v1,$v0
+	beq	$v0,$zero,.L57
+	nop
+.L754:
+	jal	clear_actuators
+	nop
+.L755:
+	lbu	$v0,@gprel(status)($gp)
+	andi	$v0,$v0,0xfffe
+	ori	$v0,$v0,0x1
+	sb	$v0,@gprel(status)($gp)
+.L57:
+.L56:
+	lw	$ra,0($sp)
+.L385:
+	jr	$ra
+	addiu	$sp,$sp,4
+.L317:
+	.size	check_timeout,*-check_timeout
+.L199:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.init_actuators ,cluster('$group_init_actuators')
+	.align	4
+	.global	init_actuators
+; Function init_actuators
+.L104:
+init_actuators:	.type	func
+	addiu	$sp,$sp,-4
+.L386:
+	sw	$ra,0($sp)
+.L387:
+	lw	$v0,@gprel(IOp_DO)($gp)
+.L760:
+	jal	init_PWM
+.L761:
+	sb	$zero,0($v0)
+.L762:
+	lw	$ra,0($sp)
+.L388:
+	j	init_DAC
+.L763:
+	addiu	$sp,$sp,4
+.L318:
+	.size	init_actuators,*-init_actuators
+.L204:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.clear_actuators ,cluster('$group_clear_actuators')
+	.align	4
+	.global	clear_actuators
+; Function clear_actuators
+.L106:
+clear_actuators:	.type	func
+	addiu	$sp,$sp,-4
+.L389:
+	sw	$ra,0($sp)
+.L390:
+	lw	$v0,@gprel(IOp_DO)($gp)
+.L600:
+	jal	clear_PWM
+.L601:
+	sb	$zero,0($v0)
+.L602:
+	lw	$ra,0($sp)
+.L391:
+	j	clear_DAC
+.L603:
+	addiu	$sp,$sp,4
+.L289:
+	.size	clear_actuators,*-clear_actuators
+.L134:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.update_actuators ,cluster('$group_update_actuators')
+	.align	4
+	.global	update_actuators
+; Function update_actuators
+.L108:
+update_actuators:	.type	func
+	addiu	$sp,$sp,-4
+.L392:
+	lw	$v0,@gprel(IOp_DO)($gp)
+.L768:
+	sw	$ra,0($sp)
+.L393:
+	lbu	$v1,0($v0)
+	lui	$a0,@hi(mosi_packet)
+	lbu	$a0,@lo(mosi_packet)($a0)
+	andi	$v1,$v1,0xf0
+	andi	$a0,$a0,0xf
+	or	$v1,$v1,$a0
+.L769:
+	jal	update_PWM
+.L770:
+	sb	$v1,0($v0)
+.L771:
+	lw	$ra,0($sp)
+.L394:
+	j	update_DAC
+.L772:
+	addiu	$sp,$sp,4
+.L319:
+	.size	update_actuators,*-update_actuators
+.L209:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.init_sensors ,cluster('$group_init_sensors')
+	.align	4
+	.global	init_sensors
+; Function init_sensors
+.L110:
+init_sensors:	.type	func
+	j	init_ADC
+.L777:
+	nop
+.L320:
+	.size	init_sensors,*-init_sensors
+.L214:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.check_op_state ,cluster('$group_check_op_state')
+	.align	4
+	.global	check_op_state
+; Function check_op_state
+.L112:
+check_op_state:	.type	func
+	addiu	$sp,$sp,-4
+.L395:
+	sw	$ra,0($sp)
+.L396:
+	lui	$v1,@hi(ESCvar+2)
+	lbu	$v1,@lo(ESCvar+2)($v1)
+	lui	$a0,@hi(ESCvar+3)
+	lbu	$a0,@lo(ESCvar+3)($a0)
+	sll	$v1,$v1,8
+	or	$v1,$v1,$a0
+	li	$a0,0x8
+	beq	$v1,$a0,.L58
+	lbu	$v0,@gprel(status)($gp)
+.L782:
+	sll	$v0,$v0,30
+	slt	$v0,$v0,$zero
+	bne	$v0,$zero,.L59
+	nop
+.L783:
+	jal	clear_actuators
+	nop
+.L784:
+	lbu	$v0,@gprel(status)($gp)
+	andi	$v0,$v0,0xfffd
+.L785:
+	j	.L60
+.L786:
+	ori	$v0,$v0,0x2
+.L58:
+	andi	$v0,$v0,0xfffd
+.L60:
+	sb	$v0,@gprel(status)($gp)
+.L59:
+	lw	$ra,0($sp)
+.L397:
+	jr	$ra
+	addiu	$sp,$sp,4
+.L321:
+	.size	check_op_state,*-check_op_state
+.L219:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.read_MOSI ,cluster('$group_read_MOSI')
+	.align	4
+	.global	read_MOSI
+; Function read_MOSI
+.L114:
+read_MOSI:	.type	func
+	addiu	$sp,$sp,-8
+.L398:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L399:
+	lbu	$v0,@gprel(Ec_state)($gp)
+	andi	$v0,$v0,0x2
+	beq	$v0,$zero,.L61
+	nop
+.L791:
+	lui	$v0,@hi(ESCvar)
+	addiu	$s0,$v0,@lo(ESCvar)
+	lbu	$v0,0($s0)
+	lbu	$v1,1($s0)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	andi	$v0,$v0,0x400
+	beq	$v0,$zero,.L62
+	nop
+.L792:
+	li	$a0,0x1100
+	lui	$v0,@hi(mosi_packet)
+	addiu	$a1,$v0,@lo(mosi_packet)
+	lhu	$a2,@gprel(RXPDOsize)($gp)
+	jal	ESC_read
+	move	$a3,$s0
+.L793:
+	lbu	$v0,@gprel(status)($gp)
+	sll	$v0,$v0,30
+	slt	$v0,$v0,$zero
+	bne	$v0,$zero,.L63
+	nop
+.L794:
+	jal	update_actuators
+	nop
+.L63:
+	lbu	$v0,@gprel(status)($gp)
+	andi	$v0,$v0,0xfffe
+	sb	$v0,@gprel(status)($gp)
+.L795:
+	lbu	$v0,40($s0)
+	lbu	$v1,41($s0)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,42($s0)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,43($s0)
+	or	$v0,$v0,$a0
+	or	$v0,$v0,$v1
+	sw	$v0,@gprel(MOSI_time)($gp)
+.L62:
+.L61:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L322:
+	.size	read_MOSI,*-read_MOSI
+.L224:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.write_MISO ,cluster('$group_write_MISO')
+	.align	4
+	.global	write_MISO
+; Function write_MISO
+.L116:
+write_MISO:	.type	func
+	addiu	$sp,$sp,-4
+.L400:
+	lbu	$v0,@gprel(Ec_state)($gp)
+.L800:
+	sw	$ra,0($sp)
+.L401:
+	andi	$v0,$v0,0x1
+	beq	$v0,$zero,.L64
+	nop
+.L801:
+	jal	read_Encoders
+	nop
+.L802:
+	lui	$v0,@hi(ESCvar)
+	addiu	$t0,$v0,@lo(ESCvar)
+	lbu	$v0,40($t0)
+	lbu	$v1,41($t0)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,42($t0)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,43($t0)
+	or	$v0,$v0,$a0
+	or	$v0,$v0,$v1
+	srl	$v1,$v0,8
+	andi	$v0,$v0,0x80
+	sltu	$v0,$zero,$v0
+	addu	$v0,$v1,$v0
+	andi	$v0,$v0,0xffff
+.L403:
+	lui	$v1,@hi(miso_packet)
+	jal	_cocofun_3
+	addiu	$t1,$v1,@lo(miso_packet)
+.L404:
+	sb	$v0,34($t1)
+	sra	$v0,$v0,8
+.L803:
+	jal	read_ADC
+.L804:
+	sb	$v0,33($t1)
+.L805:
+	lw	$v0,@gprel(IOp_DI)($gp)
+.L806:
+	li	$a0,0x1180
+.L807:
+	lbu	$v0,0($v0)
+.L808:
+	move	$a1,$t1
+.L809:
+	sb	$v0,0($t1)
+.L810:
+	lhu	$a2,@gprel(TXPDOsize)($gp)
+	jal	ESC_write
+	move	$a3,$t0
+.L64:
+	lw	$ra,0($sp)
+.L402:
+	jr	$ra
+	addiu	$sp,$sp,4
+.L323:
+	.size	write_MISO,*-write_MISO
+.L229:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.ecat_actuator.main ,cluster('$group_main')
+	.align	4
+	.global	main
+; Function main
+.L118:
+main:	.type	func
+	addiu	$sp,$sp,-12
+.L405:
+	sw	$ra,0($sp)
+	jal	__save_r17
+	nop
+.L406:
+	jal	swplatform_init_stacks
+	nop
+.L815:
+	jal	init_EC
+	nop
+.L816:
+	jal	init_actuators
+	nop
+.L817:
+	jal	init_sensors
+	nop
+.L818:
+	lbu	$v0,@gprel(status)($gp)
+.L819:
+	li	$a1,0x14d
+.L820:
+	andi	$v0,$v0,0xfffe
+	ori	$v0,$v0,0x1
+	sb	$v0,@gprel(status)($gp)
+.L821:
+	jal	delay_ms
+	move	$a0,$zero
+.L822:
+	jal	sizeTXPDO
+	nop
+.L823:
+	jal	sizeRXPDO
+.L824:
+	sh	$v0,@gprel(TXPDOsize)($gp)
+.L825:
+	sh	$v0,@gprel(RXPDOsize)($gp)
+.L826:
+	li	$a1,0x14d
+	jal	delay_ms
+	move	$a0,$zero
+.L827:
+	lui	$v0,@hi(ESCvar)
+	addiu	$s0,$v0,@lo(ESCvar)
+	j	.L66
+	addiu	$s1,$s0,8
+.L67:
+	li	$a0,0x110
+	li	$a2,0x2
+	move	$a1,$s1
+	jal	ESC_read
+	move	$a3,$s0
+.L828:
+	lbu	$v0,0($s1)
+	lbu	$v1,1($s1)
+	sll	$v0,$v0,8
+	jal	_cocofun_3
+	or	$v0,$v0,$v1
+	sb	$v0,1($s1)
+	sra	$v0,$v0,8
+	sb	$v0,0($s1)
+.L829:
+	li	$a1,0xa
+	jal	delay_us
+	move	$a0,$zero
+.L66:
+	lbu	$v0,0($s1)
+	lbu	$v1,1($s1)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	andi	$v0,$v0,0x1
+	beq	$v0,$zero,.L67
+	nop
+.L830:
+	li	$a1,0x14d
+	jal	delay_ms
+	move	$a0,$zero
+.L831:
+	jal	ESC_ALstatus
+	li	$a0,0x1
+.L832:
+	jal	ESC_ALerror
+	move	$a0,$zero
+.L833:
+	jal	ESC_stopmbx
+	nop
+.L834:
+	jal	ESC_stopinput
+	nop
+.L835:
+	jal	ESC_stopoutput
+	nop
+.L836:
+	li	$a1,0x14d
+	jal	delay_ms
+	move	$a0,$zero
+.L837:
+	li	$a1,0x3c
+	jal	delay_ms
+	move	$a0,$zero
+.L838:
+	addiu	$s1,$s0,40
+.L68:
+	li	$a0,0x910
+	li	$a2,0x4
+	move	$a1,$s1
+	jal	ESC_read
+	move	$a3,$s0
+.L839:
+	lbu	$v0,0($s1)
+	lbu	$v1,1($s1)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,2($s1)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,3($s1)
+	or	$v0,$v0,$a0
+	or	$v0,$v0,$v1
+	srl	$v1,$v0,24
+	andi	$v1,$v1,0xff
+	srl	$a0,$v0,8
+	andi	$a0,$a0,0xff00
+	or	$v1,$v1,$a0
+	andi	$a0,$v0,0xff00
+	sll	$a0,$a0,8
+	or	$v1,$v1,$a0
+	andi	$v0,$v0,0xff
+	sll	$v0,$v0,24
+	or	$v0,$v1,$v0
+	sb	$v0,3($s1)
+	sra	$v0,$v0,8
+	sb	$v0,2($s1)
+	sra	$v0,$v0,8
+	sb	$v0,1($s1)
+	sra	$v0,$v0,8
+	sb	$v0,0($s1)
+.L840:
+	lbu	$v0,0($s0)
+	lbu	$v1,1($s0)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	beq	$v0,$zero,.L69
+	nop
+.L841:
+	jal	ESC_ALevent
+	nop
+.L69:
+	jal	ESC_state
+	nop
+.L842:
+	jal	ESC_mbxprocess
+	nop
+	beq	$v0,$zero,.L70
+	nop
+.L843:
+	jal	ESC_coeprocess
+	nop
+.L844:
+	jal	ESC_foeprocess
+	nop
+.L70:
+	jal	read_MOSI
+	nop
+.L845:
+	jal	write_MISO
+	nop
+.L846:
+	jal	check_timeout
+	nop
+.L847:
+	jal	check_op_state
+	nop
+.L848:
+	jal	update_flash_led
+	nop
+.L849:
+	j	.L68
+	nop
+.L326:
+	.size	main,*-main
+.L234:
+	; End of function
+; Function _cocofun_3
+.L120:
+_cocofun_3:	.type	func
+; Function body _cocofun_3, coco_iter:1
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+	sll	$v0,$v0,8
+.L873:
+	jr	$ra
+.L874:
+	or	$v0,$v1,$v0
+.L249:
+	; End of function
+	.endsec	; End of section
+
+	.section	.bss.ecat_actuator.ESCvar ,cluster('$group_bss')
+	.global	ESCvar
+	.align	4
+ESCvar:	.type	object
+	.size	ESCvar,97
+	.ds	97
+	.endsec	; End of section
+
+	.section	.bss.ecat_actuator.MBX ,cluster('$group_bss')
+	.global	MBX
+	.align	4
+MBX:	.type	object
+	.size	MBX,384
+	.ds	384
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.MBXcontrol ,cluster('$group_sbss')
+	.global	MBXcontrol
+	.align	4
+MBXcontrol:	.type	object
+	.size	MBXcontrol,3
+	.ds	3
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.MBXrun ,cluster('$group_sbss')
+	.global	MBXrun
+MBXrun:	.type	object
+	.size	MBXrun,1
+	.ds	1
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.SM2_sml ,cluster('$group_sbss')
+	.global	SM2_sml
+	.align	2
+SM2_sml:	.type	object
+	.size	SM2_sml,2
+	.ds	2
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.SM3_sml ,cluster('$group_sbss')
+	.global	SM3_sml
+	.align	2
+SM3_sml:	.type	object
+	.size	SM3_sml,2
+	.ds	2
+	.endsec	; End of section
+
+	.section	.bss.ecat_actuator.miso_packet ,cluster('$group_bss')
+	.global	miso_packet
+	.align	4
+miso_packet:	.type	object
+	.size	miso_packet,35
+	.ds	35
+	.endsec	; End of section
+
+	.section	.bss.ecat_actuator.mosi_packet ,cluster('$group_bss')
+	.global	mosi_packet
+	.align	4
+mosi_packet:	.type	object
+	.size	mosi_packet,11
+	.ds	11
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.App ,cluster('$group_sbss')
+	.global	App
+App:	.type	object
+	.size	App,1
+	.ds	1
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.TXPDOsize ,cluster('$group_sbss')
+	.global	TXPDOsize
+	.align	2
+TXPDOsize:	.type	object
+	.size	TXPDOsize,2
+	.ds	2
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.RXPDOsize ,cluster('$group_sbss')
+	.global	RXPDOsize
+	.align	2
+RXPDOsize:	.type	object
+	.size	RXPDOsize,2
+	.ds	2
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.Ec_state ,cluster('$group_sbss')
+	.global	Ec_state
+Ec_state:	.type	object
+	.size	Ec_state,1
+	.ds	1
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.MOSI_time ,cluster('$group_sbss')
+	.global	MOSI_time
+	.align	4
+MOSI_time:	.type	object
+	.size	MOSI_time,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sdata.ecat_actuator.IOp_DO ,cluster('$group_sdata')
+	.global	IOp_DO
+	.align	4
+IOp_DO:	.type	object
+	.size	IOp_DO,4
+	.dw	-15990784
+	.endsec	; End of section
+
+	.section	.sdata.ecat_actuator.IOp_B ,cluster('$group_sdata')
+	.global	IOp_B
+	.align	4
+IOp_B:	.type	object
+	.size	IOp_B,4
+	.dw	-15990783
+	.endsec	; End of section
+
+	.section	.sdata.ecat_actuator.IOp_DI ,cluster('$group_sdata')
+	.global	IOp_DI
+	.align	4
+IOp_DI:	.type	object
+	.size	IOp_DI,4
+	.dw	-15990782
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.status ,cluster('$group_sbss')
+	.global	status
+status:	.type	object
+	.size	status,1
+	.ds	1
+	.endsec	; End of section
+
+	.section	.sbss.ecat_actuator.c ,cluster('$group_sbss')
+	.align	2
+_999001_c:	.type	object
+	.size	_999001_c,2
+	.ds	2
+	.endsec	; End of section
+
+	.calls	'update_PWM','__save_r17'
+	.calls	'write_DAC','__save_r17'
+	.calls	'update_DAC','__save_r16'
+	.calls	'read_MOSI','__save_r16'
+	.calls	'main','__save_r17'
+	.calls	'init_EC','spi_set_endianess'
+	.calls	'init_EC','spi_cs_hi'
+	.calls	'init_PWM','pwmx_enable_controller'
+	.calls	'update_PWM','_cocofun_1'
+	.calls	'update_PWM','abs'
+	.calls	'update_PWM','pwmx_set_pulsewidth'
+	.calls	'update_PWM','_cocofun_3'
+	.calls	'clear_PWM','pwmx_set_pulsewidth'
+	.calls	'write_DAC','spi_cs_lo'
+	.calls	'write_DAC','spi_transceive8'
+	.calls	'write_DAC','spi_transceive16'
+	.calls	'write_DAC','spi_cs_hi'
+	.calls	'init_DAC','spi_set_endianess'
+	.calls	'init_DAC','spi_cs_hi'
+	.calls	'init_DAC','write_DAC'
+	.calls	'clear_DAC','write_DAC'
+	.calls	'update_DAC','_cocofun_2'
+	.calls	'update_DAC','write_DAC'
+	.calls	'check_timeout','clear_actuators'
+	.calls	'init_actuators','init_PWM'
+	.calls	'init_actuators','init_DAC'
+	.calls	'clear_actuators','clear_PWM'
+	.calls	'clear_actuators','clear_DAC'
+	.calls	'update_actuators','update_PWM'
+	.calls	'update_actuators','update_DAC'
+	.calls	'init_sensors','init_ADC'
+	.calls	'check_op_state','clear_actuators'
+	.calls	'read_MOSI','ESC_read'
+	.calls	'read_MOSI','update_actuators'
+	.calls	'write_MISO','read_Encoders'
+	.calls	'write_MISO','_cocofun_3'
+	.calls	'write_MISO','read_ADC'
+	.calls	'write_MISO','ESC_write'
+	.calls	'main','swplatform_init_stacks'
+	.calls	'main','init_EC'
+	.calls	'main','init_actuators'
+	.calls	'main','init_sensors'
+	.calls	'main','delay_ms'
+	.calls	'main','sizeTXPDO'
+	.calls	'main','sizeRXPDO'
+	.calls	'main','ESC_read'
+	.calls	'main','_cocofun_3'
+	.calls	'main','delay_us'
+	.calls	'main','ESC_ALstatus'
+	.calls	'main','ESC_ALerror'
+	.calls	'main','ESC_stopmbx'
+	.calls	'main','ESC_stopinput'
+	.calls	'main','ESC_stopoutput'
+	.calls	'main','ESC_ALevent'
+	.calls	'main','ESC_state'
+	.calls	'main','ESC_mbxprocess'
+	.calls	'main','ESC_coeprocess'
+	.calls	'main','ESC_foeprocess'
+	.calls	'main','read_MOSI'
+	.calls	'main','write_MISO'
+	.calls	'main','check_timeout'
+	.calls	'main','check_op_state'
+	.calls	'main','update_flash_led'
+	.calls	'init_EC','',4
+	.calls	'init_ADC','',0
+	.calls	'read_ADC','',0
+	.calls	'init_PWM','',4
+	.calls	'update_PWM','',12
+	.calls	'_cocofun_1','',0
+	.calls	'clear_PWM','',4
+	.calls	'read_Encoders','',0
+	.calls	'write_DAC','',12
+	.calls	'init_DAC','',4
+	.calls	'clear_DAC','',4
+	.calls	'update_DAC','',8
+	.calls	'_cocofun_2','',0
+	.calls	'ESC_objecthandler','',0
+	.calls	'update_flash_led','',0
+	.calls	'check_timeout','',4
+	.calls	'init_actuators','',4
+	.calls	'clear_actuators','',4
+	.calls	'update_actuators','',4
+	.calls	'init_sensors','',0
+	.calls	'check_op_state','',4
+	.calls	'read_MOSI','',8
+	.calls	'write_MISO','',4
+	.calls	'main','',12
+	.calls	'_cocofun_3','',0
+	.extern	abs
+	.extern	delay_us
+	.extern	delay_ms
+	.extern	pwmx_set_pulsewidth
+	.extern	pwmx_enable_controller
+	.extern	spi_set_endianess
+	.extern	spi_cs_lo
+	.extern	spi_cs_hi
+	.extern	spi_transceive8
+	.extern	spi_transceive16
+	.extern	drv_ec_1
+	.extern	drv_dac_1
+	.extern	drv_pwm_1
+	.extern	drv_pwm_2
+	.extern	drv_pwm_3
+	.extern	swplatform_init_stacks
+	.extern	sizeTXPDO
+	.extern	sizeRXPDO
+	.extern	ESC_read
+	.extern	ESC_write
+	.extern	ESC_ALerror
+	.extern	ESC_ALstatus
+	.extern	ESC_stopmbx
+	.extern	ESC_mbxprocess
+	.extern	ESC_coeprocess
+	.extern	ESC_stopinput
+	.extern	ESC_stopoutput
+	.extern	ESC_ALevent
+	.extern	ESC_state
+	.extern	ESC_foeprocess
+	.extern	_START
+	.extern	__save_r17
+	.extern	__restore_r17
+	.extern	__save_r16
+	.extern	__restore_r16
+	.section	.debug_info
+.L122:
+	.dw	6018
+	.dh	3
+	.dw	.L123
+	.db	4
+.L121:
+	.db	1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L124
+	.db	2
+	.db	"tsk3000_reset_interval_timer",0
+	.db	3,1,59,20,1,1,3,0,4
+	.db	"pal_architecture_current_interrupt",0
+	.db	3,1,129,1,24
+	.dw	.L334-.L122
+	.db	1,1,3,0
+.L334:
+	.db	5
+	.db	"unsigned int",0
+	.db	4,7,2
+	.db	"pal_architecture_interrupts_enable",0
+	.db	3,1,136,1,24,1,1,3,0,2
+	.db	"pal_architecture_interrupts_disable",0
+	.db	3,1,141,1,24,1,1,3,0,4
+	.db	"pal_architecture_interrupts_disable_if_enabled",0
+	.db	3,1,149,1,25
+	.dw	222
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupts_set_mask",0
+	.db	3,1,160,1,24,1,1,6
+	.db	"mask",0
+	.db	1,160,1,70
+	.dw	222
+	.db	3,0,4
+	.db	"pal_architecture_interrupts_get_mask",0
+	.db	3,1,165,1,24
+	.dw	222
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupt_acknowledge",0
+	.db	3,1,133,2,24,1,1,6
+	.db	"number",0
+	.db	1,133,2,72
+	.dw	222
+	.db	3,0,7
+	.db	"abs",0
+	.db	2,62,33
+	.dw	.L325-.L122
+	.db	1,1,1,1,8,2,62,44
+	.dw	.L325-.L122
+	.db	0
+.L325:
+	.db	5
+	.db	"int",0
+	.db	4,5,9
+	.dw	135
+	.db	3,0,9
+	.dw	173
+	.db	3,0,9
+	.dw	238
+	.db	3,0,9
+	.dw	283
+	.db	3,0,9
+	.dw	329
+	.db	3,0,9
+	.dw	390
+	.db	10
+	.dw	435
+	.db	3,0,9
+	.dw	451
+	.db	3,0,9
+	.dw	502
+	.db	10
+	.dw	549
+	.db	3,0,11
+	.db	"delay_us",0
+	.db	3,32,21,1,1,1,1,6
+	.db	"us",0
+	.db	3,32,41
+	.dw	.L407-.L122
+	.db	0
+.L407:
+	.db	5
+	.db	"unsigned long long int",0
+	.db	8,7,11
+	.db	"delay_ms",0
+	.db	3,33,21,1,1,1,1,6
+	.db	"ms",0
+	.db	3,33,41
+	.dw	694
+	.db	0,11
+	.db	"pwmx_set_pulsewidth",0
+	.db	4,55,13,1,1,1,1,6
+	.db	"pwmx_drv",0
+	.db	4,55,51
+	.dw	.L408-.L122
+	.db	6
+	.db	"value",0
+	.db	4,55,70
+	.dw	.L285-.L122
+	.db	0
+.L408:
+	.db	12
+	.dw	.L409-.L122
+.L409:
+	.db	13
+	.db	"pwmx_s",0
+	.db	4,46,16,1
+.L285:
+	.db	5
+	.db	"unsigned short int",0
+	.db	2,7,11
+	.db	"pwmx_enable_controller",0
+	.db	4,58,13,1,1,1,1,6
+	.db	"pwmx_drv",0
+	.db	4,58,54
+	.dw	809
+	.db	0,11
+	.db	"spi_set_endianess",0
+	.db	5,53,13,1,1,1,1,6
+	.db	"drv",0
+	.db	5,53,49
+	.dw	.L410-.L122
+	.db	6
+	.db	"endianess",0
+	.db	5,53,59
+	.dw	.L411-.L122
+	.db	0
+.L410:
+	.db	12
+	.dw	.L412-.L122
+.L412:
+	.db	13
+	.db	"drv_spi_s",0
+	.db	5,46,16,1
+.L411:
+	.db	5
+	.db	"_Bool",0
+	.db	1,2,11
+	.db	"spi_cs_lo",0
+	.db	5,55,13,1,1,1,1,6
+	.db	"drv",0
+	.db	5,55,41
+	.dw	954
+	.db	0,11
+	.db	"spi_cs_hi",0
+	.db	5,56,13,1,1,1,1,6
+	.db	"drv",0
+	.db	5,56,41
+	.dw	954
+	.db	0,7
+	.db	"spi_transceive8",0
+	.db	5,62,16
+	.dw	.L287-.L122
+	.db	1,1,1,1,6
+	.db	"drv",0
+	.db	5,62,50
+	.dw	954
+	.db	6
+	.db	"val",0
+	.db	5,62,63
+	.dw	.L287-.L122
+	.db	0
+.L287:
+	.db	5
+	.db	"unsigned char",0
+	.db	1,8,7
+	.db	"spi_transceive16",0
+	.db	5,63,17
+	.dw	826
+	.db	1,1,1,1,6
+	.db	"drv",0
+	.db	5,63,52
+	.dw	954
+	.db	6
+	.db	"val",0
+	.db	5,63,66
+	.dw	826
+	.db	0,14
+	.db	"swplatform_init_stacks",0
+	.db	6,44,13,1,1,1,1,15
+	.db	"sizeTXPDO",0
+	.db	7,219,3,10
+	.dw	826
+	.db	1,1,1,1,15
+	.db	"sizeRXPDO",0
+	.db	7,220,3,10
+	.dw	826
+	.db	1,1,1,1,11
+	.db	"ESC_read",0
+	.db	7,222,3,6,1,1,1,1,6
+	.db	"address",0
+	.db	7,222,3,24
+	.dw	826
+	.db	6
+	.db	"buf",0
+	.db	7,222,3,41
+	.dw	.L413-.L122
+	.db	6
+	.db	"len",0
+	.db	7,222,3,54
+	.dw	826
+	.db	6
+	.db	"tALevent",0
+	.db	7,222,3,67
+	.dw	.L413-.L122
+	.db	0
+.L413:
+	.db	12
+	.dw	1098
+	.db	11
+	.db	"ESC_write",0
+	.db	7,223,3,6,1,1,1,1,6
+	.db	"address",0
+	.db	7,223,3,25
+	.dw	826
+	.db	6
+	.db	"buf",0
+	.db	7,223,3,42
+	.dw	1326
+	.db	6
+	.db	"len",0
+	.db	7,223,3,55
+	.dw	826
+	.db	6
+	.db	"tALevent",0
+	.db	7,223,3,68
+	.dw	1326
+	.db	0,11
+	.db	"ESC_ALerror",0
+	.db	7,224,3,6,1,1,1,1,6
+	.db	"errornumber",0
+	.db	7,224,3,27
+	.dw	826
+	.db	0,11
+	.db	"ESC_ALstatus",0
+	.db	7,225,3,6,1,1,1,1,6
+	.db	"status",0
+	.db	7,225,3,27
+	.dw	1098
+	.db	0,14
+	.db	"ESC_stopmbx",0
+	.db	7,230,3,6,1,1,1,1,15
+	.db	"ESC_mbxprocess",0
+	.db	7,232,3,9
+	.dw	1098
+	.db	1,1,1,1,14
+	.db	"ESC_coeprocess",0
+	.db	7,233,3,6,1,1,1,1,14
+	.db	"ESC_stopinput",0
+	.db	7,236,3,6,1,1,1,1,14
+	.db	"ESC_stopoutput",0
+	.db	7,238,3,6,1,1,1,1,14
+	.db	"ESC_ALevent",0
+	.db	7,239,3,6,1,1,1,1,15
+	.db	"ESC_state",0
+	.db	7,240,3,10
+	.dw	826
+	.db	1,1,1,1,14
+	.db	"ESC_foeprocess",0
+	.db	8,67,6,1,1,1,1
+.L294:
+	.db	5
+	.db	"short int",0
+	.db	2,5,16
+	.db	"__wchar_t",0
+	.db	9,1,1
+	.dw	826
+	.db	16
+	.db	"__size_t",0
+	.db	9,1,1
+	.dw	222
+	.db	16
+	.db	"__ptrdiff_t",0
+	.db	9,1,1
+	.dw	592
+	.db	16
+	.db	"__codeptr",0
+	.db	9,1,1
+	.dw	.L414-.L122
+.L414:
+	.db	12
+	.dw	.L415-.L122
+.L415:
+	.db	17,1,16
+	.db	"_iob_flag_t",0
+	.db	10,74,25
+	.dw	826
+	.db	16
+	.db	"uint8_t",0
+	.db	11,22,33
+	.dw	1098
+	.db	16
+	.db	"int16_t",0
+	.db	11,23,33
+	.dw	1681
+	.db	16
+	.db	"uint16_t",0
+	.db	11,24,33
+	.dw	826
+	.db	16
+	.db	"int32_t",0
+	.db	11,25,33
+	.dw	592
+	.db	16
+	.db	"uint32_t",0
+	.db	11,26,33
+	.dw	222
+	.db	16
+	.db	"uint64_t",0
+	.db	11,28,33
+	.dw	694
+	.db	16
+	.db	"interrupt_handler_t",0
+	.db	12,73,20
+	.dw	.L416-.L122
+.L416:
+	.db	12
+	.dw	.L417-.L122
+.L417:
+	.db	18
+	.dw	222
+	.db	1,1,19
+	.dw	222
+	.db	19
+	.dw	.L418-.L122
+	.db	0
+.L418:
+	.db	12
+	.dw	.L419-.L122
+.L419:
+	.db	20
+	.db	"void",0
+	.db	16
+	.db	"interrupt_entry_t",0
+	.db	12,78,34
+	.dw	.L420-.L122
+.L420:
+	.db	21
+	.db	"interrupt_entry_s",0
+	.db	12,79,8,16,22
+	.db	"number",0
+	.db	2
+	.dw	826
+	.db	2,35,0,22
+	.db	"in_use",0
+	.db	1
+	.dw	.L421-.L122
+	.db	2,35,2,22
+	.db	"is_native",0
+	.db	1
+	.dw	974
+	.db	2,35,3,22
+	.db	"context",0
+	.db	4
+	.dw	1944
+	.db	2,35,4,22
+	.db	"handler",0
+	.db	4
+	.dw	1893
+	.db	2,35,8,22
+	.db	"next",0
+	.db	4
+	.dw	.L422-.L122
+	.db	2,35,12,0
+.L421:
+	.db	23
+	.dw	974
+	.db	12
+	.dw	1926
+.L422:
+	.db	23
+	.dw	.L423-.L122
+.L423:
+	.db	12
+	.dw	1981
+	.db	16
+	.db	"pwmx_t",0
+	.db	4,46,23
+	.dw	814
+	.db	16
+	.db	"spi_t",0
+	.db	5,46,26
+	.dw	959
+	.db	24
+	.db	"drv_ec_1",0
+	.db	6,35,19
+	.dw	954
+	.db	1,1,24
+	.db	"drv_dac_1",0
+	.db	6,36,19
+	.dw	954
+	.db	1,1,24
+	.db	"drv_pwm_1",0
+	.db	6,38,19
+	.dw	809
+	.db	1,1,24
+	.db	"drv_pwm_2",0
+	.db	6,39,19
+	.dw	809
+	.db	1,1,24
+	.db	"drv_pwm_3",0
+	.db	6,40,19
+	.dw	809
+	.db	1,1,16
+	.db	"digital_in_t",0
+	.db	13,82,2
+	.dw	.L424-.L122
+.L424:
+	.db	25,13,70,9,1,22
+	.db	"line",0
+	.db	1
+	.dw	.L425-.L122
+	.db	2,35,0,22
+	.db	"port",0
+	.db	1
+	.dw	.L426-.L122
+	.db	2,35,0,0
+.L425:
+	.db	26
+	.dw	.L427-.L122
+.L427:
+	.db	27,13,71,3,1,28
+	.db	"power_status",0
+	.db	1
+	.dw	.L428-.L122
+	.db	1,0,2,35,0,28
+	.db	"reserved_3",0
+	.db	1
+	.dw	.L429-.L122
+	.db	1,1,2,35,0,28
+	.db	"reserved_2",0
+	.db	1
+	.dw	.L430-.L122
+	.db	1,2,2,35,0,28
+	.db	"reserved_1",0
+	.db	1
+	.dw	.L431-.L122
+	.db	1,3,2,35,0,28
+	.db	"spare_di_4",0
+	.db	1
+	.dw	.L432-.L122
+	.db	1,4,2,35,0,28
+	.db	"spare_di_3",0
+	.db	1
+	.dw	.L433-.L122
+	.db	1,5,2,35,0,28
+	.db	"spare_di_2",0
+	.db	1
+	.dw	.L434-.L122
+	.db	1,6,2,35,0,28
+	.db	"spare_di_1",0
+	.db	1
+	.dw	.L435-.L122
+	.db	1,7,2,35,0,0
+.L428:
+	.db	26
+	.dw	1098
+.L429:
+	.db	26
+	.dw	1098
+.L430:
+	.db	26
+	.dw	1098
+.L431:
+	.db	26
+	.dw	1098
+.L432:
+	.db	26
+	.dw	1098
+.L433:
+	.db	26
+	.dw	1098
+.L434:
+	.db	26
+	.dw	1098
+.L435:
+	.db	26
+	.dw	1098
+.L426:
+	.db	26
+	.dw	1098
+	.db	16
+	.db	"miso_packet_t",0
+	.db	13,103,2
+	.dw	.L328-.L122
+.L328:
+	.db	27,13,84,9,35,22
+	.db	"digital_in",0
+	.db	1
+	.dw	.L436-.L122
+	.db	2,35,0,22
+	.db	"encoder_1",0
+	.db	2
+	.dw	.L437-.L122
+	.db	2,35,1,22
+	.db	"encoder_2",0
+	.db	2
+	.dw	.L438-.L122
+	.db	2,35,3,22
+	.db	"encoder_3",0
+	.db	2
+	.dw	.L439-.L122
+	.db	2,35,5,22
+	.db	"current_1",0
+	.db	2
+	.dw	.L440-.L122
+	.db	2,35,7,22
+	.db	"current_2",0
+	.db	2
+	.dw	.L441-.L122
+	.db	2,35,9,22
+	.db	"current_3",0
+	.db	2
+	.dw	.L442-.L122
+	.db	2,35,11,22
+	.db	"calipher_1",0
+	.db	2
+	.dw	.L443-.L122
+	.db	2,35,13,22
+	.db	"calipher_2",0
+	.db	2
+	.dw	.L444-.L122
+	.db	2,35,15,22
+	.db	"force_1",0
+	.db	2
+	.dw	.L445-.L122
+	.db	2,35,17,22
+	.db	"force_2",0
+	.db	2
+	.dw	.L446-.L122
+	.db	2,35,19,22
+	.db	"force_3",0
+	.db	2
+	.dw	.L447-.L122
+	.db	2,35,21,22
+	.db	"pos_1",0
+	.db	2
+	.dw	.L448-.L122
+	.db	2,35,23,22
+	.db	"pos_2",0
+	.db	2
+	.dw	.L449-.L122
+	.db	2,35,25,22
+	.db	"pos_3",0
+	.db	2
+	.dw	.L450-.L122
+	.db	2,35,27,22
+	.db	"spare_ai_1",0
+	.db	2
+	.dw	.L451-.L122
+	.db	2,35,29,22
+	.db	"spare_ai_2",0
+	.db	2
+	.dw	.L452-.L122
+	.db	2,35,31,22
+	.db	"timestamp",0
+	.db	2
+	.dw	.L453-.L122
+	.db	2,35,33,0
+.L436:
+	.db	26
+	.dw	2273
+.L437:
+	.db	26
+	.dw	826
+.L438:
+	.db	26
+	.dw	826
+.L439:
+	.db	26
+	.dw	826
+.L440:
+	.db	26
+	.dw	1681
+.L441:
+	.db	26
+	.dw	1681
+.L442:
+	.db	26
+	.dw	1681
+.L443:
+	.db	26
+	.dw	826
+.L444:
+	.db	26
+	.dw	826
+.L445:
+	.db	26
+	.dw	826
+.L446:
+	.db	26
+	.dw	826
+.L447:
+	.db	26
+	.dw	826
+.L448:
+	.db	26
+	.dw	826
+.L449:
+	.db	26
+	.dw	826
+.L450:
+	.db	26
+	.dw	826
+.L451:
+	.db	26
+	.dw	826
+.L452:
+	.db	26
+	.dw	826
+.L453:
+	.db	26
+	.dw	826
+	.db	16
+	.db	"digital_out_t",0
+	.db	13,117,2
+	.dw	.L454-.L122
+.L454:
+	.db	25,13,105,9,1,22
+	.db	"line",0
+	.db	1
+	.dw	.L455-.L122
+	.db	2,35,0,22
+	.db	"port",0
+	.db	1
+	.dw	.L456-.L122
+	.db	2,35,0,0
+.L455:
+	.db	26
+	.dw	.L457-.L122
+.L457:
+	.db	27,13,106,3,1,28
+	.db	"reserved_4",0
+	.db	1
+	.dw	.L458-.L122
+	.db	1,0,2,35,0,28
+	.db	"reserved_3",0
+	.db	1
+	.dw	.L459-.L122
+	.db	1,1,2,35,0,28
+	.db	"reserved_2",0
+	.db	1
+	.dw	.L460-.L122
+	.db	1,2,2,35,0,28
+	.db	"reserved_1",0
+	.db	1
+	.dw	.L461-.L122
+	.db	1,3,2,35,0,28
+	.db	"spare_do_4",0
+	.db	1
+	.dw	.L462-.L122
+	.db	1,4,2,35,0,28
+	.db	"spare_do_3",0
+	.db	1
+	.dw	.L463-.L122
+	.db	1,5,2,35,0,28
+	.db	"enable_2",0
+	.db	1
+	.dw	.L464-.L122
+	.db	1,6,2,35,0,28
+	.db	"enable_1",0
+	.db	1
+	.dw	.L465-.L122
+	.db	1,7,2,35,0,0
+.L458:
+	.db	26
+	.dw	1098
+.L459:
+	.db	26
+	.dw	1098
+.L460:
+	.db	26
+	.dw	1098
+.L461:
+	.db	26
+	.dw	1098
+.L462:
+	.db	26
+	.dw	1098
+.L463:
+	.db	26
+	.dw	1098
+.L464:
+	.db	26
+	.dw	1098
+.L465:
+	.db	26
+	.dw	1098
+.L456:
+	.db	26
+	.dw	1098
+	.db	16
+	.db	"mosi_packet_t",0
+	.db	13,126,2
+	.dw	.L329-.L122
+.L329:
+	.db	27,13,119,9,11,22
+	.db	"digital_out",0
+	.db	1
+	.dw	.L466-.L122
+	.db	2,35,0,22
+	.db	"m_1",0
+	.db	2
+	.dw	.L467-.L122
+	.db	2,35,1,22
+	.db	"m_2",0
+	.db	2
+	.dw	.L468-.L122
+	.db	2,35,3,22
+	.db	"m_3",0
+	.db	2
+	.dw	.L469-.L122
+	.db	2,35,5,22
+	.db	"aout_1",0
+	.db	2
+	.dw	.L470-.L122
+	.db	2,35,7,22
+	.db	"aout_2",0
+	.db	2
+	.dw	.L471-.L122
+	.db	2,35,9,0
+.L466:
+	.db	26
+	.dw	3010
+.L467:
+	.db	26
+	.dw	1681
+.L468:
+	.db	26
+	.dw	1681
+.L469:
+	.db	26
+	.dw	1681
+.L470:
+	.db	26
+	.dw	1681
+.L471:
+	.db	26
+	.dw	1681
+	.db	16
+	.db	"_App",0
+	.db	13,130,1,2
+	.dw	.L330-.L122
+.L330:
+	.db	27,13,128,1,9,1,22
+	.db	"state",0
+	.db	1
+	.dw	1098
+	.db	2,35,0,0,16
+	.db	"_ESCsm",0
+	.db	7,155,2,5
+	.dw	.L472-.L122
+.L472:
+	.db	27,7,235,1,9,8,22
+	.db	"PSA",0
+	.db	2
+	.dw	.L473-.L122
+	.db	2,35,0,22
+	.db	"Length",0
+	.db	2
+	.dw	.L474-.L122
+	.db	2,35,2,28
+	.db	"R1",0
+	.db	1
+	.dw	.L475-.L122
+	.db	1,0,2,35,4,28
+	.db	"WTE",0
+	.db	1
+	.dw	.L476-.L122
+	.db	1,1,2,35,4,28
+	.db	"IntPDI",0
+	.db	1
+	.dw	.L477-.L122
+	.db	1,2,2,35,4,28
+	.db	"IntECAT",0
+	.db	1
+	.dw	.L478-.L122
+	.db	1,3,2,35,4,28
+	.db	"Direction",0
+	.db	1
+	.dw	.L479-.L122
+	.db	2,4,2,35,4,28
+	.db	"Mode",0
+	.db	1
+	.dw	.L480-.L122
+	.db	2,6,2,35,4,28
+	.db	"R3",0
+	.db	1
+	.dw	.L481-.L122
+	.db	2,0,2,35,5,28
+	.db	"BUFstat",0
+	.db	1
+	.dw	.L482-.L122
+	.db	2,2,2,35,5,28
+	.db	"MBXstat",0
+	.db	1
+	.dw	.L483-.L122
+	.db	1,4,2,35,5,28
+	.db	"R2",0
+	.db	1
+	.dw	.L484-.L122
+	.db	1,5,2,35,5,28
+	.db	"IntR",0
+	.db	1
+	.dw	.L485-.L122
+	.db	1,6,2,35,5,28
+	.db	"IntW",0
+	.db	1
+	.dw	.L486-.L122
+	.db	1,7,2,35,5,28
+	.db	"EClatchPDI",0
+	.db	1
+	.dw	.L487-.L122
+	.db	1,0,2,35,6,28
+	.db	"EClatchEC",0
+	.db	1
+	.dw	.L488-.L122
+	.db	1,1,2,35,6,28
+	.db	"ECr4",0
+	.db	1
+	.dw	.L489-.L122
+	.db	4,2,2,35,6,28
+	.db	"ECrep",0
+	.db	1
+	.dw	.L490-.L122
+	.db	1,6,2,35,6,28
+	.db	"ECsm",0
+	.db	1
+	.dw	.L491-.L122
+	.db	1,7,2,35,6,28
+	.db	"PDIr5",0
+	.db	1
+	.dw	.L492-.L122
+	.db	6,0,2,35,7,28
+	.db	"PDIrep",0
+	.db	1
+	.dw	.L493-.L122
+	.db	1,6,2,35,7,28
+	.db	"PDIsm",0
+	.db	1
+	.dw	.L494-.L122
+	.db	1,7,2,35,7,0
+.L473:
+	.db	26
+	.dw	826
+.L474:
+	.db	26
+	.dw	826
+.L475:
+	.db	26
+	.dw	1098
+.L476:
+	.db	26
+	.dw	1098
+.L477:
+	.db	26
+	.dw	1098
+.L478:
+	.db	26
+	.dw	1098
+.L479:
+	.db	26
+	.dw	1098
+.L480:
+	.db	26
+	.dw	1098
+.L481:
+	.db	26
+	.dw	1098
+.L482:
+	.db	26
+	.dw	1098
+.L483:
+	.db	26
+	.dw	1098
+.L484:
+	.db	26
+	.dw	1098
+.L485:
+	.db	26
+	.dw	1098
+.L486:
+	.db	26
+	.dw	1098
+.L487:
+	.db	26
+	.dw	1098
+.L488:
+	.db	26
+	.dw	1098
+.L489:
+	.db	26
+	.dw	1098
+.L490:
+	.db	26
+	.dw	1098
+.L491:
+	.db	26
+	.dw	1098
+.L492:
+	.db	26
+	.dw	1098
+.L493:
+	.db	26
+	.dw	1098
+.L494:
+	.db	26
+	.dw	1098
+	.db	16
+	.db	"_ESCvar",0
+	.db	7,219,2,5
+	.dw	.L331-.L122
+.L331:
+	.db	27,7,175,2,9,97,22
+	.db	"ALevent",0
+	.db	2
+	.dw	.L495-.L122
+	.db	2,35,0,22
+	.db	"ALstatus",0
+	.db	2
+	.dw	.L496-.L122
+	.db	2,35,2,22
+	.db	"ALcontrol",0
+	.db	2
+	.dw	.L497-.L122
+	.db	2,35,4,22
+	.db	"ALerror",0
+	.db	2
+	.dw	.L498-.L122
+	.db	2,35,6,22
+	.db	"DLstatus",0
+	.db	2
+	.dw	.L499-.L122
+	.db	2,35,8,22
+	.db	"address",0
+	.db	2
+	.dw	.L500-.L122
+	.db	2,35,10,22
+	.db	"mbxcnt",0
+	.db	1
+	.dw	.L501-.L122
+	.db	2,35,12,22
+	.db	"mbxincnt",0
+	.db	1
+	.dw	.L502-.L122
+	.db	2,35,13,22
+	.db	"mbxoutpost",0
+	.db	1
+	.dw	.L503-.L122
+	.db	2,35,14,22
+	.db	"mbxbackup",0
+	.db	1
+	.dw	.L504-.L122
+	.db	2,35,15,22
+	.db	"xoe",0
+	.db	1
+	.dw	.L505-.L122
+	.db	2,35,16,22
+	.db	"txcue",0
+	.db	1
+	.dw	.L506-.L122
+	.db	2,35,17,22
+	.db	"mbxfree",0
+	.db	1
+	.dw	.L507-.L122
+	.db	2,35,18,22
+	.db	"segmented",0
+	.db	1
+	.dw	.L508-.L122
+	.db	2,35,19,22
+	.db	"data",0
+	.db	4
+	.dw	.L509-.L122
+	.db	2,35,20,22
+	.db	"entries",0
+	.db	2
+	.dw	.L510-.L122
+	.db	2,35,24,22
+	.db	"frags",0
+	.db	2
+	.dw	.L511-.L122
+	.db	2,35,26,22
+	.db	"fragsleft",0
+	.db	2
+	.dw	.L512-.L122
+	.db	2,35,28,28
+	.db	"r2",0
+	.db	1
+	.dw	.L513-.L122
+	.db	6,0,2,35,30,28
+	.db	"toggle",0
+	.db	1
+	.dw	.L514-.L122
+	.db	1,6,2,35,30,28
+	.db	"r1",0
+	.db	1
+	.dw	.L515-.L122
+	.db	1,7,2,35,30,22
+	.db	"SMtestresult",0
+	.db	1
+	.dw	.L516-.L122
+	.db	2,35,31,22
+	.db	"temp",0
+	.db	2
+	.dw	.L517-.L122
+	.db	2,35,32,22
+	.db	"wdcnt",0
+	.db	2
+	.dw	.L518-.L122
+	.db	2,35,34,22
+	.db	"PrevTime",0
+	.db	4
+	.dw	.L519-.L122
+	.db	2,35,36,22
+	.db	"Time",0
+	.db	4
+	.dw	.L520-.L122
+	.db	2,35,40,22
+	.db	"SM",0
+	.db	32
+	.dw	.L521-.L122
+	.db	2,35,44,22
+	.db	"foestate",0
+	.db	1
+	.dw	.L522-.L122
+	.db	2,35,76,22
+	.db	"fposition",0
+	.db	4
+	.dw	.L523-.L122
+	.db	2,35,77,22
+	.db	"fprevposition",0
+	.db	4
+	.dw	.L524-.L122
+	.db	2,35,81,22
+	.db	"fend",0
+	.db	4
+	.dw	.L525-.L122
+	.db	2,35,85,22
+	.db	"fbufposition",0
+	.db	2
+	.dw	.L526-.L122
+	.db	2,35,89,22
+	.db	"fbufstate",0
+	.db	1
+	.dw	.L527-.L122
+	.db	2,35,91,22
+	.db	"bootstate",0
+	.db	1
+	.dw	.L528-.L122
+	.db	2,35,92,22
+	.db	"foepacket",0
+	.db	4
+	.dw	.L529-.L122
+	.db	2,35,93,0
+.L495:
+	.db	26
+	.dw	826
+.L496:
+	.db	26
+	.dw	826
+.L497:
+	.db	26
+	.dw	826
+.L498:
+	.db	26
+	.dw	826
+.L499:
+	.db	26
+	.dw	826
+.L500:
+	.db	26
+	.dw	826
+.L501:
+	.db	26
+	.dw	1098
+.L502:
+	.db	26
+	.dw	1098
+.L503:
+	.db	26
+	.dw	1098
+.L504:
+	.db	26
+	.dw	1098
+.L505:
+	.db	26
+	.dw	1098
+.L506:
+	.db	26
+	.dw	1098
+.L507:
+	.db	26
+	.dw	1098
+.L508:
+	.db	26
+	.dw	1098
+.L509:
+	.db	26
+	.dw	1944
+.L510:
+	.db	26
+	.dw	826
+.L511:
+	.db	26
+	.dw	826
+.L512:
+	.db	26
+	.dw	826
+.L513:
+	.db	26
+	.dw	1098
+.L514:
+	.db	26
+	.dw	1098
+.L515:
+	.db	26
+	.dw	1098
+.L516:
+	.db	26
+	.dw	1098
+.L517:
+	.db	26
+	.dw	1681
+.L518:
+	.db	26
+	.dw	826
+.L519:
+	.db	26
+	.dw	222
+.L520:
+	.db	26
+	.dw	222
+.L521:
+	.db	26
+	.dw	.L530-.L122
+.L530:
+	.db	29,32
+	.dw	3474
+	.db	30,3,0
+.L522:
+	.db	26
+	.dw	1098
+.L523:
+	.db	26
+	.dw	222
+.L524:
+	.db	26
+	.dw	222
+.L525:
+	.db	26
+	.dw	222
+.L526:
+	.db	26
+	.dw	826
+.L527:
+	.db	26
+	.dw	1098
+.L528:
+	.db	26
+	.dw	1098
+.L529:
+	.db	26
+	.dw	222
+	.db	16
+	.db	"_MBXh",0
+	.db	7,237,2,5
+	.dw	.L531-.L122
+.L531:
+	.db	27,7,221,2,9,6,22
+	.db	"length",0
+	.db	2
+	.dw	.L532-.L122
+	.db	2,35,0,22
+	.db	"address",0
+	.db	2
+	.dw	.L533-.L122
+	.db	2,35,2,28
+	.db	"priority",0
+	.db	1
+	.dw	.L534-.L122
+	.db	2,0,2,35,4,28
+	.db	"channel",0
+	.db	1
+	.dw	.L535-.L122
+	.db	6,2,2,35,4,28
+	.db	"mbxcnt",0
+	.db	1
+	.dw	.L536-.L122
+	.db	4,0,2,35,5,28
+	.db	"mbxtype",0
+	.db	1
+	.dw	.L537-.L122
+	.db	4,4,2,35,5,0
+.L532:
+	.db	26
+	.dw	826
+.L533:
+	.db	26
+	.dw	826
+.L534:
+	.db	26
+	.dw	1098
+.L535:
+	.db	26
+	.dw	1098
+.L536:
+	.db	26
+	.dw	1098
+.L537:
+	.db	26
+	.dw	1098
+	.db	16
+	.db	"_MBX",0
+	.db	7,243,2,5
+	.dw	.L538-.L122
+.L538:
+	.db	27,7,239,2,9,128,1,22
+	.db	"header",0
+	.db	6
+	.dw	.L539-.L122
+	.db	2,35,0,22
+	.db	"b",0
+	.db	122
+	.dw	.L540-.L122
+	.db	2,35,6,0
+.L539:
+	.db	26
+	.dw	4790
+.L540:
+	.db	26
+	.dw	.L541-.L122
+.L541:
+	.db	29,122
+	.dw	1098
+	.db	30,121,0,16
+	.db	"_COEh",0
+	.db	7,248,2,5
+	.dw	.L542-.L122
+.L542:
+	.db	27,7,245,2,9,2,22
+	.db	"numberservice",0
+	.db	2
+	.dw	.L543-.L122
+	.db	2,35,0,0
+.L543:
+	.db	26
+	.dw	826
+	.db	16
+	.db	"_INFOh",0
+	.db	7,134,3,5
+	.dw	.L544-.L122
+.L544:
+	.db	27,7,250,2,9,4,28
+	.db	"incomplete",0
+	.db	1
+	.dw	.L545-.L122
+	.db	1,0,2,35,0,28
+	.db	"opcode",0
+	.db	1
+	.dw	.L546-.L122
+	.db	7,1,2,35,0,22
+	.db	"reserved",0
+	.db	1
+	.dw	.L547-.L122
+	.db	2,35,1,22
+	.db	"fragmentsleft",0
+	.db	2
+	.dw	.L548-.L122
+	.db	2,35,2,0
+.L545:
+	.db	26
+	.dw	1098
+.L546:
+	.db	26
+	.dw	1098
+.L547:
+	.db	26
+	.dw	1098
+.L548:
+	.db	26
+	.dw	826
+	.db	16
+	.db	"_FOEh",0
+	.db	7,189,3,3
+	.dw	.L549-.L122
+.L549:
+	.db	27,7,179,3,9,6,22
+	.db	"opcode",0
+	.db	1
+	.dw	.L550-.L122
+	.db	2,35,0,22
+	.db	"reserved",0
+	.db	1
+	.dw	.L551-.L122
+	.db	2,35,1,22
+	.db	"x",0
+	.db	4
+	.dw	.L552-.L122
+	.db	2,35,2,0
+.L550:
+	.db	26
+	.dw	1098
+.L551:
+	.db	26
+	.dw	1098
+.L552:
+	.db	26
+	.dw	.L553-.L122
+.L553:
+	.db	25,7,183,3,5,4,22
+	.db	"password",0
+	.db	4
+	.dw	.L554-.L122
+	.db	2,35,0,22
+	.db	"packetnumber",0
+	.db	4
+	.dw	.L555-.L122
+	.db	2,35,0,22
+	.db	"errorcode",0
+	.db	4
+	.dw	.L556-.L122
+	.db	2,35,0,0
+.L554:
+	.db	26
+	.dw	222
+.L555:
+	.db	26
+	.dw	222
+.L556:
+	.db	26
+	.dw	222
+	.db	16
+	.db	"_MBXcontrol",0
+	.db	7,217,3,5
+	.dw	.L557-.L122
+.L557:
+	.db	27,7,214,3,9,1,22
+	.db	"state",0
+	.db	1
+	.dw	.L558-.L122
+	.db	2,35,0,0
+.L558:
+	.db	26
+	.dw	1098
+.L332:
+	.db	29,128,3
+	.dw	4950
+	.db	30,2,0
+.L333:
+	.db	29,3
+	.dw	5362
+	.db	30,2,0
+.L335:
+	.db	12
+	.dw	.L559-.L122
+.L559:
+	.db	25,9,27,1,1,22
+	.db	"line",0
+	.db	1
+	.dw	.L560-.L122
+	.db	2,35,0,22
+	.db	"port",0
+	.db	1
+	.dw	.L561-.L122
+	.db	2,35,0,0
+.L560:
+	.db	26
+	.dw	.L562-.L122
+.L562:
+	.db	27,9,28,3,1,28
+	.db	"frun",0
+	.db	1
+	.dw	.L563-.L122
+	.db	1,0,2,35,0,28
+	.db	"direction_3",0
+	.db	1
+	.dw	.L564-.L122
+	.db	1,1,2,35,0,28
+	.db	"direction_2",0
+	.db	1
+	.dw	.L565-.L122
+	.db	1,2,2,35,0,28
+	.db	"direction_1",0
+	.db	1
+	.dw	.L566-.L122
+	.db	1,3,2,35,0,28
+	.db	"spare_out_4",0
+	.db	1
+	.dw	.L567-.L122
+	.db	1,4,2,35,0,28
+	.db	"spare_out_3",0
+	.db	1
+	.dw	.L568-.L122
+	.db	1,5,2,35,0,28
+	.db	"enable_2",0
+	.db	1
+	.dw	.L569-.L122
+	.db	1,6,2,35,0,28
+	.db	"enable_1",0
+	.db	1
+	.dw	.L570-.L122
+	.db	1,7,2,35,0,0
+.L563:
+	.db	26
+	.dw	1098
+.L564:
+	.db	26
+	.dw	1098
+.L565:
+	.db	26
+	.dw	1098
+.L566:
+	.db	26
+	.dw	1098
+.L567:
+	.db	26
+	.dw	1098
+.L568:
+	.db	26
+	.dw	1098
+.L569:
+	.db	26
+	.dw	1098
+.L570:
+	.db	26
+	.dw	1098
+.L561:
+	.db	26
+	.dw	1098
+.L336:
+	.db	12
+	.dw	.L571-.L122
+.L571:
+	.db	27,9,41,1,1,28
+	.db	"res",0
+	.db	1
+	.dw	.L572-.L122
+	.db	3,0,2,35,0,28
+	.db	"adc_enable",0
+	.db	1
+	.dw	.L573-.L122
+	.db	1,3,2,35,0,28
+	.db	"adc_address",0
+	.db	1
+	.dw	.L574-.L122
+	.db	4,4,2,35,0,0
+.L572:
+	.db	26
+	.dw	1098
+.L573:
+	.db	26
+	.dw	1098
+.L574:
+	.db	26
+	.dw	1098
+.L337:
+	.db	12
+	.dw	.L575-.L122
+.L575:
+	.db	25,9,47,1,1,22
+	.db	"line",0
+	.db	1
+	.dw	.L576-.L122
+	.db	2,35,0,22
+	.db	"port",0
+	.db	1
+	.dw	.L577-.L122
+	.db	2,35,0,0
+.L576:
+	.db	26
+	.dw	.L578-.L122
+.L578:
+	.db	27,9,48,3,1,28
+	.db	"res",0
+	.db	1
+	.dw	.L579-.L122
+	.db	4,0,2,35,0,28
+	.db	"spare_in_4",0
+	.db	1
+	.dw	.L580-.L122
+	.db	1,4,2,35,0,28
+	.db	"spare_in_3",0
+	.db	1
+	.dw	.L581-.L122
+	.db	1,5,2,35,0,28
+	.db	"spare_in_2",0
+	.db	1
+	.dw	.L582-.L122
+	.db	1,6,2,35,0,28
+	.db	"spare_in_1",0
+	.db	1
+	.dw	.L583-.L122
+	.db	1,7,2,35,0,0
+.L579:
+	.db	26
+	.dw	1098
+.L580:
+	.db	26
+	.dw	1098
+.L581:
+	.db	26
+	.dw	1098
+.L582:
+	.db	26
+	.dw	1098
+.L583:
+	.db	26
+	.dw	1098
+.L577:
+	.db	26
+	.dw	1098
+.L338:
+	.db	27,9,58,1,1,28
+	.db	"res",0
+	.db	1
+	.dw	.L584-.L122
+	.db	6,0,2,35,0,28
+	.db	"no_op_state",0
+	.db	1
+	.dw	.L585-.L122
+	.db	1,6,2,35,0,28
+	.db	"timeout",0
+	.db	1
+	.dw	.L586-.L122
+	.db	1,7,2,35,0,0
+.L584:
+	.db	26
+	.dw	1098
+.L585:
+	.db	26
+	.dw	1098
+.L586:
+	.db	26
+	.dw	1098
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev
+.L123:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,46,1,3,8,32,13,58,15,59,15,57,15,54,15,39,12,0,0,3,11
+	.db	0,0,0,4,46,1,3,8,32,13,58,15,59,15,57,15,73,19,54,15,39,12,0,0,5,36,0,3,8,11,15,62,15,0,0,6,5,0,3,8,58
+	.db	15,59,15,57,15,73,19,0,0,7,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,8,5,0,58,15,59
+	.db	15,57,15,73,19,0,0,9,46,1,49,19,0,0,10,5,0,49,19,0,0,11,46,1,3,8,58,15,59,15,57,15,54,15,39,12,63,12,60
+	.db	12,0,0,12,15,0,73,19,0,0,13,19,0,3,8,58,15,59,15,57,15,60,12,0,0,14,46,0,3,8,58,15,59,15,57,15,54,15,39
+	.db	12,63,12,60,12,0,0,15,46,0,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,16,22,0,3,8,58,15,59
+	.db	15,57,15,73,19,0,0,17,21,0,54,15,0,0,18,21,1,73,19,54,15,39,12,0,0,19,5,0,73,19,0,0,20,59,0,3,8,0,0,21
+	.db	19,1,3,8,58,15,59,15,57,15,11,15,0,0,22,13,0,3,8,11,15,73,19,56,9,0,0,23,53,0,73,19,0,0,24,52,0,3,8,58
+	.db	15,59,15,57,15,73,19,63,12,60,12,0,0,25,23,1,58,15,59,15,57,15,11,15,0,0,26,45,0,73,19,0,0,27,19,1,58
+	.db	15,59,15,57,15,11,15,0,0,28,13,0,3,8,11,15,73,19,13,15,12,15,56,9,0,0,29,1,1,11,15,73,19,0,0,30,33,0,47
+	.db	15,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line
+.L124:
+	.dw	.L588-.L587
+.L587:
+	.dh	3
+	.dw	.L590-.L589
+.L589:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\fpga\\processors\\c3000\\include\\pal_arch.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Tasking\\c3000\\include\\stdlib.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\services\\platform\\timing\\include\\timing.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\fpga\\drivers\\pwmx\\include\\drv_pwmx.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\generic\\interfaces\\spi\\include\\drv_spi.h",0
+	.db	0,0,0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\swplatform.h",0
+	.db	0,0,0
+	.db	"Embedded\\esc.h",0
+	.db	0,0,0
+	.db	"Embedded\\esc_foe.h",0
+	.db	0,0,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Tasking\\c3000\\include\\stdio.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Tasking\\c3000\\include\\stdint.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\services\\platform\\interrupts\\include\\interrupts.h",0
+	.db	0,0,0
+	.db	"Embedded\\utypes.h",0
+	.db	0,0,0,0
+.L590:
+.L588:
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_ESC_objecthandler')
+.L125:
+	.dw	230
+	.dh	3
+	.dw	.L126
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L128,.L127
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"ESC_objecthandler",0
+	.db	1,230,1,6,1,1,1
+	.dw	.L98,.L284,.L97
+	.db	4
+	.db	"index",0
+	.db	1,230,1,33
+	.dw	.L285,.L286
+	.db	4
+	.db	"subindex",0
+	.db	1,230,1,48
+	.dw	.L287,.L288
+	.db	5
+	.dw	.L98,.L284
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_ESC_objecthandler')
+.L126:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_ESC_objecthandler')
+.L127:
+	.dw	.L592-.L591
+.L591:
+	.dh	3
+	.dw	.L594-.L593
+.L593:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L594:
+	.db	5,1,7,0,5,2
+	.dw	.L98
+	.db	3,230,1,1,7
+	.db	14+9*((.L595-.L98)/4)
+	.db	9
+	.dh	.L129-.L595
+	.db	0,1,1
+.L592:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_ESC_objecthandler')
+.L128:
+	.dw	-1
+	.dw	.L98
+	.dw	0
+	.dw	.L129-.L98
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_clear_actuators')
+.L130:
+	.dw	187
+	.dh	3
+	.dw	.L131
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L133,.L132
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"clear_actuators",0
+	.db	1,131,2,6,1,1,1
+	.dw	.L106,.L289,.L105
+	.db	4
+	.dw	.L106,.L289
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_clear_actuators')
+.L131:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_clear_actuators')
+.L132:
+	.dw	.L597-.L596
+.L596:
+	.dh	3
+	.dw	.L599-.L598
+.L598:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L599:
+	.db	5,6,7,0,5,2
+	.dw	.L106
+	.db	3,130,2,1,5,19
+	.db	15+9*((.L390-.L106)/4)
+	.db	5,14
+	.db	15+9*((.L600-.L390)/4)
+	.db	5,19
+	.db	13+9*((.L601-.L600)/4)
+	.db	5,1
+	.db	18+9*((.L602-.L601)/4)
+	.db	5,14
+	.db	13+9*((.L391-.L602)/4)
+	.db	7
+	.db	14+9*((.L603-.L391)/4)
+	.db	5,1,9
+	.dh	.L134-.L603
+	.db	3,1,0,1,1
+.L597:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_clear_actuators')
+.L133:
+	.dw	-1
+	.dw	.L106
+	.dw	0
+	.dw	.L134-.L106
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_init_EC')
+.L135:
+	.dw	178
+	.dh	3
+	.dw	.L136
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L138,.L137
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"init_EC",0
+	.db	1,65,6,1,1,1
+	.dw	.L72,.L290,.L71
+	.db	4
+	.dw	.L72,.L290
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_init_EC')
+.L136:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_init_EC')
+.L137:
+	.dw	.L605-.L604
+.L604:
+	.dh	3
+	.dw	.L607-.L606
+.L606:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L607:
+	.db	5,6,7,0,5,2
+	.dw	.L72
+	.db	3,192,0,1,5,35
+	.db	15+9*((.L340-.L72)/4)
+	.db	5,22
+	.db	15+9*((.L608-.L340)/4)
+	.db	5,1
+	.db	15+9*((.L609-.L608)/4)
+	.db	5,22
+	.db	13+9*((.L341-.L609)/4)
+	.db	7
+	.db	14+9*((.L610-.L341)/4)
+	.db	5,1,9
+	.dh	.L139-.L610
+	.db	3,1,0,1,1
+.L605:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_init_EC')
+.L138:
+	.dw	-1
+	.dw	.L72
+	.dw	0
+	.dw	.L139-.L72
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_init_ADC')
+.L140:
+	.dw	179
+	.dh	3
+	.dw	.L141
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L143,.L142
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"init_ADC",0
+	.db	1,71,6,1,1,1
+	.dw	.L74,.L291,.L73
+	.db	4
+	.dw	.L74,.L291
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_init_ADC')
+.L141:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_init_ADC')
+.L142:
+	.dw	.L612-.L611
+.L611:
+	.dh	3
+	.dw	.L614-.L613
+.L613:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L614:
+	.db	5,24,7,0,5,2
+	.dw	.L74
+	.db	3,199,0,1,5,1
+	.db	15+9*((.L615-.L74)/4)
+	.db	5,24,7
+	.db	13+9*((.L616-.L615)/4)
+	.db	5,1,9
+	.dh	.L144-.L616
+	.db	3,1,0,1,1
+.L612:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_init_ADC')
+.L143:
+	.dw	-1
+	.dw	.L74
+	.dw	0
+	.dw	.L144-.L74
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_read_ADC')
+.L145:
+	.dw	240
+	.dh	3
+	.dw	.L146
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L148,.L147
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"read_ADC",0
+	.db	1,75,6,1,1,1
+	.dw	.L76,.L292,.L75
+	.db	4
+	.dw	.L76,.L292
+	.db	5
+	.db	"ADC",0
+	.db	1,76,12
+	.dw	.L285,.L293
+	.db	5
+	.db	"ADC_current",0
+	.db	1,77,12
+	.dw	.L294,.L295
+	.db	6
+	.dw	.L296
+	.db	5
+	.db	"i",0
+	.db	1,80,15
+	.dw	.L287,.L301
+	.db	0,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_read_ADC')
+.L146:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,6,11,1
+	.db	85,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_read_ADC')
+.L147:
+	.dw	.L618-.L617
+.L617:
+	.dh	3
+	.dw	.L620-.L619
+.L619:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L620:
+	.db	5,45,7,0,5,2
+	.dw	.L76
+	.db	3,206,0,1,5,16
+	.db	15+9*((.L297-.L76)/4)
+	.db	5,45
+	.db	13+9*((.L298-.L297)/4)
+	.db	5,23
+	.db	15+9*((.L299-.L298)/4)
+	.db	5,26
+	.db	15+9*((.L2-.L299)/4)
+	.db	5,27
+	.db	15+9*((.L621-.L2)/4)
+	.db	5,26
+	.db	13+9*((.L622-.L621)/4)
+	.db	5,27
+	.db	15+9*((.L623-.L622)/4)
+	.db	5,53
+	.db	15+9*((.L624-.L623)/4)
+	.db	5,26
+	.db	15+9*((.L625-.L624)/4)
+	.db	5,53
+	.db	13+9*((.L626-.L625)/4)
+	.db	5,26
+	.db	15+9*((.L348-.L626)/4)
+	.db	5,5
+	.db	15+9*((.L627-.L348)/4)
+	.db	5,37,9
+	.dh	.L5-.L627
+	.db	3,3,1,5,7,9
+	.dh	.L628-.L5
+	.db	3,1,1,5,37
+	.db	13+9*((.L629-.L628)/4)
+	.db	5,35
+	.db	17+9*((.L6-.L629)/4)
+	.db	5,7,9
+	.dh	.L630-.L6
+	.db	3,1,1,5,35
+	.db	13+9*((.L631-.L630)/4)
+	.db	5,37
+	.db	17+9*((.L7-.L631)/4)
+	.db	5,7,9
+	.dh	.L632-.L7
+	.db	3,1,1,5,37
+	.db	13+9*((.L633-.L632)/4)
+	.db	5,35
+	.db	17+9*((.L8-.L633)/4)
+	.db	5,7,9
+	.dh	.L634-.L8
+	.db	3,1,1,5,35
+	.db	13+9*((.L635-.L634)/4)
+	.db	5,37
+	.db	17+9*((.L9-.L635)/4)
+	.db	5,7,9
+	.dh	.L636-.L9
+	.db	3,1,1,5,37
+	.db	13+9*((.L637-.L636)/4)
+	.db	5,35
+	.db	17+9*((.L10-.L637)/4)
+	.db	5,7,9
+	.dh	.L638-.L10
+	.db	3,1,1,5,35
+	.db	13+9*((.L639-.L638)/4)
+	.db	5,7
+	.db	17+9*((.L11-.L639)/4)
+	.db	5,12
+	.db	15+9*((.L640-.L11)/4)
+	.db	5,7
+	.db	15+9*((.L641-.L640)/4)
+	.db	16+9*((.L12-.L641)/4)
+	.db	5,12
+	.db	15+9*((.L642-.L12)/4)
+	.db	5,7
+	.db	15+9*((.L643-.L642)/4)
+	.db	17+9*((.L13-.L643)/4)
+	.db	5,12
+	.db	15+9*((.L644-.L13)/4)
+	.db	5,7
+	.db	15+9*((.L645-.L644)/4)
+	.db	16+9*((.L14-.L645)/4)
+	.db	5,12
+	.db	15+9*((.L646-.L14)/4)
+	.db	5,7
+	.db	15+9*((.L647-.L646)/4)
+	.db	16+9*((.L15-.L647)/4)
+	.db	5,12
+	.db	15+9*((.L648-.L15)/4)
+	.db	5,76
+	.db	14+9*((.L29-.L648)/4)
+	.db	5,7
+	.db	15+9*((.L649-.L29)/4)
+	.db	5,76
+	.db	13+9*((.L650-.L649)/4)
+	.db	5,24
+	.db	18+9*((.L16-.L650)/4)
+	.db	5,21
+	.db	15+9*((.L351-.L16)/4)
+	.db	5,47
+	.db	15+9*((.L651-.L351)/4)
+	.db	5,7,9
+	.dh	.L652-.L651
+	.db	3,1,1,5,47
+	.db	13+9*((.L653-.L652)/4)
+	.db	5,24
+	.db	18+9*((.L17-.L653)/4)
+	.db	5,47
+	.db	15+9*((.L342-.L17)/4)
+	.db	5,7,9
+	.dh	.L654-.L342
+	.db	3,1,1,5,47
+	.db	13+9*((.L655-.L654)/4)
+	.db	5,24
+	.db	18+9*((.L18-.L655)/4)
+	.db	5,47
+	.db	15+9*((.L344-.L18)/4)
+	.db	5,7,9
+	.dh	.L656-.L344
+	.db	3,1,1,5,47
+	.db	13+9*((.L657-.L656)/4)
+	.db	5,40
+	.db	17+9*((.L19-.L657)/4)
+	.db	5,7,9
+	.dh	.L658-.L19
+	.db	3,1,1,5,40
+	.db	13+9*((.L659-.L658)/4)
+	.db	17+9*((.L20-.L659)/4)
+	.db	5,27,9
+	.dh	.L21-.L20
+	.db	3,190,127,1,5,23
+	.db	14+9*((.L660-.L21)/4)
+	.db	5,1,9
+	.dh	.L300-.L660
+	.db	3,198,0,1,7
+	.db	14+9*((.L661-.L300)/4)
+	.db	9
+	.dh	.L149-.L661
+	.db	0,1,1
+.L618:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_read_ADC')
+.L148:
+	.dw	-1
+	.dw	.L76
+	.dw	0
+	.dw	.L149-.L76
+	.dw	0,0
+.L296:
+	.dw	-1
+	.dw	.L76,.L297-.L76,.L298-.L76,.L299-.L76,.L300-.L76
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_init_PWM')
+.L150:
+	.dw	180
+	.dh	3
+	.dw	.L151
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L153,.L152
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"init_PWM",0
+	.db	1,155,1,6,1,1,1
+	.dw	.L78,.L302,.L77
+	.db	4
+	.dw	.L78,.L302
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_init_PWM')
+.L151:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_init_PWM')
+.L152:
+	.dw	.L663-.L662
+.L662:
+	.dh	3
+	.dw	.L665-.L664
+.L664:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L665:
+	.db	5,6,7,0,5,2
+	.dw	.L78
+	.db	3,154,1,1,5,36
+	.db	15+9*((.L354-.L78)/4)
+	.db	15+9*((.L666-.L354)/4)
+	.db	15+9*((.L667-.L666)/4)
+	.db	5,1
+	.db	15+9*((.L668-.L667)/4)
+	.db	5,36
+	.db	13+9*((.L355-.L668)/4)
+	.db	7
+	.db	14+9*((.L669-.L355)/4)
+	.db	5,1,9
+	.dh	.L154-.L669
+	.db	3,1,0,1,1
+.L663:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_init_PWM')
+.L153:
+	.dw	-1
+	.dw	.L78
+	.dw	0
+	.dw	.L154-.L78
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_update_PWM')
+.L155:
+	.dw	196
+	.dh	3
+	.dw	.L156
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L158,.L157
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"update_PWM",0
+	.db	1,161,1,6,1,1,1
+	.dw	.L80,.L303,.L79
+	.db	4
+	.dw	.L304
+	.db	5
+	.db	"pwm",0
+	.db	1,162,1,40
+	.dw	.L294,.L305
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_update_PWM')
+.L156:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,85,6,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_update_PWM')
+.L157:
+	.dw	.L671-.L670
+.L670:
+	.dh	3
+	.dw	.L673-.L672
+.L672:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L673:
+	.db	5,6,7,0,5,2
+	.dw	.L80
+	.db	3,160,1,1,5,29,9
+	.dh	.L357-.L80
+	.db	3,3,1,5,36
+	.db	17+9*((.L674-.L357)/4)
+	.db	5,42
+	.db	14+9*((.L675-.L674)/4)
+	.db	5,37
+	.db	15+9*((.L676-.L675)/4)
+	.db	5,29,9
+	.dh	.L677-.L676
+	.db	3,1,1,5,36
+	.db	17+9*((.L678-.L677)/4)
+	.db	5,42
+	.db	14+9*((.L679-.L678)/4)
+	.db	5,37
+	.db	15+9*((.L680-.L679)/4)
+	.db	5,29,9
+	.dh	.L681-.L680
+	.db	3,1,1,5,3,9
+	.dh	.L682-.L681
+	.db	3,1,1,5,43
+	.db	14+9*((.L683-.L682)/4)
+	.db	5,8
+	.db	15+9*((.L52-.L683)/4)
+	.db	5,50
+	.db	14+9*((.L684-.L52)/4)
+	.db	5,36
+	.db	15+9*((.L53-.L684)/4)
+	.db	5,42
+	.db	14+9*((.L685-.L53)/4)
+	.db	5,37
+	.db	15+9*((.L686-.L685)/4)
+	.db	5,1,9
+	.dh	.L687-.L686
+	.db	3,1,1,9
+	.dh	.L159-.L687
+	.db	0,1,1
+.L671:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_update_PWM')
+.L158:
+	.dw	-1
+	.dw	.L80
+	.dw	0
+	.dw	.L159-.L80
+	.dw	0,0
+.L304:
+	.dw	-1
+	.dw	.L80
+	.dw	0
+	.dw	.L303-.L80
+	.dw	-1
+	.dw	.L82
+	.dw	0
+	.dw	.L239-.L82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_clear_PWM')
+.L160:
+	.dw	181
+	.dh	3
+	.dw	.L161
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L163,.L162
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"clear_PWM",0
+	.db	1,181,1,6,1,1,1
+	.dw	.L84,.L306,.L83
+	.db	4
+	.dw	.L84,.L306
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_clear_PWM')
+.L161:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_clear_PWM')
+.L162:
+	.dw	.L689-.L688
+.L688:
+	.dh	3
+	.dw	.L691-.L690
+.L690:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L691:
+	.db	5,6,7,0,5,2
+	.dw	.L84
+	.db	3,180,1,1,5,35
+	.db	15+9*((.L365-.L84)/4)
+	.db	15+9*((.L692-.L365)/4)
+	.db	15+9*((.L693-.L692)/4)
+	.db	5,1
+	.db	15+9*((.L694-.L693)/4)
+	.db	5,35
+	.db	13+9*((.L366-.L694)/4)
+	.db	7
+	.db	14+9*((.L695-.L366)/4)
+	.db	5,1,9
+	.dh	.L164-.L695
+	.db	3,1,0,1,1
+.L689:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_clear_PWM')
+.L163:
+	.dw	-1
+	.dw	.L84
+	.dw	0
+	.dw	.L164-.L84
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_read_Encoders')
+.L165:
+	.dw	207
+	.dh	3
+	.dw	.L166
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L168,.L167
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"read_Encoders",0
+	.db	1,188,1,6,1,1,1
+	.dw	.L86,.L307,.L85
+	.db	4
+	.dw	.L86,.L307
+	.db	5
+	.db	"encoder",0
+	.db	1,189,1,40
+	.dw	.L285,.L308
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_read_Encoders')
+.L166:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_read_Encoders')
+.L167:
+	.dw	.L697-.L696
+.L696:
+	.dh	3
+	.dw	.L699-.L698
+.L698:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L699:
+	.db	5,40,7,0,5,2
+	.dw	.L86
+	.db	3,190,1,1,5,39
+	.db	15+9*((.L700-.L86)/4)
+	.db	5,40,9
+	.dh	.L701-.L700
+	.db	3,1,1,5,39
+	.db	15+9*((.L702-.L701)/4)
+	.db	5,40,9
+	.dh	.L703-.L702
+	.db	3,1,1,5,39
+	.db	15+9*((.L704-.L703)/4)
+	.db	5,1,9
+	.dh	.L705-.L704
+	.db	3,1,1,5,39,7
+	.db	13+9*((.L706-.L705)/4)
+	.db	5,1,9
+	.dh	.L169-.L706
+	.db	3,1,0,1,1
+.L697:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_read_Encoders')
+.L168:
+	.dw	-1
+	.dw	.L86
+	.dw	0
+	.dw	.L169-.L86
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_write_DAC')
+.L170:
+	.dw	216
+	.dh	3
+	.dw	.L171
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L173,.L172
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"write_DAC",0
+	.db	1,200,1,6,1,1,1
+	.dw	.L88,.L309,.L87
+	.db	4
+	.db	"reg",0
+	.db	1,200,1,24
+	.dw	.L287,.L310
+	.db	4
+	.db	"data",0
+	.db	1,200,1,37
+	.dw	.L285,.L311
+	.db	5
+	.dw	.L88,.L309
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_write_DAC')
+.L171:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_write_DAC')
+.L172:
+	.dw	.L708-.L707
+.L707:
+	.dh	3
+	.dw	.L710-.L709
+.L709:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L710:
+	.db	5,6,7,0,5,2
+	.dw	.L88
+	.db	3,199,1,1,5,23,9
+	.dh	.L370-.L88
+	.db	3,1,1,5,33
+	.db	15+9*((.L711-.L370)/4)
+	.db	5,35
+	.db	15+9*((.L712-.L711)/4)
+	.db	5,23
+	.db	15+9*((.L374-.L712)/4)
+	.db	5,1
+	.db	15+9*((.L372-.L374)/4)
+	.db	9
+	.dh	.L174-.L372
+	.db	0,1,1
+.L708:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_write_DAC')
+.L173:
+	.dw	-1
+	.dw	.L88
+	.dw	0
+	.dw	.L174-.L88
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_init_DAC')
+.L175:
+	.dw	180
+	.dh	3
+	.dw	.L176
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L178,.L177
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"init_DAC",0
+	.db	1,207,1,6,1,1,1
+	.dw	.L90,.L312,.L89
+	.db	4
+	.dw	.L90,.L312
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_init_DAC')
+.L176:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_init_DAC')
+.L177:
+	.dw	.L714-.L713
+.L713:
+	.dh	3
+	.dw	.L716-.L715
+.L715:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L716:
+	.db	5,6,7,0,5,2
+	.dw	.L90
+	.db	3,206,1,1,5,36
+	.db	15+9*((.L376-.L90)/4)
+	.db	5,23
+	.db	15+9*((.L717-.L376)/4)
+	.db	5,25
+	.db	16+9*((.L718-.L717)/4)
+	.db	16+9*((.L719-.L718)/4)
+	.db	16+9*((.L720-.L719)/4)
+	.db	15+9*((.L721-.L720)/4)
+	.db	15+9*((.L722-.L721)/4)
+	.db	5,1
+	.db	15+9*((.L723-.L722)/4)
+	.db	5,25
+	.db	13+9*((.L377-.L723)/4)
+	.db	7
+	.db	14+9*((.L724-.L377)/4)
+	.db	5,1,9
+	.dh	.L179-.L724
+	.db	3,1,0,1,1
+.L714:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_init_DAC')
+.L178:
+	.dw	-1
+	.dw	.L90
+	.dw	0
+	.dw	.L179-.L90
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_clear_DAC')
+.L180:
+	.dw	181
+	.dh	3
+	.dw	.L181
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L183,.L182
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"clear_DAC",0
+	.db	1,220,1,6,1,1,1
+	.dw	.L92,.L313,.L91
+	.db	4
+	.dw	.L92,.L313
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_clear_DAC')
+.L181:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_clear_DAC')
+.L182:
+	.dw	.L726-.L725
+.L725:
+	.dh	3
+	.dw	.L728-.L727
+.L727:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L728:
+	.db	5,6,7,0,5,2
+	.dw	.L92
+	.db	3,219,1,1,5,25
+	.db	15+9*((.L379-.L92)/4)
+	.db	15+9*((.L729-.L379)/4)
+	.db	5,1
+	.db	15+9*((.L730-.L729)/4)
+	.db	5,25
+	.db	13+9*((.L380-.L730)/4)
+	.db	7
+	.db	14+9*((.L731-.L380)/4)
+	.db	5,1,9
+	.dh	.L184-.L731
+	.db	3,1,0,1,1
+.L726:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_clear_DAC')
+.L183:
+	.dw	-1
+	.dw	.L92
+	.dw	0
+	.dw	.L184-.L92
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_update_DAC')
+.L185:
+	.dw	178
+	.dh	3
+	.dw	.L186
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L188,.L187
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"update_DAC",0
+	.db	1,225,1,6,1,1,1
+	.dw	.L94,.L314,.L93
+	.db	4
+	.dw	.L315
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_update_DAC')
+.L186:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,85,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_update_DAC')
+.L187:
+	.dw	.L733-.L732
+.L732:
+	.dh	3
+	.dw	.L735-.L734
+.L734:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L735:
+	.db	5,6,7,0,5,2
+	.dw	.L94
+	.db	3,224,1,1,5,54,9
+	.dh	.L382-.L94
+	.db	3,1,1,9
+	.dh	.L736-.L382
+	.db	3,1,1,5,1,9
+	.dh	.L737-.L736
+	.db	3,1,1,9
+	.dh	.L189-.L737
+	.db	0,1,1
+.L733:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_update_DAC')
+.L188:
+	.dw	-1
+	.dw	.L94
+	.dw	0
+	.dw	.L189-.L94
+	.dw	0,0
+.L315:
+	.dw	-1
+	.dw	.L94
+	.dw	0
+	.dw	.L314-.L94
+	.dw	-1
+	.dw	.L96
+	.dw	0
+	.dw	.L244-.L96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_update_flash_led')
+.L190:
+	.dw	206
+	.dh	3
+	.dw	.L191
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L193,.L192
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"update_flash_led",0
+	.db	1,233,1,6,1,1,1
+	.dw	.L100,.L316,.L99
+	.db	4
+	.dw	.L100,.L316
+	.db	5
+	.db	"c",0
+	.db	1,234,1,42
+	.dw	.L285
+	.db	5,3
+	.dw	_999001_c
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_update_flash_led')
+.L191:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_update_flash_led')
+.L192:
+	.dw	.L739-.L738
+.L738:
+	.dh	3
+	.dw	.L741-.L740
+.L740:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L741:
+	.db	5,7,7,0,5,2
+	.dw	.L100
+	.db	3,235,1,1,5,3
+	.db	14+9*((.L742-.L100)/4)
+	.db	5,7,7
+	.db	14+9*((.L743-.L742)/4)
+	.db	5,45
+	.db	16+9*((.L744-.L743)/4)
+	.db	5,8
+	.db	13+9*((.L745-.L744)/4)
+	.db	5,45
+	.db	15+9*((.L746-.L745)/4)
+	.db	5,1,9
+	.dh	.L55-.L746
+	.db	3,2,1,7
+	.db	14+9*((.L747-.L55)/4)
+	.db	9
+	.dh	.L194-.L747
+	.db	0,1,1
+.L739:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_update_flash_led')
+.L193:
+	.dw	-1
+	.dw	.L100
+	.dw	0
+	.dw	.L194-.L100
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_check_timeout')
+.L195:
+	.dw	185
+	.dh	3
+	.dw	.L196
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L198,.L197
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"check_timeout",0
+	.db	1,242,1,6,1,1,1
+	.dw	.L102,.L317,.L101
+	.db	4
+	.dw	.L102,.L317
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_check_timeout')
+.L196:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_check_timeout')
+.L197:
+	.dw	.L749-.L748
+.L748:
+	.dh	3
+	.dw	.L751-.L750
+.L750:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L751:
+	.db	5,6,7,0,5,2
+	.dw	.L102
+	.db	3,241,1,1,5,3
+	.db	16+9*((.L383-.L102)/4)
+	.db	5,6
+	.db	12+9*((.L752-.L383)/4)
+	.db	5,3
+	.db	16+9*((.L384-.L752)/4)
+	.db	5,5
+	.db	15+9*((.L753-.L384)/4)
+	.db	5,24,9
+	.dh	.L754-.L753
+	.db	3,1,1,5,23
+	.db	15+9*((.L755-.L754)/4)
+	.db	5,1
+	.db	17+9*((.L56-.L755)/4)
+	.db	9
+	.dh	.L199-.L56
+	.db	0,1,1
+.L749:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_check_timeout')
+.L198:
+	.dw	-1
+	.dw	.L102
+	.dw	0
+	.dw	.L199-.L102
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_init_actuators')
+.L200:
+	.dw	186
+	.dh	3
+	.dw	.L201
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L203,.L202
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"init_actuators",0
+	.db	1,252,1,6,1,1,1
+	.dw	.L104,.L318,.L103
+	.db	4
+	.dw	.L104,.L318
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_init_actuators')
+.L201:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_init_actuators')
+.L202:
+	.dw	.L757-.L756
+.L756:
+	.dh	3
+	.dw	.L759-.L758
+.L758:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L759:
+	.db	5,6,7,0,5,2
+	.dw	.L104
+	.db	3,251,1,1,5,19
+	.db	15+9*((.L387-.L104)/4)
+	.db	5,13
+	.db	15+9*((.L760-.L387)/4)
+	.db	5,19
+	.db	13+9*((.L761-.L760)/4)
+	.db	5,1
+	.db	18+9*((.L762-.L761)/4)
+	.db	5,13
+	.db	13+9*((.L388-.L762)/4)
+	.db	7
+	.db	14+9*((.L763-.L388)/4)
+	.db	5,1,9
+	.dh	.L204-.L763
+	.db	3,1,0,1,1
+.L757:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_init_actuators')
+.L203:
+	.dw	-1
+	.dw	.L104
+	.dw	0
+	.dw	.L204-.L104
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_update_actuators')
+.L205:
+	.dw	188
+	.dh	3
+	.dw	.L206
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L208,.L207
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"update_actuators",0
+	.db	1,138,2,6,1,1,1
+	.dw	.L108,.L319,.L107
+	.db	4
+	.dw	.L108,.L319
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_update_actuators')
+.L206:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_update_actuators')
+.L207:
+	.dw	.L765-.L764
+.L764:
+	.dh	3
+	.dw	.L767-.L766
+.L766:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L767:
+	.db	5,6,7,0,5,2
+	.dw	.L108
+	.db	3,137,2,1,5,75
+	.db	15+9*((.L392-.L108)/4)
+	.db	5,6
+	.db	13+9*((.L768-.L392)/4)
+	.db	5,75
+	.db	15+9*((.L393-.L768)/4)
+	.db	5,15
+	.db	15+9*((.L769-.L393)/4)
+	.db	5,75
+	.db	13+9*((.L770-.L769)/4)
+	.db	5,1
+	.db	18+9*((.L771-.L770)/4)
+	.db	5,15
+	.db	13+9*((.L394-.L771)/4)
+	.db	7
+	.db	14+9*((.L772-.L394)/4)
+	.db	5,1,9
+	.dh	.L209-.L772
+	.db	3,1,0,1,1
+.L765:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_update_actuators')
+.L208:
+	.dw	-1
+	.dw	.L108
+	.dw	0
+	.dw	.L209-.L108
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_init_sensors')
+.L210:
+	.dw	184
+	.dh	3
+	.dw	.L211
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L213,.L212
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"init_sensors",0
+	.db	1,145,2,6,1,1,1
+	.dw	.L110,.L320,.L109
+	.db	4
+	.dw	.L110,.L320
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_init_sensors')
+.L211:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_init_sensors')
+.L212:
+	.dw	.L774-.L773
+.L773:
+	.dh	3
+	.dw	.L776-.L775
+.L775:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L776:
+	.db	5,13,7,0,5,2
+	.dw	.L110
+	.db	3,145,2,1,7
+	.db	14+9*((.L777-.L110)/4)
+	.db	5,1,9
+	.dh	.L214-.L777
+	.db	3,1,0,1,1
+.L774:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_init_sensors')
+.L213:
+	.dw	-1
+	.dw	.L110
+	.dw	0
+	.dw	.L214-.L110
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_check_op_state')
+.L215:
+	.dw	186
+	.dh	3
+	.dw	.L216
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L218,.L217
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"check_op_state",0
+	.db	1,149,2,6,1,1,1
+	.dw	.L112,.L321,.L111
+	.db	4
+	.dw	.L112,.L321
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_check_op_state')
+.L216:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_check_op_state')
+.L217:
+	.dw	.L779-.L778
+.L778:
+	.dh	3
+	.dw	.L781-.L780
+.L780:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L781:
+	.db	5,6,7,0,5,2
+	.dw	.L112
+	.db	3,148,2,1,5,3
+	.db	15+9*((.L396-.L112)/4)
+	.db	5,5,9
+	.dh	.L782-.L396
+	.db	3,2,1,5,24
+	.db	15+9*((.L783-.L782)/4)
+	.db	5,27
+	.db	15+9*((.L784-.L783)/4)
+	.db	5,5
+	.db	12+9*((.L785-.L784)/4)
+	.db	5,27
+	.db	16+9*((.L786-.L785)/4)
+	.db	5,29
+	.db	17+9*((.L58-.L786)/4)
+	.db	5,1
+	.db	15+9*((.L59-.L58)/4)
+	.db	9
+	.dh	.L219-.L59
+	.db	0,1,1
+.L779:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_check_op_state')
+.L218:
+	.dw	-1
+	.dw	.L112
+	.dw	0
+	.dw	.L219-.L112
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_read_MOSI')
+.L220:
+	.dw	181
+	.dh	3
+	.dw	.L221
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L223,.L222
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"read_MOSI",0
+	.db	1,160,2,6,1,1,1
+	.dw	.L114,.L322,.L113
+	.db	4
+	.dw	.L114,.L322
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_read_MOSI')
+.L221:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_read_MOSI')
+.L222:
+	.dw	.L788-.L787
+.L787:
+	.dh	3
+	.dw	.L790-.L789
+.L789:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L790:
+	.db	5,6,7,0,5,2
+	.dw	.L114
+	.db	3,159,2,1,9
+	.dh	.L399-.L114
+	.db	3,1,1,5,49
+	.db	14+9*((.L791-.L399)/4)
+	.db	5,81,9
+	.dh	.L792-.L791
+	.db	3,1,1,5,5
+	.db	15+9*((.L793-.L792)/4)
+	.db	5,48
+	.db	14+9*((.L794-.L793)/4)
+	.db	5,21
+	.db	15+9*((.L63-.L794)/4)
+	.db	5,26
+	.db	15+9*((.L795-.L63)/4)
+	.db	5,1,9
+	.dh	.L61-.L795
+	.db	3,2,1,9
+	.dh	.L224-.L61
+	.db	0,1,1
+.L788:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_read_MOSI')
+.L223:
+	.dw	-1
+	.dw	.L114
+	.dw	0
+	.dw	.L224-.L114
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_write_MISO')
+.L225:
+	.dw	198
+	.dh	3
+	.dw	.L226
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L228,.L227
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"write_MISO",0
+	.db	1,169,2,6,1,1,1
+	.dw	.L116,.L323,.L115
+	.db	4
+	.dw	.L116,.L323
+	.db	5
+	.db	"t",0
+	.db	1,170,2,41
+	.dw	.L285,.L324
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_write_MISO')
+.L226:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_write_MISO')
+.L227:
+	.dw	.L797-.L796
+.L796:
+	.dh	3
+	.dw	.L799-.L798
+.L798:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L799:
+	.db	5,6,7,0,5,2
+	.dw	.L116
+	.db	3,168,2,1,5,3
+	.db	17+9*((.L400-.L116)/4)
+	.db	5,6
+	.db	11+9*((.L800-.L400)/4)
+	.db	5,3
+	.db	17+9*((.L401-.L800)/4)
+	.db	5,20
+	.db	15+9*((.L801-.L401)/4)
+	.db	5,55
+	.db	15+9*((.L802-.L801)/4)
+	.db	5,35,9
+	.dh	.L403-.L802
+	.db	3,2,1,5,15
+	.db	15+9*((.L803-.L403)/4)
+	.db	5,35
+	.db	13+9*((.L804-.L803)/4)
+	.db	5,47
+	.db	16+9*((.L805-.L804)/4)
+	.db	5,82
+	.db	15+9*((.L806-.L805)/4)
+	.db	5,47
+	.db	13+9*((.L807-.L806)/4)
+	.db	5,82
+	.db	15+9*((.L808-.L807)/4)
+	.db	5,47
+	.db	13+9*((.L809-.L808)/4)
+	.db	5,82
+	.db	15+9*((.L810-.L809)/4)
+	.db	5,1
+	.db	16+9*((.L64-.L810)/4)
+	.db	9
+	.dh	.L229-.L64
+	.db	0,1,1
+.L797:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_write_MISO')
+.L228:
+	.dw	-1
+	.dw	.L116
+	.dw	0
+	.dw	.L229-.L116
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_main')
+.L230:
+	.dw	176
+	.dh	3
+	.dw	.L231
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L233,.L232
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	"main",0
+	.db	1,183,2,9
+	.dw	.L325
+	.db	1,1,1
+	.dw	.L118,.L326,.L117
+	.db	4
+	.dw	.L327
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_main')
+.L231:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.db	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,85,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_main')
+.L232:
+	.dw	.L812-.L811
+.L811:
+	.dh	3
+	.dw	.L814-.L813
+.L813:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L814:
+	.db	5,9,7,0,5,2
+	.dw	.L118
+	.db	3,182,2,1,5,27,9
+	.dh	.L406-.L118
+	.db	3,1,1,5,12
+	.db	15+9*((.L815-.L406)/4)
+	.db	5,19
+	.db	15+9*((.L816-.L815)/4)
+	.db	5,17
+	.db	15+9*((.L817-.L816)/4)
+	.db	5,19
+	.db	15+9*((.L818-.L817)/4)
+	.db	5,16
+	.db	15+9*((.L819-.L818)/4)
+	.db	5,19
+	.db	13+9*((.L820-.L819)/4)
+	.db	5,16
+	.db	15+9*((.L821-.L820)/4)
+	.db	5,26
+	.db	15+9*((.L822-.L821)/4)
+	.db	15+9*((.L823-.L822)/4)
+	.db	13+9*((.L824-.L823)/4)
+	.db	15+9*((.L825-.L824)/4)
+	.db	5,16
+	.db	15+9*((.L826-.L825)/4)
+	.db	5,41
+	.db	16+9*((.L827-.L826)/4)
+	.db	5,110
+	.db	15+9*((.L67-.L827)/4)
+	.db	5,45
+	.db	15+9*((.L828-.L67)/4)
+	.db	5,17,9
+	.dh	.L829-.L828
+	.db	3,1,1,5,41
+	.db	11+9*((.L66-.L829)/4)
+	.db	5,16,9
+	.dh	.L830-.L66
+	.db	3,5,1,5,24
+	.db	16+9*((.L831-.L830)/4)
+	.db	5,26
+	.db	15+9*((.L832-.L831)/4)
+	.db	5,16
+	.db	15+9*((.L833-.L832)/4)
+	.db	5,18
+	.db	15+9*((.L834-.L833)/4)
+	.db	5,19
+	.db	15+9*((.L835-.L834)/4)
+	.db	5,16
+	.db	15+9*((.L836-.L835)/4)
+	.db	5,15
+	.db	16+9*((.L837-.L836)/4)
+	.db	5,8
+	.db	15+9*((.L838-.L837)/4)
+	.db	5,100
+	.db	16+9*((.L68-.L838)/4)
+	.db	5,35
+	.db	15+9*((.L839-.L68)/4)
+	.db	5,5,9
+	.dh	.L840-.L839
+	.db	3,1,1,5,36
+	.db	14+9*((.L841-.L840)/4)
+	.db	5,16
+	.db	15+9*((.L69-.L841)/4)
+	.db	5,5
+	.db	15+9*((.L842-.L69)/4)
+	.db	5,23
+	.db	15+9*((.L843-.L842)/4)
+	.db	15+9*((.L844-.L843)/4)
+	.db	5,16
+	.db	17+9*((.L70-.L844)/4)
+	.db	5,17
+	.db	15+9*((.L845-.L70)/4)
+	.db	5,20
+	.db	15+9*((.L846-.L845)/4)
+	.db	5,21
+	.db	15+9*((.L847-.L846)/4)
+	.db	5,23
+	.db	15+9*((.L848-.L847)/4)
+	.db	5,8,9
+	.dh	.L849-.L848
+	.db	3,113,1,5,1,9
+	.dh	.L234-.L849
+	.db	3,17,0,1,1
+.L812:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_main')
+.L233:
+	.dw	-1
+	.dw	.L118
+	.dw	0
+	.dw	.L234-.L118
+	.dw	0,0
+.L327:
+	.dw	-1
+	.dw	.L118
+	.dw	0
+	.dw	.L326-.L118
+	.dw	-1
+	.dw	.L120
+	.dw	0
+	.dw	.L249-.L120
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_update_PWM')
+.L235:
+	.dw	169
+	.dh	3
+	.dw	.L236
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L238,.L237
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	".cocofun_1",0
+	.db	1,1,1,1
+	.dw	.L82,.L239,.L81
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_update_PWM')
+.L236:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,0,3,8,58,15,59,15,57,15,54,15
+	.db	17,1,18,1,64,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_update_PWM')
+.L237:
+	.dw	.L851-.L850
+.L850:
+	.dh	3
+	.dw	.L853-.L852
+.L852:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L853:
+	.db	5,29,7,0,5,2
+	.dw	.L82
+	.db	3,163,1,1,5,3,9
+	.dh	.L854-.L82
+	.db	3,1,1,5,43
+	.db	14+9*((.L855-.L854)/4)
+	.db	5,8
+	.db	15+9*((.L46-.L855)/4)
+	.db	5,50
+	.db	14+9*((.L856-.L46)/4)
+	.db	5,36
+	.db	15+9*((.L47-.L856)/4)
+	.db	7
+	.db	14+9*((.L857-.L47)/4)
+	.db	9
+	.dh	.L239-.L857
+	.db	0,1,1,5,29,0,5,2
+	.dw	.L82
+	.db	3,168,1,1,9
+	.dh	.L858-.L82
+	.db	3,123,1,9
+	.dh	.L859-.L858
+	.db	3,5,1,9
+	.dh	.L860-.L859
+	.db	3,123,1,5,3,9
+	.dh	.L854-.L860
+	.db	3,6,1,9
+	.dh	.L861-.L854
+	.db	3,123,1,5,43,9
+	.dh	.L855-.L861
+	.db	3,5,1,5,8
+	.db	15+9*((.L46-.L855)/4)
+	.db	9
+	.dh	.L862-.L46
+	.db	3,123,1,5,50,9
+	.dh	.L856-.L862
+	.db	3,5,1,5,36
+	.db	10+9*((.L47-.L856)/4)
+	.db	7,9
+	.dh	.L857-.L47
+	.db	3,5,1,9
+	.dh	.L239-.L857
+	.db	0,1,1
+.L851:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_update_PWM')
+.L238:
+	.dw	-1
+	.dw	.L82
+	.dw	0
+	.dw	.L239-.L82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_update_DAC')
+.L240:
+	.dw	169
+	.dh	3
+	.dw	.L241
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L243,.L242
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	".cocofun_2",0
+	.db	1,1,1,1
+	.dw	.L96,.L244,.L95
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_update_DAC')
+.L241:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,0,3,8,58,15,59,15,57,15,54,15
+	.db	17,1,18,1,64,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_update_DAC')
+.L242:
+	.dw	.L864-.L863
+.L863:
+	.dh	3
+	.dw	.L866-.L865
+.L865:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L866:
+	.db	5,54,7,0,5,2
+	.dw	.L96
+	.db	3,225,1,1,9
+	.dh	.L244-.L96
+	.db	0,1,1,5,54,0,5,2
+	.dw	.L96
+	.db	3,226,1,1,9
+	.dh	.L867-.L96
+	.db	3,127,1,7
+	.db	14+9*((.L868-.L867)/4)
+	.db	9
+	.dh	.L244-.L868
+	.db	0,1,1
+.L864:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_update_DAC')
+.L243:
+	.dw	-1
+	.dw	.L96
+	.dw	0
+	.dw	.L244-.L96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_main')
+.L245:
+	.dw	169
+	.dh	3
+	.dw	.L246
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L248,.L247
+	.db	2
+	.dw	.L121
+	.db	3
+	.db	".cocofun_3",0
+	.db	1,1,1,1
+	.dw	.L120,.L249,.L119
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_main')
+.L246:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,0,3,8,58,15,59,15,57,15,54,15
+	.db	17,1,18,1,64,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_main')
+.L247:
+	.dw	.L870-.L869
+.L869:
+	.dh	3
+	.dw	.L872-.L871
+.L871:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	0,0,0,0
+.L872:
+	.db	5,45,7,0,5,2
+	.dw	.L120
+	.db	3,195,2,1,9
+	.dh	.L249-.L120
+	.db	0,1,1,5,29,0,5,2
+	.dw	.L120
+	.db	3,173,1,1,5,45,9
+	.dh	.L873-.L120
+	.db	3,150,1,1,5,29,7,9
+	.dh	.L874-.L873
+	.db	3,234,126,1,9
+	.dh	.L249-.L874
+	.db	0,1,1,5,35,0,5,2
+	.dw	.L120
+	.db	3,175,2,1,5,45,9
+	.dh	.L873-.L120
+	.db	3,20,1,5,35,7,9
+	.dh	.L874-.L873
+	.db	3,108,1,9
+	.dh	.L249-.L874
+	.db	0,1,1
+.L870:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_main')
+.L248:
+	.dw	-1
+	.dw	.L120
+	.dw	0
+	.dw	.L249-.L120
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_bss')
+.L250:
+	.dw	160
+	.dh	3
+	.dw	.L251
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"miso_packet",0
+	.db	9,16,37
+	.dw	.L328
+	.db	1,5,3
+	.dw	miso_packet
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_bss')
+.L251:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_bss')
+.L252:
+	.dw	160
+	.dh	3
+	.dw	.L253
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"mosi_packet",0
+	.db	9,17,37
+	.dw	.L329
+	.db	1,5,3
+	.dw	mosi_packet
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_bss')
+.L253:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L254:
+	.dw	152
+	.dh	3
+	.dw	.L255
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"App",0
+	.db	9,18,37
+	.dw	.L330
+	.db	1,5,3
+	.dw	App
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L255:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L256:
+	.dw	157
+	.dh	3
+	.dw	.L257
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"Ec_state",0
+	.db	9,20,37
+	.dw	.L287
+	.db	1,5,3
+	.dw	Ec_state
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L257:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_bss')
+.L258:
+	.dw	155
+	.dh	3
+	.dw	.L259
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"ESCvar",0
+	.db	9,11,37
+	.dw	.L331
+	.db	1,5,3
+	.dw	ESCvar
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_bss')
+.L259:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_bss')
+.L260:
+	.dw	152
+	.dh	3
+	.dw	.L261
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"MBX",0
+	.db	9,12,37
+	.dw	.L332
+	.db	1,5,3
+	.dw	MBX
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_bss')
+.L261:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L262:
+	.dw	159
+	.dh	3
+	.dw	.L263
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"MBXcontrol",0
+	.db	9,13,37
+	.dw	.L333
+	.db	1,5,3
+	.dw	MBXcontrol
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L263:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L264:
+	.dw	155
+	.dh	3
+	.dw	.L265
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"MBXrun",0
+	.db	9,14,37
+	.dw	.L287
+	.db	1,5,3
+	.dw	MBXrun
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L265:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L266:
+	.dw	156
+	.dh	3
+	.dw	.L267
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"SM2_sml",0
+	.db	9,15,37
+	.dw	.L285
+	.db	1,5,3
+	.dw	SM2_sml
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L267:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L268:
+	.dw	156
+	.dh	3
+	.dw	.L269
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"SM3_sml",0
+	.db	9,15,45
+	.dw	.L285
+	.db	1,5,3
+	.dw	SM3_sml
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L269:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L270:
+	.dw	158
+	.dh	3
+	.dw	.L271
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"TXPDOsize",0
+	.db	9,19,37
+	.dw	.L285
+	.db	1,5,3
+	.dw	TXPDOsize
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L271:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L272:
+	.dw	158
+	.dh	3
+	.dw	.L273
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"RXPDOsize",0
+	.db	9,19,47
+	.dw	.L285
+	.db	1,5,3
+	.dw	RXPDOsize
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L273:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L274:
+	.dw	158
+	.dh	3
+	.dw	.L275
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"MOSI_time",0
+	.db	9,23,10
+	.dw	.L334
+	.db	1,5,3
+	.dw	MOSI_time
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L275:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sdata')
+.L276:
+	.dw	155
+	.dh	3
+	.dw	.L277
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"IOp_DO",0
+	.db	9,39,3
+	.dw	.L335
+	.db	1,5,3
+	.dw	IOp_DO
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sdata')
+.L277:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sdata')
+.L278:
+	.dw	154
+	.dh	3
+	.dw	.L279
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"IOp_B",0
+	.db	9,45,3
+	.dw	.L336
+	.db	1,5,3
+	.dw	IOp_B
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sdata')
+.L279:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sdata')
+.L280:
+	.dw	155
+	.dh	3
+	.dw	.L281
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"IOp_DI",0
+	.db	9,56,3
+	.dw	.L337
+	.db	1,5,3
+	.dw	IOp_DI
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sdata')
+.L281:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L282:
+	.dw	155
+	.dh	3
+	.dw	.L283
+	.db	4,1
+	.db	"Embedded\\ecat_actuator.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L121
+	.db	3
+	.db	"status",0
+	.db	9,62,2
+	.dw	.L338
+	.db	1,5,3
+	.dw	status
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L283:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_read_ADC')
+.L293:
+	.dw	-1
+	.dw	.L76,.L6-.L76,.L21-.L76
+	.dh	1
+	.db	87
+	.dw	.L346-.L76,.L347-.L76
+	.dh	1
+	.db	87
+	.dw	.L348-.L76,.L349-.L76
+	.dh	1
+	.db	87
+	.dw	.L5-.L76,.L350-.L76
+	.dh	1
+	.db	87
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_update_DAC')
+.L95:
+	.dw	-1
+	.dw	.L96,.L96-.L96,.L244-.L96
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_read_ADC')
+.L301:
+	.dw	-1
+	.dw	.L76,.L6-.L76,.L292-.L76
+	.dh	1
+	.db	85
+	.dw	.L298-.L76,.L349-.L76
+	.dh	1
+	.db	85
+	.dw	.L297-.L76,.L298-.L76
+	.dh	1
+	.db	80
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_update_DAC')
+.L93:
+	.dw	-1
+	.dw	.L94,.L94-.L94,.L381-.L94
+	.dh	2
+	.db	141,0
+	.dw	.L381-.L94,.L314-.L94
+	.dh	2
+	.db	141,8
+	.dw	.L314-.L94,.L314-.L94
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_init_ADC')
+.L73:
+	.dw	-1
+	.dw	.L74,.L74-.L74,.L291-.L74
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_update_flash_led')
+.L99:
+	.dw	-1
+	.dw	.L100,.L100-.L100,.L316-.L100
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_objecthandler')
+.L288:
+	.dw	-1
+	.dw	.L98,.L98-.L98,.L284-.L98
+	.dh	1
+	.db	85
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_update_PWM')
+.L305:
+	.dw	-1
+	.dw	.L80,.L53-.L80,.L358-.L80
+	.dh	1
+	.db	84
+	.dw	.L359-.L80,.L360-.L80
+	.dh	1
+	.db	97
+	.dw	.L361-.L80,.L303-.L80
+	.dh	1
+	.db	96
+	.dw	.L362-.L80,.L363-.L80
+	.dh	1
+	.db	97
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_main')
+.L119:
+	.dw	-1
+	.dw	.L120,.L120-.L120,.L249-.L120
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_objecthandler')
+.L286:
+	.dw	-1
+	.dw	.L98,.L98-.L98,.L284-.L98
+	.dh	1
+	.db	84
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_read_Encoders')
+.L85:
+	.dw	-1
+	.dw	.L86,.L86-.L86,.L307-.L86
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_write_MISO')
+.L324:
+	.dw	-1
+	.dw	.L116,.L403-.L116,.L404-.L116
+	.dh	1
+	.db	82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_update_actuators')
+.L107:
+	.dw	-1
+	.dw	.L108,.L108-.L108,.L392-.L108
+	.dh	2
+	.db	141,0
+	.dw	.L392-.L108,.L319-.L108
+	.dh	2
+	.db	141,4
+	.dw	.L319-.L108,.L319-.L108
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_init_actuators')
+.L103:
+	.dw	-1
+	.dw	.L104,.L104-.L104,.L386-.L104
+	.dh	2
+	.db	141,0
+	.dw	.L386-.L104,.L318-.L104
+	.dh	2
+	.db	141,4
+	.dw	.L318-.L104,.L318-.L104
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_objecthandler')
+.L97:
+	.dw	-1
+	.dw	.L98,.L98-.L98,.L284-.L98
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_read_ADC')
+.L295:
+	.dw	-1
+	.dw	.L76,.L342-.L76,.L343-.L76
+	.dh	1
+	.db	82
+	.dw	.L344-.L76,.L345-.L76
+	.dh	1
+	.db	82
+	.dw	.L351-.L76,.L352-.L76
+	.dh	1
+	.db	82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_clear_DAC')
+.L91:
+	.dw	-1
+	.dw	.L92,.L92-.L92,.L378-.L92
+	.dh	2
+	.db	141,0
+	.dw	.L378-.L92,.L313-.L92
+	.dh	2
+	.db	141,4
+	.dw	.L313-.L92,.L313-.L92
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_read_Encoders')
+.L308:
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_write_DAC')
+.L310:
+	.dw	-1
+	.dw	.L88,.L369-.L88,.L309-.L88
+	.dh	1
+	.db	96
+	.dw	.L88-.L88,.L369-.L88
+	.dh	1
+	.db	84
+	.dw	.L373-.L88,.L374-.L88
+	.dh	1
+	.db	85
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_init_PWM')
+.L77:
+	.dw	-1
+	.dw	.L78,.L78-.L78,.L353-.L78
+	.dh	2
+	.db	141,0
+	.dw	.L353-.L78,.L302-.L78
+	.dh	2
+	.db	141,4
+	.dw	.L302-.L78,.L302-.L78
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_check_op_state')
+.L111:
+	.dw	-1
+	.dw	.L112,.L112-.L112,.L395-.L112
+	.dh	2
+	.db	141,0
+	.dw	.L395-.L112,.L321-.L112
+	.dh	2
+	.db	141,4
+	.dw	.L321-.L112,.L321-.L112
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_write_DAC')
+.L87:
+	.dw	-1
+	.dw	.L88,.L88-.L88,.L367-.L88
+	.dh	2
+	.db	141,0
+	.dw	.L367-.L88,.L309-.L88
+	.dh	2
+	.db	141,12
+	.dw	.L309-.L88,.L309-.L88
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_write_MISO')
+.L115:
+	.dw	-1
+	.dw	.L116,.L116-.L116,.L400-.L116
+	.dh	2
+	.db	141,0
+	.dw	.L400-.L116,.L323-.L116
+	.dh	2
+	.db	141,4
+	.dw	.L323-.L116,.L323-.L116
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_read_MOSI')
+.L113:
+	.dw	-1
+	.dw	.L114,.L114-.L114,.L398-.L114
+	.dh	2
+	.db	141,0
+	.dw	.L398-.L114,.L322-.L114
+	.dh	2
+	.db	141,8
+	.dw	.L322-.L114,.L322-.L114
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_update_PWM')
+.L79:
+	.dw	-1
+	.dw	.L80,.L80-.L80,.L356-.L80
+	.dh	2
+	.db	141,0
+	.dw	.L356-.L80,.L303-.L80
+	.dh	2
+	.db	141,12
+	.dw	.L303-.L80,.L303-.L80
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_init_DAC')
+.L89:
+	.dw	-1
+	.dw	.L90,.L90-.L90,.L375-.L90
+	.dh	2
+	.db	141,0
+	.dw	.L375-.L90,.L312-.L90
+	.dh	2
+	.db	141,4
+	.dw	.L312-.L90,.L312-.L90
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_update_PWM')
+.L81:
+	.dw	-1
+	.dw	.L82,.L82-.L82,.L239-.L82
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_read_ADC')
+.L75:
+	.dw	-1
+	.dw	.L76,.L76-.L76,.L292-.L76
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_check_timeout')
+.L101:
+	.dw	-1
+	.dw	.L102,.L102-.L102,.L383-.L102
+	.dh	2
+	.db	141,0
+	.dw	.L383-.L102,.L317-.L102
+	.dh	2
+	.db	141,4
+	.dw	.L317-.L102,.L317-.L102
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_init_sensors')
+.L109:
+	.dw	-1
+	.dw	.L110,.L110-.L110,.L320-.L110
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_clear_actuators')
+.L105:
+	.dw	-1
+	.dw	.L106,.L106-.L106,.L389-.L106
+	.dh	2
+	.db	141,0
+	.dw	.L389-.L106,.L289-.L106
+	.dh	2
+	.db	141,4
+	.dw	.L289-.L106,.L289-.L106
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_write_DAC')
+.L311:
+	.dw	-1
+	.dw	.L88,.L369-.L88,.L370-.L88
+	.dh	1
+	.db	85
+	.dw	.L370-.L88,.L309-.L88
+	.dh	1
+	.db	97
+	.dw	.L88-.L88,.L368-.L88
+	.dh	1
+	.db	85
+	.dw	.L371-.L88,.L372-.L88
+	.dh	1
+	.db	85
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_clear_PWM')
+.L83:
+	.dw	-1
+	.dw	.L84,.L84-.L84,.L364-.L84
+	.dh	2
+	.db	141,0
+	.dw	.L364-.L84,.L306-.L84
+	.dh	2
+	.db	141,4
+	.dw	.L306-.L84,.L306-.L84
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_main')
+.L117:
+	.dw	-1
+	.dw	.L118,.L118-.L118,.L405-.L118
+	.dh	2
+	.db	141,0
+	.dw	.L405-.L118,.L326-.L118
+	.dh	2
+	.db	141,12
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_init_EC')
+.L71:
+	.dw	-1
+	.dw	.L72,.L72-.L72,.L339-.L72
+	.dh	2
+	.db	141,0
+	.dw	.L339-.L72,.L290-.L72
+	.dh	2
+	.db	141,4
+	.dw	.L290-.L72,.L290-.L72
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_frame
+.L875:
+	.dw	40
+	.dw	-1
+	.db	3,0,4,1,31,12,29,0,8,0,8,29,8,31,8,1,8,16,8,17,8,18,8,19,8,20,8,21,8,22,8,23,8,28,8,30
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_init_EC')
+	.dw	48
+	.dw	.L875,.L72,.L290-.L72
+	.db	4
+	.dw	(.L339-.L72)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L340-.L339)/4
+	.db	17,31,124,4
+	.dw	(.L341-.L340)/4
+	.db	223,4
+	.dw	(.L290-.L341)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_init_ADC')
+	.dw	48
+	.dw	.L875,.L74,.L291-.L74
+	.db	8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_read_ADC')
+	.dw	40
+	.dw	.L875,.L76,.L292-.L76
+	.db	8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_init_PWM')
+	.dw	48
+	.dw	.L875,.L78,.L302-.L78
+	.db	4
+	.dw	(.L353-.L78)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L354-.L353)/4
+	.db	17,31,124,4
+	.dw	(.L355-.L354)/4
+	.db	223,4
+	.dw	(.L302-.L355)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_update_PWM')
+	.dw	52
+	.dw	.L875,.L80,.L303-.L80
+	.db	4
+	.dw	(.L356-.L80)/4
+	.db	19,12,22,29,3,19,141,12,4
+	.dw	(.L357-.L356)/4
+	.db	17,31,116,17,16,120,17,17,124,4
+	.dw	(.L303-.L357)/4
+	.db	209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_update_PWM')
+	.dw	52
+	.dw	.L875,.L82,.L239-.L82
+	.db	8,2,8,3,8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_clear_PWM')
+	.dw	48
+	.dw	.L875,.L84,.L306-.L84
+	.db	4
+	.dw	(.L364-.L84)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L365-.L364)/4
+	.db	17,31,124,4
+	.dw	(.L366-.L365)/4
+	.db	223,4
+	.dw	(.L306-.L366)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_read_Encoders')
+	.dw	48
+	.dw	.L875,.L86,.L307-.L86
+	.db	8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34,0,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_write_DAC')
+	.dw	52
+	.dw	.L875,.L88,.L309-.L88
+	.db	4
+	.dw	(.L367-.L88)/4
+	.db	19,12,22,29,3,19,141,12,4
+	.dw	(.L368-.L367)/4
+	.db	17,31,116,17,16,120,17,17,124,4
+	.dw	(.L309-.L368)/4
+	.db	209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_init_DAC')
+	.dw	48
+	.dw	.L875,.L90,.L312-.L90
+	.db	4
+	.dw	(.L375-.L90)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L376-.L375)/4
+	.db	17,31,124,4
+	.dw	(.L377-.L376)/4
+	.db	223,4
+	.dw	(.L312-.L377)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_clear_DAC')
+	.dw	48
+	.dw	.L875,.L92,.L313-.L92
+	.db	4
+	.dw	(.L378-.L92)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L379-.L378)/4
+	.db	17,31,124,4
+	.dw	(.L380-.L379)/4
+	.db	223,4
+	.dw	(.L313-.L380)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_update_DAC')
+	.dw	48
+	.dw	.L875,.L94,.L314-.L94
+	.db	4
+	.dw	(.L381-.L94)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L382-.L381)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L314-.L382)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_update_DAC')
+	.dw	52
+	.dw	.L875,.L96,.L244-.L96
+	.db	8,2,8,3,8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_ESC_objecthandler')
+	.dw	52
+	.dw	.L875,.L98,.L284-.L98
+	.db	8,2,8,3,8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_update_flash_led')
+	.dw	44
+	.dw	.L875,.L100,.L316-.L100
+	.db	8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_check_timeout')
+	.dw	48
+	.dw	.L875,.L102,.L317-.L102
+	.db	4
+	.dw	(.L383-.L102)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L384-.L383)/4
+	.db	17,31,124,4
+	.dw	(.L385-.L384)/4
+	.db	223,4
+	.dw	(.L317-.L385)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_init_actuators')
+	.dw	48
+	.dw	.L875,.L104,.L318-.L104
+	.db	4
+	.dw	(.L386-.L104)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L387-.L386)/4
+	.db	17,31,124,4
+	.dw	(.L388-.L387)/4
+	.db	223,4
+	.dw	(.L318-.L388)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_clear_actuators')
+	.dw	48
+	.dw	.L875,.L106,.L289-.L106
+	.db	4
+	.dw	(.L389-.L106)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L390-.L389)/4
+	.db	17,31,124,4
+	.dw	(.L391-.L390)/4
+	.db	223,4
+	.dw	(.L289-.L391)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_update_actuators')
+	.dw	48
+	.dw	.L875,.L108,.L319-.L108
+	.db	4
+	.dw	(.L392-.L108)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L393-.L392)/4
+	.db	17,31,124,4
+	.dw	(.L394-.L393)/4
+	.db	223,4
+	.dw	(.L319-.L394)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_init_sensors')
+	.dw	12
+	.dw	.L875,.L110,.L320-.L110
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_check_op_state')
+	.dw	48
+	.dw	.L875,.L112,.L321-.L112
+	.db	4
+	.dw	(.L395-.L112)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L396-.L395)/4
+	.db	17,31,124,4
+	.dw	(.L397-.L396)/4
+	.db	223,4
+	.dw	(.L321-.L397)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_read_MOSI')
+	.dw	48
+	.dw	.L875,.L114,.L322-.L114
+	.db	4
+	.dw	(.L398-.L114)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L399-.L398)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L322-.L399)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_write_MISO')
+	.dw	48
+	.dw	.L875,.L116,.L323-.L116
+	.db	4
+	.dw	(.L400-.L116)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L401-.L400)/4
+	.db	17,31,124,4
+	.dw	(.L402-.L401)/4
+	.db	223,4
+	.dw	(.L323-.L402)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_main')
+	.dw	40
+	.dw	.L875,.L118,.L326-.L118
+	.db	4
+	.dw	(.L405-.L118)/4
+	.db	19,12,22,29,3,19,141,12,4
+	.dw	(.L406-.L405)/4
+	.db	17,31,116,17,16,120,17,17,124,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_main')
+	.dw	52
+	.dw	.L875,.L120,.L249-.L120
+	.db	8,2,8,3,8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	; Module end
+	.end

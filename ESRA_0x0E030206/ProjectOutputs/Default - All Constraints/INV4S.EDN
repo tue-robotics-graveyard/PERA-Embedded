@@ -1,0 +1,82 @@
+(edif INV4S
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 2010 3 29 13 1 57)
+      (author "Synopsys, Inc.")
+      (program "Synplify" (version "D-2010.03, mapper map510rc, Build 068R"))
+     )
+   )
+  (library UNILIB
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell INV (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port I (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+       )
+    )
+  )
+  (library work
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell INV4S (cellType GENERIC)
+       (view behav (viewType NETLIST)
+         (interface
+           (port I0 (direction INPUT))
+           (port I1 (direction INPUT))
+           (port I2 (direction INPUT))
+           (port I3 (direction INPUT))
+           (port O0 (direction OUTPUT))
+           (port O1 (direction OUTPUT))
+           (port O2 (direction OUTPUT))
+           (port O3 (direction OUTPUT))
+         )
+         (contents
+          (instance I0_RNIP79 (viewRef PRIM (cellRef INV (libraryRef UNILIB)))          )
+          (instance I1_RNIQ79 (viewRef PRIM (cellRef INV (libraryRef UNILIB)))          )
+          (instance I2_RNIR79 (viewRef PRIM (cellRef INV (libraryRef UNILIB)))          )
+          (instance I3_RNIS79 (viewRef PRIM (cellRef INV (libraryRef UNILIB)))          )
+          (net (rename i0 "I0") (joined
+           (portRef I0)
+           (portRef I (instanceRef I0_RNIP79))
+          ))
+          (net (rename i1 "I1") (joined
+           (portRef I1)
+           (portRef I (instanceRef I1_RNIQ79))
+          ))
+          (net (rename i2 "I2") (joined
+           (portRef I2)
+           (portRef I (instanceRef I2_RNIR79))
+          ))
+          (net (rename i3 "I3") (joined
+           (portRef I3)
+           (portRef I (instanceRef I3_RNIS79))
+          ))
+          (net (rename o0 "O0") (joined
+           (portRef O (instanceRef I0_RNIP79))
+           (portRef O0)
+          ))
+          (net (rename o1 "O1") (joined
+           (portRef O (instanceRef I1_RNIQ79))
+           (portRef O1)
+          ))
+          (net (rename o2 "O2") (joined
+           (portRef O (instanceRef I2_RNIR79))
+           (portRef O2)
+          ))
+          (net (rename o3 "O3") (joined
+           (portRef O (instanceRef I3_RNIS79))
+           (portRef O3)
+          ))
+         )
+       )
+    )
+  )
+  (design INV4S (cellRef INV4S (libraryRef work))
+	(property PART (string "xc6slx9csg225-2") (owner "Xilinx")))
+)

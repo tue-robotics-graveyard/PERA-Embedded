@@ -1,0 +1,72 @@
+(edif FD2S
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 2010 3 29 11 21 48)
+      (author "Synopsys, Inc.")
+      (program "Synplify" (version "D-2010.03, mapper map510rc, Build 068R"))
+     )
+   )
+  (library UNILIB
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell FD (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port Q (direction OUTPUT))
+           (port D (direction INPUT))
+           (port C (direction INPUT)
+ )
+         )
+        (property INIT (integer 0))
+       )
+    )
+  )
+  (library work
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell FD2S (cellType GENERIC)
+       (view behav (viewType NETLIST)
+         (interface
+           (port D0 (direction INPUT))
+           (port D1 (direction INPUT))
+           (port C (direction INPUT)
+ )
+           (port Q0 (direction OUTPUT))
+           (port Q1 (direction OUTPUT))
+         )
+         (contents
+          (instance Qstate0 (viewRef PRIM (cellRef FD (libraryRef UNILIB)))
+          )
+          (instance Qstate1 (viewRef PRIM (cellRef FD (libraryRef UNILIB)))
+          )
+          (net (rename d0 "D0") (joined
+           (portRef D0)
+           (portRef D (instanceRef Qstate0))
+          ))
+          (net (rename d1 "D1") (joined
+           (portRef D1)
+           (portRef D (instanceRef Qstate1))
+          ))
+          (net (rename c "C") (joined
+           (portRef C)
+           (portRef C (instanceRef Qstate1))
+           (portRef C (instanceRef Qstate0))
+          ))
+          (net (rename q0 "Q0") (joined
+           (portRef Q (instanceRef Qstate0))
+           (portRef Q0)
+          ))
+          (net (rename q1 "Q1") (joined
+           (portRef Q (instanceRef Qstate1))
+           (portRef Q1)
+          ))
+         )
+       )
+    )
+  )
+  (design FD2S (cellRef FD2S (libraryRef work))
+	(property PART (string "xc6slx9csg225-2") (owner "Xilinx")))
+)

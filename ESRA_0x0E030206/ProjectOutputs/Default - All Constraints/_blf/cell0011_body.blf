@@ -1,0 +1,1829 @@
+.model Configurable_U2
+.inputs UP
+.outputs Q<31>
+.outputs Q<30>
+.outputs Q<29>
+.outputs Q<28>
+.outputs Q<27>
+.outputs Q<26>
+.outputs Q<25>
+.outputs Q<24>
+.outputs Q<23>
+.outputs Q<22>
+.outputs Q<21>
+.outputs Q<20>
+.outputs Q<19>
+.outputs Q<18>
+.outputs Q<17>
+.outputs Q<16>
+.outputs Q<15>
+.outputs Q<14>
+.outputs Q<13>
+.outputs Q<12>
+.outputs Q<11>
+.outputs Q<10>
+.outputs Q<9>
+.outputs Q<8>
+.outputs Q<7>
+.outputs Q<6>
+.outputs Q<5>
+.outputs Q<4>
+.outputs Q<3>
+.outputs Q<2>
+.outputs Q<1>
+.outputs Q<0>
+.inputs R
+.outputs CEO
+.outputs TC
+.inputs CE
+.inputs C
+.names Q<7> n726
+0 1
+.names Q<11> n664
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i826 CI=-i826/CI DI=-i826/DI S=-i826/S O=+add_69/n4
+.names add_69/n2 i826/CI
+1 1
+.names Q<2> i826/DI
+1 1
+.names Q<2> i826/S
+1 1
+.names Q<8> n666
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i824 CI=-i824/CI LI=-i824/LI O=+n97
+.names add_69/n8 i824/CI
+1 1
+.names Q<5> i824/LI
+1 1
+.names Q<5> n668
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i823 CI=-i823/CI DI=-i823/DI S=-i823/S O=+add_69/n10
+.names add_69/n8 i823/CI
+1 1
+.names Q<5> i823/DI
+1 1
+.names Q<5> i823/S
+1 1
+.names Q<2> n670
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i821 CI=-i821/CI LI=-i821/LI O=+n94
+.names add_69/n14 i821/CI
+1 1
+.names Q<8> i821/LI
+1 1
+.names Q<16> n672
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i778 CI=-i778/CI DI=-i778/DI S=-i778/S O=+add_69/n38
+.names add_69/n36 i778/CI
+1 1
+.names Q<19> i778/DI
+1 1
+.names Q<19> i778/S
+1 1
+.loc Configurable_U2.VHD 64 Q<0>
+.latch n329 Q<0> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<3>
+.latch n326 Q<3> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<6>
+.latch n323 Q<6> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<9>
+.latch n320 Q<9> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<12>
+.latch n317 Q<12> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<15>
+.latch n314 Q<15> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<18>
+.latch n311 Q<18> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<21>
+.latch n308 Q<21> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<24>
+.latch n305 Q<24> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<27>
+.latch n302 Q<27> re C 2 n570
+.loc syn_unsi.vhd 118
+.subckt MUXCY i820 CI=-i820/CI DI=-i820/DI S=-i820/S O=+add_69/n16
+.names add_69/n14 i820/CI
+1 1
+.names Q<8> i820/DI
+1 1
+.names Q<8> i820/S
+1 1
+.names Q<13> n674
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i818 CI=-i818/CI LI=-i818/LI O=+n91
+.names add_69/n20 i818/CI
+1 1
+.names Q<11> i818/LI
+1 1
+.names Q<10> n676
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i817 CI=-i817/CI DI=-i817/DI S=-i817/S O=+add_69/n22
+.names add_69/n20 i817/CI
+1 1
+.names Q<11> i817/DI
+1 1
+.names Q<11> i817/S
+1 1
+.names Q<7> n678
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i815 CI=-i815/CI LI=-i815/LI O=+n88
+.names add_69/n26 i815/CI
+1 1
+.names Q<14> i815/LI
+1 1
+.names Q<4> n680
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i814 CI=-i814/CI DI=-i814/DI S=-i814/S O=+add_69/n28
+.names add_69/n26 i814/CI
+1 1
+.names Q<14> i814/DI
+1 1
+.names Q<14> i814/S
+1 1
+.names Q<1> n682
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i812 CI=-i812/CI LI=-i812/LI O=+n85
+.names add_69/n32 i812/CI
+1 1
+.names Q<17> i812/LI
+1 1
+.names Q<15> n684
+0 1
+.names Q<1> n748
+0 1
+.loc Configurable_U2.VHD 64 Q<31>
+.latch n298 Q<31> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<2>
+.latch n327 Q<2> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<5>
+.latch n324 Q<5> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<8>
+.latch n321 Q<8> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<11>
+.latch n318 Q<11> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<14>
+.latch n315 Q<14> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<17>
+.latch n312 Q<17> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<20>
+.latch n309 Q<20> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<23>
+.latch n306 Q<23> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<26>
+.latch n303 Q<26> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<30>
+.latch n299 Q<30> re C 2 n570
+.names UP n135
+0 1
+.loc Configurable_U2.VHD 64 Q<29>
+.latch n300 Q<29> re C 2 n570
+.loc syn_unsi.vhd 118
+.subckt MUXCY i811 CI=-i811/CI DI=-i811/DI S=-i811/S O=+add_69/n34
+.names add_69/n32 i811/CI
+1 1
+.names Q<17> i811/DI
+1 1
+.names Q<17> i811/S
+1 1
+.names n135 n36 n71 n102
+11- 1
+-01 1
+.names n135 n36 n72 n103
+11- 1
+-01 1
+.names n135 n36 n73 n104
+11- 1
+-01 1
+.names n135 n36 n74 n105
+11- 1
+-01 1
+.names n135 n36 n75 n106
+11- 1
+-01 1
+.names n135 n36 n76 n107
+11- 1
+-01 1
+.names n135 n36 n77 n108
+11- 1
+-01 1
+.names n135 n36 n78 n109
+11- 1
+-01 1
+.names n135 n36 n79 n110
+11- 1
+-01 1
+.names n135 n36 n80 n111
+11- 1
+-01 1
+.names n135 n36 n81 n112
+11- 1
+-01 1
+.names n135 n36 n82 n113
+11- 1
+-01 1
+.names n135 n36 n83 n114
+11- 1
+-01 1
+.names n135 n36 n84 n115
+11- 1
+-01 1
+.names n135 n36 n85 n116
+11- 1
+-01 1
+.names n135 n36 n86 n117
+11- 1
+-01 1
+.names n135 n36 n87 n118
+11- 1
+-01 1
+.names n135 n36 n88 n119
+11- 1
+-01 1
+.names n135 n36 n89 n120
+11- 1
+-01 1
+.names n135 n36 n90 n121
+11- 1
+-01 1
+.names n135 n36 n91 n122
+11- 1
+-01 1
+.names n135 n36 n92 n123
+11- 1
+-01 1
+.names n135 n36 n93 n124
+11- 1
+-01 1
+.names n135 n36 n94 n125
+11- 1
+-01 1
+.names n135 n36 n95 n126
+11- 1
+-01 1
+.names n135 n36 n96 n127
+11- 1
+-01 1
+.names n135 n36 n97 n128
+11- 1
+-01 1
+.names n135 n36 n98 n129
+11- 1
+-01 1
+.names n135 n36 n99 n130
+11- 1
+-01 1
+.names n135 n36 n100 n131
+11- 1
+-01 1
+.names n135 n36 n101 n132
+11- 1
+-01 1
+.names n135 n36 n167 n133
+11- 1
+-01 1
+.names Q<12> n686
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i809 CI=-i809/CI LI=-i809/LI O=+n82
+.names add_69/n38 i809/CI
+1 1
+.names Q<20> i809/LI
+1 1
+.names Q<9> n688
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i808 CI=-i808/CI DI=-i808/DI S=-i808/S O=+add_69/n40
+.names add_69/n38 i808/CI
+1 1
+.names Q<20> i808/DI
+1 1
+.names Q<20> i808/S
+1 1
+.names Q<6> n690
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i806 CI=-i806/CI LI=-i806/LI O=+n79
+.names add_69/n44 i806/CI
+1 1
+.names Q<23> i806/LI
+1 1
+.names Q<3> n692
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i805 CI=-i805/CI DI=-i805/DI S=-i805/S O=+add_69/n46
+.names add_69/n44 i805/CI
+1 1
+.names Q<23> i805/DI
+1 1
+.names Q<23> i805/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i728 CI=-i728/CI DI=-i728/DI S=-i728/S O=+add_137/n16
+.names add_137/n14 i728/CI
+1 1
+.names Q<8> i728/DI
+1 1
+.names n725 i728/S
+1 1
+.names Q<14> n662
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i803 CI=-i803/CI LI=-i803/LI O=+n76
+.names add_69/n50 i803/CI
+1 1
+.names Q<26> i803/LI
+1 1
+.names Q<5> n759
+0 1
+.loc Configurable_U2.VHD 64 Q<1>
+.latch n328 Q<1> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<4>
+.latch n325 Q<4> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<7>
+.latch n322 Q<7> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<10>
+.latch n319 Q<10> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<13>
+.latch n316 Q<13> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<16>
+.latch n313 Q<16> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<19>
+.latch n310 Q<19> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<22>
+.latch n307 Q<22> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<25>
+.latch n304 Q<25> re C 2 n570
+.loc Configurable_U2.VHD 64 Q<28>
+.latch n301 Q<28> re C 2 n570
+.names Q<6> n760
+0 1
+.names Q<0> n167
+0 1
+.names Q<9> n761
+0 1
+.names n565 n563 n569
+11 1
+.names LessThan_102/n34 n723 LessThan_102/n36
+11 1
+.names n135 n134 n170 n202
+11- 1
+-01 1
+.names n135 n134 n171 n203
+11- 1
+-01 1
+.names n135 n134 n172 n204
+11- 1
+-01 1
+.names n135 n134 n173 n205
+11- 1
+-01 1
+.names n135 n134 n174 n206
+11- 1
+-01 1
+.names n135 n134 n175 n207
+11- 1
+-01 1
+.names n135 n134 n176 n208
+11- 1
+-01 1
+.names n135 n134 n177 n209
+11- 1
+-01 1
+.names n135 n134 n178 n210
+11- 1
+-01 1
+.names n135 n134 n179 n211
+11- 1
+-01 1
+.names n135 n134 n180 n212
+11- 1
+-01 1
+.names n135 n134 n181 n213
+11- 1
+-01 1
+.names n135 n134 n182 n214
+11- 1
+-01 1
+.names n135 n134 n183 n215
+11- 1
+-01 1
+.names n135 n134 n184 n216
+11- 1
+-01 1
+.names n135 n134 n185 n217
+11- 1
+-01 1
+.names n135 n134 n186 n218
+11- 1
+-01 1
+.names n135 n134 n187 n219
+11- 1
+-01 1
+.names n135 n134 n188 n220
+11- 1
+-01 1
+.names n135 n134 n189 n221
+11- 1
+-01 1
+.names n135 n134 n190 n222
+11- 1
+-01 1
+.names n135 n134 n191 n223
+11- 1
+-01 1
+.names n135 n134 n192 n224
+11- 1
+-01 1
+.names n135 n134 n193 n225
+11- 1
+-01 1
+.names n135 n134 n194 n226
+11- 1
+-01 1
+.names n135 n134 n195 n227
+11- 1
+-01 1
+.names n135 n134 n196 n228
+11- 1
+-01 1
+.names n135 n134 n197 n229
+11- 1
+-01 1
+.names n135 n134 n198 n230
+11- 1
+-01 1
+.names n135 n134 n199 n231
+11- 1
+-01 1
+.names n135 n134 n200 n232
+11- 1
+-01 1
+.names n135 n134 n167 n233
+11- 1
+-01 1
+.names n102 UP n202 n234
+11- 1
+-01 1
+.names n103 UP n203 n235
+11- 1
+-01 1
+.names n104 UP n204 n236
+11- 1
+-01 1
+.names n105 UP n205 n237
+11- 1
+-01 1
+.names n106 UP n206 n238
+11- 1
+-01 1
+.names n107 UP n207 n239
+11- 1
+-01 1
+.names n108 UP n208 n240
+11- 1
+-01 1
+.names n109 UP n209 n241
+11- 1
+-01 1
+.names n110 UP n210 n242
+11- 1
+-01 1
+.names n111 UP n211 n243
+11- 1
+-01 1
+.names n112 UP n212 n244
+11- 1
+-01 1
+.names n113 UP n213 n245
+11- 1
+-01 1
+.names n114 UP n214 n246
+11- 1
+-01 1
+.names n115 UP n215 n247
+11- 1
+-01 1
+.names n116 UP n216 n248
+11- 1
+-01 1
+.names n117 UP n217 n249
+11- 1
+-01 1
+.names n118 UP n218 n250
+11- 1
+-01 1
+.names n119 UP n219 n251
+11- 1
+-01 1
+.names n120 UP n220 n252
+11- 1
+-01 1
+.names n121 UP n221 n253
+11- 1
+-01 1
+.names n122 UP n222 n254
+11- 1
+-01 1
+.names n123 UP n223 n255
+11- 1
+-01 1
+.names n124 UP n224 n256
+11- 1
+-01 1
+.names n125 UP n225 n257
+11- 1
+-01 1
+.names n126 UP n226 n258
+11- 1
+-01 1
+.names n127 UP n227 n259
+11- 1
+-01 1
+.names n128 UP n228 n260
+11- 1
+-01 1
+.names n129 UP n229 n261
+11- 1
+-01 1
+.names n130 UP n230 n262
+11- 1
+-01 1
+.names n131 UP n231 n263
+11- 1
+-01 1
+.names n132 UP n232 n264
+11- 1
+-01 1
+.names n133 UP n233 n265
+11- 1
+-01 1
+.names LessThan_102/n36 n721 LessThan_102/n38
+11 1
+.names R n565
+0 1
+.names LessThan_102/n38 n719 LessThan_102/n40
+11 1
+.names n569 n570
+0 1
+.names LessThan_102/n40 n717 LessThan_102/n42
+11 1
+.names LessThan_102/n42 n715 LessThan_102/n44
+11 1
+.names LessThan_102/n44 n713 LessThan_102/n46
+11 1
+.names LessThan_102/n46 n711 LessThan_102/n48
+11 1
+.names LessThan_102/n48 n709 LessThan_102/n50
+11 1
+.names LessThan_102/n50 n707 LessThan_102/n52
+11 1
+.names LessThan_102/n52 n705 LessThan_102/n54
+11 1
+.names LessThan_102/n54 n703 LessThan_102/n56
+11 1
+.names LessThan_102/n56 n701 LessThan_102/n58
+11 1
+.names LessThan_102/n58 n699 LessThan_102/n60
+11 1
+.names LessThan_102/n60 n697 LessThan_102/n62
+11 1
+.names LessThan_102/n62 n695 n134
+11 1
+.names LessThan_102/n6 n692 LessThan_102/n8
+11 1
+.names LessThan_102/n12 n690 LessThan_102/n14
+11 1
+.names LessThan_102/n18 n688 LessThan_102/n20
+11 1
+.names LessThan_102/n24 n686 LessThan_102/n26
+11 1
+.names LessThan_102/n30 n684 LessThan_102/n32
+11 1
+.names n167 n682 LessThan_102/n4
+11 1
+.names LessThan_102/n8 n680 LessThan_102/n10
+11 1
+.names LessThan_102/n14 n678 LessThan_102/n16
+11 1
+.names LessThan_102/n20 n676 LessThan_102/n22
+11 1
+.names LessThan_102/n26 n674 LessThan_102/n28
+11 1
+.names LessThan_102/n32 n672 LessThan_102/n34
+11 1
+.names LessThan_102/n4 n670 LessThan_102/n6
+11 1
+.names LessThan_102/n10 n668 LessThan_102/n12
+11 1
+.names LessThan_102/n16 n666 LessThan_102/n18
+11 1
+.names LessThan_102/n22 n664 LessThan_102/n24
+11 1
+.names LessThan_102/n28 n662 LessThan_102/n30
+11 1
+.names n135 R n234 n298
+11- 1
+-01 1
+.names n135 R n235 n299
+11- 1
+-01 1
+.names n135 R n236 n300
+11- 1
+-01 1
+.names n135 R n237 n301
+11- 1
+-01 1
+.names n135 R n238 n302
+11- 1
+-01 1
+.names n135 R n239 n303
+11- 1
+-01 1
+.names n135 R n240 n304
+11- 1
+-01 1
+.names n135 R n241 n305
+11- 1
+-01 1
+.names n135 R n242 n306
+11- 1
+-01 1
+.names n135 R n243 n307
+11- 1
+-01 1
+.names n135 R n244 n308
+11- 1
+-01 1
+.names n135 R n245 n309
+11- 1
+-01 1
+.names n135 R n246 n310
+11- 1
+-01 1
+.names n135 R n247 n311
+11- 1
+-01 1
+.names n135 R n248 n312
+11- 1
+-01 1
+.names n135 R n249 n313
+11- 1
+-01 1
+.names n135 R n250 n314
+11- 1
+-01 1
+.names n135 R n251 n315
+11- 1
+-01 1
+.names n135 R n252 n316
+11- 1
+-01 1
+.names n135 R n253 n317
+11- 1
+-01 1
+.names n135 R n254 n318
+11- 1
+-01 1
+.names n135 R n255 n319
+11- 1
+-01 1
+.names n135 R n256 n320
+11- 1
+-01 1
+.names n135 R n257 n321
+11- 1
+-01 1
+.names n135 R n258 n322
+11- 1
+-01 1
+.names n135 R n259 n323
+11- 1
+-01 1
+.names n135 R n260 n324
+11- 1
+-01 1
+.names n135 R n261 n325
+11- 1
+-01 1
+.names n135 R n262 n326
+11- 1
+-01 1
+.names n135 R n263 n327
+11- 1
+-01 1
+.names n135 R n264 n328
+11- 1
+-01 1
+.names n135 R n265 n329
+11- 1
+-01 1
+.names LessThan_35/n6 Q<3> Q<3> LessThan_35/n8
+11- 1
+-01 1
+.names n167 n682 reduce_nor_331/n1
+1- 1
+-1 1
+.names LessThan_35/n60 Q<30> Q<30> LessThan_35/n62
+11- 1
+-01 1
+.names LessThan_35/n58 Q<29> Q<29> LessThan_35/n60
+11- 1
+-01 1
+.names LessThan_35/n56 Q<28> Q<28> LessThan_35/n58
+11- 1
+-01 1
+.names LessThan_35/n54 Q<27> Q<27> LessThan_35/n56
+11- 1
+-01 1
+.names LessThan_35/n52 Q<26> Q<26> LessThan_35/n54
+11- 1
+-01 1
+.names LessThan_35/n50 Q<25> Q<25> LessThan_35/n52
+11- 1
+-01 1
+.names LessThan_35/n48 Q<24> Q<24> LessThan_35/n50
+11- 1
+-01 1
+.names LessThan_35/n46 Q<23> Q<23> LessThan_35/n48
+11- 1
+-01 1
+.names LessThan_35/n44 Q<22> Q<22> LessThan_35/n46
+11- 1
+-01 1
+.names LessThan_35/n42 Q<21> Q<21> LessThan_35/n44
+11- 1
+-01 1
+.names LessThan_35/n40 Q<20> Q<20> LessThan_35/n42
+11- 1
+-01 1
+.names LessThan_35/n38 Q<19> Q<19> LessThan_35/n40
+11- 1
+-01 1
+.names LessThan_35/n36 Q<18> Q<18> LessThan_35/n38
+11- 1
+-01 1
+.names LessThan_35/n34 Q<17> Q<17> LessThan_35/n36
+11- 1
+-01 1
+.names LessThan_35/n32 Q<16> Q<16> LessThan_35/n34
+11- 1
+-01 1
+.names LessThan_35/n30 Q<15> Q<15> LessThan_35/n32
+11- 1
+-01 1
+.names LessThan_35/n28 Q<14> Q<14> LessThan_35/n30
+11- 1
+-01 1
+.names LessThan_35/n26 Q<13> Q<13> LessThan_35/n28
+11- 1
+-01 1
+.names LessThan_35/n24 Q<12> Q<12> LessThan_35/n26
+11- 1
+-01 1
+.names LessThan_35/n22 Q<11> Q<11> LessThan_35/n24
+11- 1
+-01 1
+.names LessThan_35/n20 Q<10> Q<10> LessThan_35/n22
+11- 1
+-01 1
+.names LessThan_35/n18 Q<9> Q<9> LessThan_35/n20
+11- 1
+-01 1
+.names LessThan_35/n16 Q<8> Q<8> LessThan_35/n18
+11- 1
+-01 1
+.names LessThan_35/n14 Q<7> Q<7> LessThan_35/n16
+11- 1
+-01 1
+.names LessThan_35/n12 Q<6> Q<6> LessThan_35/n14
+11- 1
+-01 1
+.names LessThan_35/n10 Q<5> Q<5> LessThan_35/n12
+11- 1
+-01 1
+.names LessThan_35/n8 Q<4> Q<4> LessThan_35/n10
+11- 1
+-01 1
+.names Q<0> Q<1> Q<1> LessThan_35/n4
+11- 1
+-01 1
+.names Q<31> n695
+0 1
+.names Q<4> n762
+0 1
+.names LessThan_35/n4 Q<2> Q<2> LessThan_35/n6
+11- 1
+-01 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i775 CI=-i775/CI DI=-i775/DI S=-i775/S O=+add_69/n44
+.names add_69/n42 i775/CI
+1 1
+.names Q<22> i775/DI
+1 1
+.names Q<22> i775/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i772 CI=-i772/CI DI=-i772/DI S=-i772/S O=+add_69/n50
+.names add_69/n48 i772/CI
+1 1
+.names Q<25> i772/DI
+1 1
+.names Q<25> i772/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i773 CI=-i773/CI LI=-i773/LI O=+n77
+.names add_69/n48 i773/CI
+1 1
+.names Q<25> i773/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i769 CI=-i769/CI DI=-i769/DI S=-i769/S O=+add_69/n56
+.names add_69/n54 i769/CI
+1 1
+.names Q<28> i769/DI
+1 1
+.names Q<28> i769/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i770 CI=-i770/CI LI=-i770/LI O=+n74
+.names add_69/n54 i770/CI
+1 1
+.names Q<28> i770/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i765 CI=-i765/CI LI=-i765/LI O=+n101
+.names Q<0> i765/CI
+1 1
+.names Q<1> i765/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i767 CI=-i767/CI LI=-i767/LI O=+n71
+.names add_69/n60 i767/CI
+1 1
+.names Q<31> i767/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i762 CI=-i762/CI LI=-i762/LI O=+n99
+.names add_69/n4 i762/CI
+1 1
+.names Q<3> i762/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i764 CI=-i764/CI DI=-i764/DI S=-i764/S O=+add_69/n2
+.names Q<0> i764/CI
+1 1
+.names Q<1> i764/DI
+1 1
+.names Q<1> i764/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i759 CI=-i759/CI LI=-i759/LI O=+n96
+.names add_69/n10 i759/CI
+1 1
+.names Q<6> i759/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i761 CI=-i761/CI DI=-i761/DI S=-i761/S O=+add_69/n6
+.names add_69/n4 i761/CI
+1 1
+.names Q<3> i761/DI
+1 1
+.names Q<3> i761/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i756 CI=-i756/CI LI=-i756/LI O=+n93
+.names add_69/n16 i756/CI
+1 1
+.names Q<9> i756/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i758 CI=-i758/CI DI=-i758/DI S=-i758/S O=+add_69/n12
+.names add_69/n10 i758/CI
+1 1
+.names Q<6> i758/DI
+1 1
+.names Q<6> i758/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i753 CI=-i753/CI LI=-i753/LI O=+n90
+.names add_69/n22 i753/CI
+1 1
+.names Q<12> i753/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i755 CI=-i755/CI DI=-i755/DI S=-i755/S O=+add_69/n18
+.names add_69/n16 i755/CI
+1 1
+.names Q<9> i755/DI
+1 1
+.names Q<9> i755/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i750 CI=-i750/CI LI=-i750/LI O=+n87
+.names add_69/n28 i750/CI
+1 1
+.names Q<15> i750/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i752 CI=-i752/CI DI=-i752/DI S=-i752/S O=+add_69/n24
+.names add_69/n22 i752/CI
+1 1
+.names Q<12> i752/DI
+1 1
+.names Q<12> i752/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i747 CI=-i747/CI LI=-i747/LI O=+n84
+.names add_69/n34 i747/CI
+1 1
+.names Q<18> i747/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i749 CI=-i749/CI DI=-i749/DI S=-i749/S O=+add_69/n30
+.names add_69/n28 i749/CI
+1 1
+.names Q<15> i749/DI
+1 1
+.names Q<15> i749/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i744 CI=-i744/CI LI=-i744/LI O=+n81
+.names add_69/n40 i744/CI
+1 1
+.names Q<21> i744/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i746 CI=-i746/CI DI=-i746/DI S=-i746/S O=+add_69/n36
+.names add_69/n34 i746/CI
+1 1
+.names Q<18> i746/DI
+1 1
+.names Q<18> i746/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i741 CI=-i741/CI LI=-i741/LI O=+n78
+.names add_69/n46 i741/CI
+1 1
+.names Q<24> i741/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i743 CI=-i743/CI DI=-i743/DI S=-i743/S O=+add_69/n42
+.names add_69/n40 i743/CI
+1 1
+.names Q<21> i743/DI
+1 1
+.names Q<21> i743/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i738 CI=-i738/CI LI=-i738/LI O=+n75
+.names add_69/n52 i738/CI
+1 1
+.names Q<27> i738/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i740 CI=-i740/CI DI=-i740/DI S=-i740/S O=+add_69/n48
+.names add_69/n46 i740/CI
+1 1
+.names Q<24> i740/DI
+1 1
+.names Q<24> i740/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i735 CI=-i735/CI LI=-i735/LI O=+n72
+.names add_69/n58 i735/CI
+1 1
+.names Q<30> i735/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i737 CI=-i737/CI DI=-i737/DI S=-i737/S O=+add_69/n54
+.names add_69/n52 i737/CI
+1 1
+.names Q<27> i737/DI
+1 1
+.names Q<27> i737/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i732 CI=-i732/CI LI=-i732/LI O=+n194
+.names add_137/n12 i732/CI
+1 1
+.names n726 i732/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i734 CI=-i734/CI DI=-i734/DI S=-i734/S O=+add_69/n60
+.names add_69/n58 i734/CI
+1 1
+.names Q<30> i734/DI
+1 1
+.names Q<30> i734/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i729 CI=-i729/CI LI=-i729/LI O=+n193
+.names add_137/n14 i729/CI
+1 1
+.names n725 i729/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i731 CI=-i731/CI DI=-i731/DI S=-i731/S O=+add_137/n14
+.names add_137/n12 i731/CI
+1 1
+.names Q<7> i731/DI
+1 1
+.names n726 i731/S
+1 1
+.names Q<0> Q<1> reduce_nor_333/n1
+1- 1
+-1 1
+.names n394 UP n395
+11 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i827 CI=-i827/CI LI=-i827/LI O=+n100
+.names add_69/n2 i827/CI
+1 1
+.names Q<2> i827/LI
+1 1
+.names CE n563
+0 1
+.names n396 n135 n398
+11 1
+.names n395 n398 TC
+1- 1
+-1 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i802 CI=-i802/CI DI=-i802/DI S=-i802/S O=+add_69/n52
+.names add_69/n50 i802/CI
+1 1
+.names Q<26> i802/DI
+1 1
+.names Q<26> i802/S
+1 1
+.names Q<3> n763
+0 1
+.names Q<2> n764
+0 1
+.names Q<10> n765
+0 1
+.names Q<30> n697
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i800 CI=-i800/CI LI=-i800/LI O=+n73
+.names add_69/n56 i800/CI
+1 1
+.names Q<29> i800/LI
+1 1
+.names Q<29> n699
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i799 CI=-i799/CI DI=-i799/DI S=-i799/S O=+add_69/n58
+.names add_69/n56 i799/CI
+1 1
+.names Q<29> i799/DI
+1 1
+.names Q<29> i799/S
+1 1
+.names Q<28> n701
+0 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i797 CI=-i797/CI LI=-i797/LI O=+n200
+.names Q<0> i797/CI
+1 1
+.names n748 i797/LI
+1 1
+.names Q<27> n703
+0 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i796 CI=-i796/CI DI=-i796/DI S=-i796/S O=+add_137/n2
+.names Q<0> i796/CI
+1 1
+.names Q<1> i796/DI
+1 1
+.names n748 i796/S
+1 1
+.names Q<26> n705
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i794 CI=-i794/CI LI=-i794/LI O=+n98
+.names add_69/n6 i794/CI
+1 1
+.names Q<4> i794/LI
+1 1
+.names Q<25> n707
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i793 CI=-i793/CI DI=-i793/DI S=-i793/S O=+add_69/n8
+.names add_69/n6 i793/CI
+1 1
+.names Q<4> i793/DI
+1 1
+.names Q<4> i793/S
+1 1
+.names Q<24> n709
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i791 CI=-i791/CI LI=-i791/LI O=+n95
+.names add_69/n12 i791/CI
+1 1
+.names Q<7> i791/LI
+1 1
+.names Q<23> n711
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i790 CI=-i790/CI DI=-i790/DI S=-i790/S O=+add_69/n14
+.names add_69/n12 i790/CI
+1 1
+.names Q<7> i790/DI
+1 1
+.names Q<7> i790/S
+1 1
+.names Q<22> n713
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i788 CI=-i788/CI LI=-i788/LI O=+n92
+.names add_69/n18 i788/CI
+1 1
+.names Q<10> i788/LI
+1 1
+.names Q<21> n715
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i787 CI=-i787/CI DI=-i787/DI S=-i787/S O=+add_69/n20
+.names add_69/n18 i787/CI
+1 1
+.names Q<10> i787/DI
+1 1
+.names Q<10> i787/S
+1 1
+.names Q<20> n717
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i785 CI=-i785/CI LI=-i785/LI O=+n89
+.names add_69/n24 i785/CI
+1 1
+.names Q<13> i785/LI
+1 1
+.names Q<19> n719
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i784 CI=-i784/CI DI=-i784/DI S=-i784/S O=+add_69/n26
+.names add_69/n24 i784/CI
+1 1
+.names Q<13> i784/DI
+1 1
+.names Q<13> i784/S
+1 1
+.names Q<18> n721
+0 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i782 CI=-i782/CI LI=-i782/LI O=+n86
+.names add_69/n30 i782/CI
+1 1
+.names Q<16> i782/LI
+1 1
+.names Q<17> n723
+0 1
+.loc syn_unsi.vhd 118
+.subckt MUXCY i781 CI=-i781/CI DI=-i781/DI S=-i781/S O=+add_69/n32
+.names add_69/n30 i781/CI
+1 1
+.names Q<16> i781/DI
+1 1
+.names Q<16> i781/S
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i776 CI=-i776/CI LI=-i776/LI O=+n80
+.names add_69/n42 i776/CI
+1 1
+.names Q<22> i776/LI
+1 1
+.loc syn_unsi.vhd 118
+.subckt XORCY i779 CI=-i779/CI LI=-i779/LI O=+n83
+.names add_69/n36 i779/CI
+1 1
+.names Q<19> i779/LI
+1 1
+.names TC CE CEO
+11 1
+.names LessThan_35/n62 Q<31> Q<31> n36
+11- 1
+-01 1
+.names Q<11> n766
+0 1
+.names Q<12> n767
+0 1
+.names Q<13> n768
+0 1
+.names Q<14> n769
+0 1
+.names Q<15> n770
+0 1
+.names Q<16> n771
+0 1
+.names Q<17> n772
+0 1
+.names Q<18> n773
+0 1
+.names Q<19> n774
+0 1
+.names Q<20> n775
+0 1
+.names Q<21> n776
+0 1
+.names Q<22> n777
+0 1
+.names Q<23> n778
+0 1
+.names Q<24> n779
+0 1
+.names Q<25> n780
+0 1
+.names Q<26> n781
+0 1
+.names Q<27> n782
+0 1
+.names Q<28> n783
+0 1
+.names Q<29> n784
+0 1
+.names Q<30> n785
+0 1
+.names Q<31> n786
+0 1
+.names n670 n692 reduce_nor_331/n2
+1- 1
+-1 1
+.names reduce_nor_331/n1 reduce_nor_331/n2 reduce_nor_331/n3
+1- 1
+-1 1
+.names n680 n668 reduce_nor_331/n4
+1- 1
+-1 1
+.names n690 n678 reduce_nor_331/n5
+1- 1
+-1 1
+.names reduce_nor_331/n4 reduce_nor_331/n5 reduce_nor_331/n6
+1- 1
+-1 1
+.names reduce_nor_331/n3 reduce_nor_331/n6 reduce_nor_331/n7
+1- 1
+-1 1
+.names n666 n688 reduce_nor_331/n8
+1- 1
+-1 1
+.names n676 n664 reduce_nor_331/n9
+1- 1
+-1 1
+.names reduce_nor_331/n8 reduce_nor_331/n9 reduce_nor_331/n10
+1- 1
+-1 1
+.names n686 n674 reduce_nor_331/n11
+1- 1
+-1 1
+.names n662 n684 reduce_nor_331/n12
+1- 1
+-1 1
+.names reduce_nor_331/n11 reduce_nor_331/n12 reduce_nor_331/n13
+1- 1
+-1 1
+.names reduce_nor_331/n10 reduce_nor_331/n13 reduce_nor_331/n14
+1- 1
+-1 1
+.names reduce_nor_331/n7 reduce_nor_331/n14 reduce_nor_331/n15
+1- 1
+-1 1
+.names n672 n723 reduce_nor_331/n16
+1- 1
+-1 1
+.names n721 n719 reduce_nor_331/n17
+1- 1
+-1 1
+.names reduce_nor_331/n16 reduce_nor_331/n17 reduce_nor_331/n18
+1- 1
+-1 1
+.names n717 n715 reduce_nor_331/n19
+1- 1
+-1 1
+.names n713 n711 reduce_nor_331/n20
+1- 1
+-1 1
+.names reduce_nor_331/n19 reduce_nor_331/n20 reduce_nor_331/n21
+1- 1
+-1 1
+.names reduce_nor_331/n18 reduce_nor_331/n21 reduce_nor_331/n22
+1- 1
+-1 1
+.names n709 n707 reduce_nor_331/n23
+1- 1
+-1 1
+.names n705 n703 reduce_nor_331/n24
+1- 1
+-1 1
+.names reduce_nor_331/n23 reduce_nor_331/n24 reduce_nor_331/n25
+1- 1
+-1 1
+.names n701 n699 reduce_nor_331/n26
+1- 1
+-1 1
+.names n697 n695 reduce_nor_331/n27
+1- 1
+-1 1
+.names reduce_nor_331/n26 reduce_nor_331/n27 reduce_nor_331/n28
+1- 1
+-1 1
+.names reduce_nor_331/n25 reduce_nor_331/n28 reduce_nor_331/n29
+1- 1
+-1 1
+.names reduce_nor_331/n22 reduce_nor_331/n29 reduce_nor_331/n30
+1- 1
+-1 1
+.names reduce_nor_331/n15 reduce_nor_331/n30 reduce_nor_331/n31
+1- 1
+-1 1
+.names reduce_nor_331/n31 n394
+0 1
+.names Q<2> Q<3> reduce_nor_333/n2
+1- 1
+-1 1
+.names reduce_nor_333/n1 reduce_nor_333/n2 reduce_nor_333/n3
+1- 1
+-1 1
+.names Q<4> Q<5> reduce_nor_333/n4
+1- 1
+-1 1
+.names Q<6> Q<7> reduce_nor_333/n5
+1- 1
+-1 1
+.names reduce_nor_333/n4 reduce_nor_333/n5 reduce_nor_333/n6
+1- 1
+-1 1
+.names reduce_nor_333/n3 reduce_nor_333/n6 reduce_nor_333/n7
+1- 1
+-1 1
+.names Q<8> Q<9> reduce_nor_333/n8
+1- 1
+-1 1
+.names Q<10> Q<11> reduce_nor_333/n9
+1- 1
+-1 1
+.names reduce_nor_333/n8 reduce_nor_333/n9 reduce_nor_333/n10
+1- 1
+-1 1
+.names Q<12> Q<13> reduce_nor_333/n11
+1- 1
+-1 1
+.names Q<14> Q<15> reduce_nor_333/n12
+1- 1
+-1 1
+.names reduce_nor_333/n11 reduce_nor_333/n12 reduce_nor_333/n13
+1- 1
+-1 1
+.names reduce_nor_333/n10 reduce_nor_333/n13 reduce_nor_333/n14
+1- 1
+-1 1
+.names reduce_nor_333/n7 reduce_nor_333/n14 reduce_nor_333/n15
+1- 1
+-1 1
+.names Q<16> Q<17> reduce_nor_333/n16
+1- 1
+-1 1
+.names Q<18> Q<19> reduce_nor_333/n17
+1- 1
+-1 1
+.names reduce_nor_333/n16 reduce_nor_333/n17 reduce_nor_333/n18
+1- 1
+-1 1
+.names Q<20> Q<21> reduce_nor_333/n19
+1- 1
+-1 1
+.names Q<22> Q<23> reduce_nor_333/n20
+1- 1
+-1 1
+.names reduce_nor_333/n19 reduce_nor_333/n20 reduce_nor_333/n21
+1- 1
+-1 1
+.names reduce_nor_333/n18 reduce_nor_333/n21 reduce_nor_333/n22
+1- 1
+-1 1
+.names Q<24> Q<25> reduce_nor_333/n23
+1- 1
+-1 1
+.names Q<26> Q<27> reduce_nor_333/n24
+1- 1
+-1 1
+.names reduce_nor_333/n23 reduce_nor_333/n24 reduce_nor_333/n25
+1- 1
+-1 1
+.names Q<28> Q<29> reduce_nor_333/n26
+1- 1
+-1 1
+.names Q<30> Q<31> reduce_nor_333/n27
+1- 1
+-1 1
+.names reduce_nor_333/n26 reduce_nor_333/n27 reduce_nor_333/n28
+1- 1
+-1 1
+.names reduce_nor_333/n25 reduce_nor_333/n28 reduce_nor_333/n29
+1- 1
+-1 1
+.names reduce_nor_333/n22 reduce_nor_333/n29 reduce_nor_333/n30
+1- 1
+-1 1
+.names reduce_nor_333/n15 reduce_nor_333/n30 reduce_nor_333/n31
+1- 1
+-1 1
+.names reduce_nor_333/n31 n396
+0 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i829 CI=-i829/CI DI=-i829/DI S=-i829/S O=+add_137/n10
+.names add_137/n8 i829/CI
+1 1
+.names Q<5> i829/DI
+1 1
+.names n759 i829/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i830 CI=-i830/CI LI=-i830/LI O=+n196
+.names add_137/n8 i830/CI
+1 1
+.names n759 i830/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i832 CI=-i832/CI DI=-i832/DI S=-i832/S O=+add_137/n12
+.names add_137/n10 i832/CI
+1 1
+.names Q<6> i832/DI
+1 1
+.names n760 i832/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i833 CI=-i833/CI LI=-i833/LI O=+n195
+.names add_137/n10 i833/CI
+1 1
+.names n760 i833/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i835 CI=-i835/CI DI=-i835/DI S=-i835/S O=+add_137/n18
+.names add_137/n16 i835/CI
+1 1
+.names Q<9> i835/DI
+1 1
+.names n761 i835/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i836 CI=-i836/CI LI=-i836/LI O=+n192
+.names add_137/n16 i836/CI
+1 1
+.names n761 i836/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i838 CI=-i838/CI DI=-i838/DI S=-i838/S O=+add_137/n8
+.names add_137/n6 i838/CI
+1 1
+.names Q<4> i838/DI
+1 1
+.names n762 i838/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i839 CI=-i839/CI LI=-i839/LI O=+n197
+.names add_137/n6 i839/CI
+1 1
+.names n762 i839/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i841 CI=-i841/CI DI=-i841/DI S=-i841/S O=+add_137/n6
+.names add_137/n4 i841/CI
+1 1
+.names Q<3> i841/DI
+1 1
+.names n763 i841/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i842 CI=-i842/CI LI=-i842/LI O=+n198
+.names add_137/n4 i842/CI
+1 1
+.names n763 i842/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i844 CI=-i844/CI DI=-i844/DI S=-i844/S O=+add_137/n4
+.names add_137/n2 i844/CI
+1 1
+.names Q<2> i844/DI
+1 1
+.names n764 i844/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i845 CI=-i845/CI LI=-i845/LI O=+n199
+.names add_137/n2 i845/CI
+1 1
+.names n764 i845/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i847 CI=-i847/CI DI=-i847/DI S=-i847/S O=+add_137/n20
+.names add_137/n18 i847/CI
+1 1
+.names Q<10> i847/DI
+1 1
+.names n765 i847/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i848 CI=-i848/CI LI=-i848/LI O=+n191
+.names add_137/n18 i848/CI
+1 1
+.names n765 i848/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i850 CI=-i850/CI DI=-i850/DI S=-i850/S O=+add_137/n22
+.names add_137/n20 i850/CI
+1 1
+.names Q<11> i850/DI
+1 1
+.names n766 i850/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i851 CI=-i851/CI LI=-i851/LI O=+n190
+.names add_137/n20 i851/CI
+1 1
+.names n766 i851/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i853 CI=-i853/CI DI=-i853/DI S=-i853/S O=+add_137/n24
+.names add_137/n22 i853/CI
+1 1
+.names Q<12> i853/DI
+1 1
+.names n767 i853/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i854 CI=-i854/CI LI=-i854/LI O=+n189
+.names add_137/n22 i854/CI
+1 1
+.names n767 i854/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i856 CI=-i856/CI DI=-i856/DI S=-i856/S O=+add_137/n26
+.names add_137/n24 i856/CI
+1 1
+.names Q<13> i856/DI
+1 1
+.names n768 i856/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i857 CI=-i857/CI LI=-i857/LI O=+n188
+.names add_137/n24 i857/CI
+1 1
+.names n768 i857/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i859 CI=-i859/CI DI=-i859/DI S=-i859/S O=+add_137/n28
+.names add_137/n26 i859/CI
+1 1
+.names Q<14> i859/DI
+1 1
+.names n769 i859/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i860 CI=-i860/CI LI=-i860/LI O=+n187
+.names add_137/n26 i860/CI
+1 1
+.names n769 i860/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i862 CI=-i862/CI DI=-i862/DI S=-i862/S O=+add_137/n30
+.names add_137/n28 i862/CI
+1 1
+.names Q<15> i862/DI
+1 1
+.names n770 i862/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i863 CI=-i863/CI LI=-i863/LI O=+n186
+.names add_137/n28 i863/CI
+1 1
+.names n770 i863/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i865 CI=-i865/CI DI=-i865/DI S=-i865/S O=+add_137/n32
+.names add_137/n30 i865/CI
+1 1
+.names Q<16> i865/DI
+1 1
+.names n771 i865/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i866 CI=-i866/CI LI=-i866/LI O=+n185
+.names add_137/n30 i866/CI
+1 1
+.names n771 i866/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i868 CI=-i868/CI DI=-i868/DI S=-i868/S O=+add_137/n34
+.names add_137/n32 i868/CI
+1 1
+.names Q<17> i868/DI
+1 1
+.names n772 i868/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i869 CI=-i869/CI LI=-i869/LI O=+n184
+.names add_137/n32 i869/CI
+1 1
+.names n772 i869/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i871 CI=-i871/CI DI=-i871/DI S=-i871/S O=+add_137/n36
+.names add_137/n34 i871/CI
+1 1
+.names Q<18> i871/DI
+1 1
+.names n773 i871/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i872 CI=-i872/CI LI=-i872/LI O=+n183
+.names add_137/n34 i872/CI
+1 1
+.names n773 i872/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i874 CI=-i874/CI DI=-i874/DI S=-i874/S O=+add_137/n38
+.names add_137/n36 i874/CI
+1 1
+.names Q<19> i874/DI
+1 1
+.names n774 i874/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i875 CI=-i875/CI LI=-i875/LI O=+n182
+.names add_137/n36 i875/CI
+1 1
+.names n774 i875/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i877 CI=-i877/CI DI=-i877/DI S=-i877/S O=+add_137/n40
+.names add_137/n38 i877/CI
+1 1
+.names Q<20> i877/DI
+1 1
+.names n775 i877/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i878 CI=-i878/CI LI=-i878/LI O=+n181
+.names add_137/n38 i878/CI
+1 1
+.names n775 i878/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i880 CI=-i880/CI DI=-i880/DI S=-i880/S O=+add_137/n42
+.names add_137/n40 i880/CI
+1 1
+.names Q<21> i880/DI
+1 1
+.names n776 i880/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i881 CI=-i881/CI LI=-i881/LI O=+n180
+.names add_137/n40 i881/CI
+1 1
+.names n776 i881/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i883 CI=-i883/CI DI=-i883/DI S=-i883/S O=+add_137/n44
+.names add_137/n42 i883/CI
+1 1
+.names Q<22> i883/DI
+1 1
+.names n777 i883/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i884 CI=-i884/CI LI=-i884/LI O=+n179
+.names add_137/n42 i884/CI
+1 1
+.names n777 i884/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i886 CI=-i886/CI DI=-i886/DI S=-i886/S O=+add_137/n46
+.names add_137/n44 i886/CI
+1 1
+.names Q<23> i886/DI
+1 1
+.names n778 i886/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i887 CI=-i887/CI LI=-i887/LI O=+n178
+.names add_137/n44 i887/CI
+1 1
+.names n778 i887/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i889 CI=-i889/CI DI=-i889/DI S=-i889/S O=+add_137/n48
+.names add_137/n46 i889/CI
+1 1
+.names Q<24> i889/DI
+1 1
+.names n779 i889/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i890 CI=-i890/CI LI=-i890/LI O=+n177
+.names add_137/n46 i890/CI
+1 1
+.names n779 i890/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i892 CI=-i892/CI DI=-i892/DI S=-i892/S O=+add_137/n50
+.names add_137/n48 i892/CI
+1 1
+.names Q<25> i892/DI
+1 1
+.names n780 i892/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i893 CI=-i893/CI LI=-i893/LI O=+n176
+.names add_137/n48 i893/CI
+1 1
+.names n780 i893/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i895 CI=-i895/CI DI=-i895/DI S=-i895/S O=+add_137/n52
+.names add_137/n50 i895/CI
+1 1
+.names Q<26> i895/DI
+1 1
+.names n781 i895/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i896 CI=-i896/CI LI=-i896/LI O=+n175
+.names add_137/n50 i896/CI
+1 1
+.names n781 i896/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i898 CI=-i898/CI DI=-i898/DI S=-i898/S O=+add_137/n54
+.names add_137/n52 i898/CI
+1 1
+.names Q<27> i898/DI
+1 1
+.names n782 i898/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i899 CI=-i899/CI LI=-i899/LI O=+n174
+.names add_137/n52 i899/CI
+1 1
+.names n782 i899/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i901 CI=-i901/CI DI=-i901/DI S=-i901/S O=+add_137/n56
+.names add_137/n54 i901/CI
+1 1
+.names Q<28> i901/DI
+1 1
+.names n783 i901/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i902 CI=-i902/CI LI=-i902/LI O=+n173
+.names add_137/n54 i902/CI
+1 1
+.names n783 i902/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i904 CI=-i904/CI DI=-i904/DI S=-i904/S O=+add_137/n58
+.names add_137/n56 i904/CI
+1 1
+.names Q<29> i904/DI
+1 1
+.names n784 i904/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i905 CI=-i905/CI LI=-i905/LI O=+n172
+.names add_137/n56 i905/CI
+1 1
+.names n784 i905/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt MUXCY i907 CI=-i907/CI DI=-i907/DI S=-i907/S O=+add_137/n60
+.names add_137/n58 i907/CI
+1 1
+.names Q<30> i907/DI
+1 1
+.names n785 i907/S
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i908 CI=-i908/CI LI=-i908/LI O=+n171
+.names add_137/n58 i908/CI
+1 1
+.names n785 i908/LI
+1 1
+.loc syn_unsi.vhd 154
+.subckt XORCY i910 CI=-i910/CI LI=-i910/LI O=+n170
+.names add_137/n60 i910/CI
+1 1
+.names n786 i910/LI
+1 1
+.names Q<8> n725
+0 1

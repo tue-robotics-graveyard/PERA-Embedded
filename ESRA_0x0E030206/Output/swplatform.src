@@ -1,0 +1,694 @@
+	; TASKING TSK3000 VIPER C compiler v1.1r1 Build 235
+	; Options: -f cc3336a --dep-file=Output\swplatform.d --make-target=Output\swplatform.src -D__ALTIUM_BUILD_MAJOR__=-1 -D__ALTIUM_BUILD_MINOR__=10 -D__ALTIUM_PROJECT_NAME__="Ethercat_FPGA" -D__SWPLATFORM__ -D__FRAMEWORK__ -IOutput\framecfg -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\processors\c3000\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\ifconfig\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\sysutils\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\external\drivers\m25px0\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\ioport\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\wb_interface\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\generic\interfaces\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\interrupts\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\timing\include -t4 -IC:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206 --iso=99 --debug-info=default --global-type-checking -O3 --rename-sections={module}.{cname} --call=n --align-composites=n --extern-sdata --sdata=4 -o Output\swplatform.src
+	; Module start
+	.source "swplatform.c"
+
+	.section	.text.swplatform.swplatform_init_stacks ,cluster('$group_swplatform_init_stacks')
+	.align	4
+	.global	swplatform_init_stacks
+; Function swplatform_init_stacks
+.L3:
+swplatform_init_stacks:	.type	func
+	addiu	$sp,$sp,-4
+.L32:
+	sw	$ra,0($sp)
+.L33:
+	jal	spi_open
+	move	$a0,$zero
+	sw	$v0,@gprel(drv_ec_1)($gp)
+.L61:
+	jal	spi_open
+	li	$a0,0x1
+	sw	$v0,@gprel(drv_dac_1)($gp)
+.L62:
+	jal	uart8_open
+	move	$a0,$zero
+	sw	$v0,@gprel(drv_uart_1)($gp)
+.L63:
+	jal	pwmx_open
+	li	$a0,0x2
+	sw	$v0,@gprel(drv_pwm_1)($gp)
+.L64:
+	jal	pwmx_open
+	move	$a0,$zero
+	sw	$v0,@gprel(drv_pwm_2)($gp)
+.L65:
+	jal	pwmx_open
+	li	$a0,0x1
+	sw	$v0,@gprel(drv_pwm_3)($gp)
+.L66:
+	jal	m25px0_open
+	move	$a0,$zero
+	sw	$v0,@gprel(drv_m25px0_1)($gp)
+.L67:
+	lw	$ra,0($sp)
+.L34:
+	jr	$ra
+	addiu	$sp,$sp,4
+.L27:
+	.size	swplatform_init_stacks,*-swplatform_init_stacks
+.L12:
+	; End of function
+	.endsec	; End of section
+
+	.section	.sbss.swplatform.drv_ec_1 ,cluster('$group_sbss')
+	.global	drv_ec_1
+	.align	4
+drv_ec_1:	.type	object
+	.size	drv_ec_1,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.swplatform.drv_dac_1 ,cluster('$group_sbss')
+	.global	drv_dac_1
+	.align	4
+drv_dac_1:	.type	object
+	.size	drv_dac_1,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.swplatform.drv_uart_1 ,cluster('$group_sbss')
+	.global	drv_uart_1
+	.align	4
+drv_uart_1:	.type	object
+	.size	drv_uart_1,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.swplatform.drv_pwm_1 ,cluster('$group_sbss')
+	.global	drv_pwm_1
+	.align	4
+drv_pwm_1:	.type	object
+	.size	drv_pwm_1,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.swplatform.drv_pwm_2 ,cluster('$group_sbss')
+	.global	drv_pwm_2
+	.align	4
+drv_pwm_2:	.type	object
+	.size	drv_pwm_2,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.swplatform.drv_pwm_3 ,cluster('$group_sbss')
+	.global	drv_pwm_3
+	.align	4
+drv_pwm_3:	.type	object
+	.size	drv_pwm_3,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.swplatform.drv_m25px0_1 ,cluster('$group_sbss')
+	.global	drv_m25px0_1
+	.align	4
+drv_m25px0_1:	.type	object
+	.size	drv_m25px0_1,4
+	.ds	4
+	.endsec	; End of section
+
+	.calls	'swplatform_init_stacks','spi_open'
+	.calls	'swplatform_init_stacks','uart8_open'
+	.calls	'swplatform_init_stacks','pwmx_open'
+	.calls	'swplatform_init_stacks','m25px0_open'
+	.calls	'swplatform_init_stacks','',4
+	.extern	m25px0_open
+	.extern	pwmx_open
+	.extern	spi_open
+	.extern	uart8_open
+	.section	.debug_info
+.L5:
+	.dw	1283
+	.dh	3
+	.dw	.L6
+	.db	4
+.L4:
+	.db	1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L7
+	.db	2
+	.db	"tsk3000_reset_interval_timer",0
+	.db	3,1,59,20,1,1,3,0,4
+	.db	"pal_architecture_current_interrupt",0
+	.db	3,1,129,1,24
+	.dw	.L35-.L5
+	.db	1,1,3,0
+.L35:
+	.db	5
+	.db	"unsigned int",0
+	.db	4,7,2
+	.db	"pal_architecture_interrupts_enable",0
+	.db	3,1,136,1,24,1,1,3,0,2
+	.db	"pal_architecture_interrupts_disable",0
+	.db	3,1,141,1,24,1,1,3,0,4
+	.db	"pal_architecture_interrupts_disable_if_enabled",0
+	.db	3,1,149,1,25
+	.dw	210
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupts_set_mask",0
+	.db	3,1,160,1,24,1,1,6
+	.db	"mask",0
+	.db	1,160,1,70
+	.dw	210
+	.db	3,0,4
+	.db	"pal_architecture_interrupts_get_mask",0
+	.db	3,1,165,1,24
+	.dw	210
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupt_acknowledge",0
+	.db	3,1,133,2,24,1,1,6
+	.db	"number",0
+	.db	1,133,2,72
+	.dw	210
+	.db	3,0,7
+	.dw	123
+	.db	3,0,7
+	.dw	161
+	.db	3,0,7
+	.dw	226
+	.db	3,0,7
+	.dw	271
+	.db	3,0,7
+	.dw	317
+	.db	3,0,7
+	.dw	378
+	.db	8
+	.dw	423
+	.db	3,0,7
+	.dw	439
+	.db	3,0,7
+	.dw	490
+	.db	8
+	.dw	537
+	.db	3,0,9
+	.db	"m25px0_open",0
+	.db	2,66,19
+	.dw	.L31-.L5
+	.db	1,1,1,1,6
+	.db	"id",0
+	.db	2,66,41
+	.dw	210
+	.db	0
+.L31:
+	.db	10
+	.dw	.L36-.L5
+.L36:
+	.db	11
+	.db	"drv_m25px0_s",0
+	.db	2,64,16,1,9
+	.db	"pwmx_open",0
+	.db	3,74,17
+	.dw	.L30-.L5
+	.db	1,1,1,1,6
+	.db	"id",0
+	.db	3,74,31
+	.dw	.L37-.L5
+	.db	0
+.L30:
+	.db	10
+	.dw	.L38-.L5
+.L38:
+	.db	11
+	.db	"pwmx_s",0
+	.db	3,46,16,1
+.L37:
+	.db	5
+	.db	"int",0
+	.db	4,5,9
+	.db	"spi_open",0
+	.db	4,48,16
+	.dw	.L28-.L5
+	.db	1,1,1,1,6
+	.db	"id",0
+	.db	4,48,35
+	.dw	210
+	.db	0
+.L28:
+	.db	10
+	.dw	.L39-.L5
+.L39:
+	.db	11
+	.db	"drv_spi_s",0
+	.db	4,46,16,1,9
+	.db	"uart8_open",0
+	.db	5,86,17
+	.dw	.L29-.L5
+	.db	1,1,1,1,6
+	.db	"id",0
+	.db	5,86,41
+	.dw	210
+	.db	0
+.L29:
+	.db	10
+	.dw	.L40-.L5
+.L40:
+	.db	11
+	.db	"uart8_drv_s",0
+	.db	5,65,16,1,12
+	.db	"__wchar_t",0
+	.db	6,1,1
+	.dw	.L41-.L5
+.L41:
+	.db	5
+	.db	"unsigned short int",0
+	.db	2,7,12
+	.db	"__size_t",0
+	.db	6,1,1
+	.dw	210
+	.db	12
+	.db	"__ptrdiff_t",0
+	.db	6,1,1
+	.dw	731
+	.db	12
+	.db	"__codeptr",0
+	.db	6,1,1
+	.dw	.L42-.L5
+.L42:
+	.db	10
+	.dw	.L43-.L5
+.L43:
+	.db	13,1,12
+	.db	"uint16_t",0
+	.db	7,24,33
+	.dw	866
+	.db	12
+	.db	"uint32_t",0
+	.db	7,26,33
+	.dw	210
+	.db	12
+	.db	"interrupt_handler_t",0
+	.db	8,73,20
+	.dw	.L44-.L5
+.L44:
+	.db	10
+	.dw	.L45-.L5
+.L45:
+	.db	14
+	.dw	210
+	.db	1,1,15
+	.dw	210
+	.db	15
+	.dw	.L46-.L5
+	.db	0
+.L46:
+	.db	10
+	.dw	.L47-.L5
+.L47:
+	.db	16
+	.db	"void",0
+	.db	12
+	.db	"interrupt_entry_t",0
+	.db	8,78,34
+	.dw	.L48-.L5
+.L48:
+	.db	17
+	.db	"interrupt_entry_s",0
+	.db	8,79,8,16,18
+	.db	"number",0
+	.db	2
+	.dw	866
+	.db	2,35,0,18
+	.db	"in_use",0
+	.db	1
+	.dw	.L49-.L5
+	.db	2,35,2,18
+	.db	"is_native",0
+	.db	1
+	.dw	.L50-.L5
+	.db	2,35,3,18
+	.db	"context",0
+	.db	4
+	.dw	1035
+	.db	2,35,4,18
+	.db	"handler",0
+	.db	4
+	.dw	984
+	.db	2,35,8,18
+	.db	"next",0
+	.db	4
+	.dw	.L51-.L5
+	.db	2,35,12,0
+.L49:
+	.db	19
+	.dw	.L50-.L5
+.L50:
+	.db	5
+	.db	"_Bool",0
+	.db	1,2,10
+	.dw	1017
+.L51:
+	.db	19
+	.dw	.L52-.L5
+.L52:
+	.db	10
+	.dw	1072
+	.db	12
+	.db	"m25px0_t",0
+	.db	2,64,29
+	.dw	662
+	.db	12
+	.db	"pwmx_t",0
+	.db	3,46,23
+	.dw	719
+	.db	12
+	.db	"spi_t",0
+	.db	4,46,26
+	.dw	776
+	.db	12
+	.db	"uart8_t",0
+	.db	5,65,28
+	.dw	831
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev
+.L6:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,46,1,3,8,32,13,58,15,59,15,57,15,54,15,39,12,0,0,3,11
+	.db	0,0,0,4,46,1,3,8,32,13,58,15,59,15,57,15,73,19,54,15,39,12,0,0,5,36,0,3,8,11,15,62,15,0,0,6,5,0,3,8,58
+	.db	15,59,15,57,15,73,19,0,0,7,46,1,49,19,0,0,8,5,0,49,19,0,0,9,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39
+	.db	12,63,12,60,12,0,0,10,15,0,73,19,0,0,11,19,0,3,8,58,15,59,15,57,15,60,12,0,0,12,22,0,3,8,58,15,59,15,57
+	.db	15,73,19,0,0,13,21,0,54,15,0,0,14,21,1,73,19,54,15,39,12,0,0,15,5,0,73,19,0,0,16,59,0,3,8,0,0,17,19,1
+	.db	3,8,58,15,59,15,57,15,11,15,0,0,18,13,0,3,8,11,15,73,19,56,9,0,0,19,53,0,73,19,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line
+.L7:
+	.dw	.L54-.L53
+.L53:
+	.dh	3
+	.dw	.L56-.L55
+.L55:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\fpga\\processors\\c3000\\include\\pal_arch.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\external\\drivers\\m25px0\\include\\drv_m25px0.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\fpga\\drivers\\pwmx\\include\\drv_pwmx.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\generic\\interfaces\\spi\\include\\drv_spi.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\fpga\\drivers\\uart8\\include\\drv_uart8.h",0
+	.db	0,0,0
+	.db	"swplatform.c",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Tasking\\c3000\\include\\stdint.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\services\\platform\\interrupts\\include\\interrupts.h",0
+	.db	0,0,0,0
+.L56:
+.L54:
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_swplatform_init_stacks')
+.L8:
+	.dw	181
+	.dh	3
+	.dw	.L9
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L11,.L10
+	.db	2
+	.dw	.L4
+	.db	3
+	.db	"swplatform_init_stacks",0
+	.db	1,19,6,1,1,1
+	.dw	.L3,.L27,.L2
+	.db	4
+	.dw	.L3,.L27
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_swplatform_init_stacks')
+.L9:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_swplatform_init_stacks')
+.L10:
+	.dw	.L58-.L57
+.L57:
+	.dh	3
+	.dw	.L60-.L59
+.L59:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"swplatform.c",0
+	.db	0,0,0,0
+.L60:
+	.db	5,6,7,0,5,2
+	.dw	.L3
+	.db	3,18,1,5,38
+	.db	16+9*((.L33-.L3)/4)
+	.db	5,39
+	.db	15+9*((.L61-.L33)/4)
+	.db	5,42
+	.db	15+9*((.L62-.L61)/4)
+	.db	5,40
+	.db	15+9*((.L63-.L62)/4)
+	.db	15+9*((.L64-.L63)/4)
+	.db	15+9*((.L65-.L64)/4)
+	.db	5,45
+	.db	15+9*((.L66-.L65)/4)
+	.db	5,1
+	.db	15+9*((.L67-.L66)/4)
+	.db	9
+	.dh	.L12-.L67
+	.db	0,1,1
+.L58:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_swplatform_init_stacks')
+.L11:
+	.dw	-1
+	.dw	.L3
+	.dw	0
+	.dw	.L12-.L3
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L13:
+	.dw	145
+	.dh	3
+	.dw	.L14
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L4
+	.db	3
+	.db	"drv_ec_1",0
+	.db	6,10,12
+	.dw	.L28
+	.db	1,5,3
+	.dw	drv_ec_1
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L14:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L15:
+	.dw	146
+	.dh	3
+	.dw	.L16
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L4
+	.db	3
+	.db	"drv_dac_1",0
+	.db	6,11,12
+	.dw	.L28
+	.db	1,5,3
+	.dw	drv_dac_1
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L16:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L17:
+	.dw	147
+	.dh	3
+	.dw	.L18
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L4
+	.db	3
+	.db	"drv_uart_1",0
+	.db	6,12,12
+	.dw	.L29
+	.db	1,5,3
+	.dw	drv_uart_1
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L18:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L19:
+	.dw	146
+	.dh	3
+	.dw	.L20
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L4
+	.db	3
+	.db	"drv_pwm_1",0
+	.db	6,13,12
+	.dw	.L30
+	.db	1,5,3
+	.dw	drv_pwm_1
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L20:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L21:
+	.dw	146
+	.dh	3
+	.dw	.L22
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L4
+	.db	3
+	.db	"drv_pwm_2",0
+	.db	6,14,12
+	.dw	.L30
+	.db	1,5,3
+	.dw	drv_pwm_2
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L22:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L23:
+	.dw	146
+	.dh	3
+	.dw	.L24
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L4
+	.db	3
+	.db	"drv_pwm_3",0
+	.db	6,15,12
+	.dw	.L30
+	.db	1,5,3
+	.dw	drv_pwm_3
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L24:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L25:
+	.dw	149
+	.dh	3
+	.dw	.L26
+	.db	4,1
+	.db	"swplatform.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L4
+	.db	3
+	.db	"drv_m25px0_1",0
+	.db	6,16,12
+	.dw	.L31
+	.db	1,5,3
+	.dw	drv_m25px0_1
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L26:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_swplatform_init_stacks')
+.L2:
+	.dw	-1
+	.dw	.L3,.L3-.L3,.L32-.L3
+	.dh	2
+	.db	141,0
+	.dw	.L32-.L3,.L27-.L3
+	.dh	2
+	.db	141,4
+	.dw	.L27-.L3,.L27-.L3
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_frame
+.L68:
+	.dw	40
+	.dw	-1
+	.db	3,0,4,1,31,12,29,0,8,0,8,29,8,31,8,1,8,16,8,17,8,18,8,19,8,20,8,21,8,22,8,23,8,28,8,30
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_swplatform_init_stacks')
+	.dw	48
+	.dw	.L68,.L3,.L27-.L3
+	.db	4
+	.dw	(.L32-.L3)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L33-.L32)/4
+	.db	17,31,124,4
+	.dw	(.L34-.L33)/4
+	.db	223,4
+	.dw	(.L27-.L34)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	; Module end
+	.end

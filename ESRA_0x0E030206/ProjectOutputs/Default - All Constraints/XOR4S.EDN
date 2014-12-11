@@ -1,0 +1,69 @@
+(edif XOR4S
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 2010 3 29 20 23 48)
+      (author "Synopsys, Inc.")
+      (program "Synplify" (version "D-2010.03, mapper map510rc, Build 068R"))
+     )
+   )
+  (library VIRTEX
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell LUT4 (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port I0 (direction INPUT))
+           (port I1 (direction INPUT))
+           (port I2 (direction INPUT))
+           (port I3 (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+       )
+    )
+  )
+  (library work
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell XOR4S (cellType GENERIC)
+       (view behav (viewType NETLIST)
+         (interface
+           (port I0 (direction INPUT))
+           (port I1 (direction INPUT))
+           (port I2 (direction INPUT))
+           (port I3 (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+         (contents
+          (instance O_0 (viewRef PRIM (cellRef LUT4 (libraryRef VIRTEX)))
+           (property INIT (string "6996"))
+          )
+          (net (rename i0 "I0") (joined
+           (portRef I0)
+           (portRef I0 (instanceRef O_0))
+          ))
+          (net (rename i1 "I1") (joined
+           (portRef I1)
+           (portRef I1 (instanceRef O_0))
+          ))
+          (net (rename i2 "I2") (joined
+           (portRef I2)
+           (portRef I2 (instanceRef O_0))
+          ))
+          (net (rename i3 "I3") (joined
+           (portRef I3)
+           (portRef I3 (instanceRef O_0))
+          ))
+          (net (rename o "O") (joined
+           (portRef O (instanceRef O_0))
+           (portRef O)
+          ))
+         )
+       )
+    )
+  )
+  (design XOR4S (cellRef XOR4S (libraryRef work))
+	(property PART (string "xc6slx9csg225-2") (owner "Xilinx")))
+)

@@ -1,0 +1,5 @@
+"-Wa-IC:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206"
+"-Wa-gs"
+"-Wa-il"
+"--use-hardware=md"
+"Output\ecat_actuator.src"

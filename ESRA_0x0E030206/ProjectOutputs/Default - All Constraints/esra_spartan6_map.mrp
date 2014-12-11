@@ -1,0 +1,1195 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Mapping Report File for Design 'ESRA_Spartan6'
+
+Design Information
+------------------
+Command Line   : map -p XC6SLX25-FTG256-3 -pr b -tx off -c 100 -t 1 -u
+-ignore_keep_hierarchy -mt on -o esra_spartan6_map.ncd esra_spartan6.ngd 
+Target Device  : xc6slx25
+Target Package : ftg256
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Thu Dec 04 15:07:53 2014
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:  104
+Slice Logic Utilization:
+  Number of Slice Registers:                 3,270 out of  30,064   10%
+    Number used as Flip Flops:               3,270
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                      4,648 out of  15,032   30%
+    Number used as logic:                    4,367 out of  15,032   29%
+      Number using O6 output only:           3,449
+      Number using O5 output only:             210
+      Number using O5 and O6:                  708
+      Number used as ROM:                        0
+    Number used as Memory:                      96 out of   3,664    2%
+      Number used as Dual Port RAM:             96
+        Number using O6 output only:            64
+        Number using O5 output only:             8
+        Number using O5 and O6:                 24
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:             0
+    Number used exclusively as route-thrus:    185
+      Number with same-slice register load:    122
+      Number with same-slice carry load:        54
+      Number with other load:                    9
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 1,742 out of   3,758   46%
+  Number of MUXCYs used:                     1,100 out of   7,516   14%
+  Number of LUT Flip Flop pairs used:        5,331
+    Number with an unused Flip Flop:         2,228 out of   5,331   41%
+    Number with an unused LUT:                 683 out of   5,331   12%
+    Number of fully used LUT-FF pairs:       2,420 out of   5,331   45%
+    Number of unique control sets:             198
+    Number of slice register sites lost
+      to control set restrictions:             610 out of  30,064    2%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        64 out of     186   34%
+    Number of LOCed IOBs:                       64 out of      64  100%
+    IOB Flip Flops:                             13
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                        32 out of      52   61%
+  Number of RAMB8BWERs:                          0 out of     104    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
+    Number used as BUFGs:                        3
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
+    Number used as DCMs:                         1
+    Number used as DCM_CLKGENs:                  0
+  Number of ILOGIC2/ISERDES2s:                  12 out of     272    4%
+    Number used as ILOGIC2s:                    12
+    Number used as ISERDES2s:                    0
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     272    0%
+  Number of OLOGIC2/OSERDES2s:                   1 out of     272    1%
+    Number used as OLOGIC2s:                     1
+    Number used as OSERDES2s:                    0
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     160    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            2 out of      38    5%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                4.31
+
+Peak Memory Usage:  523 MB
+Total REAL time to MAP completion:  1 mins 36 secs 
+Total CPU time to MAP completion (all processors):   1 mins 41 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Map:210 - The -tx switch is not supported for this architecture, and
+   will be ignored.
+WARNING:PhysDesignRules:367 - The signal <ENC1_U2/CEO> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_1/PWMN> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ENC3_U2/CEO> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ENC2_U2/CEO> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_2/PWMN> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_3/PWMN> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_31_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_31_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_22_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_22_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_1_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_1_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_7_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_7_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_15_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_15_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_25_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_25_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(0)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PinSignal_ESRA_tsk3000_GPIO_1_ADC_5>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PinSignal_ESRA_tsk3000_GPIO_1_ADC_6>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PinSignal_ESRA_tsk3000_GPIO_1_ADC_7>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_0> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_1> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_6_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_6_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_17_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_17_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_10_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_10_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_29_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_29_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_30_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_30_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_13_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_13_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_11_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_11_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_19_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_19_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(1)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_21_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_21_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_20_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_20_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_9_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_9_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_27_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_27_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_32_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_32_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_28_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_28_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_23_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_23_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_3_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_3_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_1/INT_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(30)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(31)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(2)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_3/INT_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(26)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(27)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(12)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(13)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(10)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(11)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(28)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(29)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(3)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(4)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(5)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(3)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_5_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_5_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <U15/CLKDV> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(18)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(19)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(24)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(25)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(22)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(23)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(20)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(21)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(6)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(7)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(8)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(9)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(0)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(1)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(2)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_24_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_24_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_2/INT_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/RTS> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/INT_O(1)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(14)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(15)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(16)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(17)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/INT_O(0)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/TXD> is
+   incomplete. The signal does not drive any load pins in the design.
+
+Section 3 - Informational
+-------------------------
+INFO:Map:284 - Map is running with the multi-threading option on. Map currently
+   supports the use of up to 2 processors. Based on the the user options and
+   machine load, Map will use 2 processors during this run.
+INFO:LIT:243 - Logical network PinSignal_ESRA_tsk3000_GPIO_1_ADC_7 has no load.
+INFO:LIT:395 - The above info message is repeated 56 more times for the
+   following (max. 5 shown):
+   PinSignal_ESRA_tsk3000_GPIO_1_ADC_6,
+   PinSignal_ESRA_tsk3000_GPIO_1_ADC_5,
+   ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_1,
+   ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_0,
+   ESRA_tsk3000_UART_1/INT_O(1)
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp U25_DCM_INST, consult the
+   device Data Sheet.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   4 block(s) removed
+ 275 block(s) optimized away
+  33 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(31)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(30)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(29)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(28)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(27)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(26)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(25)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(24)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(23)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(22)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(21)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(20)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(19)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(18)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(17)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(16)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(15)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(14)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(13)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(12)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(11)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(10)"
+is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(9)" is
+sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(8)" is
+sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(7)" is
+sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(6)" is
+sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(5)" is
+sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(4)" is
+sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain(1)" is
+sourceless and has been removed.
+The signal "U1/GND" is sourceless and has been removed.
+The signal "U15/GND" is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_OCDS/U_JtagDebugUnit/TSK3000_DebugPort/tsk3000_TapCont
+roller/TRST_i" is sourceless and has been removed.
+The signal
+"ESRA_tsk3000_MCU_SubPart_OCDS/U_JtagDebugUnit/TSK3000_DebugPort/tsk3000_Control
+Register/un1_reset" is sourceless and has been removed.
+Unused block "ESRA_tsk3000_MCU_SubPart_BootMemory/U10/VCC" (ONE) removed.
+Unused block "ESRA_tsk3000_MCU_SubPart_BootMemory/U11/VCC" (ONE) removed.
+Unused block "ESRA_tsk3000_MCU_SubPart_BootMemory/U12/VCC" (ONE) removed.
+Unused block "ESRA_tsk3000_MCU_SubPart_BootMemory/U9/VCC" (ONE) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		ESRA_tsk3000_DAC_1_SubPart_Port/GND
+GND 		ESRA_tsk3000_DAC_1_SubPart_Port/U_spi/GND
+VCC 		ESRA_tsk3000_DAC_1_SubPart_Port/U_spi/VCC
+GND 		ESRA_tsk3000_EC_1_SubPart_Port/GND
+GND 		ESRA_tsk3000_EC_1_SubPart_Port/U_spi/GND
+VCC 		ESRA_tsk3000_EC_1_SubPart_Port/U_spi/VCC
+GND 		ESRA_tsk3000_FLASH_1_SubPart_Port/GND
+GND 		ESRA_tsk3000_FLASH_1_SubPart_Port/U_spi/GND
+VCC 		ESRA_tsk3000_FLASH_1_SubPart_Port/U_spi/VCC
+AND2 		ESRA_tsk3000_GPIO_1/n2d
+AND2 		ESRA_tsk3000_GPIO_1/n2f
+AND2 		ESRA_tsk3000_GPIO_1/n2h
+AND2 		ESRA_tsk3000_GPIO_1/n2j
+GND 		ESRA_tsk3000_MCU_SubPart_BootMemory/GND
+AND2 		ESRA_tsk3000_MCU_SubPart_BootMemory/U1
+GND 		ESRA_tsk3000_MCU_SubPart_BootMemory/U10/GND
+GND 		ESRA_tsk3000_MCU_SubPart_BootMemory/U11/GND
+GND 		ESRA_tsk3000_MCU_SubPart_BootMemory/U12/GND
+AND2 		ESRA_tsk3000_MCU_SubPart_BootMemory/U2
+AND2 		ESRA_tsk3000_MCU_SubPart_BootMemory/U3
+AND2 		ESRA_tsk3000_MCU_SubPart_BootMemory/U4
+GND 		ESRA_tsk3000_MCU_SubPart_BootMemory/U9/GND
+VCC 		ESRA_tsk3000_MCU_SubPart_BootMemory/VCC
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/GND
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/GND
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[0]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[10]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[11]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[12]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[13]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[14]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[15]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[16]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[17]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[18]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[19]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[1]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[20]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[21]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[22]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[23]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[24]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[25]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[26]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[27]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[28]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[29]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[2]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[30]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[31]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[3]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[4]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[5]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[6]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[7]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[8]
+   optimized to 0
+FDRE 		ESRA_tsk3000_MCU_SubPart_MCU/U_InputSynchronizer/InterruptsPending[9]
+   optimized to 0
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_DataHazardResolverA/GND
+VCC 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_DataHazardResolverA/VCC
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_ALU/GND
+VCC 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_ALU/VCC
+GND
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_CalculateEffectiveAddress/GND
+GND
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_ProgramCounterControl/U_BranchC
+omparator/GND
+VCC
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_ProgramCounterControl/U_BranchC
+omparator/VCC
+GND
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_ProgramCounterControl/U_BranchT
+arget_Plus/GND
+GND
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_ProgramCounterControl/U_BranchT
+arget_Relative/GND
+GND
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Execute/U_ProgramCounterControl/U_MakeRet
+urnPC/GND
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/GND
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[10]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[11]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[12]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[13]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[14]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[15]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[16]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[17]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[18]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[19]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[1]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[20]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[21]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[22]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[23]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[24]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[25]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[26]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[27]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[28]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[29]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[2]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[30]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[31]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[3]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[4]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[5]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[6]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[7]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[8]
+   optimized to 0
+FDR
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/InterruptsPending_Del
+ayed[9]
+   optimized to 0
+VCC 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_InterruptController/VCC
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[10]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[11]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[12]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[13]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[14]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[15]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[16]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[17]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[18]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[19]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[1]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[20]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[21]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[22]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[23]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[24]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[25]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[26]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[27]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[28]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[29]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[30]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[31]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[4]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[5]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[6]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[7]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[8]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/CaptureRegister_IMain[9]
+   optimized to 0
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/GND
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[10]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[11]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[12]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[13]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[14]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[15]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[16]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[17]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[18]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[19]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[1]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[20]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[21]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[22]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[23]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[24]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[25]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[26]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[27]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[28]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[29]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[30]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[31]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[4]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[5]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[6]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[7]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[8]
+   optimized to 0
+FDRE
+		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_MemoryManager/PipelineRegister_IMain[9]
+   optimized to 0
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/GND
+GND 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_SP/GND
+VCC 		ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_SP/VCC
+GND 		ESRA_tsk3000_MCU_SubPart_MDU/U_MultDiv/GND
+VCC 		ESRA_tsk3000_MCU_SubPart_MDU/U_MultDiv/VCC
+LDC
+		ESRA_tsk3000_MCU_SubPart_OCDS/U_JtagDebugUnit/TSK3000_DebugPort/tsk3000_Contro
+lRegister/RegOut_1_2
+   optimized to 0
+VCC
+		ESRA_tsk3000_MCU_SubPart_OCDS/U_JtagDebugUnit/TSK3000_DebugPort/tsk3000_Contro
+lRegister/VCC
+LUT6
+		ESRA_tsk3000_MCU_SubPart_OCDS/U_JtagDebugUnit/TSK3000_DebugPort/tsk3000_Contro
+lRegister/un1_reset
+   optimized to 0
+INV
+		ESRA_tsk3000_MCU_SubPart_OCDS/U_JtagDebugUnit/TSK3000_DebugPort/tsk3000_TapCon
+troller/TRST_i
+GND 		ESRA_tsk3000_MCU_SubPart_OCDS/U_hardwarecodebreakpointtrigger/GND
+VCC 		ESRA_tsk3000_MCU_SubPart_OCDS/U_hardwarecodebreakpointtrigger/VCC
+GND 		ESRA_tsk3000_MCU_SubPart_Shifter/GND
+GND 		ESRA_tsk3000_PWM_1/PWM1/GND
+VCC 		ESRA_tsk3000_PWM_1/PWM1/VCC
+GND 		ESRA_tsk3000_PWM_2/PWM1/GND
+VCC 		ESRA_tsk3000_PWM_2/PWM1/VCC
+GND 		ESRA_tsk3000_PWM_3/PWM1/GND
+VCC 		ESRA_tsk3000_PWM_3/PWM1/VCC
+GND 		ESRA_tsk3000_UART_1/U_WB_UART/GND
+VCC 		ESRA_tsk3000_UART_1/U_WB_UART/VCC
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10a
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10b
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10c
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10d
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10e
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10f
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10g
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10h
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10i
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10j
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10k
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10l
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10m
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10n
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10o
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10p
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10s
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10t
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10w
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n10z
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11a
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11d
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11g
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11h
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11k
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11n
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11o
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11r
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11u
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11v
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n11y
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12b
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12c
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12f
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12i
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12j
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12m
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12p
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12q
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12t
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12w
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n12x
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n13f
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n13i
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n13j
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n13r
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n13u
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n13v
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n14d
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n14g
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n14h
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n14p
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n14s
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n14t
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n15b
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n15e
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n15f
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n15n
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n15q
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n15r
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n15z
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n16c
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n16d
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n3m
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n3q
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n3u
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n3y
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n4c
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n4g
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n4k
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n4o
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n4r
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n4u
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n4x
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5a
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5d
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5g
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5j
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5m
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5o
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5q
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5s
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5u
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5w
+OR2 		ESRA_tsk3000_WB_INTERCON_1/n5y
+GND 		ESRA_tsk3000_WB_INTERCON_1/n7b
+VCC 		ESRA_tsk3000_WB_INTERCON_1/n7c
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n9x
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n9y
+AND2B1 		ESRA_tsk3000_WB_INTERCON_1/n9z
+GND 		U1/GND
+GND 		U15/GND
+GND 		U17/U_FPGA_STARTUP8_CTRL/GND
+VCC 		U17/U_FPGA_STARTUP8_CTRL/VCC
+VCC 		n63v
+GND 		n63w
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CLK_BRD                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| DAC_CLR                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| DAC_LDAC                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| DAC_MISO                           | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| DAC_MOSI                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| DAC_SCK                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| DAC_SYNC                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| ECAT_CLK                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OFF          |          |          |
+| ECAT_PERR0                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| ECAT_PERR1                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| ECAT_RESET                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| ENC_1_XP                           | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| ENC_1_YP                           | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| ENC_2_XP                           | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| ENC_2_YP                           | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| ENC_3_XP                           | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| ENC_3_YP                           | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| FRUN                               | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| F_CLK                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| F_DQ0                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| F_DQ1                              | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| F_DQ2                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| F_DQ3                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| F_S                                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| JTAG_NEXUS_TCK                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| JTAG_NEXUS_TDI                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| JTAG_NEXUS_TDO                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| JTAG_NEXUS_TMS                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| M1_MODE1                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M1_MODE2                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M1_PWM_A                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M1_PWM_B                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M1_PWM_C                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M1_PWM_D                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M1_RESET_AB                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M1_RESET_CD                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M2_3_MODE1                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M2_3_MODE2                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M2_PWM_A                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M2_PWM_B                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M2_RESET_AB                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M3_PWM_A                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M3_PWM_B                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M3_RESET_CD                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPARE_DI_1                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SPARE_DI_2                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SPARE_DI_3                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SPARE_DI_4                         | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| SPARE_DO_1                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPARE_DO_2                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPARE_DO_3                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPARE_DO_4                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_ADC0_CLK                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_ADC0_DIN                       | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| SPI_ADC0_DOUT                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_ADC0_SEL                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_ADC1_CLK                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_ADC1_DIN                       | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| SPI_ADC1_DOUT                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_ADC1_SEL                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_EC_CLK                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_EC_DIN                         | IOB              | INPUT     | LVCMOS25             |       |          |      | IFF          |          |          |
+| SPI_EC_DOUT                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| SPI_EC_SEL                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

@@ -1,0 +1,57 @@
+(edif AND2S
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 2010 3 29 8 47 50)
+      (author "Synopsys, Inc.")
+      (program "Synplify" (version "D-2010.03, mapper map510rc, Build 068R"))
+     )
+   )
+  (library VIRTEX
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell LUT2 (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port I0 (direction INPUT))
+           (port I1 (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+       )
+    )
+  )
+  (library work
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell AND2S (cellType GENERIC)
+       (view behav (viewType NETLIST)
+         (interface
+           (port I0 (direction INPUT))
+           (port I1 (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+         (contents
+          (instance (rename OZ0 "O") (viewRef PRIM (cellRef LUT2 (libraryRef VIRTEX)))
+           (property INIT (string "8"))
+          )
+          (net (rename i0 "I0") (joined
+           (portRef I0)
+           (portRef I0 (instanceRef OZ0))
+          ))
+          (net (rename i1 "I1") (joined
+           (portRef I1)
+           (portRef I1 (instanceRef OZ0))
+          ))
+          (net (rename o "O") (joined
+           (portRef O (instanceRef OZ0))
+           (portRef O)
+          ))
+         )
+       )
+    )
+  )
+  (design AND2S (cellRef AND2S (libraryRef work))
+	(property PART (string "xc6slx9csg225-2") (owner "Xilinx")))
+)

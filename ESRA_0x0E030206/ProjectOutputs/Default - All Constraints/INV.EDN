@@ -1,0 +1,49 @@
+(edif INV
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 2010 3 29 12 56 23)
+      (author "Synopsys, Inc.")
+      (program "Synplify" (version "D-2010.03, mapper map510rc, Build 068R"))
+     )
+   )
+  (library UNILIB
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell INV (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port I (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+       )
+    )
+  )
+  (library work
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell INV (cellType GENERIC)
+       (view behav (viewType NETLIST)
+         (interface
+           (port I (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+         (contents
+          (instance I_RNI92 (viewRef PRIM (cellRef INV (libraryRef UNILIB)))          )
+          (net (rename i "I") (joined
+           (portRef I)
+           (portRef I (instanceRef I_RNI92))
+          ))
+          (net (rename o "O") (joined
+           (portRef O (instanceRef I_RNI92))
+           (portRef O)
+          ))
+         )
+       )
+    )
+  )
+  (design INV (cellRef INV (libraryRef work))
+	(property PART (string "xc6slx9csg225-2") (owner "Xilinx")))
+)

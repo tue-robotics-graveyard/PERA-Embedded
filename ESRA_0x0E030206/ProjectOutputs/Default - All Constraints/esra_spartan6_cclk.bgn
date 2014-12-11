@@ -1,0 +1,402 @@
+Release 14.7 - Bitgen P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Loading device for application Rf_Device from file '6slx25.nph' in environment
+C:\Xilinx\14.7\ISE_DS\ISE\.
+   "ESRA_Spartan6" is an NCD, version 3.2, device xc6slx25, package ftg256,
+speed -3
+Opened constraints file
+C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default
+- All Constraints\ESRA_Spartan6_map.pcf.
+
+Thu Dec 04 15:11:37 2014
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\Bitgen.exe -w -b -g TdoPin:Pullup -g StartupClk:cclk esra_spartan6.ncd esra_spartan6_cclk.bit "C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\ESRA_Spartan6_map.pcf" 
+
+Summary of Bitgen Options:
++----------------------+----------------------+
+| Option Name          | Current Setting      |
++----------------------+----------------------+
+| Compress             | (Not Specified)*     |
++----------------------+----------------------+
+| Readback             | (Not Specified)*     |
++----------------------+----------------------+
+| CRC                  | Enable*              |
++----------------------+----------------------+
+| DebugBitstream       | No*                  |
++----------------------+----------------------+
+| ConfigRate           | 2*                   |
++----------------------+----------------------+
+| StartupClk           | Cclk**               |
++----------------------+----------------------+
+| DonePin              | Pullup*              |
++----------------------+----------------------+
+| ProgPin              | Pullup*              |
++----------------------+----------------------+
+| TckPin               | Pullup*              |
++----------------------+----------------------+
+| TdiPin               | Pullup*              |
++----------------------+----------------------+
+| TdoPin               | Pullup**             |
++----------------------+----------------------+
+| TmsPin               | Pullup*              |
++----------------------+----------------------+
+| UnusedPin            | Pulldown*            |
++----------------------+----------------------+
+| GWE_cycle            | 6*                   |
++----------------------+----------------------+
+| GTS_cycle            | 5*                   |
++----------------------+----------------------+
+| LCK_cycle            | NoWait*              |
++----------------------+----------------------+
+| DONE_cycle           | 4*                   |
++----------------------+----------------------+
+| Persist              | No*                  |
++----------------------+----------------------+
+| DriveDone            | No*                  |
++----------------------+----------------------+
+| DonePipe             | No*                  |
++----------------------+----------------------+
+| Security             | None*                |
++----------------------+----------------------+
+| UserID               | 0xFFFFFFFF*          |
++----------------------+----------------------+
+| ActiveReconfig       | No*                  |
++----------------------+----------------------+
+| Partial              | (Not Specified)*     |
++----------------------+----------------------+
+| Encrypt              | No*                  |
++----------------------+----------------------+
+| Key0                 | pick*                |
++----------------------+----------------------+
+| StartCBC             | pick*                |
++----------------------+----------------------+
+| KeyFile              | (Not Specified)*     |
++----------------------+----------------------+
+| drive_awake          | No*                  |
++----------------------+----------------------+
+| Reset_on_err         | No*                  |
++----------------------+----------------------+
+| suspend_filter       | Yes*                 |
++----------------------+----------------------+
+| en_sw_gsr            | No*                  |
++----------------------+----------------------+
+| en_suspend           | No*                  |
++----------------------+----------------------+
+| sw_clk               | Startupclk*          |
++----------------------+----------------------+
+| sw_gwe_cycle         | 5*                   |
++----------------------+----------------------+
+| sw_gts_cycle         | 4*                   |
++----------------------+----------------------+
+| multipin_wakeup      | No*                  |
++----------------------+----------------------+
+| wakeup_mask          | 0x00*                |
++----------------------+----------------------+
+| ExtMasterCclk_en     | No*                  |
++----------------------+----------------------+
+| ExtMasterCclk_divide | 1*                   |
++----------------------+----------------------+
+| CrcCoverage          | No*                  |
++----------------------+----------------------+
+| glutmask             | Yes*                 |
++----------------------+----------------------+
+| next_config_addr     | 0x00000000*          |
++----------------------+----------------------+
+| next_config_new_mode | No*                  |
++----------------------+----------------------+
+| next_config_boot_mode | 001*                 |
++----------------------+----------------------+
+| next_config_register_write | Enable*              |
++----------------------+----------------------+
+| next_config_reboot   | Enable*              |
++----------------------+----------------------+
+| golden_config_addr   | 0x00000000*          |
++----------------------+----------------------+
+| failsafe_user        | 0x0000*              |
++----------------------+----------------------+
+| TIMER_CFG            | None*                |
++----------------------+----------------------+
+| spi_buswidth         | 1*                   |
++----------------------+----------------------+
+| TimeStamp            | Default*             |
++----------------------+----------------------+
+| IEEE1532             | No*                  |
++----------------------+----------------------+
+| Binary               | No*                  |
++----------------------+----------------------+
+ *  Default setting.
+ ** The specified setting matches the default setting.
+
+There were 0 CONFIG constraint(s) processed from C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\ESRA_Spartan6_map.pcf.
+
+
+Running DRC.
+WARNING:PhysDesignRules:367 - The signal <ENC1_U2/CEO> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_1/PWMN> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ENC3_U2/CEO> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ENC2_U2/CEO> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_2/PWMN> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_3/PWMN> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_31_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_31_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_22_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_22_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_1_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_1_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_7_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_7_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_15_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_15_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_25_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_25_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(0)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PinSignal_ESRA_tsk3000_GPIO_1_ADC_5>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PinSignal_ESRA_tsk3000_GPIO_1_ADC_6>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <PinSignal_ESRA_tsk3000_GPIO_1_ADC_7>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_0> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_NamedSignal_MCU_M0_S0_TERMINATOR_1_ADR_1> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_6_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_6_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_17_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_17_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_10_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_10_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_29_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_29_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_30_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_30_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_13_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_13_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_11_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_11_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_19_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_19_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(1)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_21_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_21_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_20_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_20_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_9_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_9_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_27_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_27_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_32_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_32_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_28_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_28_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_23_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_23_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_3_RAMC_D1_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_3_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_1/INT_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(30)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(31)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(2)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_3/INT_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(26)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(27)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(12)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(13)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(10)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(11)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(28)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(29)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/MAIN_SEL_O(3)> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(4)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(5)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(3)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_5_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_5_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <U15/CLKDV> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(18)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(19)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(24)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(25)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(22)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(23)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(20)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(21)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(6)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(7)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(8)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(9)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(0)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(1)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(2)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_24_RAMC_DPO> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ESRA_tsk3000_MCU_SubPart_MCU/U_MCU/U_Registers_GP/ram_1_I_24_RAMD_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_PWM_2/INT_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/RTS> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/INT_O(1)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(14)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(15)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(16)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_MCU_SubPart_MCU/SP(17)>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/INT_O(0)> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <ESRA_tsk3000_UART_1/TXD> is
+   incomplete. The signal does not drive any load pins in the design.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp U25_DCM_INST, consult the
+   device Data Sheet.
+DRC detected 0 errors and 103 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
+Creating bit map...
+Saving bit stream in "esra_spartan6_cclk.bit".
+Saving bit stream in "esra_spartan6_cclk.rbt".
+Bitstream generation is complete.

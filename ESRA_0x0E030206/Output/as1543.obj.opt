@@ -1,0 +1,5 @@
+"-Wa-IS:\Projecten\10014543 - ESRA\6 E\5 Softw\ESRA_noboot"
+"-Wa-gs"
+"-Wa-il"
+"--use-hardware=md"
+"Output\as1543.src"

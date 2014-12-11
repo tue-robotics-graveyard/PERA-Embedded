@@ -1,0 +1,2825 @@
+.model AS1543_spi_adc0
+.inputs clk
+.inputs reset
+.outputs spi_adc_sclk
+.outputs spi_adc_mosi
+.inputs spi_adc_miso_0
+.inputs spi_adc_miso_1
+.outputs spi_adc_cs
+.inputs adc_addr<7>
+.inputs adc_addr<6>
+.inputs adc_addr<5>
+.inputs adc_addr<4>
+.inputs adc_addr<3>
+.inputs adc_addr<2>
+.inputs adc_addr<1>
+.inputs adc_addr<0>
+.outputs adc_data<15>
+.outputs adc_data<14>
+.outputs adc_data<13>
+.outputs adc_data<12>
+.outputs adc_data<11>
+.outputs adc_data<10>
+.outputs adc_data<9>
+.outputs adc_data<8>
+.outputs adc_data<7>
+.outputs adc_data<6>
+.outputs adc_data<5>
+.outputs adc_data<4>
+.outputs adc_data<3>
+.outputs adc_data<2>
+.outputs adc_data<1>
+.outputs adc_data<0>
+.names adc_state_machine_ctrl spi_adc_mosi
+1 1
+.names n2
+1
+.names mem<1><14> adc_addr<0> mem<0><14> n4993
+11- 1
+-01 1
+.names mem<1><13> adc_addr<0> mem<0><13> n5008
+11- 1
+-01 1
+.names mem<1><12> adc_addr<0> mem<0><12> n5023
+11- 1
+-01 1
+.names mem<1><11> adc_addr<0> mem<0><11> n5038
+11- 1
+-01 1
+.names mem<1><10> adc_addr<0> mem<0><10> n5053
+11- 1
+-01 1
+.names mem<1><9> adc_addr<0> mem<0><9> n5068
+11- 1
+-01 1
+.names mem<1><8> adc_addr<0> mem<0><8> n5083
+11- 1
+-01 1
+.names mem<1><7> adc_addr<0> mem<0><7> n5098
+11- 1
+-01 1
+.names mem<1><6> adc_addr<0> mem<0><6> n5113
+11- 1
+-01 1
+.names mem<1><5> adc_addr<0> mem<0><5> n5128
+11- 1
+-01 1
+.names mem<1><4> adc_addr<0> mem<0><4> n5143
+11- 1
+-01 1
+.names mem<1><3> adc_addr<0> mem<0><3> n5158
+11- 1
+-01 1
+.names mem<1><2> adc_addr<0> mem<0><2> n5173
+11- 1
+-01 1
+.names mem<1><1> adc_addr<0> mem<0><1> n5188
+11- 1
+-01 1
+.names mem<1><0> adc_addr<0> mem<0><0> n5203
+11- 1
+-01 1
+.names n2 adc_state_machine_wait_mux_cnt<0> n82
+01 1
+10 1
+.loc AS1543_spi_adc0.vhd 29 adc_data<13>
+.latch n9 adc_data<13> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<12>
+.latch n10 adc_data<12> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<11>
+.latch n11 adc_data<11> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<10>
+.latch n12 adc_data<10> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<9>
+.latch n13 adc_data<9> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<8>
+.latch n14 adc_data<8> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<7>
+.latch n15 adc_data<7> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<6>
+.latch n16 adc_data<6> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<5>
+.latch n17 adc_data<5> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<4>
+.latch n18 adc_data<4> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<3>
+.latch n19 adc_data<3> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<2>
+.latch n20 adc_data<2> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<1>
+.latch n21 adc_data<1> re clk 2
+.loc AS1543_spi_adc0.vhd 29 adc_data<0>
+.latch n22 adc_data<0> re clk 2
+.names mem<11><15> adc_addr<0> mem<10><15> n4983
+11- 1
+-01 1
+.names n81 n80 reduce_nor_51/n1
+1- 1
+-1 1
+.names adc_state_machine_clk_divide_cnt<0> n2 n98
+01 1
+10 1
+.names mem<9><15> adc_addr<0> mem<8><15> n4982
+11- 1
+-01 1
+.names adc_addr<4> n246 n2722
+11 1
+.names n3763 reset n3764
+1- 1
+-1 1
+.names n3782 reduce_and_3720/n1 n3784
+1- 1
+-1 1
+.names n1039 n96 reduce_nor_65/n1
+1- 1
+-1 1
+.names n98 n99
+0 1
+.names adc_state_machine_clk_spi_cnt<0> adc_state_machine_clk_spi_cnt<1> reduce_nor_66/n1
+1- 1
+-1 1
+.names adc_0<13> Decoder_67/n6
+0 1
+.names adc_1<13> Decoder_196/n6
+0 1
+.names n76 reduce_nor_51/n6 reduce_nor_51/n7
+1- 1
+-1 1
+.names mem<15><0> adc_addr<0> mem<14><0> n5210
+11- 1
+-01 1
+.subckt MUXF5 i5833 I0=-i5833/I0 I1=-i5833/I1 S=-i5833/S O=+n5138
+.names n5132 i5833/I0
+1 1
+.names n5133 i5833/I1
+1 1
+.names adc_addr<1> i5833/S
+1 1
+.subckt MUXF6 i5761 I0=-i5761/I0 I1=-i5761/I1 S=-i5761/S O=+n5066
+.names n5063 i5761/I0
+1 1
+.names n5064 i5761/I1
+1 1
+.names adc_addr<2> i5761/S
+1 1
+.names mem<7><12> adc_addr<0> mem<6><12> n5026
+11- 1
+-01 1
+.names mem<5><0> adc_addr<0> mem<4><0> n5205
+11- 1
+-01 1
+.names mem<11><5> adc_addr<0> mem<10><5> n5133
+11- 1
+-01 1
+.subckt MUXF5 i5756 I0=-i5756/I0 I1=-i5756/I1 S=-i5756/S O=+n5061
+.names n5053 i5756/I0
+1 1
+.names n5054 i5756/I1
+1 1
+.names adc_addr<1> i5756/S
+1 1
+.names mem<3><12> adc_addr<0> mem<2><12> n5024
+11- 1
+-01 1
+.subckt MUXF5 i5894 I0=-i5894/I0 I1=-i5894/I1 S=-i5894/S O=+n5199
+.names n5194 i5894/I0
+1 1
+.names n5195 i5894/I1
+1 1
+.names adc_addr<1> i5894/S
+1 1
+.names n5126 adc_addr<3> n5125 n16
+11- 1
+-01 1
+.names mem<7><10> adc_addr<0> mem<6><10> n5056
+11- 1
+-01 1
+.subckt MUXF6 i5716 I0=-i5716/I0 I1=-i5716/I1 S=-i5716/S O=+n5021
+.names n5018 i5716/I0
+1 1
+.names n5019 i5716/I1
+1 1
+.names adc_addr<2> i5716/S
+1 1
+.names mem<13><1> adc_addr<0> mem<12><1> n5194
+11- 1
+-01 1
+.subckt MUXF5 i5817 I0=-i5817/I0 I1=-i5817/I1 S=-i5817/S O=+n5122
+.names n5115 i5817/I0
+1 1
+.names n5116 i5817/I1
+1 1
+.names adc_addr<1> i5817/S
+1 1
+.subckt MUXF6 i5745 I0=-i5745/I0 I1=-i5745/I1 S=-i5745/S O=+n5050
+.names n5046 i5745/I0
+1 1
+.names n5047 i5745/I1
+1 1
+.names adc_addr<2> i5745/S
+1 1
+.subckt MUXF5 i5714 I0=-i5714/I0 I1=-i5714/I1 S=-i5714/S O=+n5019
+.names n5014 i5714/I0
+1 1
+.names n5015 i5714/I1
+1 1
+.names adc_addr<1> i5714/S
+1 1
+.names mem<3><1> adc_addr<0> mem<2><1> n5189
+11- 1
+-01 1
+.names mem<9><6> adc_addr<0> mem<8><6> n5117
+11- 1
+-01 1
+.names mem<15><11> adc_addr<0> mem<14><11> n5045
+11- 1
+-01 1
+.subckt MUXF5 i5712 I0=-i5712/I0 I1=-i5712/I1 S=-i5712/S O=+n5017
+.names n5010 i5712/I0
+1 1
+.names n5011 i5712/I1
+1 1
+.names adc_addr<1> i5712/S
+1 1
+.loc AS1543_spi_adc0.vhd 93
+.subckt XORCY i6020 CI=-i6020/CI LI=-i6020/LI O=+n1047
+.names add_985/n2 i6020/CI
+1 1
+.names n5294 i6020/LI
+1 1
+.subckt MUXF5 i5878 I0=-i5878/I0 I1=-i5878/I1 S=-i5878/S O=+n5183
+.names n5177 i5878/I0
+1 1
+.names n5178 i5878/I1
+1 1
+.names adc_addr<1> i5878/S
+1 1
+.subckt MUXF6 i5806 I0=-i5806/I0 I1=-i5806/I1 S=-i5806/S O=+n5111
+.names n5108 i5806/I0
+1 1
+.names n5109 i5806/I1
+1 1
+.names adc_addr<2> i5806/S
+1 1
+.names mem<5><11> adc_addr<0> mem<4><11> n5040
+11- 1
+-01 1
+.names mem<15><13> adc_addr<0> mem<14><13> n5015
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 93
+.subckt MUXCY i6013 CI=-i6013/CI DI=-i6013/DI S=-i6013/S O=+add_985/n8
+.names add_985/n6 i6013/CI
+1 1
+.names adc_state_machine_clk_spi_cnt<3> i6013/DI
+1 1
+.names n5292 i6013/S
+1 1
+.names mem<11><2> adc_addr<0> mem<10><2> n5178
+11- 1
+-01 1
+.subckt MUXF5 i5801 I0=-i5801/I0 I1=-i5801/I1 S=-i5801/S O=+n5106
+.names n5098 i5801/I0
+1 1
+.names n5099 i5801/I1
+1 1
+.names adc_addr<1> i5801/S
+1 1
+.subckt MUXF5 i5729 I0=-i5729/I0 I1=-i5729/I1 S=-i5729/S O=+n5034
+.names n5029 i5729/I0
+1 1
+.names n5030 i5729/I1
+1 1
+.names adc_addr<1> i5729/S
+1 1
+.names mem<11><13> adc_addr<0> mem<10><13> n5013
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i6004 CI=-i6004/CI LI=-i6004/LI O=+n81
+.names add_49/n2 i6004/CI
+1 1
+.names n5288 i6004/LI
+1 1
+.names n5171 adc_addr<3> n5170 n19
+11- 1
+-01 1
+.names mem<7><7> adc_addr<0> mem<6><7> n5101
+11- 1
+-01 1
+.names mem<13><12> adc_addr<0> mem<12><12> n5029
+11- 1
+-01 1
+.names n3812 n4764 n4765
+11 1
+.names n4814 n3440 n4815
+1- 1
+-1 1
+.names n1467 adc_state_machine_adc_state n1485
+11 1
+.subckt MUXF5 i5862 I0=-i5862/I0 I1=-i5862/I1 S=-i5862/S O=+n5167
+.names n5160 i5862/I0
+1 1
+.names n5161 i5862/I1
+1 1
+.names adc_addr<1> i5862/S
+1 1
+.subckt MUXF6 i5790 I0=-i5790/I0 I1=-i5790/I1 S=-i5790/S O=+n5095
+.names n5091 i5790/I0
+1 1
+.names n5092 i5790/I1
+1 1
+.names adc_addr<2> i5790/S
+1 1
+.names n4765 n3440 n4766
+1- 1
+-1 1
+.names n82 adc_state_machine_adc_state n1480
+1- 1
+-1 1
+.names mem<13><3> adc_addr<0> mem<12><3> n5164
+11- 1
+-01 1
+.subckt MUXF5 i5787 I0=-i5787/I0 I1=-i5787/I1 S=-i5787/S O=+n5092
+.names n5085 i5787/I0
+1 1
+.names n5086 i5787/I1
+1 1
+.names adc_addr<1> i5787/S
+1 1
+.names n4716 n3440 n4717
+1- 1
+-1 1
+.names n79 adc_state_machine_adc_state n1477
+1- 1
+-1 1
+.names mem<7><3> adc_addr<0> mem<6><3> n5161
+11- 1
+-01 1
+.names mem<13><8> adc_addr<0> mem<12><8> n5089
+11- 1
+-01 1
+.names n4667 n3440 n4668
+1- 1
+-1 1
+.names n76 adc_state_machine_adc_state n1474
+1- 1
+-1 1
+.names n5156 adc_addr<3> n5155 n18
+11- 1
+-01 1
+.names mem<7><8> adc_addr<0> mem<6><8> n5086
+11- 1
+-01 1
+.names n4618 n3440 n4619
+1- 1
+-1 1
+.names n73 adc_state_machine_adc_state n1471
+1- 1
+-1 1
+.subckt MUXF5 i5849 I0=-i5849/I0 I1=-i5849/I1 S=-i5849/S O=+n5154
+.names n5149 i5849/I0
+1 1
+.names n5150 i5849/I1
+1 1
+.names adc_addr<1> i5849/S
+1 1
+.names n5081 adc_addr<3> n5080 n13
+11- 1
+-01 1
+.names n4569 n3440 n4570
+1- 1
+-1 1
+.names n98 reduce_nor_983/n2 n1464
+11 1
+.subckt MUXF5 i5846 I0=-i5846/I0 I1=-i5846/I1 S=-i5846/S O=+n5151
+.names n5143 i5846/I0
+1 1
+.names n5144 i5846/I1
+1 1
+.names adc_addr<1> i5846/S
+1 1
+.subckt MUXF5 i5774 I0=-i5774/I0 I1=-i5774/I1 S=-i5774/S O=+n5079
+.names n5074 i5774/I0
+1 1
+.names n5075 i5774/I1
+1 1
+.names adc_addr<1> i5774/S
+1 1
+.names n4520 n3440 n4521
+1- 1
+-1 1
+.names n102 n3728 n1117
+1- 1
+-1 1
+.names mem<11><4> adc_addr<0> mem<10><4> n5148
+11- 1
+-01 1
+.subckt MUXF5 i5771 I0=-i5771/I0 I1=-i5771/I1 S=-i5771/S O=+n5076
+.names n5068 i5771/I0
+1 1
+.names n5069 i5771/I1
+1 1
+.names adc_addr<1> i5771/S
+1 1
+.names n4471 n3440 n4472
+1- 1
+-1 1
+.subckt MUXF6 i5911 I0=-i5911/I0 I1=-i5911/I1 S=-i5911/S O=+n5216
+.names n5213 i5911/I0
+1 1
+.names n5214 i5911/I1
+1 1
+.names adc_addr<2> i5911/S
+1 1
+.names mem<5><4> adc_addr<0> mem<4><4> n5145
+11- 1
+-01 1
+.names mem<11><9> adc_addr<0> mem<10><9> n5073
+11- 1
+-01 1
+.names n75 n74 reduce_nor_51/n6
+1- 1
+-1 1
+.names reduce_nor_51/n2 reduce_nor_51/n4 reduce_nor_51/n5
+1- 1
+-1 1
+.names n79 reduce_nor_51/n3 reduce_nor_51/n4
+1- 1
+-1 1
+.names n78 n77 reduce_nor_51/n3
+1- 1
+-1 1
+.names n82 reduce_nor_51/n1 reduce_nor_51/n2
+1- 1
+-1 1
+.names adc_state_machine_wait_mux_cnt<11> n2 n5278
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<10> n2 n5279
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<9> n2 n5280
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<8> n2 n5281
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<7> n2 n5282
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<6> n2 n5283
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<5> n2 n5284
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<4> n2 n5285
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<3> n2 n5286
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<2> n2 n5287
+01 1
+10 1
+.names adc_state_machine_wait_mux_cnt<1> n2 n5288
+01 1
+10 1
+.names mem<9><12> adc_addr<0> mem<8><12> n5027
+11- 1
+-01 1
+.names mem<9><13> adc_addr<0> mem<8><13> n5012
+11- 1
+-01 1
+.subckt MUXF5 i5699 I0=-i5699/I0 I1=-i5699/I1 S=-i5699/S O=+n5004
+.names n4999 i5699/I0
+1 1
+.names n5000 i5699/I1
+1 1
+.names adc_addr<1> i5699/S
+1 1
+.names mem<9><14> adc_addr<0> mem<8><14> n4997
+11- 1
+-01 1
+.subckt MUXF5 i5684 I0=-i5684/I0 I1=-i5684/I1 S=-i5684/S O=+n4989
+.names n4984 i5684/I0
+1 1
+.names n4985 i5684/I1
+1 1
+.names adc_addr<1> i5684/S
+1 1
+.names Decoder_987/n18 Decoder_987/n5 n1059
+11 1
+.names Decoder_987/n12 adc_state_machine_clk_spi_cnt<3> n1054
+11 1
+.names Decoder_987/n13 Decoder_987/n5 n1050
+11 1
+.names Decoder_987/n11 adc_state_machine_clk_spi_cnt<2> Decoder_987/n14
+11 1
+.names adc_state_machine_clk_spi_cnt<3> Decoder_987/n5
+0 1
+.names reduce_nor_983/n2 n1041
+0 1
+.names Decoder_196/n10 adc_1<15> n241
+11 1
+.names adc_1<15> Decoder_196/n4
+0 1
+.names Decoder_67/n10 adc_0<15> n105
+11 1
+.names adc_0<15> Decoder_67/n4
+0 1
+.names n99 reduce_nor_65/n1 n3728
+1- 1
+-1 1
+.names mem<5><12> adc_addr<0> mem<4><12> n5025
+11- 1
+-01 1
+.names mem<7><13> adc_addr<0> mem<6><13> n5011
+11- 1
+-01 1
+.subckt MUXF5 i5698 I0=-i5698/I0 I1=-i5698/I1 S=-i5698/S O=+n5003
+.names n4997 i5698/I0
+1 1
+.names n4998 i5698/I1
+1 1
+.names adc_addr<1> i5698/S
+1 1
+.names mem<7><14> adc_addr<0> mem<6><14> n4996
+11- 1
+-01 1
+.subckt MUXF5 i5683 I0=-i5683/I0 I1=-i5683/I1 S=-i5683/S O=+n4988
+.names n4982 i5683/I0
+1 1
+.names n4983 i5683/I1
+1 1
+.names adc_addr<1> i5683/S
+1 1
+.names Decoder_987/n18 adc_state_machine_clk_spi_cnt<3> n1051
+11 1
+.names Decoder_987/n19 Decoder_987/n5 n1063
+11 1
+.names Decoder_987/n13 adc_state_machine_clk_spi_cnt<3> n1058
+11 1
+.names Decoder_987/n9 Decoder_987/n4 Decoder_987/n13
+11 1
+.names adc_state_machine_clk_spi_cnt<2> Decoder_987/n4
+0 1
+.names n98 reduce_nor_983/n1 reduce_nor_983/n2
+1- 1
+-1 1
+.names Decoder_196/n8 Decoder_196/n4 n246
+11 1
+.names adc_1<14> Decoder_196/n3
+0 1
+.names Decoder_67/n8 Decoder_67/n4 n110
+11 1
+.names adc_0<14> Decoder_67/n3
+0 1
+.names n5021 adc_addr<3> n5020 n9
+11- 1
+-01 1
+.names mem<5><13> adc_addr<0> mem<4><13> n5010
+11- 1
+-01 1
+.subckt MUXF5 i5697 I0=-i5697/I0 I1=-i5697/I1 S=-i5697/S O=+n5002
+.names n4995 i5697/I0
+1 1
+.names n4996 i5697/I1
+1 1
+.names adc_addr<1> i5697/S
+1 1
+.names mem<5><14> adc_addr<0> mem<4><14> n4995
+11- 1
+-01 1
+.subckt MUXF5 i5682 I0=-i5682/I0 I1=-i5682/I1 S=-i5682/S O=+n4987
+.names n4980 i5682/I0
+1 1
+.names n4981 i5682/I1
+1 1
+.names adc_addr<1> i5682/S
+1 1
+.names Decoder_987/n16 Decoder_987/n5 n1060
+11 1
+.names Decoder_987/n19 adc_state_machine_clk_spi_cnt<3> n1055
+11 1
+.names Decoder_987/n10 Decoder_987/n4 Decoder_987/n19
+11 1
+.names Decoder_987/n9 adc_state_machine_clk_spi_cnt<2> Decoder_987/n12
+11 1
+.names adc_state_machine_clk_spi_cnt<1> Decoder_987/n3
+0 1
+.names Decoder_196/n9 Decoder_196/n4 n243
+11 1
+.names Decoder_196/n8 adc_1<15> n242
+11 1
+.names Decoder_67/n9 Decoder_67/n4 n107
+11 1
+.names Decoder_67/n8 adc_0<15> n106
+11 1
+.names reduce_nor_66/n4 n102
+0 1
+.subckt MUXF6 i5715 I0=-i5715/I0 I1=-i5715/I1 S=-i5715/S O=+n5020
+.names n5016 i5715/I0
+1 1
+.names n5017 i5715/I1
+1 1
+.names adc_addr<2> i5715/S
+1 1
+.names mem<3><13> adc_addr<0> mem<2><13> n5009
+11- 1
+-01 1
+.subckt MUXF5 i5696 I0=-i5696/I0 I1=-i5696/I1 S=-i5696/S O=+n5001
+.names n4993 i5696/I0
+1 1
+.names n4994 i5696/I1
+1 1
+.names adc_addr<1> i5696/S
+1 1
+.names mem<3><14> adc_addr<0> mem<2><14> n4994
+11- 1
+-01 1
+.subckt MUXF5 i5681 I0=-i5681/I0 I1=-i5681/I1 S=-i5681/S O=+n4986
+.names n4978 i5681/I0
+1 1
+.names n4979 i5681/I1
+1 1
+.names adc_addr<1> i5681/S
+1 1
+.names Decoder_987/n16 adc_state_machine_clk_spi_cnt<3> n1052
+11 1
+.names Decoder_987/n17 Decoder_987/n5 n1064
+11 1
+.names Decoder_987/n10 adc_state_machine_clk_spi_cnt<2> Decoder_987/n18
+11 1
+.names adc_state_machine_clk_spi_cnt<0> Decoder_987/n3 Decoder_987/n11
+11 1
+.names adc_state_machine_clk_spi_cnt<4> n2 n5291
+01 1
+10 1
+.names Decoder_196/n9 adc_1<15> n239
+11 1
+.names adc_1<13> Decoder_196/n3 Decoder_196/n10
+11 1
+.names Decoder_67/n9 adc_0<15> n103
+11 1
+.names adc_0<13> Decoder_67/n3 Decoder_67/n10
+11 1
+.names reduce_nor_66/n1 reduce_nor_66/n3 reduce_nor_66/n4
+1- 1
+-1 1
+.names n86 n84
+0 1
+.subckt MUXF5 i5713 I0=-i5713/I0 I1=-i5713/I1 S=-i5713/S O=+n5018
+.names n5012 i5713/I0
+1 1
+.names n5013 i5713/I1
+1 1
+.names adc_addr<1> i5713/S
+1 1
+.names n5006 adc_addr<3> n5005 n8
+11- 1
+-01 1
+.names mem<15><14> adc_addr<0> mem<14><14> n5000
+11- 1
+-01 1
+.names n4991 adc_addr<3> n4990 n7
+11- 1
+-01 1
+.names mem<15><15> adc_addr<0> mem<14><15> n4985
+11- 1
+-01 1
+.names Decoder_987/n14 Decoder_987/n5 n1061
+11 1
+.names Decoder_987/n17 adc_state_machine_clk_spi_cnt<3> n1056
+11 1
+.names Decoder_987/n8 Decoder_987/n4 Decoder_987/n17
+11 1
+.names adc_state_machine_clk_spi_cnt<0> adc_state_machine_clk_spi_cnt<1> Decoder_987/n10
+11 1
+.names adc_state_machine_clk_spi_cnt<3> n2 n5292
+01 1
+10 1
+.names Decoder_196/n7 Decoder_196/n4 n244
+11 1
+.names adc_1<13> adc_1<14> Decoder_196/n9
+11 1
+.names Decoder_67/n7 Decoder_67/n4 n108
+11 1
+.names adc_0<13> adc_0<14> Decoder_67/n9
+11 1
+.names adc_state_machine_clk_spi_cnt<2> reduce_nor_66/n2 reduce_nor_66/n3
+1- 1
+-1 1
+.names reduce_nor_51/n5 reduce_nor_51/n10 n86
+1- 1
+-1 1
+.subckt MUXF5 i5711 I0=-i5711/I0 I1=-i5711/I1 S=-i5711/S O=+n5016
+.names n5008 i5711/I0
+1 1
+.names n5009 i5711/I1
+1 1
+.names adc_addr<1> i5711/S
+1 1
+.subckt MUXF6 i5701 I0=-i5701/I0 I1=-i5701/I1 S=-i5701/S O=+n5006
+.names n5003 i5701/I0
+1 1
+.names n5004 i5701/I1
+1 1
+.names adc_addr<2> i5701/S
+1 1
+.names mem<13><14> adc_addr<0> mem<12><14> n4999
+11- 1
+-01 1
+.subckt MUXF6 i5686 I0=-i5686/I0 I1=-i5686/I1 S=-i5686/S O=+n4991
+.names n4988 i5686/I0
+1 1
+.names n4989 i5686/I1
+1 1
+.names adc_addr<2> i5686/S
+1 1
+.names adc_state_machine_adc_state n3780 n3760
+11 1
+.names Decoder_987/n14 adc_state_machine_clk_spi_cnt<3> n1053
+11 1
+.names Decoder_987/n15 Decoder_987/n5 n1065
+11 1
+.names Decoder_987/n8 adc_state_machine_clk_spi_cnt<2> Decoder_987/n16
+11 1
+.names Decoder_987/n7 Decoder_987/n3 Decoder_987/n9
+11 1
+.names adc_state_machine_clk_spi_cnt<2> n2 n5293
+01 1
+10 1
+.names Decoder_196/n7 adc_1<15> n240
+11 1
+.names Decoder_196/n6 Decoder_196/n3 Decoder_196/n8
+11 1
+.names Decoder_67/n7 adc_0<15> n104
+11 1
+.names Decoder_67/n6 Decoder_67/n3 Decoder_67/n8
+11 1
+.names adc_state_machine_clk_spi_cnt<3> adc_state_machine_clk_spi_cnt<4> reduce_nor_66/n2
+1- 1
+-1 1
+.names reduce_nor_51/n7 reduce_nor_51/n9 reduce_nor_51/n10
+1- 1
+-1 1
+.names mem<13><13> adc_addr<0> mem<12><13> n5014
+11- 1
+-01 1
+.subckt MUXF6 i5700 I0=-i5700/I0 I1=-i5700/I1 S=-i5700/S O=+n5005
+.names n5001 i5700/I0
+1 1
+.names n5002 i5700/I1
+1 1
+.names adc_addr<2> i5700/S
+1 1
+.names mem<11><14> adc_addr<0> mem<10><14> n4998
+11- 1
+-01 1
+.subckt MUXF6 i5685 I0=-i5685/I0 I1=-i5685/I1 S=-i5685/S O=+n4990
+.names n4986 i5685/I0
+1 1
+.names n4987 i5685/I1
+1 1
+.names adc_addr<2> i5685/S
+1 1
+.names n3762 reduce_and_3720/n1 n3763
+11 1
+.names Decoder_987/n12 Decoder_987/n5 n1062
+11 1
+.names Decoder_987/n15 adc_state_machine_clk_spi_cnt<3> n1057
+11 1
+.names Decoder_987/n11 Decoder_987/n4 Decoder_987/n15
+11 1
+.names Decoder_987/n7 adc_state_machine_clk_spi_cnt<1> Decoder_987/n8
+11 1
+.names adc_state_machine_clk_spi_cnt<1> n2 n5294
+01 1
+10 1
+.names Decoder_196/n10 Decoder_196/n4 n245
+11 1
+.names Decoder_196/n6 adc_1<14> Decoder_196/n7
+11 1
+.names Decoder_67/n10 Decoder_67/n4 n109
+11 1
+.names Decoder_67/n6 adc_0<14> Decoder_67/n7
+11 1
+.names n3728 n101
+0 1
+.names n73 reduce_nor_51/n8 reduce_nor_51/n9
+1- 1
+-1 1
+.names n3817 n3812 n3818
+11 1
+.names n1048 adc_state_machine_adc_state n1490
+11 1
+.subckt MUXF6 i5866 I0=-i5866/I0 I1=-i5866/I1 S=-i5866/S O=+n5171
+.names n5168 i5866/I0
+1 1
+.names n5169 i5866/I1
+1 1
+.names adc_addr<2> i5866/S
+1 1
+.names mem<5><7> adc_addr<0> mem<4><7> n5100
+11- 1
+-01 1
+.names mem<11><12> adc_addr<0> mem<10><12> n5028
+11- 1
+-01 1
+.names n3899 n3812 n3900
+11 1
+.loc AS1543_spi_adc0.vhd 93
+.subckt XORCY i6011 CI=-i6011/CI LI=-i6011/LI O=+n1044
+.names add_985/n8 i6011/CI
+1 1
+.names n5291 i6011/LI
+1 1
+.names mem<9><2> adc_addr<0> mem<8><2> n5177
+11- 1
+-01 1
+.names mem<15><7> adc_addr<0> mem<14><7> n5105
+11- 1
+-01 1
+.subckt MUXF5 i5728 I0=-i5728/I0 I1=-i5728/I1 S=-i5728/S O=+n5033
+.names n5027 i5728/I0
+1 1
+.names n5028 i5728/I1
+1 1
+.names adc_addr<1> i5728/S
+1 1
+.names n3981 n3812 n3982
+11 1
+.loc AS1543_spi_adc0.vhd 93
+.subckt MUXCY i6019 CI=-i6019/CI DI=-i6019/DI S=-i6019/S O=+add_985/n4
+.names add_985/n2 i6019/CI
+1 1
+.names adc_state_machine_clk_spi_cnt<1> i6019/DI
+1 1
+.names n5294 i6019/S
+1 1
+.subckt MUXF5 i5877 I0=-i5877/I0 I1=-i5877/I1 S=-i5877/S O=+n5182
+.names n5175 i5877/I0
+1 1
+.names n5176 i5877/I1
+1 1
+.names adc_addr<1> i5877/S
+1 1
+.subckt MUXF6 i5805 I0=-i5805/I0 I1=-i5805/I1 S=-i5805/S O=+n5110
+.names n5106 i5805/I0
+1 1
+.names n5107 i5805/I1
+1 1
+.names adc_addr<2> i5805/S
+1 1
+.names mem<3><11> adc_addr<0> mem<2><11> n5039
+11- 1
+-01 1
+.names n4063 n3812 n4064
+11 1
+.names n5186 adc_addr<3> n5185 n20
+11- 1
+-01 1
+.names mem<7><6> adc_addr<0> mem<6><6> n5116
+11- 1
+-01 1
+.names mem<13><11> adc_addr<0> mem<12><11> n5044
+11- 1
+-01 1
+.names n4145 n3812 n4146
+11 1
+.names mem<11><1> adc_addr<0> mem<10><1> n5193
+11- 1
+-01 1
+.subckt MUXF5 i5816 I0=-i5816/I0 I1=-i5816/I1 S=-i5816/S O=+n5121
+.names n5113 i5816/I0
+1 1
+.names n5114 i5816/I1
+1 1
+.names adc_addr<1> i5816/S
+1 1
+.subckt MUXF5 i5744 I0=-i5744/I0 I1=-i5744/I1 S=-i5744/S O=+n5049
+.names n5044 i5744/I0
+1 1
+.names n5045 i5744/I1
+1 1
+.names adc_addr<1> i5744/S
+1 1
+.names n4227 n3812 n4228
+11 1
+.subckt MUXF5 i5893 I0=-i5893/I0 I1=-i5893/I1 S=-i5893/S O=+n5198
+.names n5192 i5893/I0
+1 1
+.names n5193 i5893/I1
+1 1
+.names adc_addr<1> i5893/S
+1 1
+.subckt MUXF6 i5821 I0=-i5821/I0 I1=-i5821/I1 S=-i5821/S O=+n5126
+.names n5123 i5821/I0
+1 1
+.names n5124 i5821/I1
+1 1
+.names adc_addr<2> i5821/S
+1 1
+.names mem<5><10> adc_addr<0> mem<4><10> n5055
+11- 1
+-01 1
+.names n4309 n3812 n4310
+11 1
+.names mem<3><0> adc_addr<0> mem<2><0> n5204
+11- 1
+-01 1
+.names mem<9><5> adc_addr<0> mem<8><5> n5132
+11- 1
+-01 1
+.names mem<15><10> adc_addr<0> mem<14><10> n5060
+11- 1
+-01 1
+.names n4391 n3812 n4392
+11 1
+.names mem<13><0> adc_addr<0> mem<12><0> n5209
+11- 1
+-01 1
+.subckt MUXF5 i5832 I0=-i5832/I0 I1=-i5832/I1 S=-i5832/S O=+n5137
+.names n5130 i5832/I0
+1 1
+.names n5131 i5832/I1
+1 1
+.names adc_addr<1> i5832/S
+1 1
+.subckt MUXF6 i5760 I0=-i5760/I0 I1=-i5760/I1 S=-i5760/S O=+n5065
+.names n5061 i5760/I0
+1 1
+.names n5062 i5760/I1
+1 1
+.names adc_addr<2> i5760/S
+1 1
+.names adc_addr<4> n245 n2738
+11 1
+.loc AS1543_spi_adc0.vhd 100 adc_1<1>
+.latch spi_adc_miso_1 adc_1<1> re clk 2 n4971
+.loc AS1543_spi_adc0.vhd 100 adc_1<5>
+.latch spi_adc_miso_1 adc_1<5> re clk 2 n4959
+.loc AS1543_spi_adc0.vhd 100 adc_1<9>
+.latch spi_adc_miso_1 adc_1<9> re clk 2 n4947
+.loc AS1543_spi_adc0.vhd 100 adc_1<13>
+.latch spi_adc_miso_1 adc_1<13> re clk 2 n4935
+.names mem<7><9> adc_addr<0> mem<6><9> n5071
+11- 1
+-01 1
+.subckt MUXF5 i5909 I0=-i5909/I0 I1=-i5909/I1 S=-i5909/S O=+n5214
+.names n5209 i5909/I0
+1 1
+.names n5210 i5909/I1
+1 1
+.names adc_addr<1> i5909/S
+1 1
+.loc AS1543_spi_adc0.vhd 100 mem<15><0>
+.latch adc_1<0> mem<15><0> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><4>
+.latch adc_1<4> mem<15><4> re clk 2 n4816
+.names adc_addr<4> n244 n2754
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<15><9>
+.latch adc_1<9> mem<15><9> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><13>
+.latch adc_1<13> mem<15><13> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<14><0>
+.latch adc_1<0> mem<14><0> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><4>
+.latch adc_1<4> mem<14><4> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><8>
+.latch adc_1<8> mem<14><8> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><12>
+.latch adc_1<12> mem<14><12> re clk 2 n4767
+.names n3812 n4519 n4520
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<13><3>
+.latch adc_1<3> mem<13><3> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><7>
+.latch adc_1<7> mem<13><7> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><11>
+.latch adc_1<11> mem<13><11> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><15>
+.latch adc_1<15> mem<13><15> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<12><2>
+.latch adc_1<2> mem<12><2> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><6>
+.latch adc_1<6> mem<12><6> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><10>
+.latch adc_1<10> mem<12><10> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><14>
+.latch adc_1<14> mem<12><14> re clk 2 n4669
+.names adc_addr<4> n243 n2770
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<11><2>
+.latch adc_1<2> mem<11><2> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><6>
+.latch adc_1<6> mem<11><6> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><10>
+.latch adc_1<10> mem<11><10> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><14>
+.latch adc_1<14> mem<11><14> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<10><1>
+.latch adc_1<1> mem<10><1> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><5>
+.latch adc_1<5> mem<10><5> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><9>
+.latch adc_1<9> mem<10><9> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><13>
+.latch adc_1<13> mem<10><13> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<9><0>
+.latch adc_1<0> mem<9><0> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><4>
+.latch adc_1<4> mem<9><4> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><8>
+.latch adc_1<8> mem<9><8> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><12>
+.latch adc_1<12> mem<9><12> re clk 2 n4522
+.names n3812 n4470 n4471
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<8><3>
+.latch adc_1<3> mem<8><3> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><7>
+.latch adc_1<7> mem<8><7> re clk 2 n4473
+.names adc_addr<4> n242 n2786
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<8><12>
+.latch adc_1<12> mem<8><12> re clk 2 n4473
+.names n3119 n4060 n4061
+11 1
+.subckt MUXF5 i5831 I0=-i5831/I0 I1=-i5831/I1 S=-i5831/S O=+n5136
+.names n5128 i5831/I0
+1 1
+.names n5129 i5831/I1
+1 1
+.names adc_addr<1> i5831/S
+1 1
+.names n4392 n3440 n4393
+1- 1
+-1 1
+.names mem<13><10> adc_addr<0> mem<12><10> n5059
+11- 1
+-01 1
+.names n5201 adc_addr<3> n5200 n21
+11- 1
+-01 1
+.names adc_addr<4> n241 n2802
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<6><11>
+.latch adc_0<11> mem<6><11> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><13>
+.latch adc_0<13> mem<6><13> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><15>
+.latch adc_0<15> mem<6><15> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<5><0>
+.latch adc_0<0> mem<5><0> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><2>
+.latch adc_0<2> mem<5><2> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><4>
+.latch adc_0<4> mem<5><4> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><6>
+.latch adc_0<6> mem<5><6> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><8>
+.latch adc_0<8> mem<5><8> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><10>
+.latch adc_0<10> mem<5><10> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><12>
+.latch adc_0<12> mem<5><12> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><14>
+.latch adc_0<14> mem<5><14> re clk 2 n4230
+.names n4225 n3813 n4227
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 100 mem<4><1>
+.latch adc_0<1> mem<4><1> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><3>
+.latch adc_0<3> mem<4><3> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><5>
+.latch adc_0<5> mem<4><5> re clk 2 n4148
+.names adc_addr<4> n240 n2818
+11 1
+.names n4146 n3440 n4147
+1- 1
+-1 1
+.names mem<11><11> adc_addr<0> mem<10><11> n5043
+11- 1
+-01 1
+.subckt MUXF6 i5881 I0=-i5881/I0 I1=-i5881/I1 S=-i5881/S O=+n5186
+.names n5183 i5881/I0
+1 1
+.names n5184 i5881/I1
+1 1
+.names adc_addr<2> i5881/S
+1 1
+.names n3812 n4715 n4716
+11 1
+.subckt MUXF5 i5804 I0=-i5804/I0 I1=-i5804/I1 S=-i5804/S O=+n5109
+.names n5104 i5804/I0
+1 1
+.names n5105 i5804/I1
+1 1
+.names adc_addr<1> i5804/S
+1 1
+.names adc_addr<4> n239 n2834
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<2><4>
+.latch adc_0<4> mem<2><4> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><6>
+.latch adc_0<6> mem<2><6> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><8>
+.latch adc_0<8> mem<2><8> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><10>
+.latch adc_0<10> mem<2><10> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><12>
+.latch adc_0<12> mem<2><12> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><14>
+.latch adc_0<14> mem<2><14> re clk 2 n3984
+.names n3979 n3813 n3981
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 100 mem<1><1>
+.latch adc_0<1> mem<1><1> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><3>
+.latch adc_0<3> mem<1><3> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><5>
+.latch adc_0<5> mem<1><5> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><7>
+.latch adc_0<7> mem<1><7> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><9>
+.latch adc_0<9> mem<1><9> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><11>
+.latch adc_0<11> mem<1><11> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><13>
+.latch adc_0<13> mem<1><13> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><15>
+.latch adc_0<15> mem<1><15> re clk 2 n3902
+.names mem<7><15> adc_addr<0> mem<6><15> n4981
+11- 1
+-01 1
+.names n102 adc_addr<4> n2851
+11 1
+.names n3733 n3734
+0 1
+.names n102 n2722 n2979
+11 1
+.names n102 n2738 n2995
+11 1
+.loc AS1543_spi_adc0.vhd 100 adc_1<2>
+.latch spi_adc_miso_1 adc_1<2> re clk 2 n4968
+.loc AS1543_spi_adc0.vhd 100 adc_1<6>
+.latch spi_adc_miso_1 adc_1<6> re clk 2 n4956
+.loc AS1543_spi_adc0.vhd 100 adc_1<10>
+.latch spi_adc_miso_1 adc_1<10> re clk 2 n4944
+.loc AS1543_spi_adc0.vhd 100 adc_1<14>
+.latch spi_adc_miso_1 adc_1<14> re clk 2 n4932
+.loc AS1543_spi_adc0.vhd 100 adc_0<1>
+.latch spi_adc_miso_0 adc_0<1> re clk 2 n4971
+.loc AS1543_spi_adc0.vhd 100 adc_0<3>
+.latch spi_adc_miso_0 adc_0<3> re clk 2 n4965
+.loc AS1543_spi_adc0.vhd 100 adc_0<5>
+.latch spi_adc_miso_0 adc_0<5> re clk 2 n4959
+.loc AS1543_spi_adc0.vhd 100 adc_0<7>
+.latch spi_adc_miso_0 adc_0<7> re clk 2 n4953
+.loc AS1543_spi_adc0.vhd 100 adc_0<9>
+.latch spi_adc_miso_0 adc_0<9> re clk 2 n4947
+.loc AS1543_spi_adc0.vhd 100 adc_0<11>
+.latch spi_adc_miso_0 adc_0<11> re clk 2 n4941
+.loc AS1543_spi_adc0.vhd 100 adc_0<13>
+.latch spi_adc_miso_0 adc_0<13> re clk 2 n4935
+.loc AS1543_spi_adc0.vhd 100 adc_0<15>
+.latch spi_adc_miso_0 adc_0<15> re clk 2 n4929
+.loc AS1543_spi_adc0.vhd 100 mem<15><1>
+.latch adc_1<1> mem<15><1> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><5>
+.latch adc_1<5> mem<15><5> re clk 2 n4816
+.names n102 n2754 n3011
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<15><10>
+.latch adc_1<10> mem<15><10> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><14>
+.latch adc_1<14> mem<15><14> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<14><1>
+.latch adc_1<1> mem<14><1> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><5>
+.latch adc_1<5> mem<14><5> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><9>
+.latch adc_1<9> mem<14><9> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><13>
+.latch adc_1<13> mem<14><13> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<13><0>
+.latch adc_1<0> mem<13><0> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><4>
+.latch adc_1<4> mem<13><4> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><8>
+.latch adc_1<8> mem<13><8> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><12>
+.latch adc_1<12> mem<13><12> re clk 2 n4718
+.names n3119 n4224 n4225
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<12><3>
+.latch adc_1<3> mem<12><3> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><7>
+.latch adc_1<7> mem<12><7> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><11>
+.latch adc_1<11> mem<12><11> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><15>
+.latch adc_1<15> mem<12><15> re clk 2 n4669
+.names n102 n2770 n3027
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<11><3>
+.latch adc_1<3> mem<11><3> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><7>
+.latch adc_1<7> mem<11><7> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><11>
+.latch adc_1<11> mem<11><11> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><15>
+.latch adc_1<15> mem<11><15> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<10><2>
+.latch adc_1<2> mem<10><2> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><6>
+.latch adc_1<6> mem<10><6> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><10>
+.latch adc_1<10> mem<10><10> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><14>
+.latch adc_1<14> mem<10><14> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<9><1>
+.latch adc_1<1> mem<9><1> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><5>
+.latch adc_1<5> mem<9><5> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><9>
+.latch adc_1<9> mem<9><9> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><13>
+.latch adc_1<13> mem<9><13> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<8><0>
+.latch adc_1<0> mem<8><0> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><4>
+.latch adc_1<4> mem<8><4> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><8>
+.latch adc_1<8> mem<8><8> re clk 2 n4473
+.names n102 n2786 n3043
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<8><13>
+.latch adc_1<13> mem<8><13> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<7><0>
+.latch adc_0<0> mem<7><0> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><2>
+.latch adc_0<2> mem<7><2> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><4>
+.latch adc_0<4> mem<7><4> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><6>
+.latch adc_0<6> mem<7><6> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><8>
+.latch adc_0<8> mem<7><8> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><10>
+.latch adc_0<10> mem<7><10> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><12>
+.latch adc_0<12> mem<7><12> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><14>
+.latch adc_0<14> mem<7><14> re clk 2 n4394
+.names n4389 n3813 n4391
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 100 mem<6><1>
+.latch adc_0<1> mem<6><1> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><3>
+.latch adc_0<3> mem<6><3> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><5>
+.latch adc_0<5> mem<6><5> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><7>
+.latch adc_0<7> mem<6><7> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><9>
+.latch adc_0<9> mem<6><9> re clk 2 n4312
+.names n102 n2802 n3059
+11 1
+.names n4310 n3440 n4311
+1- 1
+-1 1
+.names mem<3><10> adc_addr<0> mem<2><10> n5054
+11- 1
+-01 1
+.subckt MUXF5 i5892 I0=-i5892/I0 I1=-i5892/I1 S=-i5892/S O=+n5197
+.names n5190 i5892/I0
+1 1
+.names n5191 i5892/I1
+1 1
+.names adc_addr<1> i5892/S
+1 1
+.names n3119 n3978 n3979
+11 1
+.names mem<15><6> adc_addr<0> mem<14><6> n5120
+11- 1
+-01 1
+.names n102 n2818 n3075
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<4><8>
+.latch adc_0<8> mem<4><8> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><10>
+.latch adc_0<10> mem<4><10> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><12>
+.latch adc_0<12> mem<4><12> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><14>
+.latch adc_0<14> mem<4><14> re clk 2 n4148
+.names n4143 n3813 n4145
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 100 mem<3><1>
+.latch adc_0<1> mem<3><1> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><3>
+.latch adc_0<3> mem<3><3> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><5>
+.latch adc_0<5> mem<3><5> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><7>
+.latch adc_0<7> mem<3><7> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><9>
+.latch adc_0<9> mem<3><9> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><11>
+.latch adc_0<11> mem<3><11> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><13>
+.latch adc_0<13> mem<3><13> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><15>
+.latch adc_0<15> mem<3><15> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<2><0>
+.latch adc_0<0> mem<2><0> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><2>
+.latch adc_0<2> mem<2><2> re clk 2 n3984
+.names n102 n2834 n3091
+11 1
+.names n1039 n1040 reduce_nor_983/n1
+1- 1
+-1 1
+.names mem<13><7> adc_addr<0> mem<12><7> n5104
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 71
+.subckt XORCY i6009 CI=-i6009/CI LI=-i6009/LI O=+n97
+.names add_62/n2 i6009/CI
+1 1
+.names adc_state_machine_clk_divide_cnt<1> i6009/LI
+1 1
+.names n3900 n3440 n3901
+1- 1
+-1 1
+.names n97 n1039
+0 1
+.names n96 n1040
+0 1
+.names adc_state_machine_clk_spi_cnt<0> Decoder_987/n7
+0 1
+.names n3812 n4666 n4667
+11 1
+.subckt MUXF5 i5908 I0=-i5908/I0 I1=-i5908/I1 S=-i5908/S O=+n5213
+.names n5207 i5908/I0
+1 1
+.names n5208 i5908/I1
+1 1
+.names adc_addr<1> i5908/S
+1 1
+.subckt MUXF6 i5836 I0=-i5836/I0 I1=-i5836/I1 S=-i5836/S O=+n5141
+.names n5138 i5836/I0
+1 1
+.names n5139 i5836/I1
+1 1
+.names adc_addr<2> i5836/S
+1 1
+.names mem<5><9> adc_addr<0> mem<4><9> n5070
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 100 mem<0><15>
+.latch adc_0<15> mem<0><15> re clk 2 n3820
+.names n4927 n3696 n4928
+1- 1
+-1 1
+.names n4930 n3696 n4931
+1- 1
+-1 1
+.names n4933 n3696 n4934
+1- 1
+-1 1
+.names n4936 n3696 n4937
+1- 1
+-1 1
+.names n4939 n3696 n4940
+1- 1
+-1 1
+.names n4942 n3696 n4943
+1- 1
+-1 1
+.names n4945 n3696 n4946
+1- 1
+-1 1
+.names n4948 n3696 n4949
+1- 1
+-1 1
+.names n4951 n3696 n4952
+1- 1
+-1 1
+.names n4954 n3696 n4955
+1- 1
+-1 1
+.names n4957 n3696 n4958
+1- 1
+-1 1
+.names n4960 n3696 n4961
+1- 1
+-1 1
+.names n4963 n3696 n4964
+1- 1
+-1 1
+.names n4966 n3696 n4967
+1- 1
+-1 1
+.names n4969 n3696 n4970
+1- 1
+-1 1
+.names n4972 n3696 n4973
+1- 1
+-1 1
+.names n2 adc_state_machine_clk_spi_cnt<0> n1048
+01 1
+10 1
+.names n3760 n3761
+0 1
+.names adc_state_machine_wait_mux_cnt<0> adc_state_machine_wait_mux_cnt<0> add_49/n2
+1- 1
+-1 1
+.names n101 n2851 n3119
+11 1
+.names n101 n2979 n3247
+11 1
+.names n101 n2995 n3263
+11 1
+.loc AS1543_spi_adc0.vhd 100 adc_1<3>
+.latch spi_adc_miso_1 adc_1<3> re clk 2 n4965
+.loc AS1543_spi_adc0.vhd 100 adc_1<7>
+.latch spi_adc_miso_1 adc_1<7> re clk 2 n4953
+.loc AS1543_spi_adc0.vhd 100 adc_1<11>
+.latch spi_adc_miso_1 adc_1<11> re clk 2 n4941
+.loc AS1543_spi_adc0.vhd 100 adc_1<15>
+.latch spi_adc_miso_1 adc_1<15> re clk 2 n4929
+.names n5141 adc_addr<3> n5140 n17
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 100 mem<15><2>
+.latch adc_1<2> mem<15><2> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><6>
+.latch adc_1<6> mem<15><6> re clk 2 n4816
+.names n101 n3011 n3279
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<15><11>
+.latch adc_1<11> mem<15><11> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><15>
+.latch adc_1<15> mem<15><15> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<14><2>
+.latch adc_1<2> mem<14><2> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><6>
+.latch adc_1<6> mem<14><6> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><10>
+.latch adc_1<10> mem<14><10> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><14>
+.latch adc_1<14> mem<14><14> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<13><1>
+.latch adc_1<1> mem<13><1> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><5>
+.latch adc_1<5> mem<13><5> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><9>
+.latch adc_1<9> mem<13><9> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><13>
+.latch adc_1<13> mem<13><13> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<12><0>
+.latch adc_1<0> mem<12><0> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><4>
+.latch adc_1<4> mem<12><4> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><8>
+.latch adc_1<8> mem<12><8> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><12>
+.latch adc_1<12> mem<12><12> re clk 2 n4669
+.names n3812 n4617 n4618
+11 1
+.names n101 n3027 n3295
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<11><4>
+.latch adc_1<4> mem<11><4> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><8>
+.latch adc_1<8> mem<11><8> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><12>
+.latch adc_1<12> mem<11><12> re clk 2 n4620
+.names n3119 n4388 n4389
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<10><3>
+.latch adc_1<3> mem<10><3> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><7>
+.latch adc_1<7> mem<10><7> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><11>
+.latch adc_1<11> mem<10><11> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><15>
+.latch adc_1<15> mem<10><15> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<9><2>
+.latch adc_1<2> mem<9><2> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><6>
+.latch adc_1<6> mem<9><6> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><10>
+.latch adc_1<10> mem<9><10> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><14>
+.latch adc_1<14> mem<9><14> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<8><1>
+.latch adc_1<1> mem<8><1> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><5>
+.latch adc_1<5> mem<8><5> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><9>
+.latch adc_1<9> mem<8><9> re clk 2 n4473
+.names n101 n3043 n3311
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<8><14>
+.latch adc_1<14> mem<8><14> re clk 2 n4473
+.subckt MUXF5 i5759 I0=-i5759/I0 I1=-i5759/I1 S=-i5759/S O=+n5064
+.names n5059 i5759/I0
+1 1
+.names n5060 i5759/I1
+1 1
+.names adc_addr<1> i5759/S
+1 1
+.names mem<11><0> adc_addr<0> mem<10><0> n5208
+11- 1
+-01 1
+.names n3119 n4142 n4143
+11 1
+.names mem<7><5> adc_addr<0> mem<6><5> n5131
+11- 1
+-01 1
+.names n101 n3059 n3327
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<6><12>
+.latch adc_0<12> mem<6><12> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><14>
+.latch adc_0<14> mem<6><14> re clk 2 n4312
+.names n4307 n3813 n4309
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 100 mem<5><1>
+.latch adc_0<1> mem<5><1> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><3>
+.latch adc_0<3> mem<5><3> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><5>
+.latch adc_0<5> mem<5><5> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><7>
+.latch adc_0<7> mem<5><7> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><9>
+.latch adc_0<9> mem<5><9> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><11>
+.latch adc_0<11> mem<5><11> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><13>
+.latch adc_0<13> mem<5><13> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<5><15>
+.latch adc_0<15> mem<5><15> re clk 2 n4230
+.loc AS1543_spi_adc0.vhd 100 mem<4><0>
+.latch adc_0<0> mem<4><0> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><2>
+.latch adc_0<2> mem<4><2> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><4>
+.latch adc_0<4> mem<4><4> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><6>
+.latch adc_0<6> mem<4><6> re clk 2 n4148
+.names n101 n3075 n3343
+11 1
+.names n1468 n86 reduce_and_3720/n1
+11 1
+.names mem<5><6> adc_addr<0> mem<4><6> n5115
+11- 1
+-01 1
+.names n4064 n3440 n4065
+1- 1
+-1 1
+.names n5036 adc_addr<3> n5035 n10
+11- 1
+-01 1
+.subckt MUXF5 i5876 I0=-i5876/I0 I1=-i5876/I1 S=-i5876/S O=+n5181
+.names n5173 i5876/I0
+1 1
+.names n5174 i5876/I1
+1 1
+.names adc_addr<1> i5876/S
+1 1
+.names n101 n3091 n3359
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<2><5>
+.latch adc_0<5> mem<2><5> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><7>
+.latch adc_0<7> mem<2><7> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><9>
+.latch adc_0<9> mem<2><9> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><11>
+.latch adc_0<11> mem<2><11> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><13>
+.latch adc_0<13> mem<2><13> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><15>
+.latch adc_0<15> mem<2><15> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<1><0>
+.latch adc_0<0> mem<1><0> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><2>
+.latch adc_0<2> mem<1><2> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><4>
+.latch adc_0<4> mem<1><4> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><6>
+.latch adc_0<6> mem<1><6> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><8>
+.latch adc_0<8> mem<1><8> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><10>
+.latch adc_0<10> mem<1><10> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><12>
+.latch adc_0<12> mem<1><12> re clk 2 n3902
+.loc AS1543_spi_adc0.vhd 100 mem<1><14>
+.latch adc_0<14> mem<1><14> re clk 2 n3902
+.names n3897 n3813 n3899
+1- 1
+-1 1
+.names n101 n102 n3375
+11 1
+.names n1041 n1050 n3376
+11 1
+.names n3780 n101 n3781
+1- 1
+-1 1
+.names n3781 adc_state_machine_adc_state n3782
+11 1
+.names n1041 n1051 n3377
+11 1
+.names n1041 n1052 n3378
+11 1
+.names n1041 n1053 n3379
+11 1
+.names n1041 n1054 n3380
+11 1
+.names n1041 n1055 n3381
+11 1
+.names n1041 n1056 n3382
+11 1
+.names n1041 n1057 n3383
+11 1
+.names n1041 n1058 n3384
+11 1
+.names n1041 n1059 n3385
+11 1
+.names n1041 n1060 n3386
+11 1
+.names n1041 n1061 n3387
+11 1
+.names n1041 n1062 n3388
+11 1
+.names n1041 n1063 n3389
+11 1
+.names n1041 n1064 n3390
+11 1
+.names n1041 n1065 n3391
+11 1
+.names n3818 n3440 n3819
+1- 1
+-1 1
+.subckt MUXF5 i5907 I0=-i5907/I0 I1=-i5907/I1 S=-i5907/S O=+n5212
+.names n5205 i5907/I0
+1 1
+.names n5206 i5907/I1
+1 1
+.names adc_addr<1> i5907/S
+1 1
+.subckt MUXF6 i5835 I0=-i5835/I0 I1=-i5835/I1 S=-i5835/S O=+n5140
+.names n5136 i5835/I0
+1 1
+.names n5137 i5835/I1
+1 1
+.names adc_addr<2> i5835/S
+1 1
+.names mem<3><9> adc_addr<0> mem<2><9> n5069
+11- 1
+-01 1
+.names n110 n3814
+0 1
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_spi_cnt<1>
+.latch n1489 adc_state_machine_clk_spi_cnt<1> re clk 2 n3787
+.names n3785 reset n3786
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_spi_cnt<4>
+.latch n1486 adc_state_machine_clk_spi_cnt<4> re clk 2 n3787
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_divide_cnt<2>
+.latch n1483 adc_state_machine_clk_divide_cnt<2> re clk 2 n3765
+.loc AS1543_spi_adc0.vhd 100 spi_adc_cs
+.latch n1482 spi_adc_cs re clk 5 reset n3761
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<1>
+.latch n1479 adc_state_machine_wait_mux_cnt<1> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<4>
+.latch n1476 adc_state_machine_wait_mux_cnt<4> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<7>
+.latch n1473 adc_state_machine_wait_mux_cnt<7> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<10>
+.latch n1470 adc_state_machine_wait_mux_cnt<10> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_adc_state
+.latch n1481 adc_state_machine_adc_state re clk 4 reset n3731
+.names n1468 n101 n3408
+1- 1
+-1 1
+.names n4928 n4929
+0 1
+.names n4931 n4932
+0 1
+.names n4934 n4935
+0 1
+.names n4937 n4938
+0 1
+.names n4940 n4941
+0 1
+.names n4943 n4944
+0 1
+.names n4946 n4947
+0 1
+.names n4949 n4950
+0 1
+.names n4952 n4953
+0 1
+.names n4955 n4956
+0 1
+.names n4958 n4959
+0 1
+.names n4961 n4962
+0 1
+.names n4964 n4965
+0 1
+.names n4967 n4968
+0 1
+.names n4970 n4971
+0 1
+.names n4973 n4974
+0 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i6000 CI=-i6000/CI DI=-i6000/DI S=-i6000/S O=+add_49/n6
+.names add_49/n4 i6000/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<2> i6000/DI
+1 1
+.names n5287 i6000/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5997 CI=-i5997/CI DI=-i5997/DI S=-i5997/S O=+add_49/n8
+.names add_49/n6 i5997/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<3> i5997/DI
+1 1
+.names n5286 i5997/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5980 CI=-i5980/CI LI=-i5980/LI O=+n73
+.names add_49/n18 i5980/CI
+1 1
+.names n5280 i5980/LI
+1 1
+.names n96 n101 n1462 n1465
+11- 1
+-01 1
+.names n97 n101 n1463 n1466
+11- 1
+-01 1
+.names n98 n101 n1464 n1467
+11- 1
+-01 1
+.names adc_state_machine_adc_state n1468
+0 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5979 CI=-i5979/CI DI=-i5979/DI S=-i5979/S O=+add_49/n20
+.names add_49/n18 i5979/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<9> i5979/DI
+1 1
+.names n5280 i5979/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5982 CI=-i5982/CI DI=-i5982/DI S=-i5982/S O=+add_49/n18
+.names add_49/n16 i5982/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<8> i5982/DI
+1 1
+.names n5281 i5982/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5985 CI=-i5985/CI DI=-i5985/DI S=-i5985/S O=+add_49/n16
+.names add_49/n14 i5985/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<7> i5985/DI
+1 1
+.names n5282 i5985/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5983 CI=-i5983/CI LI=-i5983/LI O=+n74
+.names add_49/n16 i5983/CI
+1 1
+.names n5281 i5983/LI
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5986 CI=-i5986/CI LI=-i5986/LI O=+n75
+.names add_49/n14 i5986/CI
+1 1
+.names n5282 i5986/LI
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5989 CI=-i5989/CI LI=-i5989/LI O=+n76
+.names add_49/n12 i5989/CI
+1 1
+.names n5283 i5989/LI
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5988 CI=-i5988/CI DI=-i5988/DI S=-i5988/S O=+add_49/n14
+.names add_49/n12 i5988/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<6> i5988/DI
+1 1
+.names n5283 i5988/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5991 CI=-i5991/CI DI=-i5991/DI S=-i5991/S O=+add_49/n12
+.names add_49/n10 i5991/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<5> i5991/DI
+1 1
+.names n5284 i5991/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5994 CI=-i5994/CI DI=-i5994/DI S=-i5994/S O=+add_49/n10
+.names add_49/n8 i5994/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<4> i5994/DI
+1 1
+.names n5285 i5994/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5992 CI=-i5992/CI LI=-i5992/LI O=+n77
+.names add_49/n10 i5992/CI
+1 1
+.names n5284 i5992/LI
+1 1
+.names adc_state_machine_clk_divide_cnt<0> n99 add_62/n2
+11 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i6001 CI=-i6001/CI LI=-i6001/LI O=+n80
+.names add_49/n4 i6001/CI
+1 1
+.names n5287 i6001/LI
+1 1
+.names n84 n1468 reduce_nor_66/n4 n1481
+11- 1
+-01 1
+.names n86 n1468 n3375 n1482
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5998 CI=-i5998/CI LI=-i5998/LI O=+n79
+.names add_49/n6 i5998/CI
+1 1
+.names n5286 i5998/LI
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5995 CI=-i5995/CI LI=-i5995/LI O=+n78
+.names add_49/n8 i5995/CI
+1 1
+.names n5285 i5995/LI
+1 1
+.names n1044 n1468 n1486
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5974 CI=-i5974/CI LI=-i5974/LI O=+n71
+.names add_49/n22 i5974/CI
+1 1
+.names n5278 i5974/LI
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i5976 CI=-i5976/CI DI=-i5976/DI S=-i5976/S O=+add_49/n22
+.names add_49/n20 i5976/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<10> i5976/DI
+1 1
+.names n5279 i5976/S
+1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt XORCY i5977 CI=-i5977/CI LI=-i5977/LI O=+n72
+.names add_49/n20 i5977/CI
+1 1
+.names n5279 i5977/LI
+1 1
+.names n1117 n1468 n1491
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 58
+.subckt MUXCY i6003 CI=-i6003/CI DI=-i6003/DI S=-i6003/S O=+add_49/n4
+.names add_49/n2 i6003/CI
+1 1
+.names adc_state_machine_wait_mux_cnt<1> i6003/DI
+1 1
+.names n5288 i6003/S
+1 1
+.names adc_state_machine_ctrl n1468 n1387 n1492
+11- 1
+-01 1
+.names n3819 n3820
+0 1
+.names n1046 adc_state_machine_adc_state n1488
+11 1
+.subckt MUXF5 i5864 I0=-i5864/I0 I1=-i5864/I1 S=-i5864/S O=+n5169
+.names n5164 i5864/I0
+1 1
+.names n5165 i5864/I1
+1 1
+.names adc_addr<1> i5864/S
+1 1
+.names n5096 adc_addr<3> n5095 n14
+11- 1
+-01 1
+.names n72 n71 reduce_nor_51/n8
+1- 1
+-1 1
+.names n3901 n3902
+0 1
+.loc AS1543_spi_adc0.vhd 71
+.subckt MUXCY i6008 CI=-i6008/CI DI=-i6008/DI S=-i6008/S O=+add_62/n4
+.names add_62/n2 i6008/CI
+1 1
+.names adc_state_machine_clk_divide_cnt<1> i6008/DI
+1 1
+.names adc_state_machine_clk_divide_cnt<1> i6008/S
+1 1
+.names mem<5><2> adc_addr<0> mem<4><2> n5175
+11- 1
+-01 1
+.names mem<11><7> adc_addr<0> mem<10><7> n5103
+11- 1
+-01 1
+.subckt MUXF5 i5726 I0=-i5726/I0 I1=-i5726/I1 S=-i5726/S O=+n5031
+.names n5023 i5726/I0
+1 1
+.names n5024 i5726/I1
+1 1
+.names adc_addr<1> i5726/S
+1 1
+.names n3983 n3984
+0 1
+.loc AS1543_spi_adc0.vhd 93
+.subckt MUXCY i6016 CI=-i6016/CI DI=-i6016/DI S=-i6016/S O=+add_985/n6
+.names add_985/n4 i6016/CI
+1 1
+.names adc_state_machine_clk_spi_cnt<2> i6016/DI
+1 1
+.names n5293 i6016/S
+1 1
+.names mem<15><2> adc_addr<0> mem<14><2> n5180
+11- 1
+-01 1
+.subckt MUXF5 i5803 I0=-i5803/I0 I1=-i5803/I1 S=-i5803/S O=+n5108
+.names n5102 i5803/I0
+1 1
+.names n5103 i5803/I1
+1 1
+.names adc_addr<1> i5803/S
+1 1
+.subckt MUXF6 i5731 I0=-i5731/I0 I1=-i5731/I1 S=-i5731/S O=+n5036
+.names n5033 i5731/I0
+1 1
+.names n5034 i5731/I1
+1 1
+.names adc_addr<2> i5731/S
+1 1
+.names n4065 n4066
+0 1
+.subckt MUXF6 i5880 I0=-i5880/I0 I1=-i5880/I1 S=-i5880/S O=+n5185
+.names n5181 i5880/I0
+1 1
+.names n5182 i5880/I1
+1 1
+.names adc_addr<2> i5880/S
+1 1
+.names mem<3><6> adc_addr<0> mem<2><6> n5114
+11- 1
+-01 1
+.names mem<9><11> adc_addr<0> mem<8><11> n5042
+11- 1
+-01 1
+.names n4147 n4148
+0 1
+.names mem<7><1> adc_addr<0> mem<6><1> n5191
+11- 1
+-01 1
+.names mem<13><6> adc_addr<0> mem<12><6> n5119
+11- 1
+-01 1
+.subckt MUXF5 i5742 I0=-i5742/I0 I1=-i5742/I1 S=-i5742/S O=+n5047
+.names n5040 i5742/I0
+1 1
+.names n5041 i5742/I1
+1 1
+.names adc_addr<1> i5742/S
+1 1
+.names n4229 n4230
+0 1
+.subckt MUXF5 i5891 I0=-i5891/I0 I1=-i5891/I1 S=-i5891/S O=+n5196
+.names n5188 i5891/I0
+1 1
+.names n5189 i5891/I1
+1 1
+.names adc_addr<1> i5891/S
+1 1
+.subckt MUXF5 i5819 I0=-i5819/I0 I1=-i5819/I1 S=-i5819/S O=+n5124
+.names n5119 i5819/I0
+1 1
+.names n5120 i5819/I1
+1 1
+.names adc_addr<1> i5819/S
+1 1
+.names n5051 adc_addr<3> n5050 n11
+11- 1
+-01 1
+.names n4311 n4312
+0 1
+.subckt MUXF6 i5896 I0=-i5896/I0 I1=-i5896/I1 S=-i5896/S O=+n5201
+.names n5198 i5896/I0
+1 1
+.names n5199 i5896/I1
+1 1
+.names adc_addr<2> i5896/S
+1 1
+.names mem<5><5> adc_addr<0> mem<4><5> n5130
+11- 1
+-01 1
+.names mem<11><10> adc_addr<0> mem<10><10> n5058
+11- 1
+-01 1
+.names n4393 n4394
+0 1
+.names mem<9><0> adc_addr<0> mem<8><0> n5207
+11- 1
+-01 1
+.names mem<15><5> adc_addr<0> mem<14><5> n5135
+11- 1
+-01 1
+.subckt MUXF5 i5758 I0=-i5758/I0 I1=-i5758/I1 S=-i5758/S O=+n5063
+.names n5057 i5758/I0
+1 1
+.names n5058 i5758/I1
+1 1
+.names adc_addr<1> i5758/S
+1 1
+.names n4472 n4473
+0 1
+.subckt MUXF6 i5910 I0=-i5910/I0 I1=-i5910/I1 S=-i5910/S O=+n5215
+.names n5211 i5910/I0
+1 1
+.names n5212 i5910/I1
+1 1
+.names adc_addr<2> i5910/S
+1 1
+.names mem<3><4> adc_addr<0> mem<2><4> n5144
+11- 1
+-01 1
+.names mem<9><9> adc_addr<0> mem<8><9> n5072
+11- 1
+-01 1
+.names n4521 n4522
+0 1
+.names adc_state_machine_ctrl n3732 n1387
+11 1
+.names mem<9><4> adc_addr<0> mem<8><4> n5147
+11- 1
+-01 1
+.names mem<15><9> adc_addr<0> mem<14><9> n5075
+11- 1
+-01 1
+.names n4570 n4571
+0 1
+.names n97 reduce_nor_983/n2 n1463
+11 1
+.names mem<15><4> adc_addr<0> mem<14><4> n5150
+11- 1
+-01 1
+.subckt MUXF5 i5773 I0=-i5773/I0 I1=-i5773/I1 S=-i5773/S O=+n5078
+.names n5072 i5773/I0
+1 1
+.names n5073 i5773/I1
+1 1
+.names adc_addr<1> i5773/S
+1 1
+.names n4619 n4620
+0 1
+.names n72 adc_state_machine_adc_state n1470
+1- 1
+-1 1
+.subckt MUXF5 i5848 I0=-i5848/I0 I1=-i5848/I1 S=-i5848/S O=+n5153
+.names n5147 i5848/I0
+1 1
+.names n5148 i5848/I1
+1 1
+.names adc_addr<1> i5848/S
+1 1
+.subckt MUXF6 i5776 I0=-i5776/I0 I1=-i5776/I1 S=-i5776/S O=+n5081
+.names n5078 i5776/I0
+1 1
+.names n5079 i5776/I1
+1 1
+.names adc_addr<2> i5776/S
+1 1
+.names n4668 n4669
+0 1
+.names n75 adc_state_machine_adc_state n1473
+1- 1
+-1 1
+.subckt MUXF6 i5851 I0=-i5851/I0 I1=-i5851/I1 S=-i5851/S O=+n5156
+.names n5153 i5851/I0
+1 1
+.names n5154 i5851/I1
+1 1
+.names adc_addr<2> i5851/S
+1 1
+.names mem<5><8> adc_addr<0> mem<4><8> n5085
+11- 1
+-01 1
+.names n4717 n4718
+0 1
+.names n78 adc_state_machine_adc_state n1476
+1- 1
+-1 1
+.names mem<5><3> adc_addr<0> mem<4><3> n5160
+11- 1
+-01 1
+.names mem<11><8> adc_addr<0> mem<10><8> n5088
+11- 1
+-01 1
+.names n4766 n4767
+0 1
+.names n81 adc_state_machine_adc_state n1479
+1- 1
+-1 1
+.names mem<11><3> adc_addr<0> mem<10><3> n5163
+11- 1
+-01 1
+.subckt MUXF5 i5786 I0=-i5786/I0 I1=-i5786/I1 S=-i5786/S O=+n5091
+.names n5083 i5786/I0
+1 1
+.names n5084 i5786/I1
+1 1
+.names adc_addr<1> i5786/S
+1 1
+.names n4815 n4816
+0 1
+.names n1466 adc_state_machine_adc_state n1484
+11 1
+.subckt MUXF5 i5861 I0=-i5861/I0 I1=-i5861/I1 S=-i5861/S O=+n5166
+.names n5158 i5861/I0
+1 1
+.names n5159 i5861/I1
+1 1
+.names adc_addr<1> i5861/S
+1 1
+.subckt MUXF5 i5789 I0=-i5789/I0 I1=-i5789/I1 S=-i5789/S O=+n5094
+.names n5089 i5789/I0
+1 1
+.names n5090 i5789/I1
+1 1
+.names adc_addr<1> i5789/S
+1 1
+.loc AS1543_spi_adc0.vhd 29 adc_data<14>
+.latch n8 adc_data<14> re clk 2
+.loc AS1543_spi_adc0.vhd 100 mem<0><0>
+.latch adc_0<0> mem<0><0> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><1>
+.latch adc_0<1> mem<0><1> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><2>
+.latch adc_0<2> mem<0><2> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><3>
+.latch adc_0<3> mem<0><3> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><4>
+.latch adc_0<4> mem<0><4> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><5>
+.latch adc_0<5> mem<0><5> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><6>
+.latch adc_0<6> mem<0><6> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><7>
+.latch adc_0<7> mem<0><7> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><8>
+.latch adc_0<8> mem<0><8> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><9>
+.latch adc_0<9> mem<0><9> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><10>
+.latch adc_0<10> mem<0><10> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><11>
+.latch adc_0<11> mem<0><11> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><12>
+.latch adc_0<12> mem<0><12> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><13>
+.latch adc_0<13> mem<0><13> re clk 2 n3820
+.loc AS1543_spi_adc0.vhd 100 mem<0><14>
+.latch adc_0<14> mem<0><14> re clk 2 n3820
+.names n3815 n3813 n3817
+1- 1
+-1 1
+.names n3119 n3813
+0 1
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_spi_cnt<2>
+.latch n1488 adc_state_machine_clk_spi_cnt<2> re clk 2 n3787
+.names n3784 n3762 n3785
+11 1
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_divide_cnt<0>
+.latch n1485 adc_state_machine_clk_divide_cnt<0> re clk 2 n3765
+.names mem<1><15> adc_addr<0> mem<0><15> n4978
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<2>
+.latch n1478 adc_state_machine_wait_mux_cnt<2> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<5>
+.latch n1475 adc_state_machine_wait_mux_cnt<5> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<8>
+.latch n1472 adc_state_machine_wait_mux_cnt<8> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<11>
+.latch n1469 adc_state_machine_wait_mux_cnt<11> re clk 5 reset n3734
+.names n3729 n3731
+0 1
+.names reset n1468 n3440
+1- 1
+-1 1
+.names n3375 n3732
+0 1
+.names mem<5><15> adc_addr<0> mem<4><15> n4980
+11- 1
+-01 1
+.names n3728 reduce_nor_983/n2 n3780
+11 1
+.names reset n3762
+0 1
+.names n3812 n4813 n4814
+11 1
+.names n3764 n3765
+0 1
+.names n3440 n3812
+0 1
+.names n3786 n3787
+0 1
+.loc AS1543_spi_adc0.vhd 71
+.subckt XORCY i6006 CI=-i6006/CI LI=-i6006/LI O=+n96
+.names add_62/n4 i6006/CI
+1 1
+.names adc_state_machine_clk_divide_cnt<2> i6006/LI
+1 1
+.names mem<3><2> adc_addr<0> mem<2><2> n5174
+11- 1
+-01 1
+.names mem<9><7> adc_addr<0> mem<8><7> n5102
+11- 1
+-01 1
+.names mem<15><12> adc_addr<0> mem<14><12> n5030
+11- 1
+-01 1
+.names n109 n3896
+0 1
+.loc AS1543_spi_adc0.vhd 93
+.subckt XORCY i6014 CI=-i6014/CI LI=-i6014/LI O=+n1045
+.names add_985/n6 i6014/CI
+1 1
+.names n5292 i6014/LI
+1 1
+.names mem<13><2> adc_addr<0> mem<12><2> n5179
+11- 1
+-01 1
+.subckt MUXF5 i5802 I0=-i5802/I0 I1=-i5802/I1 S=-i5802/S O=+n5107
+.names n5100 i5802/I0
+1 1
+.names n5101 i5802/I1
+1 1
+.names adc_addr<1> i5802/S
+1 1
+.subckt MUXF6 i5730 I0=-i5730/I0 I1=-i5730/I1 S=-i5730/S O=+n5035
+.names n5031 i5730/I0
+1 1
+.names n5032 i5730/I1
+1 1
+.names adc_addr<2> i5730/S
+1 1
+.names n108 n3978
+0 1
+.subckt MUXF5 i5879 I0=-i5879/I0 I1=-i5879/I1 S=-i5879/S O=+n5184
+.names n5179 i5879/I0
+1 1
+.names n5180 i5879/I1
+1 1
+.names adc_addr<1> i5879/S
+1 1
+.names n5111 adc_addr<3> n5110 n15
+11- 1
+-01 1
+.names mem<7><11> adc_addr<0> mem<6><11> n5041
+11- 1
+-01 1
+.names n107 n4060
+0 1
+.names mem<5><1> adc_addr<0> mem<4><1> n5190
+11- 1
+-01 1
+.names mem<11><6> adc_addr<0> mem<10><6> n5118
+11- 1
+-01 1
+.subckt MUXF5 i5741 I0=-i5741/I0 I1=-i5741/I1 S=-i5741/S O=+n5046
+.names n5038 i5741/I0
+1 1
+.names n5039 i5741/I1
+1 1
+.names adc_addr<1> i5741/S
+1 1
+.names n106 n4142
+0 1
+.names mem<15><1> adc_addr<0> mem<14><1> n5195
+11- 1
+-01 1
+.subckt MUXF5 i5818 I0=-i5818/I0 I1=-i5818/I1 S=-i5818/S O=+n5123
+.names n5117 i5818/I0
+1 1
+.names n5118 i5818/I1
+1 1
+.names adc_addr<1> i5818/S
+1 1
+.subckt MUXF6 i5746 I0=-i5746/I0 I1=-i5746/I1 S=-i5746/S O=+n5051
+.names n5048 i5746/I0
+1 1
+.names n5049 i5746/I1
+1 1
+.names adc_addr<2> i5746/S
+1 1
+.names n105 n4224
+0 1
+.subckt MUXF6 i5895 I0=-i5895/I0 I1=-i5895/I1 S=-i5895/S O=+n5200
+.names n5196 i5895/I0
+1 1
+.names n5197 i5895/I1
+1 1
+.names adc_addr<2> i5895/S
+1 1
+.names mem<3><5> adc_addr<0> mem<2><5> n5129
+11- 1
+-01 1
+.names mem<9><10> adc_addr<0> mem<8><10> n5057
+11- 1
+-01 1
+.names n104 n4306
+0 1
+.names mem<7><0> adc_addr<0> mem<6><0> n5206
+11- 1
+-01 1
+.names mem<13><5> adc_addr<0> mem<12><5> n5134
+11- 1
+-01 1
+.subckt MUXF5 i5757 I0=-i5757/I0 I1=-i5757/I1 S=-i5757/S O=+n5062
+.names n5055 i5757/I0
+1 1
+.names n5056 i5757/I1
+1 1
+.names adc_addr<1> i5757/S
+1 1
+.names n103 n4388
+0 1
+.subckt MUXF5 i5906 I0=-i5906/I0 I1=-i5906/I1 S=-i5906/S O=+n5211
+.names n5203 i5906/I0
+1 1
+.names n5204 i5906/I1
+1 1
+.names adc_addr<1> i5906/S
+1 1
+.subckt MUXF5 i5834 I0=-i5834/I0 I1=-i5834/I1 S=-i5834/S O=+n5139
+.names n5134 i5834/I0
+1 1
+.names n5135 i5834/I1
+1 1
+.names adc_addr<1> i5834/S
+1 1
+.names n5066 adc_addr<3> n5065 n12
+11- 1
+-01 1
+.names n3247 n4470
+0 1
+.names n5216 adc_addr<3> n5215 n22
+11- 1
+-01 1
+.names mem<7><4> adc_addr<0> mem<6><4> n5146
+11- 1
+-01 1
+.names mem<13><9> adc_addr<0> mem<12><9> n5074
+11- 1
+-01 1
+.names n3263 n4519
+0 1
+.names n96 reduce_nor_983/n2 n1462
+11 1
+.names mem<13><4> adc_addr<0> mem<12><4> n5149
+11- 1
+-01 1
+.subckt MUXF5 i5772 I0=-i5772/I0 I1=-i5772/I1 S=-i5772/S O=+n5077
+.names n5070 i5772/I0
+1 1
+.names n5071 i5772/I1
+1 1
+.names adc_addr<1> i5772/S
+1 1
+.names n3279 n4568
+0 1
+.names n71 adc_state_machine_adc_state n1469
+1- 1
+-1 1
+.subckt MUXF5 i5847 I0=-i5847/I0 I1=-i5847/I1 S=-i5847/S O=+n5152
+.names n5145 i5847/I0
+1 1
+.names n5146 i5847/I1
+1 1
+.names adc_addr<1> i5847/S
+1 1
+.subckt MUXF6 i5775 I0=-i5775/I0 I1=-i5775/I1 S=-i5775/S O=+n5080
+.names n5076 i5775/I0
+1 1
+.names n5077 i5775/I1
+1 1
+.names adc_addr<2> i5775/S
+1 1
+.names n3295 n4617
+0 1
+.names n74 adc_state_machine_adc_state n1472
+1- 1
+-1 1
+.subckt MUXF6 i5850 I0=-i5850/I0 I1=-i5850/I1 S=-i5850/S O=+n5155
+.names n5151 i5850/I0
+1 1
+.names n5152 i5850/I1
+1 1
+.names adc_addr<2> i5850/S
+1 1
+.names mem<3><8> adc_addr<0> mem<2><8> n5084
+11- 1
+-01 1
+.names n3311 n4666
+0 1
+.names n77 adc_state_machine_adc_state n1475
+1- 1
+-1 1
+.names mem<3><3> adc_addr<0> mem<2><3> n5159
+11- 1
+-01 1
+.names mem<9><8> adc_addr<0> mem<8><8> n5087
+11- 1
+-01 1
+.names n3327 n4715
+0 1
+.names n80 adc_state_machine_adc_state n1478
+1- 1
+-1 1
+.names mem<9><3> adc_addr<0> mem<8><3> n5162
+11- 1
+-01 1
+.names mem<15><8> adc_addr<0> mem<14><8> n5090
+11- 1
+-01 1
+.names n3343 n4764
+0 1
+.names n1465 adc_state_machine_adc_state n1483
+11 1
+.names mem<15><3> adc_addr<0> mem<14><3> n5165
+11- 1
+-01 1
+.subckt MUXF5 i5788 I0=-i5788/I0 I1=-i5788/I1 S=-i5788/S O=+n5093
+.names n5087 i5788/I0
+1 1
+.names n5088 i5788/I1
+1 1
+.names adc_addr<1> i5788/S
+1 1
+.names n3359 n4813
+0 1
+.names n1045 adc_state_machine_adc_state n1487
+11 1
+.subckt MUXF5 i5863 I0=-i5863/I0 I1=-i5863/I1 S=-i5863/S O=+n5168
+.names n5162 i5863/I0
+1 1
+.names n5163 i5863/I1
+1 1
+.names adc_addr<1> i5863/S
+1 1
+.subckt MUXF6 i5791 I0=-i5791/I0 I1=-i5791/I1 S=-i5791/S O=+n5096
+.names n5093 i5791/I0
+1 1
+.names n5094 i5791/I1
+1 1
+.names adc_addr<2> i5791/S
+1 1
+.names n3696 n4862
+0 1
+.names n3377 n4867
+0 1
+.loc AS1543_spi_adc0.vhd 100 adc_1<0>
+.latch spi_adc_miso_1 adc_1<0> re clk 2 n4974
+.loc AS1543_spi_adc0.vhd 100 adc_1<4>
+.latch spi_adc_miso_1 adc_1<4> re clk 2 n4962
+.loc AS1543_spi_adc0.vhd 100 adc_1<8>
+.latch spi_adc_miso_1 adc_1<8> re clk 2 n4950
+.loc AS1543_spi_adc0.vhd 100 adc_1<12>
+.latch spi_adc_miso_1 adc_1<12> re clk 2 n4938
+.loc AS1543_spi_adc0.vhd 100 adc_0<0>
+.latch spi_adc_miso_0 adc_0<0> re clk 2 n4974
+.loc AS1543_spi_adc0.vhd 100 adc_0<2>
+.latch spi_adc_miso_0 adc_0<2> re clk 2 n4968
+.loc AS1543_spi_adc0.vhd 100 adc_0<4>
+.latch spi_adc_miso_0 adc_0<4> re clk 2 n4962
+.loc AS1543_spi_adc0.vhd 100 adc_0<6>
+.latch spi_adc_miso_0 adc_0<6> re clk 2 n4956
+.loc AS1543_spi_adc0.vhd 100 adc_0<8>
+.latch spi_adc_miso_0 adc_0<8> re clk 2 n4950
+.loc AS1543_spi_adc0.vhd 100 adc_0<10>
+.latch spi_adc_miso_0 adc_0<10> re clk 2 n4944
+.loc AS1543_spi_adc0.vhd 100 adc_0<12>
+.latch spi_adc_miso_0 adc_0<12> re clk 2 n4938
+.loc AS1543_spi_adc0.vhd 100 adc_0<14>
+.latch spi_adc_miso_0 adc_0<14> re clk 2 n4932
+.names n3376 n4863
+0 1
+.loc AS1543_spi_adc0.vhd 100 mem<15><3>
+.latch adc_1<3> mem<15><3> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><7>
+.latch adc_1<7> mem<15><7> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><8>
+.latch adc_1<8> mem<15><8> re clk 2 n4816
+.loc AS1543_spi_adc0.vhd 100 mem<15><12>
+.latch adc_1<12> mem<15><12> re clk 2 n4816
+.names n3812 n4568 n4569
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<14><3>
+.latch adc_1<3> mem<14><3> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><7>
+.latch adc_1<7> mem<14><7> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><11>
+.latch adc_1<11> mem<14><11> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<14><15>
+.latch adc_1<15> mem<14><15> re clk 2 n4767
+.loc AS1543_spi_adc0.vhd 100 mem<13><2>
+.latch adc_1<2> mem<13><2> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><6>
+.latch adc_1<6> mem<13><6> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><10>
+.latch adc_1<10> mem<13><10> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<13><14>
+.latch adc_1<14> mem<13><14> re clk 2 n4718
+.loc AS1543_spi_adc0.vhd 100 mem<12><1>
+.latch adc_1<1> mem<12><1> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><5>
+.latch adc_1<5> mem<12><5> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><9>
+.latch adc_1<9> mem<12><9> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<12><13>
+.latch adc_1<13> mem<12><13> re clk 2 n4669
+.loc AS1543_spi_adc0.vhd 100 mem<11><0>
+.latch adc_1<0> mem<11><0> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><1>
+.latch adc_1<1> mem<11><1> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><5>
+.latch adc_1<5> mem<11><5> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><9>
+.latch adc_1<9> mem<11><9> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<11><13>
+.latch adc_1<13> mem<11><13> re clk 2 n4620
+.loc AS1543_spi_adc0.vhd 100 mem<10><0>
+.latch adc_1<0> mem<10><0> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><4>
+.latch adc_1<4> mem<10><4> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><8>
+.latch adc_1<8> mem<10><8> re clk 2 n4571
+.loc AS1543_spi_adc0.vhd 100 mem<10><12>
+.latch adc_1<12> mem<10><12> re clk 2 n4571
+.names n3119 n4306 n4307
+11 1
+.loc AS1543_spi_adc0.vhd 100 mem<9><3>
+.latch adc_1<3> mem<9><3> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><7>
+.latch adc_1<7> mem<9><7> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><11>
+.latch adc_1<11> mem<9><11> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<9><15>
+.latch adc_1<15> mem<9><15> re clk 2 n4522
+.loc AS1543_spi_adc0.vhd 100 mem<8><2>
+.latch adc_1<2> mem<8><2> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><6>
+.latch adc_1<6> mem<8><6> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><10>
+.latch adc_1<10> mem<8><10> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><11>
+.latch adc_1<11> mem<8><11> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<8><15>
+.latch adc_1<15> mem<8><15> re clk 2 n4473
+.loc AS1543_spi_adc0.vhd 100 mem<7><1>
+.latch adc_0<1> mem<7><1> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><3>
+.latch adc_0<3> mem<7><3> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><5>
+.latch adc_0<5> mem<7><5> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><7>
+.latch adc_0<7> mem<7><7> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><9>
+.latch adc_0<9> mem<7><9> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><11>
+.latch adc_0<11> mem<7><11> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><13>
+.latch adc_0<13> mem<7><13> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<7><15>
+.latch adc_0<15> mem<7><15> re clk 2 n4394
+.loc AS1543_spi_adc0.vhd 100 mem<6><0>
+.latch adc_0<0> mem<6><0> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><2>
+.latch adc_0<2> mem<6><2> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><4>
+.latch adc_0<4> mem<6><4> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><6>
+.latch adc_0<6> mem<6><6> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><8>
+.latch adc_0<8> mem<6><8> re clk 2 n4312
+.loc AS1543_spi_adc0.vhd 100 mem<6><10>
+.latch adc_0<10> mem<6><10> re clk 2 n4312
+.names n3119 n3896 n3897
+11 1
+.subckt MUXF6 i5820 I0=-i5820/I0 I1=-i5820/I1 S=-i5820/S O=+n5125
+.names n5121 i5820/I0
+1 1
+.names n5122 i5820/I1
+1 1
+.names adc_addr<2> i5820/S
+1 1
+.names n4228 n3440 n4229
+1- 1
+-1 1
+.subckt MUXF5 i5743 I0=-i5743/I0 I1=-i5743/I1 S=-i5743/S O=+n5048
+.names n5042 i5743/I0
+1 1
+.names n5043 i5743/I1
+1 1
+.names adc_addr<1> i5743/S
+1 1
+.names mem<9><1> adc_addr<0> mem<8><1> n5192
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 100 mem<4><7>
+.latch adc_0<7> mem<4><7> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><9>
+.latch adc_0<9> mem<4><9> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><11>
+.latch adc_0<11> mem<4><11> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><13>
+.latch adc_0<13> mem<4><13> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<4><15>
+.latch adc_0<15> mem<4><15> re clk 2 n4148
+.loc AS1543_spi_adc0.vhd 100 mem<3><0>
+.latch adc_0<0> mem<3><0> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><2>
+.latch adc_0<2> mem<3><2> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><4>
+.latch adc_0<4> mem<3><4> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><6>
+.latch adc_0<6> mem<3><6> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><8>
+.latch adc_0<8> mem<3><8> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><10>
+.latch adc_0<10> mem<3><10> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><12>
+.latch adc_0<12> mem<3><12> re clk 2 n4066
+.loc AS1543_spi_adc0.vhd 100 mem<3><14>
+.latch adc_0<14> mem<3><14> re clk 2 n4066
+.names n4061 n3813 n4063
+1- 1
+-1 1
+.loc AS1543_spi_adc0.vhd 100 mem<2><1>
+.latch adc_0<1> mem<2><1> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 100 mem<2><3>
+.latch adc_0<3> mem<2><3> re clk 2 n3984
+.loc AS1543_spi_adc0.vhd 93
+.subckt XORCY i6017 CI=-i6017/CI LI=-i6017/LI O=+n1046
+.names add_985/n4 i6017/CI
+1 1
+.names n5293 i6017/LI
+1 1
+.names n3982 n3440 n3983
+1- 1
+-1 1
+.subckt MUXF5 i5727 I0=-i5727/I0 I1=-i5727/I1 S=-i5727/S O=+n5032
+.names n5025 i5727/I0
+1 1
+.names n5026 i5727/I1
+1 1
+.names adc_addr<1> i5727/S
+1 1
+.names mem<7><2> adc_addr<0> mem<6><2> n5176
+11- 1
+-01 1
+.names n4862 n4863 n4927
+11 1
+.names reset n3408 n3696
+1- 1
+-1 1
+.names n3378 n4871
+0 1
+.names n3379 n4875
+0 1
+.names n3380 n4879
+0 1
+.names n3381 n4883
+0 1
+.names n3382 n4887
+0 1
+.names n3383 n4891
+0 1
+.names n3384 n4895
+0 1
+.names n3385 n4899
+0 1
+.names n3386 n4903
+0 1
+.names n3387 n4907
+0 1
+.names n3388 n4911
+0 1
+.names n3389 n4915
+0 1
+.names n3390 n4919
+0 1
+.names n3391 n4923
+0 1
+.names n4862 n4867 n4930
+11 1
+.names n3119 n3814 n3815
+11 1
+.names adc_state_machine_clk_spi_cnt<0> adc_state_machine_clk_spi_cnt<0> add_985/n2
+1- 1
+-1 1
+.names mem<3><7> adc_addr<0> mem<2><7> n5099
+11- 1
+-01 1
+.subckt MUXF6 i5865 I0=-i5865/I0 I1=-i5865/I1 S=-i5865/S O=+n5170
+.names n5166 i5865/I0
+1 1
+.names n5167 i5865/I1
+1 1
+.names adc_addr<2> i5865/S
+1 1
+.names n1047 adc_state_machine_adc_state n1489
+11 1
+.names n4862 n4871 n4933
+11 1
+.names n4862 n4875 n4936
+11 1
+.names n4862 n4879 n4939
+11 1
+.names n4862 n4883 n4942
+11 1
+.names n4862 n4887 n4945
+11 1
+.names n4862 n4891 n4948
+11 1
+.names n4862 n4895 n4951
+11 1
+.names n4862 n4899 n4954
+11 1
+.names n4862 n4903 n4957
+11 1
+.names n4862 n4907 n4960
+11 1
+.names n4862 n4911 n4963
+11 1
+.names n4862 n4915 n4966
+11 1
+.names n4862 n4919 n4969
+11 1
+.names n4862 n4923 n4972
+11 1
+.names mem<3><15> adc_addr<0> mem<2><15> n4979
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 29 adc_data<15>
+.latch n7 adc_data<15> re clk 2
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_spi_cnt<0>
+.latch n1490 adc_state_machine_clk_spi_cnt<0> re clk 2 n3787
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_spi_cnt<3>
+.latch n1487 adc_state_machine_clk_spi_cnt<3> re clk 2 n3787
+.names adc_state_machine_adc_state n3732 n3733
+11 1
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_clk_divide_cnt<1>
+.latch n1484 adc_state_machine_clk_divide_cnt<1> re clk 2 n3765
+.loc AS1543_spi_adc0.vhd 100 spi_adc_sclk
+.latch n1491 spi_adc_sclk re clk 5 reset n3761
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<0>
+.latch n1480 adc_state_machine_wait_mux_cnt<0> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<3>
+.latch n1477 adc_state_machine_wait_mux_cnt<3> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<6>
+.latch n1474 adc_state_machine_wait_mux_cnt<6> re clk 5 reset n3734
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_wait_mux_cnt<9>
+.latch n1471 adc_state_machine_wait_mux_cnt<9> re clk 5 reset n3734
+.names adc_state_machine_adc_state n3728 n3729
+11 1
+.names mem<13><15> adc_addr<0> mem<12><15> n4984
+11- 1
+-01 1
+.loc AS1543_spi_adc0.vhd 100 adc_state_machine_ctrl
+.latch n1492 adc_state_machine_ctrl re clk 5 reset

@@ -1,0 +1,542 @@
+	; TASKING TSK3000 VIPER C compiler v1.1r1 Build 234
+	; Options: -f cc4164a --dep-file=Output\as1543.d --make-target=Output\as1543.src -D__ALTIUM_BUILD_MAJOR__=10 -D__ALTIUM_BUILD_MINOR__=0 -D__SWPLATFORM__ -D__FRAMEWORK__ -IOutput\framecfg -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\processors\c3000\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\system\ifconfig\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\system\sysutils\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\drivers\m25px0\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\drivers\pwmx\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\drivers\spi\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\peripherals\ioport\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\peripherals\pwmx\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\peripherals\spi\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\platform\fpga\peripherals\wb_interface\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\services\platform\interrupts\include -IC:\Documents and Settings\All Users\Documents\Altium\AD\Library\Software Platform\services\platform\timing\include -t4 -IS:\Projecten\10014543 - ESRA\6 E\5 Softw\ESRA_noboot --iso=99 --debug-info=default -O3 --rename-sections={module}.{cname} --call=n --align-composites=n --extern-sdata --sdata=4 -o Output\as1543.src
+	; Module start
+	.extern	__save_r16
+	.extern	__restore_r16
+	.extern	__save_r19
+	.extern	__restore_r19
+	.source "Embedded\\as1543.c"
+
+	.section	.text.as1543.InitSPIADC ,cluster('$group_InitSPIADC')
+	.align	4
+	.global	InitSPIADC
+; Function InitSPIADC
+.L4:
+InitSPIADC:	.type	func
+	addiu	$sp,$sp,-8
+.L31:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L32:
+	move	$s0,$a0
+.L33:
+	jal	spi_cs_lo
+	move	$a0,$s0
+.L55:
+	li	$a1,0x9f
+	jal	spi_transceive8
+	move	$a0,$s0
+.L56:
+	li	$a1,0x38
+	jal	spi_transceive8
+	move	$a0,$s0
+.L57:
+	jal	spi_cs_hi
+	move	$a0,$s0
+.L58:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L21:
+	.size	InitSPIADC,*-InitSPIADC
+.L15:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.as1543.Read8ADC ,cluster('$group_Read8ADC')
+	.align	4
+	.global	Read8ADC
+; Function Read8ADC
+.L6:
+Read8ADC:	.type	func
+	addiu	$sp,$sp,-20
+.L34:
+	sw	$ra,0($sp)
+	jal	__save_r19
+	nop
+.L35:
+	move	$s1,$a0
+.L36:
+	move	$s2,$a1
+.L37:
+	li	$s0,0x7
+.L38:
+	move	$s3,$zero
+.L2:
+	jal	spi_cs_lo
+	move	$a0,$s1
+.L63:
+	addu	$v0,$s0,$s0
+	addu	$s0,$s2,$v0
+.L39:
+	sll	$v0,$s3,2
+	ori	$v0,$v0,0x83
+	sll	$v0,$v0,8
+	addiu	$a1,$v0,56
+	jal	spi_transceive16
+	move	$a0,$s1
+	andi	$v0,$v0,0xfff
+	sh	$v0,0($s0)
+.L64:
+	jal	spi_cs_hi
+	move	$a0,$s1
+.L65:
+	move	$s0,$s3
+.L40:
+	addiu	$s3,$s3,1
+.L66:
+	slti	$v0,$s3,8
+	bne	$v0,$zero,.L2
+	nop
+.L67:
+	li	$a0,20
+	j	__restore_r19
+	nop
+.L24:
+	.size	Read8ADC,*-Read8ADC
+.L20:
+	; End of function
+	.endsec	; End of section
+
+	.calls	'InitSPIADC','__save_r16'
+	.calls	'Read8ADC','__save_r19'
+	.calls	'InitSPIADC','spi_cs_lo'
+	.calls	'InitSPIADC','spi_transceive8'
+	.calls	'InitSPIADC','spi_cs_hi'
+	.calls	'Read8ADC','spi_cs_lo'
+	.calls	'Read8ADC','spi_transceive16'
+	.calls	'Read8ADC','spi_cs_hi'
+	.calls	'InitSPIADC','',8
+	.calls	'Read8ADC','',20
+	.extern	spi_cs_lo
+	.extern	spi_cs_hi
+	.extern	spi_transceive8
+	.extern	spi_transceive16
+	.extern	__save_r16
+	.extern	__restore_r16
+	.extern	__save_r19
+	.extern	__restore_r19
+	.section	.debug_info
+.L8:
+	.dw	536
+	.dh	3
+	.dw	.L9
+	.db	4
+.L7:
+	.db	1
+	.db	"Embedded\\as1543.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"S:\\Projecten\\10014543 - ESRA\\6 E\\5 Softw\\ESRA_noboot\\",0
+	.db	12,1
+	.dw	.L10
+	.db	2
+	.db	"spi_cs_lo",0
+	.db	1,51,13,1,1,1,1,3
+	.db	"drv",0
+	.db	1,51,41
+	.dw	.L22-.L8
+	.db	0
+.L22:
+	.db	4
+	.dw	.L41-.L8
+.L41:
+	.db	5
+	.db	"drv_spi_s",0
+	.db	1,43,16,1,2
+	.db	"spi_cs_hi",0
+	.db	1,52,13,1,1,1,1,3
+	.db	"drv",0
+	.db	1,52,41
+	.dw	154
+	.db	0,6
+	.db	"spi_transceive8",0
+	.db	1,58,16
+	.dw	.L28-.L8
+	.db	1,1,1,1,3
+	.db	"drv",0
+	.db	1,58,50
+	.dw	154
+	.db	3
+	.db	"val",0
+	.db	1,58,63
+	.dw	.L28-.L8
+	.db	0
+.L28:
+	.db	7
+	.db	"unsigned char",0
+	.db	1,8,6
+	.db	"spi_transceive16",0
+	.db	1,59,17
+	.dw	.L42-.L8
+	.db	1,1,1,1,3
+	.db	"drv",0
+	.db	1,59,52
+	.dw	154
+	.db	3
+	.db	"val",0
+	.db	1,59,66
+	.dw	.L42-.L8
+	.db	0
+.L42:
+	.db	7
+	.db	"unsigned short int",0
+	.db	2,7
+.L26:
+	.db	4
+	.dw	329
+	.db	8
+	.db	"__wchar_t",0
+	.db	2,1,1
+	.dw	329
+	.db	8
+	.db	"__size_t",0
+	.db	2,1,1
+	.dw	.L43-.L8
+.L43:
+	.db	7
+	.db	"unsigned int",0
+	.db	4,7,8
+	.db	"__ptrdiff_t",0
+	.db	2,1,1
+	.dw	.L44-.L8
+.L44:
+	.db	7
+	.db	"int",0
+	.db	4,5,8
+	.db	"__codeptr",0
+	.db	2,1,1
+	.dw	.L45-.L8
+.L45:
+	.db	4
+	.dw	.L46-.L8
+.L46:
+	.db	9,1,8
+	.db	"uint8_t",0
+	.db	3,22,33
+	.dw	258
+	.db	8
+	.db	"uint16_t",0
+	.db	3,24,33
+	.dw	329
+	.db	8
+	.db	"int32_t",0
+	.db	3,25,33
+	.dw	427
+	.db	8
+	.db	"uint32_t",0
+	.db	3,26,33
+	.dw	391
+	.db	8
+	.db	"spi_t",0
+	.db	1,43,26
+	.dw	159
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev
+.L9:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,46,1,3,8,58,15,59,15,57,15,54,15,39,12,63,12,60,12,0,0
+	.db	3,5,0,3,8,58,15,59,15,57,15,73,19,0,0,4,15,0,73,19,0,0,5,19,0,3,8,58,15,59,15,57,15,60,12,0,0,6,46,1,3
+	.db	8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,7,36,0,3,8,11,15,62,15,0,0,8,22,0,3,8,58,15,59,15
+	.db	57,15,73,19,0,0,9,21,0,54,15,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line
+.L10:
+	.dw	.L48-.L47
+.L47:
+	.dh	3
+	.dw	.L50-.L49
+.L49:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"C:\\Documents and Settings\\All Users\\Documents\\Altium\\AD\\Library\\Software Platform\\platform\\fpga\\drivers\\spi\\include\\drv_spi.h",0
+	.db	0,0,0
+	.db	"Embedded\\as1543.c",0
+	.db	0,0,0
+	.db	"C:\\PROGRAM FILES\\ALTIUM\\AD\\System\\Tasking\\c3000\\include\\stdint.h",0
+	.db	0,0,0,0
+.L50:
+.L48:
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_InitSPIADC')
+.L11:
+	.dw	189
+	.dh	3
+	.dw	.L12
+	.db	4,1
+	.db	"Embedded\\as1543.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"S:\\Projecten\\10014543 - ESRA\\6 E\\5 Softw\\ESRA_noboot\\",0
+	.db	12,1
+	.dw	.L14,.L13
+	.db	2
+	.dw	.L7
+	.db	3
+	.db	"InitSPIADC",0
+	.db	1,8,6,1,1,1
+	.dw	.L4,.L21,.L3
+	.db	4
+	.db	"adc_ref",0
+	.db	1,8,25
+	.dw	.L22,.L23
+	.db	5
+	.dw	.L4,.L21
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_InitSPIADC')
+.L12:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_InitSPIADC')
+.L13:
+	.dw	.L52-.L51
+.L51:
+	.dh	3
+	.dw	.L54-.L53
+.L53:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\as1543.c",0
+	.db	0,0,0,0
+.L54:
+	.db	5,6,7,0,5,2
+	.dw	.L4
+	.db	3,7,1,5,21,9
+	.dh	.L33-.L4
+	.db	3,1,1,5,33
+	.db	16+9*((.L55-.L33)/4)
+	.db	15+9*((.L56-.L55)/4)
+	.db	5,21
+	.db	18+9*((.L57-.L56)/4)
+	.db	5,1
+	.db	15+9*((.L58-.L57)/4)
+	.db	9
+	.dh	.L15-.L58
+	.db	0,1,1
+.L52:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_InitSPIADC')
+.L14:
+	.dw	-1
+	.dw	.L4
+	.dw	0
+	.dw	.L15-.L4
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_Read8ADC')
+.L16:
+	.dw	232
+	.dh	3
+	.dw	.L17
+	.db	4,1
+	.db	"Embedded\\as1543.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"S:\\Projecten\\10014543 - ESRA\\6 E\\5 Softw\\ESRA_noboot\\",0
+	.db	12,1
+	.dw	.L19,.L18
+	.db	2
+	.dw	.L7
+	.db	3
+	.db	"Read8ADC",0
+	.db	1,19,6,1,1,1
+	.dw	.L6,.L24,.L5
+	.db	4
+	.db	"adc_ref",0
+	.db	1,19,23
+	.dw	.L22,.L25
+	.db	4
+	.db	"chD",0
+	.db	1,19,39
+	.dw	.L26,.L27
+	.db	5
+	.dw	.L6,.L24
+	.db	6
+	.db	"i",0
+	.db	1,20,10
+	.dw	.L28,.L29
+	.db	6
+	.db	"j",0
+	.db	1,20,12
+	.dw	.L28,.L30
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_Read8ADC')
+.L17:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.db	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_Read8ADC')
+.L18:
+	.dw	.L60-.L59
+.L59:
+	.dh	3
+	.dw	.L62-.L61
+.L61:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\as1543.c",0
+	.db	0,0,0,0
+.L62:
+	.db	5,6,7,0,5,2
+	.dw	.L6
+	.db	3,18,1,5,7,9
+	.dh	.L37-.L6
+	.db	3,2,1,5,12
+	.db	15+9*((.L38-.L37)/4)
+	.db	5,25
+	.db	17+9*((.L2-.L38)/4)
+	.db	5,66
+	.db	15+9*((.L63-.L2)/4)
+	.db	5,25,9
+	.dh	.L64-.L63
+	.db	3,4,1,5,10
+	.db	15+9*((.L65-.L64)/4)
+	.db	5,20,9
+	.dh	.L40-.L65
+	.db	3,119,1,5,16
+	.db	14+9*((.L66-.L40)/4)
+	.db	5,1,9
+	.dh	.L67-.L66
+	.db	3,11,1,9
+	.dh	.L20-.L67
+	.db	0,1,1
+.L60:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_Read8ADC')
+.L19:
+	.dw	-1
+	.dw	.L6
+	.dw	0
+	.dw	.L20-.L6
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_Read8ADC')
+.L5:
+	.dw	-1
+	.dw	.L6,.L6-.L6,.L34-.L6
+	.dh	2
+	.db	141,0
+	.dw	.L34-.L6,.L24-.L6
+	.dh	2
+	.db	141,20
+	.dw	.L24-.L6,.L24-.L6
+	.dh	2
+	.db	141,0
+	.dw	0,0
+.L30:
+	.dw	-1
+	.dw	.L6,.L38-.L6,.L39-.L6
+	.dh	1
+	.db	96
+	.dw	.L40-.L6,.L24-.L6
+	.dh	1
+	.db	96
+	.dw	0,0
+.L27:
+	.dw	-1
+	.dw	.L6,.L6-.L6,.L35-.L6
+	.dh	1
+	.db	85
+	.dw	.L36-.L6,.L37-.L6
+	.dh	1
+	.db	85
+	.dw	.L37-.L6,.L24-.L6
+	.dh	1
+	.db	98
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_InitSPIADC')
+.L23:
+	.dw	-1
+	.dw	.L4,.L4-.L4,.L21-.L4
+	.dh	1
+	.db	84
+	.dw	.L33-.L4,.L21-.L4
+	.dh	1
+	.db	96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_Read8ADC')
+.L25:
+	.dw	-1
+	.dw	.L6,.L36-.L6,.L24-.L6
+	.dh	1
+	.db	97
+	.dw	.L6-.L6,.L36-.L6
+	.dh	1
+	.db	84
+	.dw	.L2-.L6,.L24-.L6
+	.dh	1
+	.db	84
+	.dw	0,0
+.L29:
+	.dw	-1
+	.dw	.L6,.L38-.L6,.L2-.L6
+	.dh	1
+	.db	80
+	.dw	.L2-.L6,.L24-.L6
+	.dh	1
+	.db	99
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_InitSPIADC')
+.L3:
+	.dw	-1
+	.dw	.L4,.L4-.L4,.L31-.L4
+	.dh	2
+	.db	141,0
+	.dw	.L31-.L4,.L21-.L4
+	.dh	2
+	.db	141,8
+	.dw	.L21-.L4,.L21-.L4
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_frame
+.L68:
+	.dw	40
+	.dw	-1
+	.db	3,0,4,1,31,12,29,0,8,0,8,29,8,31,8,1,8,16,8,17,8,18,8,19,8,20,8,21,8,22,8,23,8,28,8,30
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_InitSPIADC')
+	.dw	48
+	.dw	.L68,.L4,.L21-.L4
+	.db	4
+	.dw	(.L31-.L4)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L32-.L31)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L21-.L32)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_Read8ADC')
+	.dw	60
+	.dw	.L68,.L6,.L24-.L6
+	.db	4
+	.dw	(.L34-.L6)/4
+	.db	19,20,22,29,3,19,141,20,4
+	.dw	(.L35-.L34)/4
+	.db	17,31,108,17,16,112,17,17,116,17,18,120,17,19,124,4
+	.dw	(.L24-.L35)/4
+	.db	211,210,209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	; Module end
+	.end

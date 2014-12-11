@@ -1,0 +1,6 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=ESRA_Spartan6.PrjFpg
+[Project2]
+ProjectPath=Ethercat_FPGA.PrjEmb

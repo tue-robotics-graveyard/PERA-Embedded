@@ -1,0 +1,5690 @@
+	; TASKING TSK3000 VIPER C compiler v1.1r1 Build 235
+	; Options: -f cc4312a --dep-file=Output\esc_foe.d --make-target=Output\esc_foe.src -D__ALTIUM_BUILD_MAJOR__=-1 -D__ALTIUM_BUILD_MINOR__=10 -D__ALTIUM_PROJECT_NAME__="Ethercat_FPGA" -D__SWPLATFORM__ -D__FRAMEWORK__ -IOutput\framecfg -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\processors\c3000\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\ifconfig\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\system\sysutils\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\external\drivers\m25px0\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\drivers\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\ioport\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\pwmx\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\uart8\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\fpga\peripherals\wb_interface\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\platform\generic\interfaces\spi\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\interrupts\include -IC:\ProgramData\Altium\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\Extensions\Embedded\Library\Software Platform\services\platform\timing\include -t4 -IC:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206 --iso=99 --debug-info=default --global-type-checking -O3 --rename-sections={module}.{cname} --call=n --align-composites=n --extern-sdata --sdata=4 -o Output\esc_foe.src
+	; Module start
+	.extern	__save_r16
+	.extern	__restore_r16
+	.extern	__save_r18
+	.extern	__restore_r18
+	.extern	__save_r17
+	.extern	__restore_r17
+	.extern	__save_r19
+	.extern	__restore_r19
+	.source "Embedded\\esc_foe.c"
+
+	.section	.text.esc_foe.FOE_fopen ,cluster('$group_FOE_fopen')
+	.align	4
+	.global	FOE_fopen
+; Function FOE_fopen
+.L88:
+FOE_fopen:	.type	func
+	slti	$v0,$a1,17
+	bne	$v0,$zero,.L2
+	nop
+.L576:
+	li	$a1,0x10
+.L2:
+	lhu	$v0,@gprel(file_name_len)($gp)
+	slt	$v1,$v0,$a1
+	beq	$v1,$zero,.L3
+	nop
+	move	$a1,$v0
+.L3:
+	move	$v0,$zero
+.L304:
+	lui	$v1,@hi(foe_file_name)
+	addiu	$v1,$v1,@lo(foe_file_name)
+.L577:
+	j	.L4
+.L578:
+	move	$a2,$v1
+.L5:
+	lb	$t0,0($a0)
+.L579:
+	addiu	$a0,$a0,1
+.L580:
+	sb	$t0,0($a2)
+.L581:
+	addiu	$a2,$a2,1
+.L582:
+	addiu	$v0,$v0,1
+.L305:
+	andi	$v0,$v0,0xffff
+.L4:
+	slt	$t1,$v0,$a1
+	bne	$t1,$zero,.L5
+	nop
+.L583:
+	addu	$v0,$v1,$v0
+.L306:
+	sb	$zero,0($v0)
+.L584:
+	addiu	$v0,$a3,-1
+	andi	$v0,$v0,0xff
+	slti	$v0,$v0,2
+	beq	$v0,$zero,.L6
+	nop
+.L585:
+	lui	$v0,@hi(ESCvar)
+	addiu	$v0,$v0,@lo(ESCvar)
+	move	$v1,$zero
+	sb	$zero,80($v0)
+	sra	$v1,$v1,8
+	sb	$v1,79($v0)
+	sra	$v1,$v1,8
+	sb	$v1,78($v0)
+	sra	$v1,$v1,8
+	sb	$v1,77($v0)
+.L586:
+	lui	$v1,0x40
+	sb	$v1,88($v0)
+	sra	$v1,$v1,8
+	sb	$v1,87($v0)
+	sra	$v1,$v1,8
+	sb	$v1,86($v0)
+	sra	$v1,$v1,8
+	sb	$v1,85($v0)
+.L587:
+	jr	$ra
+.L588:
+	andi	$v0,$zero,0xffff
+.L6:
+	li	$v0,0x8001
+.L589:
+	jr	$ra
+.L590:
+	andi	$v0,$v0,0xffff
+.L248:
+	.size	FOE_fopen,*-FOE_fopen
+.L145:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_fetchbuffer ,cluster('$group_FOE_fetchbuffer')
+	.align	4
+	.global	FOE_fetchbuffer
+; Function FOE_fetchbuffer
+.L90:
+FOE_fetchbuffer:	.type	func
+	addiu	$sp,$sp,-8
+.L307:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L308:
+	lui	$v0,@hi(ESCvar)
+	addiu	$s0,$v0,@lo(ESCvar)
+	lbu	$v0,91($s0)
+	beq	$v0,$zero,.L9
+	nop
+.L595:
+	lbu	$v0,89($s0)
+	lbu	$v1,90($s0)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	slti	$v0,$v0,256
+	bne	$v0,$zero,.L10
+	nop
+.L9:
+	lw	$a0,@gprel(drv_m25px0_1)($gp)
+	lbu	$a1,77($s0)
+	lbu	$v0,78($s0)
+	sll	$a1,$a1,24
+	sll	$v0,$v0,16
+	lbu	$v1,79($s0)
+	or	$a1,$a1,$v0
+	sll	$v1,$v1,8
+	lbu	$v0,80($s0)
+	or	$a1,$a1,$v1
+	or	$a1,$a1,$v0
+	lui	$v0,@hi(fbuffer)
+	addiu	$a2,$v0,@lo(fbuffer)
+	jal	m25px0_read
+	li	$a3,0x100
+.L596:
+	move	$v0,$zero
+	sb	$zero,90($s0)
+	sra	$v0,$v0,8
+	sb	$v0,89($s0)
+.L597:
+	li	$v0,0x1
+	sb	$v0,91($s0)
+.L10:
+	lbu	$v0,77($s0)
+	lbu	$v1,78($s0)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,79($s0)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,80($s0)
+	or	$v0,$v0,$a0
+	or	$v0,$v0,$v1
+	addiu	$v0,$v0,1
+	sb	$v0,80($s0)
+	sra	$v0,$v0,8
+	sb	$v0,79($s0)
+	sra	$v0,$v0,8
+	sb	$v0,78($s0)
+	sra	$v0,$v0,8
+	sb	$v0,77($s0)
+.L598:
+	lbu	$v0,89($s0)
+	lbu	$v1,90($s0)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	addiu	$v1,$v0,1
+	sb	$v1,90($s0)
+	sra	$v1,$v1,8
+	sb	$v1,89($s0)
+.L599:
+	lui	$v1,@hi(fbuffer)
+	addiu	$v1,$v1,@lo(fbuffer)
+	addu	$v0,$v0,$v1
+	lbu	$v0,0($v0)
+.L600:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L257:
+	.size	FOE_fetchbuffer,*-FOE_fetchbuffer
+.L150:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_fread ,cluster('$group_FOE_fread')
+	.align	4
+	.global	FOE_fread
+; Function FOE_fread
+.L92:
+FOE_fread:	.type	func
+	addiu	$sp,$sp,-16
+.L309:
+	sw	$ra,0($sp)
+	jal	__save_r18
+	nop
+.L310:
+	move	$s0,$a0
+.L311:
+	move	$s1,$a1
+.L312:
+	j	.L12
+.L605:
+	move	$s2,$zero
+.L13:
+	jal	FOE_fetchbuffer
+.L606:
+	addiu	$s1,$s1,-1
+.L607:
+	sb	$v0,0($s0)
+.L608:
+	addiu	$s0,$s0,1
+.L609:
+	addiu	$v0,$s2,1
+	andi	$s2,$v0,0xffff
+.L12:
+	beq	$s1,$zero,.L14
+.L610:
+	nop
+.L611:
+	lui	$v0,@hi(ESCvar)
+	addiu	$v0,$v0,@lo(ESCvar)
+	lbu	$v1,85($v0)
+	lbu	$a0,86($v0)
+	sll	$v1,$v1,24
+	sll	$a0,$a0,16
+	lbu	$a1,87($v0)
+	or	$v1,$v1,$a0
+	sll	$a1,$a1,8
+	lbu	$a0,88($v0)
+	or	$v1,$v1,$a1
+	lbu	$a1,77($v0)
+	or	$v1,$v1,$a0
+	lbu	$a0,78($v0)
+	sll	$a1,$a1,24
+	sll	$a0,$a0,16
+	lbu	$a2,79($v0)
+	or	$a1,$a1,$a0
+	sll	$a2,$a2,8
+	lbu	$v0,80($v0)
+	or	$a1,$a1,$a2
+	or	$a1,$a1,$v0
+	subu	$v0,$v1,$a1
+	bne	$v0,$zero,.L13
+	nop
+.L14:
+	andi	$v0,$s2,0xffff
+.L612:
+	li	$a0,16
+	j	__restore_r18
+	nop
+.L258:
+	.size	FOE_fread,*-FOE_fread
+.L155:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_writebuffer ,cluster('$group_FOE_writebuffer')
+	.align	4
+	.global	FOE_writebuffer
+; Function FOE_writebuffer
+.L94:
+FOE_writebuffer:	.type	func
+	addiu	$sp,$sp,-12
+.L313:
+	sw	$ra,0($sp)
+	jal	__save_r17
+	nop
+.L314:
+	lui	$v0,@hi(ESCvar)
+	addiu	$s1,$v0,@lo(ESCvar)
+	lbu	$v0,89($s1)
+	lbu	$v1,90($s1)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	slti	$v0,$v0,256
+.L316:
+	bne	$v0,$zero,.L16
+.L617:
+	move	$s0,$a0
+.L315:
+	lbu	$v0,91($s1)
+	bne	$v0,$zero,.L17
+	nop
+.L618:
+	jal	_cocofun_3
+	nop
+	jal	m25px0_sector_erase
+	nop
+.L619:
+	j	.L18
+	nop
+.L19:
+	nop
+.L18:
+	jal	m25px0_status
+	lw	$a0,@gprel(drv_m25px0_1)($gp)
+	andi	$v0,$v0,0x1
+	bne	$v0,$zero,.L19
+	nop
+.L17:
+	jal	_cocofun_3
+	nop
+	lui	$v0,@hi(fbuffer)
+	addiu	$a2,$v0,@lo(fbuffer)
+	jal	m25px0_program_page
+	li	$a3,0x100
+.L620:
+	j	.L20
+	nop
+.L21:
+	nop
+.L20:
+	jal	m25px0_status
+	lw	$a0,@gprel(drv_m25px0_1)($gp)
+	andi	$v0,$v0,0x1
+	bne	$v0,$zero,.L21
+	nop
+.L621:
+	move	$v0,$zero
+	sb	$zero,90($s1)
+	sra	$v0,$v0,8
+	sb	$v0,89($s1)
+.L622:
+	lbu	$v0,91($s1)
+	addiu	$v0,$v0,1
+	sb	$v0,91($s1)
+.L16:
+	lbu	$v0,77($s1)
+	lbu	$v1,78($s1)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,79($s1)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,80($s1)
+	or	$v0,$v0,$a0
+	or	$v0,$v0,$v1
+	addiu	$v0,$v0,1
+	sb	$v0,80($s1)
+	sra	$v0,$v0,8
+	sb	$v0,79($s1)
+	sra	$v0,$v0,8
+	sb	$v0,78($s1)
+	sra	$v0,$v0,8
+	sb	$v0,77($s1)
+.L623:
+	lbu	$v0,89($s1)
+	lbu	$v1,90($s1)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	lui	$v1,@hi(fbuffer)
+	addiu	$v1,$v1,@lo(fbuffer)
+	addu	$v1,$v0,$v1
+	sb	$s0,0($v1)
+.L624:
+	addiu	$v0,$v0,1
+	sb	$v0,90($s1)
+	sra	$v0,$v0,8
+	sb	$v0,89($s1)
+.L625:
+	li	$a0,12
+	j	__restore_r17
+	nop
+.L263:
+	.size	FOE_writebuffer,*-FOE_writebuffer
+.L160:
+	; End of function
+; Function _cocofun_3
+.L96:
+_cocofun_3:	.type	func
+; Function body _cocofun_3, coco_iter:0
+	lw	$a0,@gprel(drv_m25px0_1)($gp)
+	lbu	$v0,77($s1)
+	lbu	$v1,78($s1)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a1,79($s1)
+	or	$v0,$v0,$v1
+	sll	$a1,$a1,8
+	lbu	$v1,80($s1)
+	or	$v0,$v0,$a1
+	or	$v0,$v0,$v1
+.L763:
+	jr	$ra
+.L764:
+	addiu	$a1,$v0,-256
+.L225:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_fwrite ,cluster('$group_FOE_fwrite')
+	.align	4
+	.global	FOE_fwrite
+; Function FOE_fwrite
+.L98:
+FOE_fwrite:	.type	func
+	addiu	$sp,$sp,-20
+.L317:
+	sw	$ra,0($sp)
+	jal	__save_r19
+	nop
+.L318:
+	move	$s1,$a0
+.L320:
+	move	$s2,$a1
+.L319:
+	lui	$v0,@hi(ESCvar)
+	addiu	$s0,$v0,@lo(ESCvar)
+	lbu	$v0,77($s0)
+.L321:
+	move	$s3,$zero
+.L322:
+	lbu	$v1,78($s0)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,79($s0)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,80($s0)
+	or	$v0,$v0,$a0
+	or	$v0,$v0,$v1
+	sb	$v0,84($s0)
+	sra	$v0,$v0,8
+	sb	$v0,83($s0)
+	sra	$v0,$v0,8
+	sb	$v0,82($s0)
+	sra	$v0,$v0,8
+.L630:
+	j	.L22
+.L631:
+	sb	$v0,81($s0)
+.L23:
+	lbu	$a0,0($s1)
+	jal	FOE_writebuffer
+.L632:
+	addiu	$s2,$s2,-1
+.L633:
+	addiu	$s1,$s1,1
+.L634:
+	addiu	$v0,$s3,1
+	andi	$s3,$v0,0xffff
+.L22:
+	beq	$s2,$zero,.L24
+.L635:
+	nop
+.L636:
+	lbu	$v0,85($s0)
+	lbu	$v1,86($s0)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,87($s0)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,88($s0)
+	or	$v0,$v0,$a0
+	lbu	$a0,77($s0)
+	or	$v0,$v0,$v1
+	lbu	$v1,78($s0)
+	sll	$a0,$a0,24
+	sll	$v1,$v1,16
+	lbu	$a1,79($s0)
+	or	$a0,$a0,$v1
+	sll	$a1,$a1,8
+	lbu	$v1,80($s0)
+	or	$a0,$a0,$a1
+	or	$a0,$a0,$v1
+	subu	$v0,$v0,$a0
+	bne	$v0,$zero,.L23
+	nop
+.L24:
+	andi	$v0,$s3,0xffff
+.L637:
+	li	$a0,20
+	j	__restore_r19
+	nop
+.L266:
+	.size	FOE_fwrite,*-FOE_fwrite
+.L165:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_fclose ,cluster('$group_FOE_fclose')
+	.align	4
+	.global	FOE_fclose
+; Function FOE_fclose
+.L100:
+FOE_fclose:	.type	func
+	addiu	$sp,$sp,-8
+.L323:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L324:
+	j	.L26
+.L642:
+	li	$s0,0x100
+.L27:
+	jal	FOE_writebuffer
+	move	$a0,$zero
+.L26:
+	move	$v0,$s0
+	addiu	$v1,$s0,-1
+.L643:
+	bne	$v0,$zero,.L27
+.L644:
+	andi	$s0,$v1,0xffff
+.L645:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L270:
+	.size	FOE_fclose,*-FOE_fclose
+.L170:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_init ,cluster('$group_FOE_init')
+	.align	4
+	.global	FOE_init
+; Function FOE_init
+.L102:
+FOE_init:	.type	func
+	lui	$v0,@hi(ESCvar)
+	addiu	$v0,$v0,@lo(ESCvar)
+	move	$v1,$zero
+	sb	$zero,96($v0)
+	sra	$v1,$v1,8
+	sb	$v1,95($v0)
+	sra	$v1,$v1,8
+	sb	$v1,94($v0)
+	sra	$v1,$v1,8
+	sb	$v1,93($v0)
+.L542:
+	sb	$zero,76($v0)
+.L543:
+	move	$v1,$zero
+	sb	$zero,80($v0)
+	sra	$v1,$v1,8
+	sb	$v1,79($v0)
+	sra	$v1,$v1,8
+	sb	$v1,78($v0)
+	sra	$v1,$v1,8
+	sb	$v1,77($v0)
+.L544:
+	move	$v1,$zero
+	sb	$zero,84($v0)
+	sra	$v1,$v1,8
+	sb	$v1,83($v0)
+	sra	$v1,$v1,8
+	sb	$v1,82($v0)
+	sra	$v1,$v1,8
+	sb	$v1,81($v0)
+.L545:
+	sb	$zero,91($v0)
+.L546:
+	move	$v1,$zero
+	sb	$zero,90($v0)
+	sra	$v1,$v1,8
+.L547:
+	jr	$ra
+.L548:
+	sb	$v1,89($v0)
+.L245:
+	.size	FOE_init,*-FOE_init
+.L135:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_abort ,cluster('$group_FOE_abort')
+	.align	4
+	.global	FOE_abort
+; Function FOE_abort
+.L104:
+FOE_abort:	.type	func
+	addiu	$sp,$sp,-8
+.L325:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L326:
+	beq	$a0,$zero,.L28
+.L650:
+	move	$s0,$a0
+.L333:
+	jal	ESC_claimbuffer
+	nop
+.L331:
+	beq	$v0,$zero,.L29
+.L651:
+	nop
+.L652:
+	jal	_cocofun_4
+	nop
+.L653:
+	li	$a1,0x5
+.L654:
+	andi	$a0,$a0,0xfff0
+	ori	$a0,$a0,0x4
+.L336:
+	sb	$a0,5($v1)
+.L655:
+	sb	$a1,6($v1)
+.L337:
+	srl	$a0,$s0,24
+	andi	$a0,$a0,0xff
+	srl	$a1,$s0,8
+	andi	$a1,$a1,0xff00
+	or	$a0,$a0,$a1
+	andi	$a1,$s0,0xff00
+	sll	$a1,$a1,8
+	or	$a0,$a0,$a1
+	andi	$a1,$s0,0xff
+	sll	$a1,$a1,24
+	or	$a0,$a0,$a1
+.L338:
+	sb	$a0,11($v1)
+.L339:
+	sra	$a0,$a0,8
+.L334:
+	sb	$a0,10($v1)
+.L335:
+	sra	$a0,$a0,8
+.L329:
+	sb	$a0,9($v1)
+.L330:
+	sra	$a0,$a0,8
+.L327:
+	sb	$a0,8($v1)
+.L328:
+	addiu	$v1,$gp,@gprel(MBXcontrol)
+	addu	$v0,$v0,$v1
+.L332:
+	li	$v1,0x3
+	sb	$v1,0($v0)
+.L29:
+.L28:
+	jal	FOE_init
+	nop
+.L656:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L272:
+	.size	FOE_abort,*-FOE_abort
+.L175:
+	; End of function
+; Function _cocofun_4
+.L106:
+_cocofun_4:	.type	func
+; Function body _cocofun_4, coco_iter:0
+	sll	$v1,$v0,7
+	lui	$a0,@hi(MBX)
+	addiu	$a0,$a0,@lo(MBX)
+	addu	$v1,$v1,$a0
+.L769:
+	li	$a0,0x600
+	sb	$a0,1($v1)
+	sra	$a0,$a0,8
+	sb	$a0,0($v1)
+.L770:
+	jr	$ra
+.L771:
+	lbu	$a0,5($v1)
+.L230:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_send_data_packet ,cluster('$group_FOE_send_data_packet')
+	.align	4
+	.global	FOE_send_data_packet
+; Function FOE_send_data_packet
+.L108:
+FOE_send_data_packet:	.type	func
+	addiu	$sp,$sp,-12
+.L340:
+	sw	$ra,0($sp)
+	jal	__save_r17
+	nop
+.L341:
+	jal	ESC_claimbuffer
+	nop
+.L342:
+	beq	$v0,$zero,.L30
+.L661:
+	move	$s0,$v0
+.L344:
+	sll	$v0,$s0,7
+.L343:
+	lui	$v1,@hi(MBX)
+	addiu	$v1,$v1,@lo(MBX)
+	addu	$s1,$v0,$v1
+.L345:
+	addiu	$a0,$s1,12
+	jal	FOE_fread
+	li	$a1,0x74
+.L346:
+	addiu	$v1,$v0,6
+	andi	$v1,$v1,0xffff
+	andi	$a0,$v1,0xff00
+	sra	$a0,$a0,8
+	andi	$v1,$v1,0xff
+	sll	$v1,$v1,8
+	or	$v1,$a0,$v1
+	sb	$v1,1($s1)
+	sra	$v1,$v1,8
+	sb	$v1,0($s1)
+.L662:
+	lbu	$v1,5($s1)
+.L663:
+	li	$a3,0x3
+.L664:
+	andi	$v1,$v1,0xfff0
+	ori	$v1,$v1,0x4
+	sb	$v1,5($s1)
+.L665:
+	sb	$a3,6($s1)
+.L666:
+	lui	$v1,@hi(ESCvar+93)
+	addiu	$v1,$v1,@lo(ESCvar+93)
+	lbu	$a0,0($v1)
+	lbu	$a1,1($v1)
+	sll	$a0,$a0,24
+	sll	$a1,$a1,16
+	lbu	$a2,2($v1)
+	or	$a0,$a0,$a1
+	sll	$a2,$a2,8
+	lbu	$a1,3($v1)
+	or	$a0,$a0,$a2
+	or	$a0,$a0,$a1
+	srl	$a1,$a0,24
+	andi	$a1,$a1,0xff
+	srl	$a2,$a0,8
+	andi	$a2,$a2,0xff00
+	or	$a1,$a1,$a2
+	andi	$a2,$a0,0xff00
+	sll	$a2,$a2,8
+	or	$a1,$a1,$a2
+	andi	$a2,$a0,0xff
+	sll	$a2,$a2,24
+	or	$a1,$a1,$a2
+	sb	$a1,11($s1)
+	sra	$a1,$a1,8
+	sb	$a1,10($s1)
+	sra	$a1,$a1,8
+	sb	$a1,9($s1)
+	sra	$a1,$a1,8
+	sb	$a1,8($s1)
+.L667:
+	addiu	$a1,$gp,@gprel(MBXcontrol)
+	addu	$a1,$s0,$a1
+	sb	$a3,0($a1)
+.L668:
+	addiu	$a0,$a0,1
+	sb	$a0,3($v1)
+	sra	$a0,$a0,8
+	sb	$a0,2($v1)
+	sra	$a0,$a0,8
+	sb	$a0,1($v1)
+	sra	$a0,$a0,8
+.L669:
+	j	.L31
+.L670:
+	sb	$a0,0($v1)
+.L30:
+	li	$v0,0x800b
+.L31:
+	andi	$v0,$v0,0xffff
+.L671:
+	li	$a0,12
+	j	__restore_r17
+	nop
+.L278:
+	.size	FOE_send_data_packet,*-FOE_send_data_packet
+.L180:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_send_ack ,cluster('$group_FOE_send_ack')
+	.align	4
+	.global	FOE_send_ack
+; Function FOE_send_ack
+.L110:
+FOE_send_ack:	.type	func
+	addiu	$sp,$sp,-4
+.L347:
+	sw	$ra,0($sp)
+.L348:
+	jal	ESC_claimbuffer
+	nop
+.L353:
+	beq	$v0,$zero,.L33
+.L676:
+	nop
+.L677:
+	jal	_cocofun_4
+	nop
+.L678:
+	li	$a1,0x4
+.L679:
+	andi	$a0,$a0,0xfff0
+	ori	$a0,$a0,0x4
+.L357:
+	sb	$a0,5($v1)
+.L680:
+	sb	$a1,6($v1)
+.L358:
+	lui	$a0,@hi(ESCvar+93)
+	addiu	$a0,$a0,@lo(ESCvar+93)
+	lbu	$a1,0($a0)
+	lbu	$a2,1($a0)
+	sll	$a1,$a1,24
+	sll	$a2,$a2,16
+	lbu	$a3,2($a0)
+	or	$a1,$a1,$a2
+	sll	$a3,$a3,8
+	lbu	$a2,3($a0)
+	or	$a1,$a1,$a3
+	or	$a1,$a1,$a2
+	srl	$a2,$a1,24
+	andi	$a2,$a2,0xff
+	srl	$a3,$a1,8
+	andi	$a3,$a3,0xff00
+	or	$a2,$a2,$a3
+	andi	$a3,$a1,0xff00
+	sll	$a3,$a3,8
+	or	$a2,$a2,$a3
+	andi	$a3,$a1,0xff
+	sll	$a3,$a3,24
+	or	$a2,$a2,$a3
+.L361:
+	sb	$a2,11($v1)
+.L362:
+	sra	$a2,$a2,8
+.L355:
+	sb	$a2,10($v1)
+.L356:
+	sra	$a2,$a2,8
+.L350:
+	sb	$a2,9($v1)
+.L351:
+	sra	$a2,$a2,8
+.L359:
+	sb	$a2,8($v1)
+.L360:
+	addiu	$v1,$gp,@gprel(MBXcontrol)
+	addu	$v0,$v0,$v1
+.L354:
+	li	$v1,0x3
+	sb	$v1,0($v0)
+.L681:
+	addiu	$v0,$a1,1
+	sb	$v0,3($a0)
+	sra	$v0,$v0,8
+	sb	$v0,2($a0)
+	sra	$v0,$v0,8
+	sb	$v0,1($a0)
+	sra	$v0,$v0,8
+	sb	$v0,0($a0)
+.L682:
+	j	.L34
+	andi	$v0,$zero,0xffff
+.L33:
+	li	$v0,0x800b
+.L352:
+	andi	$v0,$v0,0xffff
+.L34:
+	lw	$ra,0($sp)
+.L349:
+	jr	$ra
+	addiu	$sp,$sp,4
+.L282:
+	.size	FOE_send_ack,*-FOE_send_ack
+.L185:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_read ,cluster('$group_FOE_read')
+	.align	4
+	.global	FOE_read
+; Function FOE_read
+.L112:
+FOE_read:	.type	func
+	addiu	$sp,$sp,-8
+.L363:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L364:
+	lui	$v0,@hi(ESCvar)
+	addiu	$s0,$v0,@lo(ESCvar)
+	lbu	$v0,76($s0)
+	beq	$v0,$zero,.L36
+	nop
+.L687:
+	j	.L37
+.L688:
+	li	$a0,0x8004
+.L36:
+	jal	FOE_init
+	nop
+.L689:
+	jal	_cocofun_2
+	nop
+.L690:
+	li	$a3,0x1
+.L367:
+	jal	FOE_fopen
+	move	$a2,$v0
+.L368:
+	bne	$v0,$zero,.L38
+.L691:
+	nop
+.L692:
+	li	$v0,0x1
+.L369:
+	sb	$v0,96($s0)
+	sra	$v0,$v0,8
+	sb	$v0,95($s0)
+	sra	$v0,$v0,8
+	sb	$v0,94($s0)
+	sra	$v0,$v0,8
+.L693:
+	jal	FOE_send_data_packet
+.L694:
+	sb	$v0,93($s0)
+.L365:
+	li	$v1,0x74
+	slt	$v1,$v1,$v0
+	bne	$v1,$zero,.L39
+	nop
+.L695:
+	li	$v0,0x1
+.L366:
+	j	.L40
+	sb	$v0,76($s0)
+.L39:
+.L38:
+	move	$a0,$v0
+.L37:
+	jal	FOE_abort
+	nop
+.L40:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L285:
+	.size	FOE_read,*-FOE_read
+.L190:
+	; End of function
+; Function _cocofun_2
+.L114:
+_cocofun_2:	.type	func
+; Function body _cocofun_2, coco_iter:0
+	lui	$v0,@hi(MBX)
+	addiu	$a2,$v0,@lo(MBX)
+	lbu	$v0,0($a2)
+	lbu	$v1,1($a2)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+	sll	$v0,$v0,8
+	or	$v0,$v1,$v0
+	addiu	$v0,$v0,-6
+.L754:
+	lbu	$v1,8($a2)
+.L755:
+	andi	$a1,$v0,0xffff
+.L756:
+	lbu	$v0,9($a2)
+	sll	$v1,$v1,24
+	sll	$v0,$v0,16
+	lbu	$a0,10($a2)
+	or	$v1,$v1,$v0
+	sll	$a0,$a0,8
+	lbu	$v0,11($a2)
+	or	$v1,$v1,$a0
+	or	$v1,$v1,$v0
+	srl	$v0,$v1,24
+	andi	$v0,$v0,0xff
+	srl	$a0,$v1,8
+	andi	$a0,$a0,0xff00
+	or	$v0,$v0,$a0
+	andi	$a0,$v1,0xff00
+	sll	$a0,$a0,8
+	or	$v0,$v0,$a0
+	andi	$v1,$v1,0xff
+	sll	$v1,$v1,24
+	or	$v0,$v0,$v1
+.L757:
+	jr	$ra
+.L758:
+	addiu	$a0,$a2,12
+.L220:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_ack ,cluster('$group_FOE_ack')
+	.align	4
+	.global	FOE_ack
+; Function FOE_ack
+.L116:
+FOE_ack:	.type	func
+	addiu	$sp,$sp,-8
+.L370:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L371:
+	lui	$v0,@hi(ESCvar+76)
+	addiu	$s0,$v0,@lo(ESCvar+76)
+	lbu	$v0,0($s0)
+	li	$v1,0x2
+	bne	$v0,$v1,.L41
+	nop
+.L700:
+	jal	FOE_init
+	nop
+.L701:
+	j	.L42
+	nop
+.L41:
+	li	$v1,0x1
+	beq	$v0,$v1,.L43
+	nop
+.L702:
+	j	.L44
+.L703:
+	li	$a0,0x8004
+.L43:
+	jal	FOE_send_data_packet
+	nop
+.L373:
+	slti	$v1,$v0,116
+	beq	$v1,$zero,.L45
+	nop
+.L704:
+	li	$v0,0x2
+.L374:
+	j	.L46
+	sb	$v0,0($s0)
+.L45:
+	li	$v1,0x8000
+	slt	$v0,$v0,$v1
+.L372:
+	bne	$v0,$zero,.L47
+	nop
+.L705:
+	li	$a0,0x800b
+.L44:
+	jal	FOE_abort
+	nop
+.L47:
+.L46:
+.L42:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L290:
+	.size	FOE_ack,*-FOE_ack
+.L195:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_write ,cluster('$group_FOE_write')
+	.align	4
+	.global	FOE_write
+; Function FOE_write
+.L118:
+FOE_write:	.type	func
+	addiu	$sp,$sp,-8
+.L375:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L376:
+	lui	$v0,@hi(ESCvar+76)
+	addiu	$s0,$v0,@lo(ESCvar+76)
+	lbu	$v0,0($s0)
+	beq	$v0,$zero,.L48
+	nop
+.L710:
+	j	.L49
+.L711:
+	li	$a0,0x8004
+.L48:
+	jal	FOE_init
+	nop
+.L712:
+	jal	_cocofun_2
+	nop
+.L713:
+	li	$a3,0x2
+.L377:
+	jal	FOE_fopen
+	move	$a2,$v0
+.L378:
+	sll	$a0,$v0,16
+.L380:
+	sra	$a0,$a0,16
+.L714:
+	bne	$a0,$zero,.L50
+.L715:
+	nop
+.L716:
+	jal	FOE_send_ack
+	nop
+.L381:
+	sll	$a0,$v0,16
+.L379:
+	sra	$a0,$a0,16
+.L717:
+	bne	$a0,$zero,.L51
+.L718:
+	nop
+.L719:
+	li	$v0,0x3
+.L720:
+	j	.L52
+.L721:
+	sb	$v0,0($s0)
+.L50:
+.L51:
+.L49:
+	jal	FOE_abort
+	nop
+.L52:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L292:
+	.size	FOE_write,*-FOE_write
+.L200:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_data ,cluster('$group_FOE_data')
+	.align	4
+	.global	FOE_data
+; Function FOE_data
+.L120:
+FOE_data:	.type	func
+	addiu	$sp,$sp,-8
+.L382:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L383:
+	lui	$v0,@hi(ESCvar)
+	addiu	$a1,$v0,@lo(ESCvar)
+	lbu	$v0,76($a1)
+	li	$v1,0x3
+	beq	$v0,$v1,.L53
+	nop
+.L726:
+	jal	FOE_abort
+	li	$a0,0x8004
+.L727:
+	j	.L54
+	nop
+.L53:
+	lui	$v0,@hi(MBX)
+	addiu	$a2,$v0,@lo(MBX)
+	lbu	$v0,0($a2)
+	lbu	$v1,1($a2)
+	sll	$v0,$v0,8
+	or	$v0,$v0,$v1
+	andi	$v1,$v0,0xff00
+	sra	$v1,$v1,8
+	andi	$v0,$v0,0xff
+	sll	$v0,$v0,8
+	or	$v0,$v1,$v0
+	addiu	$v0,$v0,-6
+.L728:
+	lbu	$v1,8($a2)
+.L729:
+	andi	$s0,$v0,0xffff
+.L387:
+	lbu	$v0,9($a2)
+	sll	$v1,$v1,24
+	sll	$v0,$v0,16
+	lbu	$a0,10($a2)
+	or	$v1,$v1,$v0
+	sll	$a0,$a0,8
+	lbu	$v0,11($a2)
+	or	$v1,$v1,$a0
+	or	$v1,$v1,$v0
+	srl	$v0,$v1,24
+	andi	$v0,$v0,0xff
+	srl	$a0,$v1,8
+	andi	$a0,$a0,0xff00
+	or	$v0,$v0,$a0
+	andi	$a0,$v1,0xff00
+	sll	$a0,$a0,8
+	or	$v0,$v0,$a0
+	andi	$v1,$v1,0xff
+	sll	$v1,$v1,24
+	lbu	$a0,93($a1)
+	or	$v0,$v0,$v1
+	lbu	$v1,94($a1)
+	sll	$a0,$a0,24
+	sll	$v1,$v1,16
+	lbu	$a3,95($a1)
+	or	$a0,$a0,$v1
+	sll	$a3,$a3,8
+	lbu	$v1,96($a1)
+	or	$a0,$a0,$a3
+	or	$a0,$a0,$v1
+	beq	$v0,$a0,.L55
+	nop
+.L730:
+	jal	FOE_abort
+	li	$a0,0x8005
+	j	.L56
+	nop
+.L55:
+	lbu	$v0,77($a1)
+	lbu	$v1,78($a1)
+	sll	$v0,$v0,24
+	sll	$v1,$v1,16
+	lbu	$a0,79($a1)
+	or	$v0,$v0,$v1
+	sll	$a0,$a0,8
+	lbu	$v1,80($a1)
+	or	$v0,$v0,$a0
+	or	$v0,$v0,$v1
+	lbu	$v1,85($a1)
+	addu	$v0,$v0,$s0
+	lbu	$a0,86($a1)
+	sll	$v1,$v1,24
+	sll	$a0,$a0,16
+	lbu	$a3,87($a1)
+	or	$v1,$v1,$a0
+	sll	$a3,$a3,8
+	lbu	$a0,88($a1)
+	or	$v1,$v1,$a3
+	or	$v1,$v1,$a0
+	sltu	$v0,$v1,$v0
+	beq	$v0,$zero,.L57
+	nop
+.L731:
+	jal	FOE_abort
+	li	$a0,0x8003
+	j	.L58
+	nop
+.L57:
+	addiu	$a0,$a2,12
+.L388:
+	jal	FOE_fwrite
+	move	$a1,$s0
+.L732:
+	lbu	$v0,@gprel(foe_mode)($gp)
+	li	$v1,0x2
+	bne	$v0,$v1,.L59
+	nop
+.L733:
+	jal	FOE_send_ack
+	nop
+.L389:
+	sll	$a0,$v0,16
+.L384:
+	j	.L60
+	sra	$a0,$a0,16
+.L59:
+	move	$a0,$zero
+.L60:
+	li	$v0,0x74
+	bne	$s0,$v0,.L61
+	nop
+.L734:
+	beq	$a0,$zero,.L62
+.L735:
+	nop
+.L736:
+	jal	FOE_abort
+	nop
+.L385:
+	j	.L63
+	nop
+.L61:
+	jal	FOE_fclose
+	nop
+.L386:
+	jal	FOE_init
+	nop
+.L62:
+.L63:
+.L58:
+.L56:
+.L54:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L297:
+	.size	FOE_data,*-FOE_data
+.L205:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_busy ,cluster('$group_FOE_busy')
+	.align	4
+	.global	FOE_busy
+; Function FOE_busy
+.L122:
+FOE_busy:	.type	func
+	addiu	$sp,$sp,-4
+.L390:
+	sw	$ra,0($sp)
+.L391:
+	lui	$v0,@hi(ESCvar)
+	addiu	$v0,$v0,@lo(ESCvar)
+	lbu	$v1,76($v0)
+	li	$a0,0x1
+	beq	$v1,$a0,.L64
+	nop
+.L741:
+	jal	FOE_abort
+	li	$a0,0x8004
+	j	.L65
+	nop
+.L64:
+	lbu	$v1,81($v0)
+	lbu	$a0,82($v0)
+	sll	$v1,$v1,24
+	sll	$a0,$a0,16
+	lbu	$a1,83($v0)
+	or	$v1,$v1,$a0
+	sll	$a1,$a1,8
+	lbu	$a0,84($v0)
+	or	$v1,$v1,$a1
+	or	$v1,$v1,$a0
+	sb	$v1,80($v0)
+	sra	$v1,$v1,8
+	sb	$v1,79($v0)
+	sra	$v1,$v1,8
+	sb	$v1,78($v0)
+	sra	$v1,$v1,8
+	sb	$v1,77($v0)
+.L742:
+	lbu	$v1,93($v0)
+	lbu	$a0,94($v0)
+	sll	$v1,$v1,24
+	sll	$a0,$a0,16
+	lbu	$a1,95($v0)
+	or	$v1,$v1,$a0
+	sll	$a1,$a1,8
+	lbu	$a0,96($v0)
+	or	$v1,$v1,$a1
+	or	$v1,$v1,$a0
+	addiu	$v1,$v1,-1
+	sb	$v1,96($v0)
+	sra	$v1,$v1,8
+	sb	$v1,95($v0)
+	sra	$v1,$v1,8
+	sb	$v1,94($v0)
+	sra	$v1,$v1,8
+.L743:
+	jal	FOE_ack
+.L744:
+	sb	$v1,93($v0)
+.L65:
+	lw	$ra,0($sp)
+.L392:
+	jr	$ra
+	addiu	$sp,$sp,4
+.L300:
+	.size	FOE_busy,*-FOE_busy
+.L210:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.FOE_error ,cluster('$group_FOE_error')
+	.align	4
+	.global	FOE_error
+; Function FOE_error
+.L124:
+FOE_error:	.type	func
+	j	FOE_abort
+.L749:
+	move	$a0,$zero
+.L301:
+	.size	FOE_error,*-FOE_error
+.L215:
+	; End of function
+	.endsec	; End of section
+
+	.section	.text.esc_foe.ESC_foeprocess ,cluster('$group_ESC_foeprocess')
+	.align	4
+	.global	ESC_foeprocess
+; Function ESC_foeprocess
+.L126:
+ESC_foeprocess:	.type	func
+	addiu	$sp,$sp,-8
+.L393:
+	sw	$ra,0($sp)
+	jal	__save_r16
+	nop
+.L394:
+	lbu	$v0,@gprel(MBXrun)($gp)
+	beq	$v0,$zero,.L66
+	nop
+.L553:
+	lui	$v0,@hi(ESCvar+16)
+	addiu	$s0,$v0,@lo(ESCvar+16)
+	lbu	$v0,0($s0)
+	bne	$v0,$zero,.L67
+	nop
+.L554:
+	lbu	$v0,@gprel(MBXcontrol)($gp)
+	li	$v1,0x1
+	bne	$v0,$v1,.L68
+	nop
+.L555:
+	lui	$v0,@hi(MBX)
+	addiu	$v0,$v0,@lo(MBX)
+	lbu	$v0,5($v0)
+	li	$v1,0x4
+	sll	$v0,$v0,28
+	srl	$v0,$v0,28
+	bne	$v0,$v1,.L69
+	nop
+.L556:
+	sb	$v1,0($s0)
+.L69:
+.L68:
+.L67:
+	lbu	$v0,0($s0)
+	li	$v1,0x4
+	bne	$v0,$v1,.L70
+	nop
+.L557:
+	lui	$v0,@hi(MBX)
+	addiu	$v0,$v0,@lo(MBX)
+	lbu	$v1,0($v0)
+	lbu	$a0,1($v0)
+	sll	$v1,$v1,8
+	or	$v1,$v1,$a0
+	andi	$a0,$v1,0xff00
+	sra	$a0,$a0,8
+	andi	$v1,$v1,0xff
+	sll	$v1,$v1,8
+	or	$v1,$a0,$v1
+	sltiu	$v1,$v1,6
+	beq	$v1,$zero,.L71
+	nop
+.L558:
+	j	.L72
+	li	$a0,0x6
+.L71:
+	lbu	$v0,6($v0)
+	addiu	$v0,$v0,-1
+	sltiu	$v1,$v0,6
+	beq	$v1,$zero,.L74
+	nop
+	lui	$v1,@hi(.L73)
+	addiu	$v1,$v1,@lo(.L73)
+	sll	$v0,$v0,2
+	addu	$v0,$v0,$v1
+	lw	$v0,0($v0)
+	jr	$v0
+	nop
+	.endsec	; End of section
+
+	.section	.rodata.esc_foe.ESC_foeprocess ,cluster('$group_ESC_foeprocess')
+	.align	4
+.L73:
+	.dw	.L75
+	.dw	.L76
+	.dw	.L77
+	.dw	.L78
+	.dw	.L79
+	.dw	.L80
+	.endsec	; End of section
+
+	.resume	.text.esc_foe.ESC_foeprocess ,cluster('$group_ESC_foeprocess')
+.L75:
+	li	$v0,0x1
+.L559:
+	jal	FOE_read
+.L560:
+	sb	$v0,@gprel(foe_mode)($gp)
+.L561:
+	j	.L81
+	nop
+.L78:
+	jal	FOE_ack
+	nop
+.L562:
+	j	.L82
+	nop
+.L76:
+	li	$v0,0x2
+.L563:
+	jal	FOE_write
+.L564:
+	sb	$v0,@gprel(foe_mode)($gp)
+.L565:
+	j	.L83
+	nop
+.L77:
+	jal	FOE_data
+	nop
+.L566:
+	j	.L84
+	nop
+.L80:
+	jal	FOE_busy
+	nop
+.L567:
+	j	.L85
+	nop
+.L79:
+	jal	FOE_error
+.L568:
+	sb	$zero,@gprel(foe_mode)($gp)
+.L569:
+	j	.L86
+	nop
+.L74:
+	sb	$zero,@gprel(foe_mode)($gp)
+.L570:
+	li	$a0,0x8000
+.L72:
+	jal	FOE_abort
+	nop
+.L86:
+.L85:
+.L84:
+.L83:
+.L82:
+.L81:
+	sb	$zero,@gprel(MBXcontrol)($gp)
+.L571:
+	sb	$zero,0($s0)
+.L70:
+.L66:
+	li	$a0,8
+	j	__restore_r16
+	nop
+.L246:
+	.size	ESC_foeprocess,*-ESC_foeprocess
+.L140:
+	; End of function
+	.endsec	; End of section
+
+	.section	.bss.esc_foe.foe_file_name ,cluster('$group_bss')
+	.global	foe_file_name
+	.align	4
+foe_file_name:	.type	object
+	.size	foe_file_name,17
+	.ds	17
+	.endsec	; End of section
+
+	.section	.sdata.esc_foe.file_name_len ,cluster('$group_sdata')
+	.global	file_name_len
+	.align	2
+file_name_len:	.type	object
+	.size	file_name_len,2
+	.dh	3
+	.endsec	; End of section
+
+	.section	.sbss.esc_foe.file_pass ,cluster('$group_sbss')
+	.global	file_pass
+	.align	4
+file_pass:	.type	object
+	.size	file_pass,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.bss.esc_foe.fbuffer ,cluster('$group_bss')
+	.global	fbuffer
+	.align	4
+fbuffer:	.type	object
+	.size	fbuffer,256
+	.ds	256
+	.endsec	; End of section
+
+	.section	.sbss.esc_foe.flash_pos ,cluster('$group_sbss')
+	.global	flash_pos
+	.align	4
+flash_pos:	.type	object
+	.size	flash_pos,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.esc_foe.fbuf_pos ,cluster('$group_sbss')
+	.global	fbuf_pos
+	.align	4
+fbuf_pos:	.type	object
+	.size	fbuf_pos,4
+	.ds	4
+	.endsec	; End of section
+
+	.section	.sbss.esc_foe.foe_mode ,cluster('$group_sbss')
+	.global	foe_mode
+foe_mode:	.type	object
+	.size	foe_mode,1
+	.ds	1
+	.endsec	; End of section
+
+	.calls	'FOE_fetchbuffer','__save_r16'
+	.calls	'FOE_fread','__save_r18'
+	.calls	'FOE_writebuffer','__save_r17'
+	.calls	'FOE_fwrite','__save_r19'
+	.calls	'FOE_fclose','__save_r16'
+	.calls	'FOE_abort','__save_r16'
+	.calls	'FOE_send_data_packet','__save_r17'
+	.calls	'FOE_read','__save_r16'
+	.calls	'FOE_ack','__save_r16'
+	.calls	'FOE_write','__save_r16'
+	.calls	'FOE_data','__save_r16'
+	.calls	'ESC_foeprocess','__save_r16'
+	.calls	'FOE_fetchbuffer','m25px0_read'
+	.calls	'FOE_fread','FOE_fetchbuffer'
+	.calls	'FOE_writebuffer','_cocofun_3'
+	.calls	'FOE_writebuffer','m25px0_sector_erase'
+	.calls	'FOE_writebuffer','m25px0_status'
+	.calls	'FOE_writebuffer','m25px0_program_page'
+	.calls	'FOE_fwrite','FOE_writebuffer'
+	.calls	'FOE_fclose','FOE_writebuffer'
+	.calls	'FOE_abort','ESC_claimbuffer'
+	.calls	'FOE_abort','_cocofun_4'
+	.calls	'FOE_abort','FOE_init'
+	.calls	'FOE_send_data_packet','ESC_claimbuffer'
+	.calls	'FOE_send_data_packet','FOE_fread'
+	.calls	'FOE_send_ack','ESC_claimbuffer'
+	.calls	'FOE_send_ack','_cocofun_4'
+	.calls	'FOE_read','FOE_init'
+	.calls	'FOE_read','_cocofun_2'
+	.calls	'FOE_read','FOE_fopen'
+	.calls	'FOE_read','FOE_send_data_packet'
+	.calls	'FOE_read','FOE_abort'
+	.calls	'FOE_ack','FOE_init'
+	.calls	'FOE_ack','FOE_send_data_packet'
+	.calls	'FOE_ack','FOE_abort'
+	.calls	'FOE_write','FOE_init'
+	.calls	'FOE_write','_cocofun_2'
+	.calls	'FOE_write','FOE_fopen'
+	.calls	'FOE_write','FOE_send_ack'
+	.calls	'FOE_write','FOE_abort'
+	.calls	'FOE_data','FOE_abort'
+	.calls	'FOE_data','FOE_fwrite'
+	.calls	'FOE_data','FOE_send_ack'
+	.calls	'FOE_data','FOE_fclose'
+	.calls	'FOE_data','FOE_init'
+	.calls	'FOE_busy','FOE_abort'
+	.calls	'FOE_busy','FOE_ack'
+	.calls	'FOE_error','FOE_abort'
+	.calls	'ESC_foeprocess','FOE_read'
+	.calls	'ESC_foeprocess','FOE_ack'
+	.calls	'ESC_foeprocess','FOE_write'
+	.calls	'ESC_foeprocess','FOE_data'
+	.calls	'ESC_foeprocess','FOE_busy'
+	.calls	'ESC_foeprocess','FOE_error'
+	.calls	'ESC_foeprocess','FOE_abort'
+	.calls	'FOE_fopen','',0
+	.calls	'FOE_fetchbuffer','',8
+	.calls	'FOE_fread','',16
+	.calls	'FOE_writebuffer','',12
+	.calls	'_cocofun_3','',0
+	.calls	'FOE_fwrite','',20
+	.calls	'FOE_fclose','',8
+	.calls	'FOE_init','',0
+	.calls	'FOE_abort','',8
+	.calls	'_cocofun_4','',0
+	.calls	'FOE_send_data_packet','',12
+	.calls	'FOE_send_ack','',4
+	.calls	'FOE_read','',8
+	.calls	'_cocofun_2','',0
+	.calls	'FOE_ack','',8
+	.calls	'FOE_write','',8
+	.calls	'FOE_data','',8
+	.calls	'FOE_busy','',4
+	.calls	'FOE_error','',0
+	.calls	'ESC_foeprocess','',8
+	.extern	m25px0_status
+	.extern	m25px0_sector_erase
+	.extern	m25px0_program_page
+	.extern	m25px0_read
+	.extern	drv_m25px0_1
+	.extern	ESC_claimbuffer
+	.extern	ESCvar
+	.extern	MBX
+	.extern	MBXcontrol
+	.extern	MBXrun
+	.extern	__save_r16
+	.extern	__restore_r16
+	.extern	__save_r18
+	.extern	__restore_r18
+	.extern	__save_r17
+	.extern	__restore_r17
+	.extern	__save_r19
+	.extern	__restore_r19
+	.section	.debug_info
+.L128:
+	.dw	4252
+	.dh	3
+	.dw	.L129
+	.db	4
+.L127:
+	.db	1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L130
+	.db	2
+	.db	"tsk3000_reset_interval_timer",0
+	.db	3,1,59,20,1,1,3,0,4
+	.db	"pal_architecture_current_interrupt",0
+	.db	3,1,129,1,24
+	.dw	.L252-.L128
+	.db	1,1,3,0
+.L252:
+	.db	5
+	.db	"unsigned int",0
+	.db	4,7,2
+	.db	"pal_architecture_interrupts_enable",0
+	.db	3,1,136,1,24,1,1,3,0,2
+	.db	"pal_architecture_interrupts_disable",0
+	.db	3,1,141,1,24,1,1,3,0,4
+	.db	"pal_architecture_interrupts_disable_if_enabled",0
+	.db	3,1,149,1,25
+	.dw	216
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupts_set_mask",0
+	.db	3,1,160,1,24,1,1,6
+	.db	"mask",0
+	.db	1,160,1,70
+	.dw	216
+	.db	3,0,4
+	.db	"pal_architecture_interrupts_get_mask",0
+	.db	3,1,165,1,24
+	.dw	216
+	.db	1,1,3,0,2
+	.db	"pal_architecture_interrupt_acknowledge",0
+	.db	3,1,133,2,24,1,1,6
+	.db	"number",0
+	.db	1,133,2,72
+	.dw	216
+	.db	3,0,7
+	.dw	129
+	.db	3,0,7
+	.dw	167
+	.db	3,0,7
+	.dw	232
+	.db	3,0,7
+	.dw	277
+	.db	3,0,7
+	.dw	323
+	.db	3,0,7
+	.dw	384
+	.db	8
+	.dw	429
+	.db	3,0,7
+	.dw	445
+	.db	3,0,7
+	.dw	496
+	.db	8
+	.dw	543
+	.db	3,0,9
+	.db	"m25px0_status",0
+	.db	2,68,12
+	.dw	.L395-.L128
+	.db	1,1,1,1,6
+	.db	"drv",0
+	.db	2,68,38
+	.dw	.L396-.L128
+	.db	0
+.L395:
+	.db	5
+	.db	"int",0
+	.db	4,5
+.L396:
+	.db	10
+	.dw	.L397-.L128
+.L397:
+	.db	11
+	.db	"drv_m25px0_s",0
+	.db	2,64,16,1,9
+	.db	"m25px0_sector_erase",0
+	.db	2,72,12
+	.dw	666
+	.db	1,1,1,1,6
+	.db	"drv",0
+	.db	2,72,53
+	.dw	673
+	.db	6
+	.db	"address",0
+	.db	2,72,67
+	.dw	216
+	.db	0,9
+	.db	"m25px0_program_page",0
+	.db	2,74,15
+	.dw	216
+	.db	1,1,1,1,6
+	.db	"drv",0
+	.db	2,74,56
+	.dw	673
+	.db	6
+	.db	"address",0
+	.db	2,74,70
+	.dw	216
+	.db	6
+	.db	"buffer",0
+	.db	2,74,86
+	.dw	.L398-.L128
+	.db	6
+	.db	"buflen",0
+	.db	2,74,101
+	.dw	216
+	.db	0
+.L398:
+	.db	10
+	.dw	.L399-.L128
+.L399:
+	.db	12
+	.db	"void",0
+	.db	9
+	.db	"m25px0_read",0
+	.db	2,75,15
+	.dw	216
+	.db	1,1,1,1,6
+	.db	"drv",0
+	.db	2,75,48
+	.dw	673
+	.db	6
+	.db	"address",0
+	.db	2,75,62
+	.dw	216
+	.db	6
+	.db	"buffer",0
+	.db	2,75,78
+	.dw	848
+	.db	6
+	.db	"buflen",0
+	.db	2,75,93
+	.dw	216
+	.db	0,13
+	.db	"ESC_claimbuffer",0
+	.db	3,228,3,9
+	.dw	.L254-.L128
+	.db	1,1,1,1
+.L254:
+	.db	5
+	.db	"unsigned char",0
+	.db	1,8
+.L247:
+	.db	5
+	.db	"unsigned short int",0
+	.db	2,7
+.L249:
+	.db	10
+	.dw	.L400-.L128
+.L400:
+	.db	5
+	.db	"char",0
+	.db	1,6
+.L259:
+	.db	10
+	.dw	971
+.L275:
+	.db	10
+	.dw	.L401-.L128
+.L401:
+	.db	14,3,194,3,9,128,1,15
+	.db	"mbxheader",0
+	.db	6
+	.dw	.L402-.L128
+	.db	2,35,0,15
+	.db	"foeheader",0
+	.db	6
+	.dw	.L403-.L128
+	.db	2,35,6,15
+	.db	"y",0
+	.db	116
+	.dw	.L404-.L128
+	.db	2,35,12,0
+.L402:
+	.db	16
+	.dw	.L405-.L128
+.L405:
+	.db	14,3,221,2,9,6,15
+	.db	"length",0
+	.db	2
+	.dw	.L406-.L128
+	.db	2,35,0,15
+	.db	"address",0
+	.db	2
+	.dw	.L407-.L128
+	.db	2,35,2,17
+	.db	"priority",0
+	.db	1
+	.dw	.L408-.L128
+	.db	2,0,2,35,4,17
+	.db	"channel",0
+	.db	1
+	.dw	.L409-.L128
+	.db	6,2,2,35,4,17
+	.db	"mbxcnt",0
+	.db	1
+	.dw	.L410-.L128
+	.db	4,0,2,35,5,17
+	.db	"mbxtype",0
+	.db	1
+	.dw	.L411-.L128
+	.db	4,4,2,35,5,0
+.L406:
+	.db	16
+	.dw	988
+.L407:
+	.db	16
+	.dw	988
+.L408:
+	.db	16
+	.dw	971
+.L409:
+	.db	16
+	.dw	971
+.L410:
+	.db	16
+	.dw	971
+.L411:
+	.db	16
+	.dw	971
+.L403:
+	.db	16
+	.dw	.L412-.L128
+.L412:
+	.db	14,3,179,3,9,6,15
+	.db	"opcode",0
+	.db	1
+	.dw	.L413-.L128
+	.db	2,35,0,15
+	.db	"reserved",0
+	.db	1
+	.dw	.L414-.L128
+	.db	2,35,1,15
+	.db	"x",0
+	.db	4
+	.dw	.L415-.L128
+	.db	2,35,2,0
+.L413:
+	.db	16
+	.dw	971
+.L414:
+	.db	16
+	.dw	971
+.L415:
+	.db	16
+	.dw	.L416-.L128
+.L416:
+	.db	18,3,183,3,5,4,15
+	.db	"password",0
+	.db	4
+	.dw	.L417-.L128
+	.db	2,35,0,15
+	.db	"packetnumber",0
+	.db	4
+	.dw	.L418-.L128
+	.db	2,35,0,15
+	.db	"errorcode",0
+	.db	4
+	.dw	.L419-.L128
+	.db	2,35,0,0
+.L417:
+	.db	16
+	.dw	216
+.L418:
+	.db	16
+	.dw	216
+.L419:
+	.db	16
+	.dw	216
+.L404:
+	.db	16
+	.dw	.L420-.L128
+.L420:
+	.db	18,3,198,3,5,116,15
+	.db	"filename",0
+	.db	116
+	.dw	.L421-.L128
+	.db	2,35,0,15
+	.db	"data",0
+	.db	116
+	.dw	.L422-.L128
+	.db	2,35,0,15
+	.db	"errortext",0
+	.db	116
+	.dw	.L423-.L128
+	.db	2,35,0,0
+.L421:
+	.db	16
+	.dw	.L424-.L128
+.L424:
+	.db	19,116
+	.dw	1015
+	.db	20,115,0
+.L422:
+	.db	16
+	.dw	.L425-.L128
+.L425:
+	.db	19,116
+	.dw	971
+	.db	20,115,0
+.L423:
+	.db	16
+	.dw	1462
+.L295:
+	.db	5
+	.db	"short int",0
+	.db	2,5,21
+	.db	"__wchar_t",0
+	.db	4,1,1
+	.dw	988
+	.db	21
+	.db	"__size_t",0
+	.db	4,1,1
+	.dw	216
+	.db	21
+	.db	"__ptrdiff_t",0
+	.db	4,1,1
+	.dw	666
+	.db	21
+	.db	"__codeptr",0
+	.db	4,1,1
+	.dw	.L426-.L128
+.L426:
+	.db	10
+	.dw	.L427-.L128
+.L427:
+	.db	22,1,21
+	.db	"uint8_t",0
+	.db	5,22,33
+	.dw	971
+	.db	21
+	.db	"int16_t",0
+	.db	5,23,33
+	.dw	1490
+	.db	21
+	.db	"uint16_t",0
+	.db	5,24,33
+	.dw	988
+	.db	21
+	.db	"uint32_t",0
+	.db	5,26,33
+	.dw	216
+	.db	21
+	.db	"size_t",0
+	.db	6,20,25
+	.dw	216
+	.db	21
+	.db	"interrupt_handler_t",0
+	.db	7,73,20
+	.dw	.L428-.L128
+.L428:
+	.db	10
+	.dw	.L429-.L128
+.L429:
+	.db	23
+	.dw	216
+	.db	1,1,24
+	.dw	216
+	.db	24
+	.dw	848
+	.db	0,21
+	.db	"interrupt_entry_t",0
+	.db	7,78,34
+	.dw	.L430-.L128
+.L430:
+	.db	25
+	.db	"interrupt_entry_s",0
+	.db	7,79,8,16,15
+	.db	"number",0
+	.db	2
+	.dw	988
+	.db	2,35,0,15
+	.db	"in_use",0
+	.db	1
+	.dw	.L431-.L128
+	.db	2,35,2,15
+	.db	"is_native",0
+	.db	1
+	.dw	.L432-.L128
+	.db	2,35,3,15
+	.db	"context",0
+	.db	4
+	.dw	848
+	.db	2,35,4,15
+	.db	"handler",0
+	.db	4
+	.dw	1664
+	.db	2,35,8,15
+	.db	"next",0
+	.db	4
+	.dw	.L433-.L128
+	.db	2,35,12,0
+.L431:
+	.db	26
+	.dw	.L432-.L128
+.L432:
+	.db	5
+	.db	"_Bool",0
+	.db	1,2,10
+	.dw	1697
+.L433:
+	.db	26
+	.dw	.L434-.L128
+.L434:
+	.db	10
+	.dw	1741
+	.db	21
+	.db	"m25px0_t",0
+	.db	2,64,29
+	.dw	678
+	.db	27
+	.db	"drv_m25px0_1",0
+	.db	8,41,19
+	.dw	673
+	.db	1,1,21
+	.db	"digital_in_t",0
+	.db	9,82,2
+	.dw	.L435-.L128
+.L435:
+	.db	18,9,70,9,1,15
+	.db	"line",0
+	.db	1
+	.dw	.L436-.L128
+	.db	2,35,0,15
+	.db	"port",0
+	.db	1
+	.dw	.L437-.L128
+	.db	2,35,0,0
+.L436:
+	.db	16
+	.dw	.L438-.L128
+.L438:
+	.db	14,9,71,3,1,17
+	.db	"power_status",0
+	.db	1
+	.dw	.L439-.L128
+	.db	1,0,2,35,0,17
+	.db	"reserved_3",0
+	.db	1
+	.dw	.L440-.L128
+	.db	1,1,2,35,0,17
+	.db	"reserved_2",0
+	.db	1
+	.dw	.L441-.L128
+	.db	1,2,2,35,0,17
+	.db	"reserved_1",0
+	.db	1
+	.dw	.L442-.L128
+	.db	1,3,2,35,0,17
+	.db	"spare_di_4",0
+	.db	1
+	.dw	.L443-.L128
+	.db	1,4,2,35,0,17
+	.db	"spare_di_3",0
+	.db	1
+	.dw	.L444-.L128
+	.db	1,5,2,35,0,17
+	.db	"spare_di_2",0
+	.db	1
+	.dw	.L445-.L128
+	.db	1,6,2,35,0,17
+	.db	"spare_di_1",0
+	.db	1
+	.dw	.L446-.L128
+	.db	1,7,2,35,0,0
+.L439:
+	.db	16
+	.dw	971
+.L440:
+	.db	16
+	.dw	971
+.L441:
+	.db	16
+	.dw	971
+.L442:
+	.db	16
+	.dw	971
+.L443:
+	.db	16
+	.dw	971
+.L444:
+	.db	16
+	.dw	971
+.L445:
+	.db	16
+	.dw	971
+.L446:
+	.db	16
+	.dw	971
+.L437:
+	.db	16
+	.dw	971
+	.db	21
+	.db	"digital_out_t",0
+	.db	9,117,2
+	.dw	.L447-.L128
+.L447:
+	.db	18,9,105,9,1,15
+	.db	"line",0
+	.db	1
+	.dw	.L448-.L128
+	.db	2,35,0,15
+	.db	"port",0
+	.db	1
+	.dw	.L449-.L128
+	.db	2,35,0,0
+.L448:
+	.db	16
+	.dw	.L450-.L128
+.L450:
+	.db	14,9,106,3,1,17
+	.db	"reserved_4",0
+	.db	1
+	.dw	.L451-.L128
+	.db	1,0,2,35,0,17
+	.db	"reserved_3",0
+	.db	1
+	.dw	.L452-.L128
+	.db	1,1,2,35,0,17
+	.db	"reserved_2",0
+	.db	1
+	.dw	.L453-.L128
+	.db	1,2,2,35,0,17
+	.db	"reserved_1",0
+	.db	1
+	.dw	.L454-.L128
+	.db	1,3,2,35,0,17
+	.db	"spare_do_4",0
+	.db	1
+	.dw	.L455-.L128
+	.db	1,4,2,35,0,17
+	.db	"spare_do_3",0
+	.db	1
+	.dw	.L456-.L128
+	.db	1,5,2,35,0,17
+	.db	"enable_2",0
+	.db	1
+	.dw	.L457-.L128
+	.db	1,6,2,35,0,17
+	.db	"enable_1",0
+	.db	1
+	.dw	.L458-.L128
+	.db	1,7,2,35,0,0
+.L451:
+	.db	16
+	.dw	971
+.L452:
+	.db	16
+	.dw	971
+.L453:
+	.db	16
+	.dw	971
+.L454:
+	.db	16
+	.dw	971
+.L455:
+	.db	16
+	.dw	971
+.L456:
+	.db	16
+	.dw	971
+.L457:
+	.db	16
+	.dw	971
+.L458:
+	.db	16
+	.dw	971
+.L449:
+	.db	16
+	.dw	971
+	.db	21
+	.db	"_ESCsm",0
+	.db	3,155,2,5
+	.dw	.L459-.L128
+.L459:
+	.db	14,3,235,1,9,8,15
+	.db	"PSA",0
+	.db	2
+	.dw	.L460-.L128
+	.db	2,35,0,15
+	.db	"Length",0
+	.db	2
+	.dw	.L461-.L128
+	.db	2,35,2,17
+	.db	"R1",0
+	.db	1
+	.dw	.L462-.L128
+	.db	1,0,2,35,4,17
+	.db	"WTE",0
+	.db	1
+	.dw	.L463-.L128
+	.db	1,1,2,35,4,17
+	.db	"IntPDI",0
+	.db	1
+	.dw	.L464-.L128
+	.db	1,2,2,35,4,17
+	.db	"IntECAT",0
+	.db	1
+	.dw	.L465-.L128
+	.db	1,3,2,35,4,17
+	.db	"Direction",0
+	.db	1
+	.dw	.L466-.L128
+	.db	2,4,2,35,4,17
+	.db	"Mode",0
+	.db	1
+	.dw	.L467-.L128
+	.db	2,6,2,35,4,17
+	.db	"R3",0
+	.db	1
+	.dw	.L468-.L128
+	.db	2,0,2,35,5,17
+	.db	"BUFstat",0
+	.db	1
+	.dw	.L469-.L128
+	.db	2,2,2,35,5,17
+	.db	"MBXstat",0
+	.db	1
+	.dw	.L470-.L128
+	.db	1,4,2,35,5,17
+	.db	"R2",0
+	.db	1
+	.dw	.L471-.L128
+	.db	1,5,2,35,5,17
+	.db	"IntR",0
+	.db	1
+	.dw	.L472-.L128
+	.db	1,6,2,35,5,17
+	.db	"IntW",0
+	.db	1
+	.dw	.L473-.L128
+	.db	1,7,2,35,5,17
+	.db	"EClatchPDI",0
+	.db	1
+	.dw	.L474-.L128
+	.db	1,0,2,35,6,17
+	.db	"EClatchEC",0
+	.db	1
+	.dw	.L475-.L128
+	.db	1,1,2,35,6,17
+	.db	"ECr4",0
+	.db	1
+	.dw	.L476-.L128
+	.db	4,2,2,35,6,17
+	.db	"ECrep",0
+	.db	1
+	.dw	.L477-.L128
+	.db	1,6,2,35,6,17
+	.db	"ECsm",0
+	.db	1
+	.dw	.L478-.L128
+	.db	1,7,2,35,6,17
+	.db	"PDIr5",0
+	.db	1
+	.dw	.L479-.L128
+	.db	6,0,2,35,7,17
+	.db	"PDIrep",0
+	.db	1
+	.dw	.L480-.L128
+	.db	1,6,2,35,7,17
+	.db	"PDIsm",0
+	.db	1
+	.dw	.L481-.L128
+	.db	1,7,2,35,7,0
+.L460:
+	.db	16
+	.dw	988
+.L461:
+	.db	16
+	.dw	988
+.L462:
+	.db	16
+	.dw	971
+.L463:
+	.db	16
+	.dw	971
+.L464:
+	.db	16
+	.dw	971
+.L465:
+	.db	16
+	.dw	971
+.L466:
+	.db	16
+	.dw	971
+.L467:
+	.db	16
+	.dw	971
+.L468:
+	.db	16
+	.dw	971
+.L469:
+	.db	16
+	.dw	971
+.L470:
+	.db	16
+	.dw	971
+.L471:
+	.db	16
+	.dw	971
+.L472:
+	.db	16
+	.dw	971
+.L473:
+	.db	16
+	.dw	971
+.L474:
+	.db	16
+	.dw	971
+.L475:
+	.db	16
+	.dw	971
+.L476:
+	.db	16
+	.dw	971
+.L477:
+	.db	16
+	.dw	971
+.L478:
+	.db	16
+	.dw	971
+.L479:
+	.db	16
+	.dw	971
+.L480:
+	.db	16
+	.dw	971
+.L481:
+	.db	16
+	.dw	971
+	.db	21
+	.db	"_ESCvar",0
+	.db	3,219,2,5
+	.dw	.L482-.L128
+.L482:
+	.db	14,3,175,2,9,97,15
+	.db	"ALevent",0
+	.db	2
+	.dw	.L483-.L128
+	.db	2,35,0,15
+	.db	"ALstatus",0
+	.db	2
+	.dw	.L484-.L128
+	.db	2,35,2,15
+	.db	"ALcontrol",0
+	.db	2
+	.dw	.L485-.L128
+	.db	2,35,4,15
+	.db	"ALerror",0
+	.db	2
+	.dw	.L486-.L128
+	.db	2,35,6,15
+	.db	"DLstatus",0
+	.db	2
+	.dw	.L487-.L128
+	.db	2,35,8,15
+	.db	"address",0
+	.db	2
+	.dw	.L488-.L128
+	.db	2,35,10,15
+	.db	"mbxcnt",0
+	.db	1
+	.dw	.L489-.L128
+	.db	2,35,12,15
+	.db	"mbxincnt",0
+	.db	1
+	.dw	.L490-.L128
+	.db	2,35,13,15
+	.db	"mbxoutpost",0
+	.db	1
+	.dw	.L491-.L128
+	.db	2,35,14,15
+	.db	"mbxbackup",0
+	.db	1
+	.dw	.L492-.L128
+	.db	2,35,15,15
+	.db	"xoe",0
+	.db	1
+	.dw	.L493-.L128
+	.db	2,35,16,15
+	.db	"txcue",0
+	.db	1
+	.dw	.L494-.L128
+	.db	2,35,17,15
+	.db	"mbxfree",0
+	.db	1
+	.dw	.L495-.L128
+	.db	2,35,18,15
+	.db	"segmented",0
+	.db	1
+	.dw	.L496-.L128
+	.db	2,35,19,15
+	.db	"data",0
+	.db	4
+	.dw	.L497-.L128
+	.db	2,35,20,15
+	.db	"entries",0
+	.db	2
+	.dw	.L498-.L128
+	.db	2,35,24,15
+	.db	"frags",0
+	.db	2
+	.dw	.L499-.L128
+	.db	2,35,26,15
+	.db	"fragsleft",0
+	.db	2
+	.dw	.L500-.L128
+	.db	2,35,28,17
+	.db	"r2",0
+	.db	1
+	.dw	.L501-.L128
+	.db	6,0,2,35,30,17
+	.db	"toggle",0
+	.db	1
+	.dw	.L502-.L128
+	.db	1,6,2,35,30,17
+	.db	"r1",0
+	.db	1
+	.dw	.L503-.L128
+	.db	1,7,2,35,30,15
+	.db	"SMtestresult",0
+	.db	1
+	.dw	.L504-.L128
+	.db	2,35,31,15
+	.db	"temp",0
+	.db	2
+	.dw	.L505-.L128
+	.db	2,35,32,15
+	.db	"wdcnt",0
+	.db	2
+	.dw	.L506-.L128
+	.db	2,35,34,15
+	.db	"PrevTime",0
+	.db	4
+	.dw	.L507-.L128
+	.db	2,35,36,15
+	.db	"Time",0
+	.db	4
+	.dw	.L508-.L128
+	.db	2,35,40,15
+	.db	"SM",0
+	.db	32
+	.dw	.L509-.L128
+	.db	2,35,44,15
+	.db	"foestate",0
+	.db	1
+	.dw	.L510-.L128
+	.db	2,35,76,15
+	.db	"fposition",0
+	.db	4
+	.dw	.L511-.L128
+	.db	2,35,77,15
+	.db	"fprevposition",0
+	.db	4
+	.dw	.L512-.L128
+	.db	2,35,81,15
+	.db	"fend",0
+	.db	4
+	.dw	.L513-.L128
+	.db	2,35,85,15
+	.db	"fbufposition",0
+	.db	2
+	.dw	.L514-.L128
+	.db	2,35,89,15
+	.db	"fbufstate",0
+	.db	1
+	.dw	.L515-.L128
+	.db	2,35,91,15
+	.db	"bootstate",0
+	.db	1
+	.dw	.L516-.L128
+	.db	2,35,92,15
+	.db	"foepacket",0
+	.db	4
+	.dw	.L517-.L128
+	.db	2,35,93,0
+.L483:
+	.db	16
+	.dw	988
+.L484:
+	.db	16
+	.dw	988
+.L485:
+	.db	16
+	.dw	988
+.L486:
+	.db	16
+	.dw	988
+.L487:
+	.db	16
+	.dw	988
+.L488:
+	.db	16
+	.dw	988
+.L489:
+	.db	16
+	.dw	971
+.L490:
+	.db	16
+	.dw	971
+.L491:
+	.db	16
+	.dw	971
+.L492:
+	.db	16
+	.dw	971
+.L493:
+	.db	16
+	.dw	971
+.L494:
+	.db	16
+	.dw	971
+.L495:
+	.db	16
+	.dw	971
+.L496:
+	.db	16
+	.dw	971
+.L497:
+	.db	16
+	.dw	848
+.L498:
+	.db	16
+	.dw	988
+.L499:
+	.db	16
+	.dw	988
+.L500:
+	.db	16
+	.dw	988
+.L501:
+	.db	16
+	.dw	971
+.L502:
+	.db	16
+	.dw	971
+.L503:
+	.db	16
+	.dw	971
+.L504:
+	.db	16
+	.dw	971
+.L505:
+	.db	16
+	.dw	1490
+.L506:
+	.db	16
+	.dw	988
+.L507:
+	.db	16
+	.dw	216
+.L508:
+	.db	16
+	.dw	216
+.L509:
+	.db	16
+	.dw	.L518-.L128
+.L518:
+	.db	19,32
+	.dw	2522
+	.db	20,3,0
+.L510:
+	.db	16
+	.dw	971
+.L511:
+	.db	16
+	.dw	216
+.L512:
+	.db	16
+	.dw	216
+.L513:
+	.db	16
+	.dw	216
+.L514:
+	.db	16
+	.dw	988
+.L515:
+	.db	16
+	.dw	971
+.L516:
+	.db	16
+	.dw	971
+.L517:
+	.db	16
+	.dw	216
+	.db	21
+	.db	"_MBXh",0
+	.db	3,237,2,5
+	.dw	1095
+	.db	21
+	.db	"_MBX",0
+	.db	3,243,2,5
+	.dw	.L519-.L128
+.L519:
+	.db	14,3,239,2,9,128,1,15
+	.db	"header",0
+	.db	6
+	.dw	.L520-.L128
+	.db	2,35,0,15
+	.db	"b",0
+	.db	122
+	.dw	.L521-.L128
+	.db	2,35,6,0
+.L520:
+	.db	16
+	.dw	1095
+.L521:
+	.db	16
+	.dw	.L522-.L128
+.L522:
+	.db	19,122
+	.dw	971
+	.db	20,121,0,21
+	.db	"_COEh",0
+	.db	3,248,2,5
+	.dw	.L523-.L128
+.L523:
+	.db	14,3,245,2,9,2,15
+	.db	"numberservice",0
+	.db	2
+	.dw	.L524-.L128
+	.db	2,35,0,0
+.L524:
+	.db	16
+	.dw	988
+	.db	21
+	.db	"_INFOh",0
+	.db	3,134,3,5
+	.dw	.L525-.L128
+.L525:
+	.db	14,3,250,2,9,4,17
+	.db	"incomplete",0
+	.db	1
+	.dw	.L526-.L128
+	.db	1,0,2,35,0,17
+	.db	"opcode",0
+	.db	1
+	.dw	.L527-.L128
+	.db	7,1,2,35,0,15
+	.db	"reserved",0
+	.db	1
+	.dw	.L528-.L128
+	.db	2,35,1,15
+	.db	"fragmentsleft",0
+	.db	2
+	.dw	.L529-.L128
+	.db	2,35,2,0
+.L526:
+	.db	16
+	.dw	971
+.L527:
+	.db	16
+	.dw	971
+.L528:
+	.db	16
+	.dw	971
+.L529:
+	.db	16
+	.dw	988
+	.db	21
+	.db	"_FOEh",0
+	.db	3,189,3,3
+	.dw	1246
+	.db	21
+	.db	"_MBXcontrol",0
+	.db	3,217,3,5
+	.dw	.L530-.L128
+.L530:
+	.db	14,3,214,3,9,1,15
+	.db	"state",0
+	.db	1
+	.dw	.L531-.L128
+	.db	2,35,0,0
+.L531:
+	.db	16
+	.dw	971
+	.db	27
+	.db	"ESCvar",0
+	.db	3,246,3,26
+	.dw	3030
+	.db	1,1,27
+	.db	"MBX",0
+	.db	3,247,3,26
+	.dw	.L532-.L128
+	.db	1,1
+.L532:
+	.db	19,128,3
+	.dw	3852
+	.db	20,2,0,27
+	.db	"MBXcontrol",0
+	.db	3,248,3,26
+	.dw	.L533-.L128
+	.db	1,1
+.L533:
+	.db	19,3
+	.dw	4116
+	.db	20,2,0,27
+	.db	"MBXrun",0
+	.db	3,249,3,26
+	.dw	971
+	.db	1,1
+.L302:
+	.db	19,17
+	.dw	1015
+	.db	20,16,0
+.L303:
+	.db	19,128,2
+	.dw	971
+	.db	20,255,1,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev
+.L129:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,46,1,3,8,32,13,58,15,59,15,57,15,54,15,39,12,0,0,3,11
+	.db	0,0,0,4,46,1,3,8,32,13,58,15,59,15,57,15,73,19,54,15,39,12,0,0,5,36,0,3,8,11,15,62,15,0,0,6,5,0,3,8,58
+	.db	15,59,15,57,15,73,19,0,0,7,46,1,49,19,0,0,8,5,0,49,19,0,0,9,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39
+	.db	12,63,12,60,12,0,0,10,15,0,73,19,0,0,11,19,0,3,8,58,15,59,15,57,15,60,12,0,0,12,59,0,3,8,0,0,13,46,0,3
+	.db	8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,14,19,1,58,15,59,15,57,15,11,15,0,0,15,13,0,3,8
+	.db	11,15,73,19,56,9,0,0,16,45,0,73,19,0,0,17,13,0,3,8,11,15,73,19,13,15,12,15,56,9,0,0,18,23,1,58,15,59,15
+	.db	57,15,11,15,0,0,19,1,1,11,15,73,19,0,0,20,33,0,47,15,0,0,21,22,0,3,8,58,15,59,15,57,15,73,19,0,0,22,21
+	.db	0,54,15,0,0,23,21,1,73,19,54,15,39,12,0,0,24,5,0,73,19,0,0,25,19,1,3,8,58,15,59,15,57,15,11,15,0,0,26
+	.db	53,0,73,19,0,0,27,52,0,3,8,58,15,59,15,57,15,73,19,63,12,60,12,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line
+.L130:
+	.dw	.L535-.L534
+.L534:
+	.dh	3
+	.dw	.L537-.L536
+.L536:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\fpga\\processors\\c3000\\include\\pal_arch.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\platform\\external\\drivers\\m25px0\\include\\drv_m25px0.h",0
+	.db	0,0,0
+	.db	"Embedded\\esc.h",0
+	.db	0,0,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Tasking\\c3000\\include\\stdint.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Tasking\\c3000\\include\\stdlib.h",0
+	.db	0,0,0
+	.db	"C:\\ProgramData\\Altium\\Altium Designer {0AF745A3-9DC3-43DF-9375-F55F25A482B2}\\Extensions\\Embedded\\Library\\Software Platform\\services\\platform\\interrupts\\include\\interrupts.h",0
+	.db	0,0,0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\swplatform.h",0
+	.db	0,0,0
+	.db	"Embedded\\utypes.h",0
+	.db	0,0,0,0
+.L537:
+.L535:
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_init')
+.L131:
+	.dw	174
+	.dh	3
+	.dw	.L132
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L134,.L133
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_init",0
+	.db	1,176,1,6,1,1,1
+	.dw	.L102,.L245,.L101
+	.db	4
+	.dw	.L102,.L245
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_init')
+.L132:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_init')
+.L133:
+	.dw	.L539-.L538
+.L538:
+	.dh	3
+	.dw	.L541-.L540
+.L540:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L541:
+	.db	5,25,7,0,5,2
+	.dw	.L102
+	.db	3,177,1,1,5,32,9
+	.dh	.L542-.L102
+	.db	3,1,1,5,25
+	.db	15+9*((.L543-.L542)/4)
+	.db	5,29,9
+	.dh	.L544-.L543
+	.db	3,1,1,5,25,9
+	.dh	.L545-.L544
+	.db	3,1,1,5,28
+	.db	15+9*((.L546-.L545)/4)
+	.db	5,1
+	.db	15+9*((.L547-.L546)/4)
+	.db	5,28,7
+	.db	13+9*((.L548-.L547)/4)
+	.db	5,1,9
+	.dh	.L135-.L548
+	.db	3,1,0,1,1
+.L539:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_init')
+.L134:
+	.dw	-1
+	.dw	.L102
+	.dw	0
+	.dw	.L135-.L102
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_ESC_foeprocess')
+.L136:
+	.dw	180
+	.dh	3
+	.dw	.L137
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L139,.L138
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"ESC_foeprocess",0
+	.db	1,156,3,6,1,1,1
+	.dw	.L126,.L246,.L125
+	.db	4
+	.dw	.L126,.L246
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_ESC_foeprocess')
+.L137:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_ESC_foeprocess')
+.L138:
+	.dw	.L550-.L549
+.L549:
+	.dh	3
+	.dw	.L552-.L551
+.L551:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L552:
+	.db	5,6,7,0,5,2
+	.dw	.L126
+	.db	3,155,3,1,5,10,9
+	.dh	.L394-.L126
+	.db	3,7,1
+	.db	18+9*((.L553-.L394)/4)
+	.db	5,45
+	.db	14+9*((.L554-.L553)/4)
+	.db	5,9
+	.db	17+9*((.L555-.L554)/4)
+	.db	5,32,9
+	.dh	.L556-.L555
+	.db	3,1,1,5,5
+	.db	17+9*((.L67-.L556)/4)
+	.db	5,9
+	.db	18+9*((.L557-.L67)/4)
+	.db	5,43,9
+	.dh	.L558-.L557
+	.db	3,1,1,5,13
+	.db	17+9*((.L71-.L558)/4)
+	.db	5,36,9
+	.dh	.L75-.L71
+	.db	3,3,1,5,27
+	.db	15+9*((.L559-.L75)/4)
+	.db	5,36
+	.db	13+9*((.L560-.L559)/4)
+	.db	5,17
+	.db	16+9*((.L561-.L560)/4)
+	.db	5,26
+	.db	16+9*((.L78-.L561)/4)
+	.db	5,17
+	.db	15+9*((.L562-.L78)/4)
+	.db	5,37
+	.db	16+9*((.L76-.L562)/4)
+	.db	5,28
+	.db	15+9*((.L563-.L76)/4)
+	.db	5,37
+	.db	13+9*((.L564-.L563)/4)
+	.db	5,17
+	.db	16+9*((.L565-.L564)/4)
+	.db	5,27
+	.db	16+9*((.L77-.L565)/4)
+	.db	5,17
+	.db	15+9*((.L566-.L77)/4)
+	.db	5,27
+	.db	16+9*((.L80-.L566)/4)
+	.db	5,17
+	.db	15+9*((.L567-.L80)/4)
+	.db	5,28
+	.db	17+9*((.L79-.L567)/4)
+	.db	5,36
+	.db	13+9*((.L568-.L79)/4)
+	.db	5,17
+	.db	16+9*((.L569-.L568)/4)
+	.db	5,36
+	.db	16+9*((.L74-.L569)/4)
+	.db	5,46
+	.db	15+9*((.L570-.L74)/4)
+	.db	5,44
+	.db	17+9*((.L81-.L570)/4)
+	.db	5,23
+	.db	15+9*((.L571-.L81)/4)
+	.db	5,1
+	.db	16+9*((.L66-.L571)/4)
+	.db	9
+	.dh	.L140-.L66
+	.db	0,1,1
+.L550:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_ESC_foeprocess')
+.L139:
+	.dw	-1
+	.dw	.L126
+	.dw	0
+	.dw	.L140-.L126
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_fopen')
+.L141:
+	.dw	264
+	.dh	3
+	.dw	.L142
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L144,.L143
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_fopen",0
+	.db	1,49,10
+	.dw	.L247
+	.db	1,1,1
+	.dw	.L88,.L248,.L87
+	.db	4
+	.db	"name",0
+	.db	1,49,26
+	.dw	.L249,.L250
+	.db	4
+	.db	"num_chars",0
+	.db	1,49,41
+	.dw	.L247,.L251
+	.db	4
+	.db	"pass",0
+	.db	1,49,61
+	.dw	.L252,.L253
+	.db	4
+	.db	"op",0
+	.db	1,49,75
+	.dw	.L254,.L255
+	.db	5
+	.dw	.L88,.L248
+	.db	6
+	.db	"i",0
+	.db	1,51,14
+	.dw	.L247,.L256
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_fopen')
+.L142:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.db	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.db	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_fopen')
+.L143:
+	.dw	.L573-.L572
+.L572:
+	.dh	3
+	.dw	.L575-.L574
+.L574:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L575:
+	.db	5,5,7,0,5,2
+	.dw	.L88
+	.db	3,53,1,5,31
+	.db	15+9*((.L576-.L88)/4)
+	.db	5,34
+	.db	16+9*((.L2-.L576)/4)
+	.db	5,14
+	.db	15+9*((.L3-.L2)/4)
+	.db	5,34
+	.db	14+9*((.L304-.L3)/4)
+	.db	5,29
+	.db	14+9*((.L577-.L304)/4)
+	.db	5,34
+	.db	14+9*((.L578-.L577)/4)
+	.db	5,35
+	.db	16+9*((.L5-.L578)/4)
+	.db	5,32
+	.db	12+9*((.L579-.L5)/4)
+	.db	5,35
+	.db	16+9*((.L580-.L579)/4)
+	.db	5,32
+	.db	12+9*((.L581-.L580)/4)
+	.db	5,34
+	.db	14+9*((.L582-.L581)/4)
+	.db	5,29
+	.db	14+9*((.L4-.L582)/4)
+	.db	5,25
+	.db	18+9*((.L583-.L4)/4)
+	.db	5,9,9
+	.dh	.L584-.L583
+	.db	3,5,1,5,33,9
+	.dh	.L585-.L584
+	.db	3,8,1,5,38,9
+	.dh	.L586-.L585
+	.db	3,2,1,5,1,9
+	.dh	.L587-.L586
+	.db	3,6,1,5,13,7,9
+	.dh	.L588-.L587
+	.db	3,123,1,5,5
+	.db	18+9*((.L6-.L588)/4)
+	.db	5,1
+	.db	15+9*((.L589-.L6)/4)
+	.db	5,5,7
+	.db	13+9*((.L590-.L589)/4)
+	.db	5,1,9
+	.dh	.L145-.L590
+	.db	3,1,0,1,1
+.L573:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_fopen')
+.L144:
+	.dw	-1
+	.dw	.L88
+	.dw	0
+	.dw	.L145-.L88
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_fetchbuffer')
+.L146:
+	.dw	184
+	.dh	3
+	.dw	.L147
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L149,.L148
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_fetchbuffer",0
+	.db	1,85,9
+	.dw	.L254
+	.db	1,1,1
+	.dw	.L90,.L257,.L89
+	.db	4
+	.dw	.L90,.L257
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_fetchbuffer')
+.L147:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.db	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_fetchbuffer')
+.L148:
+	.dw	.L592-.L591
+.L591:
+	.dh	3
+	.dw	.L594-.L593
+.L593:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L594:
+	.db	5,9,7,0,5,2
+	.dw	.L90
+	.db	3,212,0,1,5,8,9
+	.dh	.L308-.L90
+	.db	3,2,1,5,49
+	.db	14+9*((.L595-.L308)/4)
+	.db	5,79,9
+	.dh	.L9-.L595
+	.db	3,7,1,5,32,9
+	.dh	.L596-.L9
+	.db	3,2,1,5,29
+	.db	15+9*((.L597-.L596)/4)
+	.db	5,27
+	.db	15+9*((.L10-.L597)/4)
+	.db	5,43,9
+	.dh	.L598-.L10
+	.db	3,1,1,5,9,9
+	.dh	.L599-.L598
+	.db	1,5,1
+	.db	16+9*((.L600-.L599)/4)
+	.db	9
+	.dh	.L150-.L600
+	.db	0,1,1
+.L592:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_fetchbuffer')
+.L149:
+	.dw	-1
+	.dw	.L90
+	.dw	0
+	.dw	.L150-.L90
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_fread')
+.L151:
+	.dw	238
+	.dh	3
+	.dw	.L152
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L154,.L153
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_fread",0
+	.db	1,103,10
+	.dw	.L247
+	.db	1,1,1
+	.dw	.L92,.L258,.L91
+	.db	4
+	.db	"data",0
+	.db	1,103,29
+	.dw	.L259,.L260
+	.db	4
+	.db	"maxlength",0
+	.db	1,103,44
+	.dw	.L247,.L261
+	.db	5
+	.dw	.L92,.L258
+	.db	6
+	.db	"ncopied",0
+	.db	1,105,14
+	.dw	.L247,.L262
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_fread')
+.L152:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.db	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.db	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_fread')
+.L153:
+	.dw	.L602-.L601
+.L601:
+	.dh	3
+	.dw	.L604-.L603
+.L603:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L604:
+	.db	5,10,7,0,5,2
+	.dw	.L92
+	.db	3,230,0,1,5,57,9
+	.dh	.L312-.L92
+	.db	3,4,1,5,22
+	.db	12+9*((.L605-.L312)/4)
+	.db	5,36,9
+	.dh	.L13-.L605
+	.db	3,5,1,5,20
+	.db	13+9*((.L606-.L13)/4)
+	.db	5,36
+	.db	15+9*((.L607-.L606)/4)
+	.db	5,15
+	.db	15+9*((.L608-.L607)/4)
+	.db	5,18
+	.db	15+9*((.L609-.L608)/4)
+	.db	5,12,9
+	.dh	.L12-.L609
+	.db	3,123,1,7
+	.db	14+9*((.L610-.L12)/4)
+	.db	5,38
+	.db	14+9*((.L611-.L610)/4)
+	.db	5,5,9
+	.dh	.L14-.L611
+	.db	3,8,1,5,1
+	.db	15+9*((.L612-.L14)/4)
+	.db	9
+	.dh	.L155-.L612
+	.db	0,1,1
+.L602:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_fread')
+.L154:
+	.dw	-1
+	.dw	.L92
+	.dw	0
+	.dw	.L155-.L92
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_writebuffer')
+.L156:
+	.dw	193
+	.dh	3
+	.dw	.L157
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L159,.L158
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_writebuffer",0
+	.db	1,118,6,1,1,1
+	.dw	.L94,.L263,.L93
+	.db	4
+	.db	"data",0
+	.db	1,118,30
+	.dw	.L254,.L264
+	.db	5
+	.dw	.L265
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_writebuffer')
+.L157:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,85,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_writebuffer')
+.L158:
+	.dw	.L614-.L613
+.L613:
+	.dh	3
+	.dw	.L616-.L615
+.L615:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L616:
+	.db	5,6,7,0,5,2
+	.dw	.L94
+	.db	3,245,0,1,5,5,9
+	.dh	.L314-.L94
+	.db	3,4,1,5,6,9
+	.dh	.L617-.L314
+	.db	3,124,1,5,13,9
+	.dh	.L315-.L617
+	.db	3,11,1,5,79
+	.db	16+9*((.L618-.L315)/4)
+	.db	5,56
+	.db	15+9*((.L619-.L618)/4)
+	.db	5,58
+	.db	14+9*((.L19-.L619)/4)
+	.db	5,56,9
+	.dh	.L18-.L19
+	.db	1,5,102,9
+	.dh	.L17-.L18
+	.db	3,5,1,5,52
+	.db	15+9*((.L620-.L17)/4)
+	.db	5,54
+	.db	14+9*((.L21-.L620)/4)
+	.db	5,52,9
+	.dh	.L20-.L21
+	.db	1,5,32,9
+	.dh	.L621-.L20
+	.db	3,5,1,5,27
+	.db	17+9*((.L622-.L621)/4)
+	.db	15+9*((.L16-.L622)/4)
+	.db	5,46,9
+	.dh	.L623-.L16
+	.db	3,1,1,5,36,9
+	.dh	.L624-.L623
+	.db	1,5,1
+	.db	16+9*((.L625-.L624)/4)
+	.db	9
+	.dh	.L160-.L625
+	.db	0,1,1
+.L614:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_writebuffer')
+.L159:
+	.dw	-1
+	.dw	.L94
+	.dw	0
+	.dw	.L160-.L94
+	.dw	0,0
+.L265:
+	.dw	-1
+	.dw	.L94
+	.dw	0
+	.dw	.L263-.L94
+	.dw	-1
+	.dw	.L96
+	.dw	0
+	.dw	.L225-.L96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_fwrite')
+.L161:
+	.dw	240
+	.dh	3
+	.dw	.L162
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L164,.L163
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_fwrite",0
+	.db	1,152,1,10
+	.dw	.L247
+	.db	1,1,1
+	.dw	.L98,.L266,.L97
+	.db	4
+	.db	"data",0
+	.db	1,152,1,30
+	.dw	.L259,.L267
+	.db	4
+	.db	"length",0
+	.db	1,152,1,45
+	.dw	.L247,.L268
+	.db	5
+	.dw	.L98,.L266
+	.db	6
+	.db	"ncopied",0
+	.db	1,154,1,14
+	.dw	.L247,.L269
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_fwrite')
+.L162:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.db	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.db	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_fwrite')
+.L163:
+	.dw	.L627-.L626
+.L626:
+	.dh	3
+	.dw	.L629-.L628
+.L628:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L629:
+	.db	5,10,7,0,5,2
+	.dw	.L98
+	.db	3,151,1,1,5,44,9
+	.dh	.L319-.L98
+	.db	3,4,1,5,22
+	.db	12+9*((.L321-.L319)/4)
+	.db	5,44
+	.db	16+9*((.L322-.L321)/4)
+	.db	5,54,9
+	.dh	.L630-.L322
+	.db	3,1,1,5,44
+	.db	13+9*((.L631-.L630)/4)
+	.db	5,33
+	.db	18+9*((.L23-.L631)/4)
+	.db	5,17
+	.db	13+9*((.L632-.L23)/4)
+	.db	5,15
+	.db	16+9*((.L633-.L632)/4)
+	.db	5,18
+	.db	15+9*((.L634-.L633)/4)
+	.db	5,12,9
+	.dh	.L22-.L634
+	.db	3,123,1,7
+	.db	14+9*((.L635-.L22)/4)
+	.db	5,35
+	.db	14+9*((.L636-.L635)/4)
+	.db	5,5,9
+	.dh	.L24-.L636
+	.db	3,8,1,5,1
+	.db	15+9*((.L637-.L24)/4)
+	.db	9
+	.dh	.L165-.L637
+	.db	0,1,1
+.L627:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_fwrite')
+.L164:
+	.dw	-1
+	.dw	.L98
+	.dw	0
+	.dw	.L165-.L98
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_fclose')
+.L166:
+	.dw	194
+	.dh	3
+	.dw	.L167
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L169,.L168
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_fclose",0
+	.db	1,168,1,6,1,1,1
+	.dw	.L100,.L270,.L99
+	.db	4
+	.dw	.L100,.L270
+	.db	5
+	.db	"cnt",0
+	.db	1,170,1,14
+	.dw	.L247,.L271
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_fclose')
+.L167:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_fclose')
+.L168:
+	.dw	.L639-.L638
+.L638:
+	.dh	3
+	.dw	.L641-.L640
+.L640:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L641:
+	.db	5,6,7,0,5,2
+	.dw	.L100
+	.db	3,167,1,1,5,16,9
+	.dh	.L324-.L100
+	.db	3,4,1,5,23
+	.db	13+9*((.L642-.L324)/4)
+	.db	5,29
+	.db	16+9*((.L27-.L642)/4)
+	.db	5,14
+	.db	13+9*((.L26-.L27)/4)
+	.db	5,16
+	.db	14+9*((.L643-.L26)/4)
+	.db	5,14,7
+	.db	14+9*((.L644-.L643)/4)
+	.db	5,1
+	.db	16+9*((.L645-.L644)/4)
+	.db	9
+	.dh	.L170-.L645
+	.db	0,1,1
+.L639:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_fclose')
+.L169:
+	.dw	-1
+	.dw	.L100
+	.dw	0
+	.dw	.L170-.L100
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_abort')
+.L171:
+	.dw	233
+	.dh	3
+	.dw	.L172
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L174,.L173
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_abort",0
+	.db	1,186,1,6,1,1,1
+	.dw	.L104,.L272,.L103
+	.db	4
+	.db	"code",0
+	.db	1,186,1,25
+	.dw	.L252,.L273
+	.db	5
+	.dw	.L274
+	.db	6
+	.db	"foembx",0
+	.db	1,188,1,11
+	.dw	.L275,.L276
+	.db	6
+	.db	"mbxhandle",0
+	.db	1,189,1,13
+	.dw	.L254,.L277
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_abort')
+.L172:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,85,6,0,0,6,52,0,3,8,58
+	.db	15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_abort')
+.L173:
+	.dw	.L647-.L646
+.L646:
+	.dh	3
+	.dw	.L649-.L648
+.L648:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L649:
+	.db	5,6,7,0,5,2
+	.dw	.L104
+	.db	3,185,1,1,5,5,9
+	.dh	.L326-.L104
+	.db	3,5,1,5,6,7,9
+	.dh	.L650-.L326
+	.db	3,123,1,5,38,9
+	.dh	.L333-.L650
+	.db	3,8,1,5,9
+	.db	15+9*((.L331-.L333)/4)
+	.db	7
+	.db	14+9*((.L651-.L331)/4)
+	.db	5,44
+	.db	16+9*((.L652-.L651)/4)
+	.db	5,50
+	.db	17+9*((.L653-.L652)/4)
+	.db	5,47
+	.db	13+9*((.L654-.L653)/4)
+	.db	5,50
+	.db	15+9*((.L655-.L654)/4)
+	.db	5,56
+	.db	15+9*((.L337-.L655)/4)
+	.db	5,58,9
+	.dh	.L328-.L337
+	.db	3,1,1,5,15
+	.db	18+9*((.L28-.L328)/4)
+	.db	5,1
+	.db	15+9*((.L656-.L28)/4)
+	.db	9
+	.dh	.L175-.L656
+	.db	0,1,1
+.L647:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_abort')
+.L174:
+	.dw	-1
+	.dw	.L104
+	.dw	0
+	.dw	.L175-.L104
+	.dw	0,0
+.L274:
+	.dw	-1
+	.dw	.L104
+	.dw	0
+	.dw	.L272-.L104
+	.dw	-1
+	.dw	.L106
+	.dw	0
+	.dw	.L230-.L106
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_send_data_packet')
+.L176:
+	.dw	255
+	.dh	3
+	.dw	.L177
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L179,.L178
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_send_data_packet",0
+	.db	1,212,1,10
+	.dw	.L247
+	.db	1,1
+	.dw	.L108,.L278,.L107
+	.db	4
+	.dw	.L108,.L278
+	.db	5
+	.db	"foembx",0
+	.db	1,214,1,15
+	.dw	.L275,.L279
+	.db	5
+	.db	"data_len",0
+	.db	1,215,1,14
+	.dw	.L247,.L280
+	.db	5
+	.db	"mbxhandle",0
+	.db	1,216,1,14
+	.dw	.L254,.L281
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_send_data_packet')
+.L177:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.db	54,15,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_send_data_packet')
+.L178:
+	.dw	.L658-.L657
+.L657:
+	.dh	3
+	.dw	.L660-.L659
+.L659:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L660:
+	.db	5,10,7,0,5,2
+	.dw	.L108
+	.db	3,211,1,1,5,34,9
+	.dh	.L341-.L108
+	.db	3,6,1,5,5
+	.db	15+9*((.L342-.L341)/4)
+	.db	5,34,7
+	.db	13+9*((.L661-.L342)/4)
+	.db	5,40
+	.db	17+9*((.L344-.L661)/4)
+	.db	5,60
+	.db	15+9*((.L345-.L344)/4)
+	.db	5,62
+	.db	15+9*((.L346-.L345)/4)
+	.db	5,43,9
+	.dh	.L662-.L346
+	.db	3,1,1,5,47
+	.db	15+9*((.L663-.L662)/4)
+	.db	5,43
+	.db	13+9*((.L664-.L663)/4)
+	.db	5,47
+	.db	15+9*((.L665-.L664)/4)
+	.db	5,67
+	.db	15+9*((.L666-.L665)/4)
+	.db	5,54,9
+	.dh	.L667-.L666
+	.db	3,2,1,5,27
+	.db	15+9*((.L668-.L667)/4)
+	.db	5,9,9
+	.dh	.L669-.L668
+	.db	3,1,1,5,27
+	.db	13+9*((.L670-.L669)/4)
+	.db	5,9
+	.db	18+9*((.L30-.L670)/4)
+	.db	5,1
+	.db	15+9*((.L671-.L30)/4)
+	.db	9
+	.dh	.L180-.L671
+	.db	0,1,1
+.L658:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_send_data_packet')
+.L179:
+	.dw	-1
+	.dw	.L108
+	.dw	0
+	.dw	.L180-.L108
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_send_ack')
+.L181:
+	.dw	225
+	.dh	3
+	.dw	.L182
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L184,.L183
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_send_ack",0
+	.db	1,236,1,10
+	.dw	.L247
+	.db	1,1
+	.dw	.L110,.L282,.L109
+	.db	4
+	.dw	.L110,.L282
+	.db	5
+	.db	"foembx",0
+	.db	1,238,1,14
+	.dw	.L275,.L283
+	.db	5
+	.db	"mbxhandle",0
+	.db	1,239,1,13
+	.dw	.L254,.L284
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_send_ack')
+.L182:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.db	54,15,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_send_ack')
+.L183:
+	.dw	.L673-.L672
+.L672:
+	.dh	3
+	.dw	.L675-.L674
+.L674:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L675:
+	.db	5,10,7,0,5,2
+	.dw	.L110
+	.db	3,235,1,1,5,34,9
+	.dh	.L348-.L110
+	.db	3,5,1,5,5
+	.db	15+9*((.L353-.L348)/4)
+	.db	7
+	.db	14+9*((.L676-.L353)/4)
+	.db	5,40
+	.db	16+9*((.L677-.L676)/4)
+	.db	5,46
+	.db	17+9*((.L678-.L677)/4)
+	.db	5,43
+	.db	13+9*((.L679-.L678)/4)
+	.db	5,46
+	.db	15+9*((.L680-.L679)/4)
+	.db	5,67
+	.db	15+9*((.L358-.L680)/4)
+	.db	5,54,9
+	.dh	.L360-.L358
+	.db	3,1,1,5,27
+	.db	15+9*((.L681-.L360)/4)
+	.db	5,9,9
+	.dh	.L682-.L681
+	.db	3,1,1
+	.db	17+9*((.L33-.L682)/4)
+	.db	5,1
+	.db	15+9*((.L34-.L33)/4)
+	.db	9
+	.dh	.L185-.L34
+	.db	0,1,1
+.L673:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_send_ack')
+.L184:
+	.dw	-1
+	.dw	.L110
+	.dw	0
+	.dw	.L185-.L110
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_read')
+.L186:
+	.dw	231
+	.dh	3
+	.dw	.L187
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L189,.L188
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_read",0
+	.db	1,131,2,6,1,1
+	.dw	.L112,.L285,.L111
+	.db	4
+	.dw	.L286
+	.db	5
+	.db	"data_len",0
+	.db	1,134,2,14
+	.dw	.L247,.L287
+	.db	5
+	.db	"password",0
+	.db	1,135,2,14
+	.dw	.L252,.L288
+	.db	5
+	.db	"res",0
+	.db	1,136,2,14
+	.dw	.L247,.L289
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_read')
+.L187:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	63,12,17,1,18,1,64,6,0,0,4,11,1,85,6,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_read')
+.L188:
+	.dw	.L684-.L683
+.L683:
+	.dh	3
+	.dw	.L686-.L685
+.L685:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L686:
+	.db	5,6,7,0,5,2
+	.dw	.L112
+	.db	3,130,2,1,5,5,9
+	.dh	.L364-.L112
+	.db	3,7,1,5,9
+	.db	17+9*((.L687-.L364)/4)
+	.db	5,35
+	.db	13+9*((.L688-.L687)/4)
+	.db	5,15
+	.db	18+9*((.L36-.L688)/4)
+	.db	5,58
+	.db	17+9*((.L689-.L36)/4)
+	.db	5,72
+	.db	17+9*((.L690-.L689)/4)
+	.db	5,5
+	.db	15+9*((.L368-.L690)/4)
+	.db	7
+	.db	14+9*((.L691-.L368)/4)
+	.db	5,27
+	.db	16+9*((.L692-.L691)/4)
+	.db	5,37,9
+	.dh	.L693-.L692
+	.db	3,2,1,5,27
+	.db	12+9*((.L694-.L693)/4)
+	.db	5,9
+	.db	17+9*((.L365-.L694)/4)
+	.db	5,47
+	.db	16+9*((.L695-.L365)/4)
+	.db	5,23,9
+	.dh	.L38-.L695
+	.db	3,6,1,5,1
+	.db	15+9*((.L40-.L38)/4)
+	.db	9
+	.dh	.L190-.L40
+	.db	0,1,1
+.L684:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_read')
+.L189:
+	.dw	-1
+	.dw	.L112
+	.dw	0
+	.dw	.L190-.L112
+	.dw	0,0
+.L286:
+	.dw	-1
+	.dw	.L112
+	.dw	0
+	.dw	.L285-.L112
+	.dw	-1
+	.dw	.L114
+	.dw	0
+	.dw	.L220-.L114
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_ack')
+.L191:
+	.dw	190
+	.dh	3
+	.dw	.L192
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L194,.L193
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_ack",0
+	.db	1,167,2,6,1,1
+	.dw	.L116,.L290,.L115
+	.db	4
+	.dw	.L116,.L290
+	.db	5
+	.db	"res",0
+	.db	1,169,2,14
+	.dw	.L247,.L291
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_ack')
+.L192:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_ack')
+.L193:
+	.dw	.L697-.L696
+.L696:
+	.dh	3
+	.dw	.L699-.L698
+.L698:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L699:
+	.db	5,6,7,0,5,2
+	.dw	.L116
+	.db	3,166,2,1,5,5,9
+	.dh	.L371-.L116
+	.db	3,5,1,5,19
+	.db	17+9*((.L700-.L371)/4)
+	.db	5,9
+	.db	15+9*((.L701-.L700)/4)
+	.db	5,10
+	.db	16+9*((.L41-.L701)/4)
+	.db	5,9
+	.db	17+9*((.L702-.L41)/4)
+	.db	5,35
+	.db	13+9*((.L703-.L702)/4)
+	.db	5,33
+	.db	17+9*((.L43-.L703)/4)
+	.db	5,5
+	.db	15+9*((.L373-.L43)/4)
+	.db	5,49
+	.db	16+9*((.L704-.L373)/4)
+	.db	5,10
+	.db	16+9*((.L45-.L704)/4)
+	.db	5,37
+	.db	15+9*((.L705-.L45)/4)
+	.db	5,1
+	.db	15+9*((.L42-.L705)/4)
+	.db	9
+	.dh	.L195-.L42
+	.db	0,1,1
+.L697:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_ack')
+.L194:
+	.dw	-1
+	.dw	.L116
+	.dw	0
+	.dw	.L195-.L116
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_write')
+.L196:
+	.dw	236
+	.dh	3
+	.dw	.L197
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L199,.L198
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_write",0
+	.db	1,192,2,6,1,1
+	.dw	.L118,.L292,.L117
+	.db	4
+	.dw	.L118,.L292
+	.db	5
+	.db	"data_len",0
+	.db	1,195,2,14
+	.dw	.L247,.L293
+	.db	5
+	.db	"password",0
+	.db	1,196,2,14
+	.dw	.L252,.L294
+	.db	5
+	.db	"res",0
+	.db	1,197,2,13
+	.dw	.L295,.L296
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_write')
+.L197:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_write')
+.L198:
+	.dw	.L707-.L706
+.L706:
+	.dh	3
+	.dw	.L709-.L708
+.L708:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L709:
+	.db	5,6,7,0,5,2
+	.dw	.L118
+	.db	3,191,2,1,5,5,9
+	.dh	.L376-.L118
+	.db	3,7,1,5,9
+	.db	17+9*((.L710-.L376)/4)
+	.db	5,35
+	.db	13+9*((.L711-.L710)/4)
+	.db	5,15
+	.db	18+9*((.L48-.L711)/4)
+	.db	5,58
+	.db	16+9*((.L712-.L48)/4)
+	.db	5,72
+	.db	18+9*((.L713-.L712)/4)
+	.db	5,5
+	.db	15+9*((.L714-.L713)/4)
+	.db	7
+	.db	14+9*((.L715-.L714)/4)
+	.db	5,29
+	.db	16+9*((.L716-.L715)/4)
+	.db	5,9
+	.db	15+9*((.L717-.L716)/4)
+	.db	7
+	.db	14+9*((.L718-.L717)/4)
+	.db	5,48
+	.db	17+9*((.L719-.L718)/4)
+	.db	5,9
+	.db	13+9*((.L720-.L719)/4)
+	.db	5,48
+	.db	15+9*((.L721-.L720)/4)
+	.db	5,23
+	.db	17+9*((.L49-.L721)/4)
+	.db	5,1
+	.db	15+9*((.L52-.L49)/4)
+	.db	9
+	.dh	.L200-.L52
+	.db	0,1,1
+.L707:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_write')
+.L199:
+	.dw	-1
+	.dw	.L118
+	.dw	0
+	.dw	.L200-.L118
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_data')
+.L201:
+	.dw	213
+	.dh	3
+	.dw	.L202
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L204,.L203
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_data",0
+	.db	1,224,2,6,1,1
+	.dw	.L120,.L297,.L119
+	.db	4
+	.dw	.L120,.L297
+	.db	5
+	.db	"data_len",0
+	.db	1,229,2,14
+	.dw	.L247,.L298
+	.db	5
+	.db	"res",0
+	.db	1,230,2,13
+	.dw	.L295,.L299
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_data')
+.L202:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_data')
+.L203:
+	.dw	.L723-.L722
+.L722:
+	.dh	3
+	.dw	.L725-.L724
+.L724:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L725:
+	.db	5,6,7,0,5,2
+	.dw	.L120
+	.db	3,223,2,1,5,5,9
+	.dh	.L383-.L120
+	.db	3,8,1,5,35
+	.db	16+9*((.L726-.L383)/4)
+	.db	5,9
+	.db	15+9*((.L727-.L726)/4)
+	.db	5,58
+	.db	18+9*((.L53-.L727)/4)
+	.db	5,5,9
+	.dh	.L728-.L53
+	.db	3,2,1,5,58
+	.db	12+9*((.L729-.L728)/4)
+	.db	5,5
+	.db	16+9*((.L387-.L729)/4)
+	.db	5,36,9
+	.dh	.L730-.L387
+	.db	3,1,1,5,10
+	.db	15+9*((.L55-.L730)/4)
+	.db	5,36,9
+	.dh	.L731-.L55
+	.db	3,1,1,5,45
+	.db	18+9*((.L57-.L731)/4)
+	.db	5,9
+	.db	15+9*((.L732-.L57)/4)
+	.db	5,56
+	.db	14+9*((.L733-.L732)/4)
+	.db	5,68
+	.db	14+9*((.L59-.L733)/4)
+	.db	5,9
+	.db	16+9*((.L60-.L59)/4)
+	.db	5,13
+	.db	17+9*((.L734-.L60)/4)
+	.db	7
+	.db	14+9*((.L735-.L734)/4)
+	.db	5,35
+	.db	14+9*((.L736-.L735)/4)
+	.db	5,13
+	.db	14+9*((.L385-.L736)/4)
+	.db	5,25
+	.db	18+9*((.L61-.L385)/4)
+	.db	5,23
+	.db	15+9*((.L386-.L61)/4)
+	.db	5,1
+	.db	17+9*((.L54-.L386)/4)
+	.db	9
+	.dh	.L205-.L54
+	.db	0,1,1
+.L723:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_data')
+.L204:
+	.dw	-1
+	.dw	.L120
+	.dw	0
+	.dw	.L205-.L120
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_busy')
+.L206:
+	.dw	173
+	.dh	3
+	.dw	.L207
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L209,.L208
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_busy",0
+	.db	1,136,3,6,1,1
+	.dw	.L122,.L300,.L121
+	.db	4
+	.dw	.L122,.L300
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_busy')
+.L207:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_busy')
+.L208:
+	.dw	.L738-.L737
+.L737:
+	.dh	3
+	.dw	.L740-.L739
+.L739:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L740:
+	.db	5,6,7,0,5,2
+	.dw	.L122
+	.db	3,135,3,1,5,5
+	.db	17+9*((.L391-.L122)/4)
+	.db	5,35
+	.db	15+9*((.L741-.L391)/4)
+	.db	5,48
+	.db	18+9*((.L64-.L741)/4)
+	.db	5,27,9
+	.dh	.L742-.L64
+	.db	3,1,1,5,18,9
+	.dh	.L743-.L742
+	.db	3,1,1,5,27
+	.db	13+9*((.L744-.L743)/4)
+	.db	5,1
+	.db	17+9*((.L65-.L744)/4)
+	.db	9
+	.dh	.L210-.L65
+	.db	0,1,1
+.L738:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_busy')
+.L209:
+	.dw	-1
+	.dw	.L122
+	.dw	0
+	.dw	.L210-.L122
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_error')
+.L211:
+	.dw	174
+	.dh	3
+	.dw	.L212
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L214,.L213
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	"FOE_error",0
+	.db	1,150,3,6,1,1
+	.dw	.L124,.L301,.L123
+	.db	4
+	.dw	.L124,.L301
+	.db	0,0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_error')
+.L212:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.db	63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_error')
+.L213:
+	.dw	.L746-.L745
+.L745:
+	.dh	3
+	.dw	.L748-.L747
+.L747:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L748:
+	.db	5,17,7,0,5,2
+	.dw	.L124
+	.db	3,152,3,1,7
+	.db	14+9*((.L749-.L124)/4)
+	.db	5,1,9
+	.dh	.L215-.L749
+	.db	3,1,0,1,1
+.L746:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_error')
+.L214:
+	.dw	-1
+	.dw	.L124
+	.dw	0
+	.dw	.L215-.L124
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_read')
+.L216:
+	.dw	163
+	.dh	3
+	.dw	.L217
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L219,.L218
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	".cocofun_2",0
+	.db	1,1,1,1
+	.dw	.L114,.L220,.L113
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_read')
+.L217:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,0,3,8,58,15,59,15,57,15,54,15
+	.db	17,1,18,1,64,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_read')
+.L218:
+	.dw	.L751-.L750
+.L750:
+	.dh	3
+	.dw	.L753-.L752
+.L752:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L753:
+	.db	5,58,7,0,5,2
+	.dw	.L114
+	.db	3,146,2,1,5,51,9
+	.dh	.L754-.L114
+	.db	3,1,1,5,58
+	.db	13+9*((.L755-.L754)/4)
+	.db	5,51
+	.db	15+9*((.L756-.L755)/4)
+	.db	5,72,9
+	.dh	.L757-.L756
+	.db	3,2,1,7
+	.db	14+9*((.L758-.L757)/4)
+	.db	9
+	.dh	.L220-.L758
+	.db	0,1,1,5,58,0,5,2
+	.dw	.L114
+	.db	3,206,2,1,5,51,9
+	.dh	.L754-.L114
+	.db	3,1,1,5,58,9
+	.dh	.L755-.L754
+	.db	3,67,1,5,51,9
+	.dh	.L756-.L755
+	.db	3,61,1,5,72,9
+	.dh	.L757-.L756
+	.db	3,70,1,7,9
+	.dh	.L758-.L757
+	.db	3,61,1,9
+	.dh	.L220-.L758
+	.db	0,1,1
+.L751:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_read')
+.L219:
+	.dw	-1
+	.dw	.L114
+	.dw	0
+	.dw	.L220-.L114
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_writebuffer')
+.L221:
+	.dw	163
+	.dh	3
+	.dw	.L222
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L224,.L223
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	".cocofun_3",0
+	.db	1,1,1,1
+	.dw	.L96,.L225,.L95
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_writebuffer')
+.L222:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,0,3,8,58,15,59,15,57,15,54,15
+	.db	17,1,18,1,64,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_writebuffer')
+.L223:
+	.dw	.L760-.L759
+.L759:
+	.dh	3
+	.dw	.L762-.L761
+.L761:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L762:
+	.db	5,79,7,0,5,2
+	.dw	.L96
+	.db	3,130,1,1,9
+	.dh	.L225-.L96
+	.db	0,1,1,5,102,0,5,2
+	.dw	.L96
+	.db	3,136,1,1,5,79,9
+	.dh	.L763-.L96
+	.db	3,122,1,5,102,7,9
+	.dh	.L764-.L763
+	.db	3,6,1,9
+	.dh	.L225-.L764
+	.db	0,1,1
+.L760:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_writebuffer')
+.L224:
+	.dw	-1
+	.dw	.L96
+	.dw	0
+	.dw	.L225-.L96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_FOE_abort')
+.L226:
+	.dw	163
+	.dh	3
+	.dw	.L227
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1
+	.dw	.L229,.L228
+	.db	2
+	.dw	.L127
+	.db	3
+	.db	".cocofun_4",0
+	.db	1,1,1,1
+	.dw	.L106,.L230,.L105
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_FOE_abort')
+.L227:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,0,3,8,58,15,59,15,57,15,54,15
+	.db	17,1,18,1,64,6,0,0,0
+	.endsec	; End of section
+
+	.section	.debug_line ,cluster('$group_FOE_abort')
+.L228:
+	.dw	.L766-.L765
+.L765:
+	.dh	3
+	.dw	.L768-.L767
+.L767:
+	.db	4,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.db	"Embedded\\esc_foe.c",0
+	.db	0,0,0,0
+.L768:
+	.db	5,44,7,0,5,2
+	.dw	.L106
+	.db	3,196,1,1,5,55
+	.db	15+9*((.L769-.L106)/4)
+	.db	5,47
+	.db	15+9*((.L770-.L769)/4)
+	.db	7
+	.db	14+9*((.L771-.L770)/4)
+	.db	9
+	.dh	.L230-.L771
+	.db	0,1,1,5,40,0,5,2
+	.dw	.L106
+	.db	3,243,1,1,5,51
+	.db	15+9*((.L769-.L106)/4)
+	.db	5,47,9
+	.dh	.L770-.L769
+	.db	3,82,1,5,43,7,9
+	.dh	.L771-.L770
+	.db	3,47,1,9
+	.dh	.L230-.L771
+	.db	0,1,1
+.L766:
+	.endsec	; End of section
+
+	.section	.debug_ranges ,cluster('$group_FOE_abort')
+.L229:
+	.dw	-1
+	.dw	.L106
+	.dw	0
+	.dw	.L230-.L106
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_bss')
+.L231:
+	.dw	156
+	.dh	3
+	.dw	.L232
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L127
+	.db	3
+	.db	"foe_file_name",0
+	.db	4,39,23
+	.dw	.L302
+	.db	1,5,3
+	.dw	foe_file_name
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_bss')
+.L232:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sdata')
+.L233:
+	.dw	156
+	.dh	3
+	.dw	.L234
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L127
+	.db	3
+	.db	"file_name_len",0
+	.db	4,42,23
+	.dw	.L247
+	.db	1,5,3
+	.dw	file_name_len
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sdata')
+.L234:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L235:
+	.dw	152
+	.dh	3
+	.dw	.L236
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L127
+	.db	3
+	.db	"file_pass",0
+	.db	4,43,23
+	.dw	.L252
+	.db	1,5,3
+	.dw	file_pass
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L236:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_bss')
+.L237:
+	.dw	150
+	.dh	3
+	.dw	.L238
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L127
+	.db	3
+	.db	"fbuffer",0
+	.db	4,44,23
+	.dw	.L303
+	.db	1,5,3
+	.dw	fbuffer
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_bss')
+.L238:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L239:
+	.dw	152
+	.dh	3
+	.dw	.L240
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L127
+	.db	3
+	.db	"flash_pos",0
+	.db	4,45,23
+	.dw	.L252
+	.db	1,5,3
+	.dw	flash_pos
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L240:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L241:
+	.dw	151
+	.dh	3
+	.dw	.L242
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L127
+	.db	3
+	.db	"fbuf_pos",0
+	.db	4,46,23
+	.dw	.L252
+	.db	1,5,3
+	.dw	fbuf_pos
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L242:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_info ,cluster('$group_sbss')
+.L243:
+	.dw	151
+	.dh	3
+	.dw	.L244
+	.db	4,1
+	.db	"Embedded\\esc_foe.c",0
+	.db	"TASKING TSK3000 VIPER C compiler",0
+	.db	"C:\\Users\\Public\\Documents\\Altium\\Projects\\ESRA_0x0E030206\\",0
+	.db	12,1,2
+	.dw	.L127
+	.db	3
+	.db	"foe_mode",0
+	.db	4,47,23
+	.dw	.L254
+	.db	1,5,3
+	.dw	foe_mode
+	.db	0
+	.endsec	; End of section
+
+	.section	.debug_abbrev ,cluster('$group_sbss')
+.L244:
+	.db	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.db	0,0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_abort')
+.L103:
+	.dw	-1
+	.dw	.L104,.L104-.L104,.L325-.L104
+	.dh	2
+	.db	141,0
+	.dw	.L325-.L104,.L272-.L104
+	.dh	2
+	.db	141,8
+	.dw	.L272-.L104,.L272-.L104
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_writebuffer')
+.L95:
+	.dw	-1
+	.dw	.L96,.L96-.L96,.L225-.L96
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fopen')
+.L250:
+	.dw	-1
+	.dw	.L88,.L88-.L88,.L248-.L88
+	.dh	1
+	.db	84
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_read')
+.L113:
+	.dw	-1
+	.dw	.L114,.L114-.L114,.L220-.L114
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fwrite')
+.L268:
+	.dw	-1
+	.dw	.L98,.L319-.L98,.L266-.L98
+	.dh	1
+	.db	98
+	.dw	.L320-.L98,.L319-.L98
+	.dh	1
+	.db	85
+	.dw	.L98-.L98,.L318-.L98
+	.dh	1
+	.db	85
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_abort')
+.L276:
+	.dw	-1
+	.dw	.L104,.L327-.L104,.L328-.L104
+	.dh	1
+	.db	83
+	.dw	.L329-.L104,.L330-.L104
+	.dh	1
+	.db	83
+	.dw	.L334-.L104,.L335-.L104
+	.dh	1
+	.db	83
+	.dw	.L336-.L104,.L337-.L104
+	.dh	1
+	.db	83
+	.dw	.L338-.L104,.L339-.L104
+	.dh	1
+	.db	83
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_ack')
+.L291:
+	.dw	-1
+	.dw	.L116,.L45-.L116,.L372-.L116
+	.dh	1
+	.db	82
+	.dw	.L373-.L116,.L374-.L116
+	.dh	1
+	.db	82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_init')
+.L101:
+	.dw	-1
+	.dw	.L102,.L102-.L102,.L245-.L102
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_send_data_packet')
+.L280:
+	.dw	-1
+	.dw	.L108,.L346-.L108,.L30-.L108
+	.dh	1
+	.db	82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fread')
+.L260:
+	.dw	-1
+	.dw	.L92,.L92-.L92,.L311-.L92
+	.dh	1
+	.db	84
+	.dw	.L311-.L92,.L258-.L92
+	.dh	1
+	.db	96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_send_data_packet')
+.L279:
+	.dw	-1
+	.dw	.L108,.L345-.L108,.L30-.L108
+	.dh	1
+	.db	97
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fopen')
+.L253:
+	.dw	-1
+	.dw	.L88,.L88-.L88,.L5-.L88
+	.dh	1
+	.db	86
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_write')
+.L293:
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_send_ack')
+.L284:
+	.dw	-1
+	.dw	.L110,.L33-.L110,.L352-.L110
+	.dh	1
+	.db	82
+	.dw	.L353-.L110,.L354-.L110
+	.dh	1
+	.db	82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fwrite')
+.L267:
+	.dw	-1
+	.dw	.L98,.L320-.L98,.L266-.L98
+	.dh	1
+	.db	97
+	.dw	.L98-.L98,.L320-.L98
+	.dh	1
+	.db	84
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_writebuffer')
+.L264:
+	.dw	-1
+	.dw	.L94,.L315-.L94,.L263-.L94
+	.dh	1
+	.db	96
+	.dw	.L94-.L94,.L314-.L94
+	.dh	1
+	.db	84
+	.dw	.L316-.L94,.L315-.L94
+	.dh	1
+	.db	84
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_write')
+.L294:
+	.dw	-1
+	.dw	.L118,.L377-.L118,.L378-.L118
+	.dh	1
+	.db	82
+	.dw	.L377-.L118,.L381-.L118
+	.dh	1
+	.db	86
+	.dw	0,0
+.L296:
+	.dw	-1
+	.dw	.L118,.L379-.L118,.L52-.L118
+	.dh	1
+	.db	84
+	.dw	.L380-.L118,.L381-.L118
+	.dh	1
+	.db	84
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_send_data_packet')
+.L281:
+	.dw	-1
+	.dw	.L108,.L30-.L108,.L31-.L108
+	.dh	1
+	.db	82
+	.dw	.L342-.L108,.L343-.L108
+	.dh	1
+	.db	82
+	.dw	.L344-.L108,.L278-.L108
+	.dh	1
+	.db	96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_ESC_foeprocess')
+.L125:
+	.dw	-1
+	.dw	.L126,.L126-.L126,.L393-.L126
+	.dh	2
+	.db	141,0
+	.dw	.L393-.L126,.L246-.L126
+	.dh	2
+	.db	141,8
+	.dw	.L246-.L126,.L246-.L126
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_error')
+.L123:
+	.dw	-1
+	.dw	.L124,.L124-.L124,.L301-.L124
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_send_ack')
+.L109:
+	.dw	-1
+	.dw	.L110,.L110-.L110,.L347-.L110
+	.dh	2
+	.db	141,0
+	.dw	.L347-.L110,.L282-.L110
+	.dh	2
+	.db	141,4
+	.dw	.L282-.L110,.L282-.L110
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_data')
+.L119:
+	.dw	-1
+	.dw	.L120,.L120-.L120,.L382-.L120
+	.dh	2
+	.db	141,0
+	.dw	.L382-.L120,.L297-.L120
+	.dh	2
+	.db	141,8
+	.dw	.L297-.L120,.L297-.L120
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_abort')
+.L277:
+	.dw	-1
+	.dw	.L104,.L331-.L104,.L332-.L104
+	.dh	1
+	.db	82
+	.dw	0,0
+.L273:
+	.dw	-1
+	.dw	.L104,.L333-.L104,.L272-.L104
+	.dh	1
+	.db	96
+	.dw	.L104-.L104,.L333-.L104
+	.dh	1
+	.db	84
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fread')
+.L91:
+	.dw	-1
+	.dw	.L92,.L92-.L92,.L309-.L92
+	.dh	2
+	.db	141,0
+	.dw	.L309-.L92,.L258-.L92
+	.dh	2
+	.db	141,16
+	.dw	.L258-.L92,.L258-.L92
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fopen')
+.L87:
+	.dw	-1
+	.dw	.L88,.L88-.L88,.L248-.L88
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_read')
+.L288:
+	.dw	-1
+	.dw	.L112,.L367-.L112,.L368-.L112
+	.dh	1
+	.db	82
+	.dw	.L367-.L112,.L365-.L112
+	.dh	1
+	.db	86
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_abort')
+.L105:
+	.dw	-1
+	.dw	.L106,.L106-.L106,.L230-.L106
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fclose')
+.L271:
+	.dw	-1
+	.dw	.L100,.L27-.L100,.L270-.L100
+	.dh	1
+	.db	96
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_read')
+.L287:
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fclose')
+.L99:
+	.dw	-1
+	.dw	.L100,.L100-.L100,.L323-.L100
+	.dh	2
+	.db	141,0
+	.dw	.L323-.L100,.L270-.L100
+	.dh	2
+	.db	141,8
+	.dw	.L270-.L100,.L270-.L100
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fopen')
+.L251:
+	.dw	-1
+	.dw	.L88,.L88-.L88,.L248-.L88
+	.dh	1
+	.db	85
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_send_ack')
+.L283:
+	.dw	-1
+	.dw	.L110,.L350-.L110,.L351-.L110
+	.dh	1
+	.db	83
+	.dw	.L355-.L110,.L356-.L110
+	.dh	1
+	.db	83
+	.dw	.L357-.L110,.L358-.L110
+	.dh	1
+	.db	83
+	.dw	.L359-.L110,.L360-.L110
+	.dh	1
+	.db	83
+	.dw	.L361-.L110,.L362-.L110
+	.dh	1
+	.db	83
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_ack')
+.L115:
+	.dw	-1
+	.dw	.L116,.L116-.L116,.L370-.L116
+	.dh	2
+	.db	141,0
+	.dw	.L370-.L116,.L290-.L116
+	.dh	2
+	.db	141,8
+	.dw	.L290-.L116,.L290-.L116
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_read')
+.L111:
+	.dw	-1
+	.dw	.L112,.L112-.L112,.L363-.L112
+	.dh	2
+	.db	141,0
+	.dw	.L363-.L112,.L285-.L112
+	.dh	2
+	.db	141,8
+	.dw	.L285-.L112,.L285-.L112
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_busy')
+.L121:
+	.dw	-1
+	.dw	.L122,.L122-.L122,.L390-.L122
+	.dh	2
+	.db	141,0
+	.dw	.L390-.L122,.L300-.L122
+	.dh	2
+	.db	141,4
+	.dw	.L300-.L122,.L300-.L122
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fread')
+.L262:
+	.dw	-1
+	.dw	.L92,.L312-.L92,.L13-.L92
+	.dh	1
+	.db	80
+	.dw	.L13-.L92,.L258-.L92
+	.dh	1
+	.db	98
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fwrite')
+.L97:
+	.dw	-1
+	.dw	.L98,.L98-.L98,.L317-.L98
+	.dh	2
+	.db	141,0
+	.dw	.L317-.L98,.L266-.L98
+	.dh	2
+	.db	141,20
+	.dw	.L266-.L98,.L266-.L98
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_writebuffer')
+.L93:
+	.dw	-1
+	.dw	.L94,.L94-.L94,.L313-.L94
+	.dh	2
+	.db	141,0
+	.dw	.L313-.L94,.L263-.L94
+	.dh	2
+	.db	141,12
+	.dw	.L263-.L94,.L263-.L94
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_data')
+.L299:
+	.dw	-1
+	.dw	.L120,.L384-.L120,.L59-.L120
+	.dh	1
+	.db	84
+	.dw	.L60-.L120,.L385-.L120
+	.dh	1
+	.db	84
+	.dw	.L61-.L120,.L386-.L120
+	.dh	1
+	.db	84
+	.dw	.L59-.L120,.L60-.L120
+	.dh	1
+	.db	80
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_send_data_packet')
+.L107:
+	.dw	-1
+	.dw	.L108,.L108-.L108,.L340-.L108
+	.dh	2
+	.db	141,0
+	.dw	.L340-.L108,.L278-.L108
+	.dh	2
+	.db	141,12
+	.dw	.L278-.L108,.L278-.L108
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fread')
+.L261:
+	.dw	-1
+	.dw	.L92,.L92-.L92,.L310-.L92
+	.dh	1
+	.db	85
+	.dw	.L311-.L92,.L312-.L92
+	.dh	1
+	.db	85
+	.dw	.L312-.L92,.L258-.L92
+	.dh	1
+	.db	97
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fwrite')
+.L269:
+	.dw	-1
+	.dw	.L98,.L321-.L98,.L322-.L98
+	.dh	1
+	.db	80
+	.dw	.L322-.L98,.L266-.L98
+	.dh	1
+	.db	99
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fopen')
+.L255:
+	.dw	-1
+	.dw	.L88,.L88-.L88,.L248-.L88
+	.dh	1
+	.db	87
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_data')
+.L298:
+	.dw	-1
+	.dw	.L120,.L59-.L120,.L60-.L120
+	.dh	1
+	.db	85
+	.dw	.L387-.L120,.L54-.L120
+	.dh	1
+	.db	96
+	.dw	.L388-.L120,.L389-.L120
+	.dh	1
+	.db	85
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fopen')
+.L256:
+	.dw	-1
+	.dw	.L88,.L304-.L88,.L305-.L88
+	.dh	1
+	.db	82
+	.dw	.L4-.L88,.L306-.L88
+	.dh	1
+	.db	82
+	.dw	.L3-.L88,.L304-.L88
+	.dh	1
+	.db	80
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_fetchbuffer')
+.L89:
+	.dw	-1
+	.dw	.L90,.L90-.L90,.L307-.L90
+	.dh	2
+	.db	141,0
+	.dw	.L307-.L90,.L257-.L90
+	.dh	2
+	.db	141,8
+	.dw	.L257-.L90,.L257-.L90
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_write')
+.L117:
+	.dw	-1
+	.dw	.L118,.L118-.L118,.L375-.L118
+	.dh	2
+	.db	141,0
+	.dw	.L375-.L118,.L292-.L118
+	.dh	2
+	.db	141,8
+	.dw	.L292-.L118,.L292-.L118
+	.dh	2
+	.db	141,0
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_loc ,cluster('$group_FOE_read')
+.L289:
+	.dw	-1
+	.dw	.L112,.L365-.L112,.L366-.L112
+	.dh	1
+	.db	82
+	.dw	.L38-.L112,.L37-.L112
+	.dh	1
+	.db	82
+	.dw	.L37-.L112,.L40-.L112
+	.dh	1
+	.db	84
+	.dw	.L368-.L112,.L369-.L112
+	.dh	1
+	.db	82
+	.dw	0,0
+	.endsec	; End of section
+
+	.section	.debug_frame
+.L772:
+	.dw	40
+	.dw	-1
+	.db	3,0,4,1,31,12,29,0,8,0,8,29,8,31,8,1,8,16,8,17,8,18,8,19,8,20,8,21,8,22,8,23,8,28,8,30
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_fopen')
+	.dw	36
+	.dw	.L772,.L88,.L248-.L88
+	.db	8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_fetchbuffer')
+	.dw	48
+	.dw	.L772,.L90,.L257-.L90
+	.db	4
+	.dw	(.L307-.L90)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L308-.L307)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L257-.L308)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_fread')
+	.dw	56
+	.dw	.L772,.L92,.L258-.L92
+	.db	4
+	.dw	(.L309-.L92)/4
+	.db	19,16,22,29,3,19,141,16,4
+	.dw	(.L310-.L309)/4
+	.db	17,31,112,17,16,116,17,17,120,17,18,124,4
+	.dw	(.L258-.L310)/4
+	.db	210,209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_writebuffer')
+	.dw	52
+	.dw	.L772,.L94,.L263-.L94
+	.db	4
+	.dw	(.L313-.L94)/4
+	.db	19,12,22,29,3,19,141,12,4
+	.dw	(.L314-.L313)/4
+	.db	17,31,116,17,16,120,17,17,124,4
+	.dw	(.L263-.L314)/4
+	.db	209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_writebuffer')
+	.dw	52
+	.dw	.L772,.L96,.L225-.L96
+	.db	8,2,8,3,8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_fwrite')
+	.dw	60
+	.dw	.L772,.L98,.L266-.L98
+	.db	4
+	.dw	(.L317-.L98)/4
+	.db	19,20,22,29,3,19,141,20,4
+	.dw	(.L318-.L317)/4
+	.db	17,31,108,17,16,112,17,17,116,17,18,120,17,19,124,4
+	.dw	(.L266-.L318)/4
+	.db	211,210,209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_fclose')
+	.dw	48
+	.dw	.L772,.L100,.L270-.L100
+	.db	4
+	.dw	(.L323-.L100)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L324-.L323)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L270-.L324)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_init')
+	.dw	48
+	.dw	.L772,.L102,.L245-.L102
+	.db	8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_abort')
+	.dw	48
+	.dw	.L772,.L104,.L272-.L104
+	.db	4
+	.dw	(.L325-.L104)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L326-.L325)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L272-.L326)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_abort')
+	.dw	52
+	.dw	.L772,.L106,.L230-.L106
+	.db	8,2,8,3,8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_send_data_packet')
+	.dw	52
+	.dw	.L772,.L108,.L278-.L108
+	.db	4
+	.dw	(.L340-.L108)/4
+	.db	19,12,22,29,3,19,141,12,4
+	.dw	(.L341-.L340)/4
+	.db	17,31,116,17,16,120,17,17,124,4
+	.dw	(.L278-.L341)/4
+	.db	209,208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_send_ack')
+	.dw	48
+	.dw	.L772,.L110,.L282-.L110
+	.db	4
+	.dw	(.L347-.L110)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L348-.L347)/4
+	.db	17,31,124,4
+	.dw	(.L349-.L348)/4
+	.db	223,4
+	.dw	(.L282-.L349)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_read')
+	.dw	48
+	.dw	.L772,.L112,.L285-.L112
+	.db	4
+	.dw	(.L363-.L112)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L364-.L363)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L285-.L364)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_read')
+	.dw	52
+	.dw	.L772,.L114,.L220-.L114
+	.db	8,2,8,3,8,4,8,5,8,6,8,7,8,8,8,9,8,10,8,11,8,12,8,13,8,14,8,15,8,24,8,25,8,26,8,27,8,33,8,34
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_ack')
+	.dw	48
+	.dw	.L772,.L116,.L290-.L116
+	.db	4
+	.dw	(.L370-.L116)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L371-.L370)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L290-.L371)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_write')
+	.dw	48
+	.dw	.L772,.L118,.L292-.L118
+	.db	4
+	.dw	(.L375-.L118)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L376-.L375)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L292-.L376)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_data')
+	.dw	48
+	.dw	.L772,.L120,.L297-.L120
+	.db	4
+	.dw	(.L382-.L120)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L383-.L382)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L297-.L383)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_busy')
+	.dw	48
+	.dw	.L772,.L122,.L300-.L122
+	.db	4
+	.dw	(.L390-.L122)/4
+	.db	19,4,22,29,3,19,141,4,4
+	.dw	(.L391-.L390)/4
+	.db	17,31,124,4
+	.dw	(.L392-.L391)/4
+	.db	223,4
+	.dw	(.L300-.L392)/4
+	.db	19,0,8,29
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_FOE_error')
+	.dw	12
+	.dw	.L772,.L124,.L301-.L124
+	.endsec	; End of section
+
+	.section	.debug_frame ,cluster('$group_ESC_foeprocess')
+	.dw	48
+	.dw	.L772,.L126,.L246-.L126
+	.db	4
+	.dw	(.L393-.L126)/4
+	.db	19,8,22,29,3,19,141,8,4
+	.dw	(.L394-.L393)/4
+	.db	17,31,120,17,16,124,4
+	.dw	(.L246-.L394)/4
+	.db	208,223,19,0,8,29,0
+	.endsec	; End of section
+
+	; Module end
+	.end

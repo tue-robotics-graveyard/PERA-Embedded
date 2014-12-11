@@ -1,0 +1,7 @@
+INFILE=C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\esra_spartan6.ncd
+OUTFILE=C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\esra_spartan6.bit
+FAMILY=Spartan6
+PART=xc6slx25-3ftg256
+WORKINGDIR=C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints
+LICENSE=WebPack
+USER_INFO=209613057_0_0_761

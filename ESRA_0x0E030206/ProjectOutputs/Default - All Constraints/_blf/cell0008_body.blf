@@ -1,0 +1,864 @@
+.model Configurable_WB_MULTIMASTER_1
+.inputs s0_STB_I
+.inputs s0_CYC_I
+.outputs s0_ACK_O
+.inputs s0_ADR_I<16>
+.inputs s0_ADR_I<15>
+.inputs s0_ADR_I<14>
+.inputs s0_ADR_I<13>
+.inputs s0_ADR_I<12>
+.inputs s0_ADR_I<11>
+.inputs s0_ADR_I<10>
+.inputs s0_ADR_I<9>
+.inputs s0_ADR_I<8>
+.inputs s0_ADR_I<7>
+.inputs s0_ADR_I<6>
+.inputs s0_ADR_I<5>
+.inputs s0_ADR_I<4>
+.inputs s0_ADR_I<3>
+.inputs s0_ADR_I<2>
+.inputs s0_ADR_I<1>
+.inputs s0_ADR_I<0>
+.outputs s0_DAT_O<31>
+.outputs s0_DAT_O<30>
+.outputs s0_DAT_O<29>
+.outputs s0_DAT_O<28>
+.outputs s0_DAT_O<27>
+.outputs s0_DAT_O<26>
+.outputs s0_DAT_O<25>
+.outputs s0_DAT_O<24>
+.outputs s0_DAT_O<23>
+.outputs s0_DAT_O<22>
+.outputs s0_DAT_O<21>
+.outputs s0_DAT_O<20>
+.outputs s0_DAT_O<19>
+.outputs s0_DAT_O<18>
+.outputs s0_DAT_O<17>
+.outputs s0_DAT_O<16>
+.outputs s0_DAT_O<15>
+.outputs s0_DAT_O<14>
+.outputs s0_DAT_O<13>
+.outputs s0_DAT_O<12>
+.outputs s0_DAT_O<11>
+.outputs s0_DAT_O<10>
+.outputs s0_DAT_O<9>
+.outputs s0_DAT_O<8>
+.outputs s0_DAT_O<7>
+.outputs s0_DAT_O<6>
+.outputs s0_DAT_O<5>
+.outputs s0_DAT_O<4>
+.outputs s0_DAT_O<3>
+.outputs s0_DAT_O<2>
+.outputs s0_DAT_O<1>
+.outputs s0_DAT_O<0>
+.inputs s0_DAT_I<31>
+.inputs s0_DAT_I<30>
+.inputs s0_DAT_I<29>
+.inputs s0_DAT_I<28>
+.inputs s0_DAT_I<27>
+.inputs s0_DAT_I<26>
+.inputs s0_DAT_I<25>
+.inputs s0_DAT_I<24>
+.inputs s0_DAT_I<23>
+.inputs s0_DAT_I<22>
+.inputs s0_DAT_I<21>
+.inputs s0_DAT_I<20>
+.inputs s0_DAT_I<19>
+.inputs s0_DAT_I<18>
+.inputs s0_DAT_I<17>
+.inputs s0_DAT_I<16>
+.inputs s0_DAT_I<15>
+.inputs s0_DAT_I<14>
+.inputs s0_DAT_I<13>
+.inputs s0_DAT_I<12>
+.inputs s0_DAT_I<11>
+.inputs s0_DAT_I<10>
+.inputs s0_DAT_I<9>
+.inputs s0_DAT_I<8>
+.inputs s0_DAT_I<7>
+.inputs s0_DAT_I<6>
+.inputs s0_DAT_I<5>
+.inputs s0_DAT_I<4>
+.inputs s0_DAT_I<3>
+.inputs s0_DAT_I<2>
+.inputs s0_DAT_I<1>
+.inputs s0_DAT_I<0>
+.inputs s0_SEL_I<3>
+.inputs s0_SEL_I<2>
+.inputs s0_SEL_I<1>
+.inputs s0_SEL_I<0>
+.inputs s0_WE_I
+.inputs s1_STB_I
+.inputs s1_CYC_I
+.outputs s1_ACK_O
+.inputs s1_ADR_I<16>
+.inputs s1_ADR_I<15>
+.inputs s1_ADR_I<14>
+.inputs s1_ADR_I<13>
+.inputs s1_ADR_I<12>
+.inputs s1_ADR_I<11>
+.inputs s1_ADR_I<10>
+.inputs s1_ADR_I<9>
+.inputs s1_ADR_I<8>
+.inputs s1_ADR_I<7>
+.inputs s1_ADR_I<6>
+.inputs s1_ADR_I<5>
+.inputs s1_ADR_I<4>
+.inputs s1_ADR_I<3>
+.inputs s1_ADR_I<2>
+.inputs s1_ADR_I<1>
+.inputs s1_ADR_I<0>
+.outputs s1_DAT_O<31>
+.outputs s1_DAT_O<30>
+.outputs s1_DAT_O<29>
+.outputs s1_DAT_O<28>
+.outputs s1_DAT_O<27>
+.outputs s1_DAT_O<26>
+.outputs s1_DAT_O<25>
+.outputs s1_DAT_O<24>
+.outputs s1_DAT_O<23>
+.outputs s1_DAT_O<22>
+.outputs s1_DAT_O<21>
+.outputs s1_DAT_O<20>
+.outputs s1_DAT_O<19>
+.outputs s1_DAT_O<18>
+.outputs s1_DAT_O<17>
+.outputs s1_DAT_O<16>
+.outputs s1_DAT_O<15>
+.outputs s1_DAT_O<14>
+.outputs s1_DAT_O<13>
+.outputs s1_DAT_O<12>
+.outputs s1_DAT_O<11>
+.outputs s1_DAT_O<10>
+.outputs s1_DAT_O<9>
+.outputs s1_DAT_O<8>
+.outputs s1_DAT_O<7>
+.outputs s1_DAT_O<6>
+.outputs s1_DAT_O<5>
+.outputs s1_DAT_O<4>
+.outputs s1_DAT_O<3>
+.outputs s1_DAT_O<2>
+.outputs s1_DAT_O<1>
+.outputs s1_DAT_O<0>
+.inputs s1_DAT_I<31>
+.inputs s1_DAT_I<30>
+.inputs s1_DAT_I<29>
+.inputs s1_DAT_I<28>
+.inputs s1_DAT_I<27>
+.inputs s1_DAT_I<26>
+.inputs s1_DAT_I<25>
+.inputs s1_DAT_I<24>
+.inputs s1_DAT_I<23>
+.inputs s1_DAT_I<22>
+.inputs s1_DAT_I<21>
+.inputs s1_DAT_I<20>
+.inputs s1_DAT_I<19>
+.inputs s1_DAT_I<18>
+.inputs s1_DAT_I<17>
+.inputs s1_DAT_I<16>
+.inputs s1_DAT_I<15>
+.inputs s1_DAT_I<14>
+.inputs s1_DAT_I<13>
+.inputs s1_DAT_I<12>
+.inputs s1_DAT_I<11>
+.inputs s1_DAT_I<10>
+.inputs s1_DAT_I<9>
+.inputs s1_DAT_I<8>
+.inputs s1_DAT_I<7>
+.inputs s1_DAT_I<6>
+.inputs s1_DAT_I<5>
+.inputs s1_DAT_I<4>
+.inputs s1_DAT_I<3>
+.inputs s1_DAT_I<2>
+.inputs s1_DAT_I<1>
+.inputs s1_DAT_I<0>
+.inputs s1_SEL_I<3>
+.inputs s1_SEL_I<2>
+.inputs s1_SEL_I<1>
+.inputs s1_SEL_I<0>
+.inputs s1_WE_I
+.outputs m0_STB_O
+.outputs m0_CYC_O
+.inputs m0_ACK_I
+.outputs m0_ADR_O<16>
+.outputs m0_ADR_O<15>
+.outputs m0_ADR_O<14>
+.outputs m0_ADR_O<13>
+.outputs m0_ADR_O<12>
+.outputs m0_ADR_O<11>
+.outputs m0_ADR_O<10>
+.outputs m0_ADR_O<9>
+.outputs m0_ADR_O<8>
+.outputs m0_ADR_O<7>
+.outputs m0_ADR_O<6>
+.outputs m0_ADR_O<5>
+.outputs m0_ADR_O<4>
+.outputs m0_ADR_O<3>
+.outputs m0_ADR_O<2>
+.outputs m0_ADR_O<1>
+.outputs m0_ADR_O<0>
+.inputs m0_DAT_I<31>
+.inputs m0_DAT_I<30>
+.inputs m0_DAT_I<29>
+.inputs m0_DAT_I<28>
+.inputs m0_DAT_I<27>
+.inputs m0_DAT_I<26>
+.inputs m0_DAT_I<25>
+.inputs m0_DAT_I<24>
+.inputs m0_DAT_I<23>
+.inputs m0_DAT_I<22>
+.inputs m0_DAT_I<21>
+.inputs m0_DAT_I<20>
+.inputs m0_DAT_I<19>
+.inputs m0_DAT_I<18>
+.inputs m0_DAT_I<17>
+.inputs m0_DAT_I<16>
+.inputs m0_DAT_I<15>
+.inputs m0_DAT_I<14>
+.inputs m0_DAT_I<13>
+.inputs m0_DAT_I<12>
+.inputs m0_DAT_I<11>
+.inputs m0_DAT_I<10>
+.inputs m0_DAT_I<9>
+.inputs m0_DAT_I<8>
+.inputs m0_DAT_I<7>
+.inputs m0_DAT_I<6>
+.inputs m0_DAT_I<5>
+.inputs m0_DAT_I<4>
+.inputs m0_DAT_I<3>
+.inputs m0_DAT_I<2>
+.inputs m0_DAT_I<1>
+.inputs m0_DAT_I<0>
+.outputs m0_DAT_O<31>
+.outputs m0_DAT_O<30>
+.outputs m0_DAT_O<29>
+.outputs m0_DAT_O<28>
+.outputs m0_DAT_O<27>
+.outputs m0_DAT_O<26>
+.outputs m0_DAT_O<25>
+.outputs m0_DAT_O<24>
+.outputs m0_DAT_O<23>
+.outputs m0_DAT_O<22>
+.outputs m0_DAT_O<21>
+.outputs m0_DAT_O<20>
+.outputs m0_DAT_O<19>
+.outputs m0_DAT_O<18>
+.outputs m0_DAT_O<17>
+.outputs m0_DAT_O<16>
+.outputs m0_DAT_O<15>
+.outputs m0_DAT_O<14>
+.outputs m0_DAT_O<13>
+.outputs m0_DAT_O<12>
+.outputs m0_DAT_O<11>
+.outputs m0_DAT_O<10>
+.outputs m0_DAT_O<9>
+.outputs m0_DAT_O<8>
+.outputs m0_DAT_O<7>
+.outputs m0_DAT_O<6>
+.outputs m0_DAT_O<5>
+.outputs m0_DAT_O<4>
+.outputs m0_DAT_O<3>
+.outputs m0_DAT_O<2>
+.outputs m0_DAT_O<1>
+.outputs m0_DAT_O<0>
+.outputs m0_SEL_O<3>
+.outputs m0_SEL_O<2>
+.outputs m0_SEL_O<1>
+.outputs m0_SEL_O<0>
+.outputs m0_WE_O
+.inputs CLK_I
+.inputs RST_I
+.names s1_DAT_O<31> s0_DAT_O<31>
+1 1
+.names s1_DAT_O<30> s0_DAT_O<30>
+1 1
+.names s1_DAT_O<29> s0_DAT_O<29>
+1 1
+.names s1_DAT_O<28> s0_DAT_O<28>
+1 1
+.names s1_DAT_O<27> s0_DAT_O<27>
+1 1
+.names s1_DAT_O<26> s0_DAT_O<26>
+1 1
+.names s1_DAT_O<25> s0_DAT_O<25>
+1 1
+.names s1_DAT_O<24> s0_DAT_O<24>
+1 1
+.names s1_DAT_O<23> s0_DAT_O<23>
+1 1
+.names s1_DAT_O<22> s0_DAT_O<22>
+1 1
+.names s1_DAT_O<21> s0_DAT_O<21>
+1 1
+.names s1_DAT_O<20> s0_DAT_O<20>
+1 1
+.names s1_DAT_O<19> s0_DAT_O<19>
+1 1
+.names s1_DAT_O<18> s0_DAT_O<18>
+1 1
+.names s1_DAT_O<17> s0_DAT_O<17>
+1 1
+.names s1_DAT_O<16> s0_DAT_O<16>
+1 1
+.names s1_DAT_O<15> s0_DAT_O<15>
+1 1
+.names s1_DAT_O<14> s0_DAT_O<14>
+1 1
+.names s1_DAT_O<13> s0_DAT_O<13>
+1 1
+.names s1_DAT_O<12> s0_DAT_O<12>
+1 1
+.names s1_DAT_O<11> s0_DAT_O<11>
+1 1
+.names s1_DAT_O<10> s0_DAT_O<10>
+1 1
+.names s1_DAT_O<9> s0_DAT_O<9>
+1 1
+.names s1_DAT_O<8> s0_DAT_O<8>
+1 1
+.names s1_DAT_O<7> s0_DAT_O<7>
+1 1
+.names s1_DAT_O<6> s0_DAT_O<6>
+1 1
+.names s1_DAT_O<5> s0_DAT_O<5>
+1 1
+.names s1_DAT_O<4> s0_DAT_O<4>
+1 1
+.names s1_DAT_O<3> s0_DAT_O<3>
+1 1
+.names s1_DAT_O<2> s0_DAT_O<2>
+1 1
+.names s1_DAT_O<1> s0_DAT_O<1>
+1 1
+.names s1_DAT_O<0> s0_DAT_O<0>
+1 1
+.names m0_DAT_I<31> s1_DAT_O<31>
+1 1
+.names m0_DAT_I<30> s1_DAT_O<30>
+1 1
+.names m0_DAT_I<29> s1_DAT_O<29>
+1 1
+.names m0_DAT_I<28> s1_DAT_O<28>
+1 1
+.names m0_DAT_I<27> s1_DAT_O<27>
+1 1
+.names m0_DAT_I<26> s1_DAT_O<26>
+1 1
+.names m0_DAT_I<25> s1_DAT_O<25>
+1 1
+.names m0_DAT_I<24> s1_DAT_O<24>
+1 1
+.names m0_DAT_I<23> s1_DAT_O<23>
+1 1
+.names m0_DAT_I<22> s1_DAT_O<22>
+1 1
+.names m0_DAT_I<21> s1_DAT_O<21>
+1 1
+.names m0_DAT_I<20> s1_DAT_O<20>
+1 1
+.names m0_DAT_I<19> s1_DAT_O<19>
+1 1
+.names m0_DAT_I<18> s1_DAT_O<18>
+1 1
+.names m0_DAT_I<17> s1_DAT_O<17>
+1 1
+.names m0_DAT_I<16> s1_DAT_O<16>
+1 1
+.names m0_DAT_I<15> s1_DAT_O<15>
+1 1
+.names m0_DAT_I<14> s1_DAT_O<14>
+1 1
+.names m0_DAT_I<13> s1_DAT_O<13>
+1 1
+.names m0_DAT_I<12> s1_DAT_O<12>
+1 1
+.names m0_DAT_I<11> s1_DAT_O<11>
+1 1
+.names m0_DAT_I<10> s1_DAT_O<10>
+1 1
+.names m0_DAT_I<9> s1_DAT_O<9>
+1 1
+.names m0_DAT_I<8> s1_DAT_O<8>
+1 1
+.names m0_DAT_I<7> s1_DAT_O<7>
+1 1
+.names m0_DAT_I<6> s1_DAT_O<6>
+1 1
+.names m0_DAT_I<5> s1_DAT_O<5>
+1 1
+.names m0_DAT_I<4> s1_DAT_O<4>
+1 1
+.names m0_DAT_I<3> s1_DAT_O<3>
+1 1
+.names m0_DAT_I<2> s1_DAT_O<2>
+1 1
+.names m0_DAT_I<1> s1_DAT_O<1>
+1 1
+.names m0_DAT_I<0> s1_DAT_O<0>
+1 1
+.names n1
+.names n2
+1
+.names s0_STB_I s0_CYC_I s0_AccessRequest
+11 1
+.names s1_STB_I s1_CYC_I s1_AccessRequest
+11 1
+.names s1_AccessRequest n7
+0 1
+.names n7 s0_AccessRequest Possible_Next_State<0>
+1- 1
+-1 1
+.names s0_STB_I n10
+0 1
+.names Possible_Next_State<1> n10 State<1> n11
+11- 1
+-01 1
+.names Possible_Next_State<0> n10 State<0> n12
+11- 1
+-01 1
+.names s1_STB_I n13
+0 1
+.names Possible_Next_State<1> s0_AccessRequest State<1> n14
+11- 1
+-01 1
+.names Possible_Next_State<0> s0_AccessRequest State<0> n15
+11- 1
+-01 1
+.names n14 m0_ACK_I State<1> n16
+11- 1
+-01 1
+.names n15 m0_ACK_I State<0> n17
+11- 1
+-01 1
+.names Possible_Next_State<1> n13 n16 n18
+11- 1
+-01 1
+.names Possible_Next_State<0> n13 n17 n19
+11- 1
+-01 1
+.names State<1> State<0> n11 Mux_19/muxtemp0
+011 1
+.names State<1> State<0> n18 Mux_19/muxtemp1
+101 1
+.names Mux_19/muxtemp0 Mux_19/muxtemp1 Next_State<1>
+1- 1
+-1 1
+.names State<1> State<0> n12 Mux_20/muxtemp0
+011 1
+.names State<1> State<0> n19 Mux_20/muxtemp1
+101 1
+.names State<1> State<0> Mux_20/muxtemp2
+11 1
+00 1
+.names Mux_20/muxtemp0 Mux_20/muxtemp1 Mux_20/muxtemp2 Next_State<0>
+1-- 1
+-1- 1
+--1 1
+.names State<1> State<0> s0_CYC_I Mux_21/muxtemp0
+011 1
+.names State<1> State<0> s1_CYC_I Mux_21/muxtemp1
+101 1
+.names Mux_21/muxtemp0 Mux_21/muxtemp1 m0_CYC_O
+1- 1
+-1 1
+.names State<1> State<0> s0_STB_I Mux_22/muxtemp0
+011 1
+.names State<1> State<0> s1_STB_I Mux_22/muxtemp1
+101 1
+.names Mux_22/muxtemp0 Mux_22/muxtemp1 m0_STB_O
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<16> Mux_23/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<16> Mux_23/muxtemp1
+101 1
+.names Mux_23/muxtemp0 Mux_23/muxtemp1 m0_ADR_O<16>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<15> Mux_24/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<15> Mux_24/muxtemp1
+101 1
+.names Mux_24/muxtemp0 Mux_24/muxtemp1 m0_ADR_O<15>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<14> Mux_25/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<14> Mux_25/muxtemp1
+101 1
+.names Mux_25/muxtemp0 Mux_25/muxtemp1 m0_ADR_O<14>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<13> Mux_26/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<13> Mux_26/muxtemp1
+101 1
+.names Mux_26/muxtemp0 Mux_26/muxtemp1 m0_ADR_O<13>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<12> Mux_27/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<12> Mux_27/muxtemp1
+101 1
+.names Mux_27/muxtemp0 Mux_27/muxtemp1 m0_ADR_O<12>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<11> Mux_28/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<11> Mux_28/muxtemp1
+101 1
+.names Mux_28/muxtemp0 Mux_28/muxtemp1 m0_ADR_O<11>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<10> Mux_29/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<10> Mux_29/muxtemp1
+101 1
+.names Mux_29/muxtemp0 Mux_29/muxtemp1 m0_ADR_O<10>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<9> Mux_30/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<9> Mux_30/muxtemp1
+101 1
+.names Mux_30/muxtemp0 Mux_30/muxtemp1 m0_ADR_O<9>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<8> Mux_31/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<8> Mux_31/muxtemp1
+101 1
+.names Mux_31/muxtemp0 Mux_31/muxtemp1 m0_ADR_O<8>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<7> Mux_32/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<7> Mux_32/muxtemp1
+101 1
+.names Mux_32/muxtemp0 Mux_32/muxtemp1 m0_ADR_O<7>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<6> Mux_33/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<6> Mux_33/muxtemp1
+101 1
+.names Mux_33/muxtemp0 Mux_33/muxtemp1 m0_ADR_O<6>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<5> Mux_34/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<5> Mux_34/muxtemp1
+101 1
+.names Mux_34/muxtemp0 Mux_34/muxtemp1 m0_ADR_O<5>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<4> Mux_35/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<4> Mux_35/muxtemp1
+101 1
+.names Mux_35/muxtemp0 Mux_35/muxtemp1 m0_ADR_O<4>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<3> Mux_36/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<3> Mux_36/muxtemp1
+101 1
+.names Mux_36/muxtemp0 Mux_36/muxtemp1 m0_ADR_O<3>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<2> Mux_37/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<2> Mux_37/muxtemp1
+101 1
+.names Mux_37/muxtemp0 Mux_37/muxtemp1 m0_ADR_O<2>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<1> Mux_38/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<1> Mux_38/muxtemp1
+101 1
+.names Mux_38/muxtemp0 Mux_38/muxtemp1 m0_ADR_O<1>
+1- 1
+-1 1
+.names State<1> State<0> s0_ADR_I<0> Mux_39/muxtemp0
+011 1
+.names State<1> State<0> s1_ADR_I<0> Mux_39/muxtemp1
+101 1
+.names Mux_39/muxtemp0 Mux_39/muxtemp1 m0_ADR_O<0>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<31> Mux_40/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<31> Mux_40/muxtemp1
+101 1
+.names Mux_40/muxtemp0 Mux_40/muxtemp1 m0_DAT_O<31>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<30> Mux_41/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<30> Mux_41/muxtemp1
+101 1
+.names Mux_41/muxtemp0 Mux_41/muxtemp1 m0_DAT_O<30>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<29> Mux_42/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<29> Mux_42/muxtemp1
+101 1
+.names Mux_42/muxtemp0 Mux_42/muxtemp1 m0_DAT_O<29>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<28> Mux_43/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<28> Mux_43/muxtemp1
+101 1
+.names Mux_43/muxtemp0 Mux_43/muxtemp1 m0_DAT_O<28>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<27> Mux_44/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<27> Mux_44/muxtemp1
+101 1
+.names Mux_44/muxtemp0 Mux_44/muxtemp1 m0_DAT_O<27>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<26> Mux_45/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<26> Mux_45/muxtemp1
+101 1
+.names Mux_45/muxtemp0 Mux_45/muxtemp1 m0_DAT_O<26>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<25> Mux_46/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<25> Mux_46/muxtemp1
+101 1
+.names Mux_46/muxtemp0 Mux_46/muxtemp1 m0_DAT_O<25>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<24> Mux_47/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<24> Mux_47/muxtemp1
+101 1
+.names Mux_47/muxtemp0 Mux_47/muxtemp1 m0_DAT_O<24>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<23> Mux_48/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<23> Mux_48/muxtemp1
+101 1
+.names Mux_48/muxtemp0 Mux_48/muxtemp1 m0_DAT_O<23>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<22> Mux_49/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<22> Mux_49/muxtemp1
+101 1
+.names Mux_49/muxtemp0 Mux_49/muxtemp1 m0_DAT_O<22>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<21> Mux_50/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<21> Mux_50/muxtemp1
+101 1
+.names Mux_50/muxtemp0 Mux_50/muxtemp1 m0_DAT_O<21>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<20> Mux_51/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<20> Mux_51/muxtemp1
+101 1
+.names Mux_51/muxtemp0 Mux_51/muxtemp1 m0_DAT_O<20>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<19> Mux_52/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<19> Mux_52/muxtemp1
+101 1
+.names Mux_52/muxtemp0 Mux_52/muxtemp1 m0_DAT_O<19>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<18> Mux_53/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<18> Mux_53/muxtemp1
+101 1
+.names Mux_53/muxtemp0 Mux_53/muxtemp1 m0_DAT_O<18>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<17> Mux_54/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<17> Mux_54/muxtemp1
+101 1
+.names Mux_54/muxtemp0 Mux_54/muxtemp1 m0_DAT_O<17>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<16> Mux_55/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<16> Mux_55/muxtemp1
+101 1
+.names Mux_55/muxtemp0 Mux_55/muxtemp1 m0_DAT_O<16>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<15> Mux_56/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<15> Mux_56/muxtemp1
+101 1
+.names Mux_56/muxtemp0 Mux_56/muxtemp1 m0_DAT_O<15>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<14> Mux_57/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<14> Mux_57/muxtemp1
+101 1
+.names Mux_57/muxtemp0 Mux_57/muxtemp1 m0_DAT_O<14>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<13> Mux_58/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<13> Mux_58/muxtemp1
+101 1
+.names Mux_58/muxtemp0 Mux_58/muxtemp1 m0_DAT_O<13>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<12> Mux_59/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<12> Mux_59/muxtemp1
+101 1
+.names Mux_59/muxtemp0 Mux_59/muxtemp1 m0_DAT_O<12>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<11> Mux_60/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<11> Mux_60/muxtemp1
+101 1
+.names Mux_60/muxtemp0 Mux_60/muxtemp1 m0_DAT_O<11>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<10> Mux_61/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<10> Mux_61/muxtemp1
+101 1
+.names Mux_61/muxtemp0 Mux_61/muxtemp1 m0_DAT_O<10>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<9> Mux_62/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<9> Mux_62/muxtemp1
+101 1
+.names Mux_62/muxtemp0 Mux_62/muxtemp1 m0_DAT_O<9>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<8> Mux_63/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<8> Mux_63/muxtemp1
+101 1
+.names Mux_63/muxtemp0 Mux_63/muxtemp1 m0_DAT_O<8>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<7> Mux_64/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<7> Mux_64/muxtemp1
+101 1
+.names Mux_64/muxtemp0 Mux_64/muxtemp1 m0_DAT_O<7>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<6> Mux_65/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<6> Mux_65/muxtemp1
+101 1
+.names Mux_65/muxtemp0 Mux_65/muxtemp1 m0_DAT_O<6>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<5> Mux_66/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<5> Mux_66/muxtemp1
+101 1
+.names Mux_66/muxtemp0 Mux_66/muxtemp1 m0_DAT_O<5>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<4> Mux_67/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<4> Mux_67/muxtemp1
+101 1
+.names Mux_67/muxtemp0 Mux_67/muxtemp1 m0_DAT_O<4>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<3> Mux_68/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<3> Mux_68/muxtemp1
+101 1
+.names Mux_68/muxtemp0 Mux_68/muxtemp1 m0_DAT_O<3>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<2> Mux_69/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<2> Mux_69/muxtemp1
+101 1
+.names Mux_69/muxtemp0 Mux_69/muxtemp1 m0_DAT_O<2>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<1> Mux_70/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<1> Mux_70/muxtemp1
+101 1
+.names Mux_70/muxtemp0 Mux_70/muxtemp1 m0_DAT_O<1>
+1- 1
+-1 1
+.names State<1> State<0> s0_DAT_I<0> Mux_71/muxtemp0
+011 1
+.names State<1> State<0> s1_DAT_I<0> Mux_71/muxtemp1
+101 1
+.names Mux_71/muxtemp0 Mux_71/muxtemp1 m0_DAT_O<0>
+1- 1
+-1 1
+.names State<1> State<0> s0_SEL_I<3> Mux_72/muxtemp0
+011 1
+.names State<1> State<0> s1_SEL_I<3> Mux_72/muxtemp1
+101 1
+.names Mux_72/muxtemp0 Mux_72/muxtemp1 m0_SEL_O<3>
+1- 1
+-1 1
+.names State<1> State<0> s0_SEL_I<2> Mux_73/muxtemp0
+011 1
+.names State<1> State<0> s1_SEL_I<2> Mux_73/muxtemp1
+101 1
+.names Mux_73/muxtemp0 Mux_73/muxtemp1 m0_SEL_O<2>
+1- 1
+-1 1
+.names State<1> State<0> s0_SEL_I<1> Mux_74/muxtemp0
+011 1
+.names State<1> State<0> s1_SEL_I<1> Mux_74/muxtemp1
+101 1
+.names Mux_74/muxtemp0 Mux_74/muxtemp1 m0_SEL_O<1>
+1- 1
+-1 1
+.names State<1> State<0> s0_SEL_I<0> Mux_75/muxtemp0
+011 1
+.names State<1> State<0> s1_SEL_I<0> Mux_75/muxtemp1
+101 1
+.names Mux_75/muxtemp0 Mux_75/muxtemp1 m0_SEL_O<0>
+1- 1
+-1 1
+.names State<1> State<0> s0_WE_I Mux_76/muxtemp0
+011 1
+.names State<1> State<0> s1_WE_I Mux_76/muxtemp1
+101 1
+.names Mux_76/muxtemp0 Mux_76/muxtemp1 m0_WE_O
+1- 1
+-1 1
+.names State<1> State<0> m0_ACK_I Mux_77/muxtemp0
+011 1
+.names Mux_77/muxtemp0 s0_ACK_O
+1 1
+.names State<1> State<0> m0_ACK_I Mux_78/muxtemp0
+101 1
+.names Mux_78/muxtemp0 s1_ACK_O
+1 1
+.names s0_AccessRequest n157
+0 1
+.loc Configurable_WB_MULTIMASTER_1.VHD 168 State<1>
+.latch Next_State<1> State<1> re CLK_I 0 RST_I
+.loc Configurable_WB_MULTIMASTER_1.VHD 168 State<0>
+.latch Next_State<0> State<0> re CLK_I 1 RST_I
+.names s1_AccessRequest n157 Possible_Next_State<1>
+11 1

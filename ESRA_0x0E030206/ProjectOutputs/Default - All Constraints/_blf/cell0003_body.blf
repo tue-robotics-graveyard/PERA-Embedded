@@ -1,0 +1,166 @@
+.model Configurable_GPIO_1
+.inputs clk_i
+.inputs rst_i
+.inputs we_i
+.inputs adr_i<1>
+.inputs adr_i<0>
+.inputs dat_i<7>
+.inputs dat_i<6>
+.inputs dat_i<5>
+.inputs dat_i<4>
+.inputs dat_i<3>
+.inputs dat_i<2>
+.inputs dat_i<1>
+.inputs dat_i<0>
+.outputs dat_o<7>
+.outputs dat_o<6>
+.outputs dat_o<5>
+.outputs dat_o<4>
+.outputs dat_o<3>
+.outputs dat_o<2>
+.outputs dat_o<1>
+.outputs dat_o<0>
+.inputs cyc_i
+.inputs stb_i
+.outputs ack_o
+.outputs do_o<7>
+.outputs do_o<6>
+.outputs do_o<5>
+.outputs do_o<4>
+.outputs do_o<3>
+.outputs do_o<2>
+.outputs do_o<1>
+.outputs do_o<0>
+.inputs do_i<7>
+.inputs do_i<6>
+.inputs do_i<5>
+.inputs do_i<4>
+.inputs do_i<3>
+.inputs do_i<2>
+.inputs do_i<1>
+.inputs do_i<0>
+.outputs adc<7>
+.outputs adc<6>
+.outputs adc<5>
+.outputs adc<4>
+.outputs adc<3>
+.outputs adc<2>
+.outputs adc<1>
+.outputs adc<0>
+.inputs di<7>
+.inputs di<6>
+.inputs di<5>
+.inputs di<4>
+.inputs di<3>
+.inputs di<2>
+.inputs di<1>
+.inputs di<0>
+.names n1
+.names ack_o we_i en
+11 1
+.names cyc_i stb_i ack_o
+11 1
+.loc Configurable_GPIO_1.VHD 73 do_o<7>
+.latch dat_i<7> do_o<7> re clk_i 0 rst_i n153
+.loc Configurable_GPIO_1.VHD 73 adc<0>
+.latch dat_i<0> adc<0> re clk_i 0 rst_i n129
+.names n20 adr_i<1> reduce_nor_20/n1
+1- 1
+-1 1
+.names en n10 n153
+11 1
+.names adr_i<0> n20
+0 1
+.names en n21 n129
+11 1
+.names adr_i<0> adr_i<1> reduce_nor_9/n1
+1- 1
+-1 1
+.names reduce_nor_9/n1 n10
+0 1
+.names reduce_nor_20/n1 n21
+0 1
+.names adr_i<1> adr_i<0> di<7> Mux_62/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<7> Mux_62/muxtemp1
+001 1
+.names Mux_62/muxtemp0 Mux_62/muxtemp1 dat_o<7>
+1- 1
+-1 1
+.names adr_i<1> adr_i<0> di<6> Mux_63/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<6> Mux_63/muxtemp1
+001 1
+.names Mux_63/muxtemp0 Mux_63/muxtemp1 dat_o<6>
+1- 1
+-1 1
+.names adr_i<1> adr_i<0> di<5> Mux_64/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<5> Mux_64/muxtemp1
+001 1
+.names Mux_64/muxtemp0 Mux_64/muxtemp1 dat_o<5>
+1- 1
+-1 1
+.names adr_i<1> adr_i<0> di<4> Mux_65/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<4> Mux_65/muxtemp1
+001 1
+.names Mux_65/muxtemp0 Mux_65/muxtemp1 dat_o<4>
+1- 1
+-1 1
+.names adr_i<1> adr_i<0> di<3> Mux_66/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<3> Mux_66/muxtemp1
+001 1
+.names Mux_66/muxtemp0 Mux_66/muxtemp1 dat_o<3>
+1- 1
+-1 1
+.names adr_i<1> adr_i<0> di<2> Mux_67/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<2> Mux_67/muxtemp1
+001 1
+.names Mux_67/muxtemp0 Mux_67/muxtemp1 dat_o<2>
+1- 1
+-1 1
+.names adr_i<1> adr_i<0> di<1> Mux_68/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<1> Mux_68/muxtemp1
+001 1
+.names Mux_68/muxtemp0 Mux_68/muxtemp1 dat_o<1>
+1- 1
+-1 1
+.names adr_i<1> adr_i<0> di<0> Mux_69/muxtemp0
+101 1
+.names adr_i<1> adr_i<0> do_i<0> Mux_69/muxtemp1
+001 1
+.names Mux_69/muxtemp0 Mux_69/muxtemp1 dat_o<0>
+1- 1
+-1 1
+.loc Configurable_GPIO_1.VHD 73 adc<1>
+.latch dat_i<1> adc<1> re clk_i 0 rst_i n129
+.loc Configurable_GPIO_1.VHD 73 adc<2>
+.latch dat_i<2> adc<2> re clk_i 0 rst_i n129
+.loc Configurable_GPIO_1.VHD 73 adc<3>
+.latch dat_i<3> adc<3> re clk_i 0 rst_i n129
+.loc Configurable_GPIO_1.VHD 73 adc<4>
+.latch dat_i<4> adc<4> re clk_i 0 rst_i n129
+.loc Configurable_GPIO_1.VHD 73 adc<5>
+.latch dat_i<5> adc<5> re clk_i 0 rst_i n129
+.loc Configurable_GPIO_1.VHD 73 adc<6>
+.latch dat_i<6> adc<6> re clk_i 0 rst_i n129
+.loc Configurable_GPIO_1.VHD 73 adc<7>
+.latch dat_i<7> adc<7> re clk_i 0 rst_i n129
+.loc Configurable_GPIO_1.VHD 73 do_o<0>
+.latch dat_i<0> do_o<0> re clk_i 0 rst_i n153
+.loc Configurable_GPIO_1.VHD 73 do_o<1>
+.latch dat_i<1> do_o<1> re clk_i 0 rst_i n153
+.loc Configurable_GPIO_1.VHD 73 do_o<2>
+.latch dat_i<2> do_o<2> re clk_i 0 rst_i n153
+.loc Configurable_GPIO_1.VHD 73 do_o<3>
+.latch dat_i<3> do_o<3> re clk_i 0 rst_i n153
+.loc Configurable_GPIO_1.VHD 73 do_o<4>
+.latch dat_i<4> do_o<4> re clk_i 0 rst_i n153
+.loc Configurable_GPIO_1.VHD 73 do_o<5>
+.latch dat_i<5> do_o<5> re clk_i 0 rst_i n153
+.loc Configurable_GPIO_1.VHD 73 do_o<6>
+.latch dat_i<6> do_o<6> re clk_i 0 rst_i n153

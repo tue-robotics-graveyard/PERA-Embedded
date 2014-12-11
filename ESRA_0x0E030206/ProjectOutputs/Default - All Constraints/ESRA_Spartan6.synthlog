@@ -1,0 +1,218 @@
+###############################################################################
+### Altium HDL Synthesizer 1.1.0.1
+### Copyright (C) 2005-2009, Altium Limited. All Rights Reserved
+###############################################################################
+### Timestamp: 4-12-2014 15:06:43
+###############################################################################
+### Commandline: AltiumSynthesizer.exe "-o" "ESRA_Spartan6.mof" "-p" "ESRA_Spartan6.mpf"
+###
+### Options:
+###
+### Synthesizing ESRA_Spartan6 for Spartan6
+### Entity                  : ESRA_Spartan6
+### VerilogMode             : 1 (0=Verilog95, 1=Verilog2001, 2=VerilogSystem, 3=Ams)
+### VHDL87                  : False
+### Insert Toplevel Buffers : True
+### Combinational Logic Opt : 5 (1=Low, 3=Normal, 5=High)
+###############################################################################
+### Compilation Report
+###############################################################################
+
+##N|The default vhdl library search path is now "C:/Users/Public/Documents/Altium/AD14/Library/VHDL/VHDL93"
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_ADC_1.VHD
+Restoring VHDL parse-tree ieee.std_logic_1164 from C:/Users/Public/Documents/Altium/AD14/Library/VHDL/VHDL93/ieee/std_logic_1164.vdb
+Restoring VHDL parse-tree std.standard from C:/Users/Public/Documents/Altium/AD14/Library/VHDL/VHDL93/std/standard.vdb
+##N|Configurable_ADC_1.VHD|9|analyzing entity configurable_adc_1
+##N|Configurable_ADC_1.VHD|27|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_DAC_1.VHD
+##N|Configurable_DAC_1.VHD|7|analyzing entity configurable_dac_1
+##N|Configurable_DAC_1.VHD|35|analyzing architecture rtl
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_EC_1.VHD
+##N|Configurable_EC_1.VHD|7|analyzing entity configurable_ec_1
+##N|Configurable_EC_1.VHD|35|analyzing architecture rtl
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_ENC_1.VHD
+##N|Configurable_ENC_1.VHD|9|analyzing entity configurable_enc_1
+##N|Configurable_ENC_1.VHD|27|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_ENC_2.VHD
+##N|Configurable_ENC_2.VHD|9|analyzing entity configurable_enc_2
+##N|Configurable_ENC_2.VHD|27|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_ENC_3.VHD
+##N|Configurable_ENC_3.VHD|9|analyzing entity configurable_enc_3
+##N|Configurable_ENC_3.VHD|27|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_FLASH_1.VHD
+##N|Configurable_FLASH_1.VHD|7|analyzing entity configurable_flash_1
+##N|Configurable_FLASH_1.VHD|35|analyzing architecture rtl
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_GPIO_1.VHD
+##N|Configurable_GPIO_1.VHD|12|analyzing entity configurable_gpio_1
+##N|Configurable_GPIO_1.VHD|32|analyzing architecture wb_prtio
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_MCU.VHD
+##N|Configurable_MCU.VHD|17|analyzing entity configurable_mcu
+##N|Configurable_MCU.VHD|76|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_TERMINATOR_1.VHD
+##N|Configurable_TERMINATOR_1.VHD|7|analyzing entity configurable_terminator_1
+##N|Configurable_TERMINATOR_1.VHD|23|analyzing architecture rtl
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_U2.VHD
+Restoring VHDL parse-tree ieee.std_logic_unsigned from C:/Users/Public/Documents/Altium/AD14/Library/VHDL/VHDL93/ieee/std_logic_unsigned.vdb
+Restoring VHDL parse-tree ieee.std_logic_arith from C:/Users/Public/Documents/Altium/AD14/Library/VHDL/VHDL93/ieee/std_logic_arith.vdb
+##N|Configurable_U2.VHD|8|analyzing entity configurable_u2
+##N|Configurable_U2.VHD|22|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_U25.VHD
+Restoring VHDL parse-tree ieee.numeric_std from C:/Users/Public/Documents/Altium/AD14/Library/VHDL/VHDL93/ieee/numeric_std.vdb
+##N|Configurable_U25.VHD|9|analyzing entity configurable_u25
+##N|Configurable_U25.VHD|20|analyzing architecture rtl
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Configurable_WB_INTERCON_1.VHD
+##N|Configurable_WB_INTERCON_1.VHD|7|analyzing entity configurable_wb_intercon_1
+##N|Configurable_WB_INTERCON_1.VHD|127|analyzing architecture rtl
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\J16S_16B.VHD
+##N|J16S_16B.VHD|16|analyzing entity j16s_16b
+##N|J16S_16B.VHD|24|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\J8B_8S.VHD
+##N|J8B_8S.VHD|16|analyzing entity j8b_8s
+##N|J8B_8S.VHD|23|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\J8S_8B.VHD
+##N|J8S_8B.VHD|16|analyzing entity j8s_8b
+##N|J8S_8B.VHD|23|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\AS1543_spi_adc0.vhd
+##N|AS1543_spi_adc0.vhd|5|analyzing entity as1543_spi_adc0
+##N|AS1543_spi_adc0.vhd|19|analyzing architecture rtl
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Direction.VHD
+##N|Direction.VHD|16|analyzing entity direction
+##N|Direction.VHD|33|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\System.VHD
+##N|System.VHD|16|analyzing entity system
+##N|System.VHD|63|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\Encoder.VHD
+##N|Encoder.VHD|16|analyzing entity encoder
+##N|Encoder.VHD|30|analyzing architecture structure
+Analyzing VHDL file C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\ESRA_tsk3000.VHD
+##N|ESRA_tsk3000.VHD|16|analyzing entity esra_spartan6
+##N|ESRA_tsk3000.VHD|104|analyzing architecture structure
+###############################################################################
+### Elaboration Report
+###############################################################################
+
+executing Configurable_ADC_1(Structure)
+executing Configurable_DAC_1(RTL)
+executing Configurable_EC_1(RTL)
+executing Configurable_ENC_1(Structure)
+executing Configurable_ENC_2(Structure)
+executing Configurable_ENC_3(Structure)
+executing Configurable_FLASH_1(RTL)
+executing Configurable_GPIO_1(WB_PRTIO)
+##I|Configurable_GPIO_1.VHD|88|-- possible Multiplexer: 4-1 for dat_o
+executing Configurable_MCU(Structure)
+executing Configurable_TERMINATOR_1(RTL)
+executing Configurable_U2(structure)
+##I|syn_arit.vhd|1697|-- found LessThan: 16<16
+##I|Configurable_U2.VHD|49|-- found Adder: 16+16
+##I|syn_arit.vhd|1549|-- found LessThan: 16<16
+##I|Configurable_U2.VHD|59|-- found Adder: 16+16
+executing Configurable_U25(RTL)
+executing Configurable_WB_INTERCON_1(RTL)
+##I|Configurable_WB_INTERCON_1.VHD|287|-- found NotEqual: 8!=8
+executing J16S_16B(STRUCTURE)
+executing J8B_8S(STRUCTURE)
+executing J8S_8B(STRUCTURE)
+executing AS1543_spi_adc0(rtl)
+##I|AS1543_spi_adc0.vhd|58|-- found Adder: 12+12
+##I|AS1543_spi_adc0.vhd|71|-- found Adder: 3+3
+##I|AS1543_spi_adc0.vhd|93|-- found Adder: 5+5
+##I|AS1543_spi_adc0.vhd|80|-- found Decoder: 3-8
+##I|AS1543_spi_adc0.vhd|81|-- found Decoder: 4-16
+##I|AS1543_spi_adc0.vhd|94|-- found Decoder: 4-16
+##I|AS1543_spi_adc0.vhd|95|-- found Decoder: 4-16
+##I|AS1543_spi_adc0.vhd|99|-- possible Selector: 2-1 for wait_mux_cnt
+executing Direction(Structure)
+executing System(Structure)
+executing Encoder(Structure)
+executing ESRA_Spartan6(Structure)
+
+###############################################################################
+### Synthesis Report
+###############################################################################
+
+##O|System.VHD|801|Dissolving instance TERMINATOR_1(Configurable_TERMINATOR_1)
+##O|System.VHD|865|Dissolving instance MCU_LO(J16S_16B)
+##O|System.VHD|887|Dissolving instance MCU_HI(J16S_16B)
+##O|System.VHD|909|Dissolving instance MCU(Configurable_MCU)
+##O|System.VHD|956|Dissolving instance FLASH_1(Configurable_FLASH_1)
+##O|System.VHD|974|Dissolving instance ENC_3(Configurable_ENC_3)
+##O|System.VHD|987|Dissolving instance ENC_2(Configurable_ENC_2)
+##O|System.VHD|1000|Dissolving instance ENC_1(Configurable_ENC_1)
+##O|System.VHD|1013|Dissolving instance EC_1(Configurable_EC_1)
+##O|System.VHD|1031|Dissolving instance DAC_1(Configurable_DAC_1)
+##O|System.VHD|1049|Dissolving instance ADC_1(Configurable_ADC_1)
+##O|ESRA_tsk3000.VHD|340|Dissolving instance ESRA_tsk3000(System)
+##O|ESRA_tsk3000.VHD|377|Dissolving instance ENC3(Encoder)
+##O|ESRA_tsk3000.VHD|386|Dissolving instance ENC2(Encoder)
+##O|ESRA_tsk3000.VHD|395|Dissolving instance ENC1(Encoder)
+##O|ESRA_tsk3000.VHD|404|Dissolving instance DIR3(Direction)
+##O|ESRA_tsk3000.VHD|413|Dissolving instance DIR2(Direction)
+##O|ESRA_tsk3000.VHD|422|Dissolving instance DIR1(Direction)
+##O|ESRA_tsk3000.VHD|465|Dissolving instance U28(J8S_8B)
+##O|ESRA_tsk3000.VHD|492|Dissolving instance U25(Configurable_U25)
+##O|ESRA_tsk3000.VHD|515|Dissolving instance U5(J8B_8S)
+##I|AS1543_spi_adc0.vhd|81|-- found Decoder: 3-8
+###############################################################################
+### Optimization Report
+###  command: mmHDLtoEDIF -f xilinx -n spartan6 -p spartan6 -z 5 -o "C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\ESRA_Spartan6.edf" -b "C:\Users\Public\Documents\Altium\Projects\ESRA_0x0E030206\ProjectOutputs\Default - All Constraints\ESRA_Spartan6.bfl" -e ESRA_Spartan6 -L "C:\Users\Public\Documents\Altium\AD14\Library/" 
+
+INFO LibDir:  "C:\Users\Public\Documents\Altium\AD14\Library/"
+
+INFO ConstraintsMap:  "C:\Users\Public\Documents\Altium\AD14\Library/vhdl_lib/VendorConstraints.map"
+
+optimizing "_blf/cell0001"
+optimizing "_blf/cell0002"
+optimizing "_blf/cell0003"
+optimizing "_blf/cell0004"
+optimizing "_blf/cell0005"
+ 
+###############################################################################
+### Design Statistics
+###############################################################################
+ 
+Flipflops:                                                 : 402
+    Flipflops with PRESET                   (Asynchronous) : 1
+    Flipflops                                              : 18
+    Flipflops with RESET and ENABLE         (Synchronous)  : 16
+    Flipflops with RESET and ENABLE         (Synchronous)  : 1
+    Flipflops with PRESET and ENABLE        (Asynchronous) : 14
+    Flipflops with ENABLE                                  : 352
+                                                           
+MacroCells:                                                
+    WB_UART8_V2                                            : 1
+    Memory_MCU                                             : 1
+    TSK3000A_Shift_Barrel                                  : 1
+    BUFG                                                   : 2
+    FPGA_STARTUP8                                          : 1
+    WB_PWMX                                                : 3
+    FD2S                                                   : 6
+    WB_SPI8                                                : 3
+    TSK3000A_MDU                                           : 1
+    TSK3000A_MCU_HCB                                       : 1
+    XOR2                                                   : 3
+    CDIV2                                                  : 1
+    XOR4                                                   : 3
+    AND2                                                   : 6
+    INV4S                                                  : 2
+    INV                                                    : 4
+    DCM_SP                                                 : 1
+    CDIV5                                                  : 1
+    MUXCY                                                  : 102
+    TSK3000A_OCDS_HCB                                      : 1
+    XORCY                                                  : 107
+    MUXF5                                                  : 64
+    MUXF6                                                  : 32
+                                                           
+Area Estimates:                                            
+    Area Estimate (2 Input Gate Count)                     : 1165
+    Area Estimate (LUT Count)                              : 641
+ 
+###############################################################################
+ 
+formating EDIF....                            
+WARNING. Found FPGA_CLOCK=True and FPGA_CLOCK=False for node "JTAG_NEXUS_TCK"
+
+###############################################################################
+Synthesis successful
+###############################################################################

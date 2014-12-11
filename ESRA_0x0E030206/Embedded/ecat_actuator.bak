@@ -1,0 +1,517 @@
+/* file: ecat_actuator.c */
+#include "hardware.h"
+#include <stdio.h>
+#include <string.h>
+#include <swplatform.h>
+#include "utypes.h"
+#include "esc.h"
+#include "esc_foe.h"
+
+void clear_PWM(void);
+
+struct __packed__{
+  uint8 disable_m2:1;          //bit 7
+  uint8 disable_m1:1;
+  uint8 direction_m3:1;
+  uint8 direction_m2:1;
+  uint8 m1_pwm_d:1;
+  uint8 m1_pwm_c:1;
+  uint8 direction_m1:1;
+  uint8 led:1;                 //bit 0
+}*IOp_A=(void*)Base_GPIO1;
+
+struct __packed__{
+  uint8 pwm_m1_mode1:1;        //bit 7
+  uint8 pwm_m1_mode2:1;
+  uint8 pwm_m2_3_mode1:1;
+  uint8 pwm_m2_3_mode2:1;
+  uint8 pwm_m1_reset_AB:1;
+  uint8 pwm_m1_reset_CD:1;
+  uint8 pwm_m2_reset_AB:1;
+  uint8 pwm_m3_reset_CD:1;     //bit 0
+}*IOp_B=(void*)(Base_GPIO1+1);
+
+struct __packed__{
+  uint8 res:6;                 //bit 2..7
+  uint8 dac_clr:1;
+  uint8 dac_ldac:1;            //bit 0
+}*IOp_C=(void*)(Base_GPIO1+2);
+
+struct __packed__{
+  uint8 spare_out:1;           //bit 7
+  uint8 res:4;                 //bit 3..6
+  uint8 spare_in_2:1;          //bit 2
+  uint8 spare_in_1:1;          //bit 1
+  uint8 spare_in_0:1;          //bit 0
+}*IOp_D=(void*)(Base_GPIO1+3);
+
+void init_H_BRIDGEs(void){
+//H-bridge motor M1
+  (*IOp_B).pwm_m1_mode1   =0;(*IOp_B).pwm_m1_mode2=1;   //parallel full bridge mode ( 0 1 )
+  (*IOp_A).m1_pwm_c       =0;(*IOp_A).m1_pwm_d=0;       //c and d not used
+  (*IOp_B).pwm_m1_reset_AB=1;(*IOp_B).pwm_m1_reset_CD=1;delay_ms(10);
+  (*IOp_B).pwm_m1_reset_AB=0;(*IOp_B).pwm_m1_reset_CD=0;delay_ms(10);
+  (*IOp_B).pwm_m1_reset_AB=1;(*IOp_B).pwm_m1_reset_CD=1;delay_ms(10);
+//H-bridge motor M2 and M3
+  (*IOp_B).pwm_m2_3_mode1 =0;(*IOp_B).pwm_m2_3_mode2 =0;//dual full bridge mode ( 0 0 )
+  (*IOp_B).pwm_m2_reset_AB=1;(*IOp_B).pwm_m3_reset_CD=1;delay_ms(10);
+  (*IOp_B).pwm_m2_reset_AB=0;(*IOp_B).pwm_m3_reset_CD=0;delay_ms(10);
+  (*IOp_B).pwm_m2_reset_AB=1;(*IOp_B).pwm_m3_reset_CD=1;delay_ms(10);
+}
+
+// DAC
+FILE *fp_ti;
+terminal_t * drv_terminal_1x;
+//uart8_t *drv_uart8_1;
+
+void init_UART(void){
+  drv_terminal_1x=terminal_open(DRV_TERMINAL_1);
+  drv_uart8_1=uart8_open(DRV_UART8_1);
+//  fp_ti=fopen("SERIAL_1","w");
+//  fp_ti=fopen("/dev/SERIAL_1","w+");
+//  if(fp_ti==NULL)uart8_putchar(drv_uart8_1,'0');
+//  else uart8_putchar(drv_uart8_1,'-');
+//  setbuf(fp_ti,NULL); // Disable buffering
+//  fprintf(fp_ti,"Hello, Bor.\n\r");
+//  setbuf(serial_1,NULL); // Disable buffering
+//  fprintf(serial_1,"Hello, Bor.\n\r");
+//  terminal_write(drv_terminal_1,"Hello, Bor.\n",sizeof("Hello, Bor.\n"));
+}
+
+// DAC
+void write_DAC(uint8_t reg,uint16_t data){
+  spi_cs_lo(drv_spi_dac);
+  spi_transceive8(drv_spi_dac,reg);
+  spi_transceive16(drv_spi_dac,data);
+  spi_cs_hi(drv_spi_dac);
+}
+
+void init_DAC(void){
+  (*IOp_C).dac_clr = 1;
+  (*IOp_C).dac_ldac = 0;
+  spi_set_endianess(drv_spi_dac,true);
+  spi_cs_hi(drv_spi_dac);
+// Output range = +10V
+  write_DAC(0x0C,0x0001);
+// Power
+  write_DAC(0x10,0x0015);
+// Control
+  write_DAC(0x19,0x0006);
+// Control - clear
+  write_DAC(0x1C,0x0000);
+}
+
+void clear_DAC(void){
+// Control - clear
+  write_DAC(0x1C,0x0000);
+}
+
+void update_DAC(void){
+  if(Wb.disable_motor_register.all_motors==1){
+    clear_DAC();
+    return;
+  }
+//  write_DAC(0x00,(2048+htoes(Wb.dac[0]))<<4);
+//  write_DAC(0x02,(2048+htoes(Wb.dac[1]))<<4);
+}
+
+// Encoders
+int32_t *enc[3];
+
+void init_Encoders(void){
+  enc[0]=(int32_t*)Base_WB_ENCODER_1;
+  enc[1]=(int32_t*)Base_WB_ENCODER_2;
+  enc[2]=(int32_t*)Base_WB_ENCODER_3;
+  for(uint8 i=0;i<3;i++)*enc[i]=0;
+}
+
+// ADCs
+uint8_t *adc_addr=(void*)(Base_GPIO1+4);
+uint16_t *ADC_X_0;
+uint16 ADC;
+uint16 power24;
+
+void init_ADCs(void){
+  *adc_addr=0;
+  ADC_X_0=(void*)(Base_WB_ADCX);
+}
+
+void read_ADC(void){
+/*
+  for(uint8_t x=0;x<2;x++){
+    *adc_addr=0x80;            // idle -> wait
+    for(uint8 r=0;r<13;r++)__nop();
+    *adc_addr=0;                 // wait -> read
+    delay_ms(1);
+  }
+*/
+  for(uint8_t i=0;i<16;i++){
+    *adc_addr=i;            // idle -> wait
+    for(uint8 r=0;r<13;r++)__nop();
+    ADC=(*ADC_X_0)>>1;
+//    ADC0=*ADC_X_0;
+    *adc_addr=0x10;
+//    ADC1=*ADC_X_1&0xFFFF;
+/*
+    *adc_addr=0x80+i+1;            // idle -> wait
+    while((*ADC_X_0&0x8000)==0);
+//    for(uint8 r=0;r<13;r++)__nop();
+    *adc_addr=i+1;                 // wait -> read
+//    delay_us(1);
+    for(uint8 r=0;r<10;r++)__nop();
+    while((*ADC_X_0&0x8000)==1);
+//    continue;
+    ADC0=*ADC_X_0&0xFFFF;
+//    while((*ADC_X_1&0x8000)==1);
+    ADC1=*ADC_X_1&0xFFFF;
+*/
+    switch(i){
+    case 2:
+        power24=ADC;
+// No break needed
+    case 0:
+    case 1:
+    case 3:
+    case 4:
+    case 5:
+        Rb.ADC[i]=htoes(ADC);
+        break;
+    case 6:
+        if(ADC<(1487*92/100))Rb.status_register.power1V2=0;
+        else if(ADC>(1487*108/100))Rb.status_register.power1V2=0;
+        else Rb.status_register.power1V2=1;
+        break;
+    case 7:
+        if(ADC<(2046*91/100))Rb.status_register.power1V65=0;
+        else if(ADC>(2046*109/100))Rb.status_register.power1V65=0;
+        else Rb.status_register.power1V65=1;
+        break;
+    case 8:
+// Check for 5V ADC
+        if(ADC<(3071*90/100))Rb.status_register.power5V=0;
+        else if(ADC>(3071*110/100))Rb.status_register.power5V=0;
+        else Rb.status_register.power5V=1;
+        break;
+    case 9:
+        if(ADC<(2660*83/100))Rb.status_register.power12V=0;
+        else if(ADC>(2660*117/100))Rb.status_register.power12V=0;
+        else Rb.status_register.power12V=1;
+        break;
+    case 10:
+        if(ADC<(2729*83/100))Rb.status_register.power24V=0;
+        else if(ADC>(2729*117/100))Rb.status_register.power24V=0;
+        else Rb.status_register.power24V=1;
+        break;
+    case 11:
+    case 12:
+    case 13:
+        Rb.ADC[i-5]=htoes(ADC);
+        break;
+    case 14:
+        if(ADC<(1487*92/100))Rb.status_register.power1V2=0;
+        else if(ADC>(1487*108/100))Rb.status_register.power1V2=0;
+        else Rb.status_register.power1V2=1;
+        break;
+    case 15:
+        if(ADC<(2046*91/100))Rb.status_register.power1V65=0;
+        else if(ADC>(2046*109/100))Rb.status_register.power1V65=0;
+        else Rb.status_register.power1V65=1;
+        break;
+    }
+  }
+}
+
+// EtherCAT coupler
+void init_EC(void){
+  spi_set_endianess(drv_spi_ec,true);
+  spi_cs_hi(drv_spi_ec);
+}
+
+// PWMs
+#define pwm_frequency                  50000
+// Hardware prevents 100% - Look at datasheet
+//#define pwm_duty_limit                 4000
+// Max = 16383, DRV8432-DRV8412 states 20ns off at 10kHz
+// 10kHz = 100us, 20ns/100us = 0.0002
+// 0.0002 * 16383 = 3.3 < 4
+// At 50kHz 20ns is 0.001 so take max =
+//#define pwm_duty_limit                 16379
+#define pwm_duty_limit                 1000
+pwmx_t*                                pwm_mot[3];
+int16                                  pwm_duty[3];
+
+void init_PWMs(void){
+  (*IOp_A).disable_m1=1;
+  (*IOp_A).disable_m2=1;
+
+  pwm_mot[0]=drv_pwmx_1;
+  pwm_mot[1]=drv_pwmx_2;
+  pwm_mot[2]=drv_pwmx_3;
+//  pwm_mot[0]=pwmx_open(DRV_PWMX_1);
+//  pwm_mot[1]=pwmx_open(DRV_PWMX_2);
+//  pwm_mot[2]=pwmx_open(DRV_PWMX_3);
+  for(uint8 i=0;i<3;i++){
+//    pwmx_set_frequency(pwm_mot[i],pwm_frequency);
+//    pwmx_set_resolution_mode(pwm_mot[i],PWMX_MODE_10BIT);
+//    pwmx_set_pulsewidth(pwm_mot[i],0);
+    pwmx_enable_controller(pwm_mot[i]);
+    pwm_duty[i]=0;
+  }
+}
+
+void update_PWM(void){
+  int16                                pwm;
+
+  if(Wb.disable_motor_register.all_motors==1){
+    clear_PWM();
+    return;
+  }
+  if(Wb.control_register.ramp_off){
+    for(uint8 i=0;i<3;i++){
+      pwm_duty[i]=htoes(Wb.pwm_motor[i]);
+      if(pwm_duty[i]>pwm_duty_limit)pwm_duty[i]=pwm_duty_limit;
+      else if(pwm_duty[i]<-pwm_duty_limit)pwm_duty[i]=-pwm_duty_limit;
+      pwmx_set_pulsewidth(pwm_mot[i],abs(pwm_duty[i]));
+    }
+  }else{
+    for(uint8 i=0;i<3;i++){
+      pwm=htoes(Wb.pwm_motor[i]);
+      if(pwm>pwm_duty_limit)pwm=pwm_duty_limit;
+      else if(pwm<-pwm_duty_limit)pwm=-pwm_duty_limit;
+      if(pwm>pwm_duty[i])pwm_duty[i]++;
+      else if(pwm<pwm_duty[i])pwm_duty[i]--;
+      pwmx_set_pulsewidth(pwm_mot[i],abs(pwm_duty[i]));
+    }
+  }
+//  pwmx_set_pulsewidth(pwm_mot[0],400);
+  (*IOp_A).disable_m1=0;
+  (*IOp_A).disable_m2=0;
+  (*IOp_A).direction_m1=(pwm_duty[0]<0);
+  (*IOp_A).direction_m2=(pwm_duty[1]<0);
+  (*IOp_A).direction_m3=(pwm_duty[2]<0);
+}
+
+void clear_PWM(void){
+  (*IOp_A).disable_m1=1;
+  (*IOp_A).disable_m2=1;
+  for(uint8 i=0;i<3;i++){
+    pwmx_set_pulsewidth(pwm_mot[i],0);
+    pwm_duty[i]=0;
+  }
+}
+
+enum e_esra_state{
+  E_OK,
+  E_POWER_DOWN,
+  E_HEARTBEAT_TIMEOUT,
+  E_NO_OP_STATE
+}                                   esra_state=E_OK;
+
+// Extern used
+_ESCvar                             ESCvar;
+_MBX                                MBX[MBXBUFFERS];
+_MBXcontrol                         MBXcontrol[MBXBUFFERS];
+uint8                               MBXrun=0;
+uint16                              SM2_sml,SM3_sml;
+_Rbuffer                            Rb;
+_Wbuffer                            Wb;
+_App                                App;
+uint16                              TXPDOsize,RXPDOsize;
+uint8                               Ec_state=APPSTATE_IDLE;
+
+void ESC_objecthandler(uint16 index, uint8 subindex){
+}
+
+void update_flash_led(void){
+  static uint16                        c;
+
+  if(c++&0x0400){
+    c=0;
+    (*IOp_A).led=~(*IOp_A).led;
+  }
+}
+
+void check_heart_beat(void){
+  static uint8                         pre_heart_beat;
+  static uint32                        heart_beat_timeout;
+  static uint32                        heart_beat_time;
+  char                 buf[64]="Test\n\0";
+
+
+  heart_beat_time=ESCvar.Time;
+  sprintf(buf,"%u\n\r",(heart_beat_time-heart_beat_timeout)/1000);
+//  uart8_write(drv_uart8_1,buf,strlen(buf));
+  heart_beat_timeout=heart_beat_time;
+  if(Wb.control_register.heart_beat_off){
+// Disabled
+    if(esra_state==E_HEARTBEAT_TIMEOUT)esra_state=E_OK;
+  }else{
+// Enabled
+    if(pre_heart_beat!=Wb.heart_beat){
+// Received hart beat
+      pre_heart_beat=Wb.heart_beat;
+      heart_beat_timeout=ESCvar.Time;
+      if(esra_state==E_HEARTBEAT_TIMEOUT)esra_state=E_OK;
+    }else{
+      if((ESCvar.Time-heart_beat_timeout)>50000000){
+// Timeout for hart beat
+        if(esra_state==E_OK){
+          esra_state=E_HEARTBEAT_TIMEOUT;
+          (*IOp_A).led=0;
+          clear_PWM();
+        }
+      }
+    }
+  }
+}
+
+void check_power(void){
+// Disabled
+  if(Wb.control_register.power_off){
+    if(esra_state==E_POWER_DOWN)esra_state=E_OK;
+// Enabled - Emergency button pressed
+  }else if(power24<0x0500){
+// 24V low
+    if(esra_state==E_OK){
+      esra_state=E_POWER_DOWN;
+      (*IOp_A).led=0;
+      clear_PWM();
+    }
+// 24V OK
+  }else if(esra_state==E_POWER_DOWN)esra_state=E_OK;
+  Rb.status_register.emergency=1;
+}
+
+void check_op_state(void){
+  if(ESCvar.ALstatus!=ESCop){
+// No op state
+    if(esra_state==E_OK){
+      esra_state=E_NO_OP_STATE;
+      (*IOp_A).led = 0;
+      clear_PWM();
+    }
+// Op state
+  }else if(esra_state==E_NO_OP_STATE)esra_state=E_OK;
+}
+
+void DIG_process(void){
+  static uint8                         wd_error=0;
+  static uint8                         m_idx=0;
+  static uint16_t                      encoder;
+//  static int16_t                       enc_d;
+//  static uint16_t                      enc_0=0;
+  char                 buf[64]="Test\n\0";
+
+  if(ESCvar.ALstatus!=ESCop)return;
+  if(Ec_state&APPSTATE_OUTPUT){
+    uart8_putchar(drv_uart8_1,'+');
+    if(ESCvar.ALevent&ESCREG_ALEVENT_SM2) // SM2 trigger ?
+      ESC_read(SM2_sma,(uint8*)&Wb,RXPDOsize,(uint8*)&ESCvar.ALevent);
+    if(wd_error){
+      ESC_stopoutput();
+// watchdog, invalid outputs
+      ESC_ALerror(ALERR_WATCHDOG);
+// goto safe-op with error bit set
+      ESC_ALstatus(ESCsafeop|ESCerror);
+    }
+  }else wd_error=0;
+// copy application values to ethercat buffer
+  read_ADC();
+  check_heart_beat();
+  check_power();
+  check_op_state();
+  if(Ec_state&APPSTATE_INPUT){
+    uart8_putchar(drv_uart8_1,'-');
+    Rb.status_register.state=esra_state;
+    Rb.msg_idx=m_idx++;
+    for(uint8 i=0;i<3;i++){
+      encoder=(uint16_t)*enc[i];
+      Rb.enc_position[i]=htoes(encoder);
+    }
+//    encoder=(uint16_t)*enc[0];
+//    enc_d=(int16_t)(encoder-enc_0);
+//    Rb.enc_position[0]=htoes(encoder-enc_0);
+//    sprintf(buf,"%i\n\r",enc_d);
+//    terminal_write(drv_terminal_1x,buf,strlen(buf));
+//    uart8_write(drv_uart8_1,buf,strlen(buf));
+//    enc_0=encoder;
+//    (*IOp_D).spare_out=*enc[0];
+    ESC_write(SM3_sma,(uint8*)&Rb,TXPDOsize,(uint8*)&ESCvar.ALevent);
+  }
+  sprintf(buf,"%u\n\r",m_idx);
+  uart8_write(drv_uart8_1,buf,strlen(buf));
+//  uart8_putchar(drv_uart8_1,'\n');
+//  uart8_putchar(drv_uart8_1,'\r');
+//  delay_ms(100);
+}
+
+void update_esra_state(void){
+  if(esra_state==E_OK){
+    update_flash_led();
+    update_PWM();
+    update_DAC();
+  }
+}
+
+int main(void){
+//  int                  t;
+//  char                 buf[64]="Test\n\0";
+
+  swplatform_init_stacks();
+  init_UART();
+  init_Encoders();
+  init_DAC();
+  init_ADCs();
+  init_EC();
+  init_PWMs();
+  init_H_BRIDGEs();
+  delay_ms(333);
+  TXPDOsize = sizeTXPDO();
+  RXPDOsize = sizeRXPDO();
+  delay_ms(333);
+// wait until ESC is started up
+  while ((ESCvar.DLstatus & 0x0001) == 0)    {
+    ESC_read(ESCREG_DLSTATUS, (uint8*)&ESCvar.DLstatus, sizeof(ESCvar.DLstatus), (uint8*)&ESCvar.ALevent);
+    ESCvar.DLstatus = etohs(ESCvar.DLstatus);
+    delay_us(10);
+  }
+  delay_ms(333);
+// reset ESC to init state
+  ESC_ALstatus(ESCinit);
+  ESC_ALerror(ALERR_NONE);
+  ESC_stopmbx();
+  ESC_stopinput();
+  ESC_stopoutput();
+  delay_ms(333);
+// cyclic application loop
+  pwm_duty[0]=0;
+  pwm_duty[1]=0;
+  pwm_duty[2]=0;
+  delay_ms(60);
+  for(;;){
+// *****  Ethercat arbitration  ******
+    ESC_read(ESCREG_LOCALTIME,(uint8*)&ESCvar.Time,sizeof(ESCvar.Time),(uint8*)&ESCvar.ALevent);
+    ESCvar.Time=etohl(ESCvar.Time);
+    DIG_process();
+    if(ESCvar.ALevent)ESC_ALevent();
+    ESC_state();
+    if(ESC_mbxprocess()){
+      ESC_coeprocess();
+      ESC_foeprocess();
+    }
+// *****  User code  *****
+    update_esra_state();
+//    delay_us(900);
+//    (*IOp_D).spare_out=~(*IOp_D).spare_out;
+//    t=terminal_getchar(drv_terminal_1x);
+//    if(t!=-1)terminal_putchar(drv_terminal_1x,t);
+//    sprintf(buf,"%i\n",231);
+//    terminal_write(drv_terminal_1x,buf,strlen(buf));
+//    terminal_putchar(drv_terminal_1,'y');
+//    putchar('z');
+//    uart8_putchar(drv_uart8_1,'x');
+//    delay_ms(1);
+//    update_flash_led();
+  }
+};
+

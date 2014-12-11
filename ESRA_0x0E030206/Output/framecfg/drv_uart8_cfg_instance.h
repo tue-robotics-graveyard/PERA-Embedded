@@ -1,0 +1,107 @@
+/*
+ *	Software Platform Generated File
+ *	--------------------------------
+ */
+
+#ifndef _SWP_DRV_UART8_CFG_INSTANCE_H
+#define _SWP_DRV_UART8_CFG_INSTANCE_H
+
+#include <stdint.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stddef.h>
+
+#include "per_uart8_cfg_instance.h"
+
+#include "drv_uart8_cfg.h"
+
+#define DRV_UART8_PARITY_NONE		0
+#define DRV_UART8_PARITY_ODD		1
+#define DRV_UART8_PARITY_EVEN		2
+#define DRV_UART8_PARITY_USER		3
+
+#define DRV_UART8_HANDSHAKE_NONE		0
+#define DRV_UART8_HANDSHAKE_RTSHARD		1
+#define DRV_UART8_HANDSHAKE_RTSSOFT		2
+
+#define DRV_UART8_TX_BLOCKING_MODE_NONE		0
+#define DRV_UART8_TX_BLOCKING_MODE_LOOP		1
+#define DRV_UART8_TX_BLOCKING_MODE_POLL		2
+#define DRV_UART8_TX_BLOCKING_MODE_YIELD		3
+#define DRV_UART8_TX_BLOCKING_MODE_NOTIFY		4
+
+#define DRV_UART8_RX_BLOCKING_MODE_NONE		0
+#define DRV_UART8_RX_BLOCKING_MODE_LOOP		1
+#define DRV_UART8_RX_BLOCKING_MODE_POLL		2
+#define DRV_UART8_RX_BLOCKING_MODE_YIELD		3
+#define DRV_UART8_RX_BLOCKING_MODE_NOTIFY		4
+
+#define DRV_UART8_INSTANCE_BAUDRATE_MAX		115200
+#define DRV_UART8_INSTANCE_BAUDRATE_MIN		115200
+
+#define DRV_UART8_INSTANCE_PARITY_NONE_USED		1
+#define DRV_UART8_INSTANCE_PARITY_ODD_USED		0
+#define DRV_UART8_INSTANCE_PARITY_EVEN_USED		0
+#define DRV_UART8_INSTANCE_PARITY_USER_USED		0
+#define DRV_UART8_INSTANCE_PARITY_OPTIONS_USED		1
+#define DRV_UART8_INSTANCE_PARITY_MIN		DRV_UART8_PARITY_NONE
+#define DRV_UART8_INSTANCE_PARITY_MAX		DRV_UART8_PARITY_NONE
+
+#define DRV_UART8_INSTANCE_DATABITS_MAX		8
+#define DRV_UART8_INSTANCE_DATABITS_MIN		8
+
+#define DRV_UART8_INSTANCE_STOPBITS_MAX		1
+#define DRV_UART8_INSTANCE_STOPBITS_MIN		1
+
+#define DRV_UART8_INSTANCE_HANDSHAKE_NONE_USED		1
+#define DRV_UART8_INSTANCE_HANDSHAKE_RTSHARD_USED		0
+#define DRV_UART8_INSTANCE_HANDSHAKE_RTSSOFT_USED		0
+#define DRV_UART8_INSTANCE_HANDSHAKE_OPTIONS_USED		1
+#define DRV_UART8_INSTANCE_HANDSHAKE_MIN		DRV_UART8_HANDSHAKE_NONE
+#define DRV_UART8_INSTANCE_HANDSHAKE_MAX		DRV_UART8_HANDSHAKE_NONE
+
+#define DRV_UART8_INSTANCE_TX_BUFFER_MAX		0
+#define DRV_UART8_INSTANCE_TX_BUFFER_MIN		0
+
+#define DRV_UART8_INSTANCE_TX_BLOCKING_TRUE_USED		1
+#define DRV_UART8_INSTANCE_TX_BLOCKING_FALSE_USED		0
+#define DRV_UART8_INSTANCE_TX_BLOCKING_OPTIONS_USED		1
+
+#define DRV_UART8_INSTANCE_RX_BUFFER_MAX		0
+#define DRV_UART8_INSTANCE_RX_BUFFER_MIN		0
+
+#define DRV_UART8_INSTANCE_RX_MARGIN_MAX		16
+#define DRV_UART8_INSTANCE_RX_MARGIN_MIN		16
+
+#define DRV_UART8_INSTANCE_RX_BLOCKING_TRUE_USED		1
+#define DRV_UART8_INSTANCE_RX_BLOCKING_FALSE_USED		0
+#define DRV_UART8_INSTANCE_RX_BLOCKING_OPTIONS_USED		1
+
+#define DRV_UART8_INSTANCE_TX_INTERRUPT_VALUE_MAX		-1
+#define DRV_UART8_INSTANCE_TX_INTERRUPT_VALUE_MIN		-1
+
+#define DRV_UART8_INSTANCE_RX_INTERRUPT_VALUE_MAX		-1
+#define DRV_UART8_INSTANCE_RX_INTERRUPT_VALUE_MIN		-1
+
+typedef struct
+{
+	uint32_t   		baudrate;
+	int32_t    		parity;
+	uint8_t    		databits;
+	uint8_t    		stopbits;
+	int32_t    		handshake;
+	uint16_t   		*tx_buffer;
+	size_t     		tx_buffer_size;
+	bool       		tx_buffer_double;
+	bool       		tx_blocking;
+	uint16_t   		*rx_buffer;
+	size_t     		rx_buffer_size;
+	bool       		rx_buffer_double;
+	int32_t    		rx_margin;
+	bool       		rx_blocking;
+	int        		per_uart8;
+} drv_uart8_cfg_instance_t;
+
+extern const drv_uart8_cfg_instance_t	drv_uart8_instance_table[];
+
+#endif
