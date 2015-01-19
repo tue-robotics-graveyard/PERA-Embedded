@@ -24,7 +24,11 @@ architecture rtl of AS1543_spi is
   type state_type is (idle, wait_adc, read_adc);
   signal current_s, next_s: state_type := idle;
   signal cnt_rst   : std_logic;
-  signal reset_spi_clk : std_logic := nto 0);
+  signal reset_spi_clk : std_logic := '0';
+  signal start_spi : std_logic := '0';
+  signal data_smp  : std_logic;
+  signal spi_busy  : std_logic;
+  signal adc_x     :  std_logic_vector (15 downto 0);
   constant ctrlhi  :  std_logic_vector(0 to 1 ) := "10";
   constant ctrllo  :  std_logic_vector(0 to 9 ) := "1100011000";
 
